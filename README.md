@@ -1,0 +1,2 @@
+# docs
+Rehive user documentation
