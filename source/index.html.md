@@ -242,6 +242,42 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `token` | jwt to be verified | null | true
 
+## Change Password
+
+> User change password request
+
+```shell
+curl https://www.rehive.com/api/3/auth/password/change/
+  -X POST 
+  -H "Content-Type: application/json" 
+  -d '{"old_password": "joe1234",
+       "new_password1": "joe1234",
+       "new_password2": "joe1234"}'
+```
+
+> User change password response
+
+```json
+{
+  "message": "New password has been saved.",
+  "status": "success"
+}
+```
+
+Send a password reset email.
+
+### Endpoint
+
+`https://rehive.com/api/3/auth/password/change/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`old_password` | old password | null | true
+`new_password1` | new password | null | true
+`new_password2` | confirm new password | null | true
+
 ## Reset Password
 
 > User reset password request
