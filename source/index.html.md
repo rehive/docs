@@ -3,13 +3,6 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -19,171 +12,1043 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+> API Endpoint 
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+```
+https://rehive.com/api/3
+```
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the Rehive API!
 
-# Authentication
+<aside class="success">Success</aside>
+
+<aside class="warning">Warning</aside>
+
+# JWT Authentication
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Register
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Login
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Logout
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Verify
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Refresh
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Reset Password
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Reset Cofirm Password
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Resend Email Address Verification
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Resend Mobile Number Verification
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Verify Mobile
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+# Token Authentication
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Authorization
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
 ```shell
-# With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: token"
 ```
 
-```javascript
-const kittn = require('kittn');
+> Make sure to replace `token` with your API key.
 
-let api = kittn.authorize('meowmeowmeow');
-```
+For company authorzation and permissions Rehive uses an API key. The API can be retrieved via `settings -> security` in the Rehive dashboard.
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Rehive expects for the API key to be included in all `admin` API requests to the server in a header that looks like the following:
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: Token {token}`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>{token}</code> with your company API key.
 </aside>
 
-# Kittens
+# Users
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+> Request description
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+> Response description
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
 ```
 
-This endpoint retrieves all kittens.
+Endpoint description.
 
-### HTTP Request
+### Endpoint
 
-`GET http://example.com/api/kittens`
+`https://rehive.com`
 
-### Query Parameters
+### Fields
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+## Profile
 
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+> Request description
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> Response description
 
 ```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
 ```
 
-This endpoint retrieves a specific kitten.
+Endpoint description.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+### Endpoint
 
-### HTTP Request
+`https://rehive.com`
 
-`GET http://example.com/kittens/<ID>`
+### Fields
 
-### URL Parameters
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+## Company
 
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Address 
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Bank Accounts
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Bitcoin Accounts
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Documents
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Email Addresses
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Mobile Numbers
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Notifcations
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+# Transactions 
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## List Transactions
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Total Transactions
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Transfer
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Deposits
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Withdraw
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+# Accounts
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Balances
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Currencies
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Set Currency
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Bank Deposits
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+# Administration
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## List Transactions
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Total Transactions
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Transfer
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Deposit
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Withdraw
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Update Transaction
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Verify Email Address
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
+
+## Verify Mobile Number
+
+> Request description
+
+```shell
+```
+
+> Response description
+
+```json
+```
+
+Endpoint description.
+
+### Endpoint
+
+`https://rehive.com`
+
+### Fields
+
+Field | Description | Default
+---------- | ----------------- | --------------
+field_name | field_description | value
