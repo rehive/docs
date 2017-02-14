@@ -1,0 +1,19 @@
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: docs-server
+  namespace: docs-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: docs-server
+    spec:
+      containers:
+      - image: gcr.io/zapgo-1273/docs-server
+        imagePullPolicy: Always
+        name: docs-server
+        ports:
+        - containerPort: 80
