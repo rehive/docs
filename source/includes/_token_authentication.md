@@ -1,17 +1,15 @@
 # Token Authentication
 
-Token authntication is an extra method of authentication that comapny's can use to access admin only functionality. Admin endpoints that require token authentication can be used to interact with admin functionality or alternatively complete tasks on behalf of a user.
+Token authentication is an extra method of authentication that companies can use to access admin only functionality. Admin endpoints that require token authentication can be used to interact with admin-only processes or alternatively complete tasks on behalf of a user.
 
 ## Authorization
 
-> To authorize, use this code:
+> Token authorization request
 
 ```shell
-curl {api_endpoint}
+curl https://www.rehive.com/api/3/
   -H "Authorization: Token {token}"
 ```
-
-> Make sure to replace `token` with your API key.
 
 The admin API key can be retrieved via `settings -> security` in the Rehive dashboard.
 
@@ -25,196 +23,406 @@ You must replace <code>{token}</code> with your company API key.
 
 # Administration
 
-Description of section.
+Rehive includes a set of admin-only endpoints that can make working with users and their transactions extremely easy. All administration endpoints use `Token Authentication` instead of `JWT authentication` and will thus only permit access to company owners.
 
 ## List Transactions
 
-> Request description
+> Admin transactions request
 
 ```shell
+curl https://www.rehive.com/api/3/admins/transactions/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
 ```
 
-> Response description
+> Admin transactions response
 
 ```json
+ {
+    "status": "success",
+    "data": {
+        "count": 2,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "tx_code": "000000000000000000000",
+                "tx_type": "transfer",
+                "subtype": null,
+                "status": "Complete",
+                "external": false,
+                "note": "",
+                "metadata": {},
+                "external_response": {},
+                "amount": 500,
+                "fee": 0,
+                "from_balance": 1500,
+                "to_balance": 500,
+                "label": "Transfer",
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "from_account": "default",
+                "to_account": "default",
+                "from_reference": "joe@rehive.com",
+                "to_reference": "sally@rehive.com",
+                "created": 1487066686668,
+                "updated": 1487066694343
+            },
+            {
+                "tx_code": "000000000000000000000",
+                "tx_type": "transfer",
+                "subtype": null,
+                "status": "Complete",
+                "external": false,
+                "note": "",
+                "metadata": {},
+                "external_response": {},
+                "amount": 500,
+                "fee": 0,
+                "from_balance": 1000,
+                "to_balance": 1000,
+                "label": "Transfer",
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "from_account": "default",
+                "to_account": "default",
+                "from_reference": "joe@rehive.com",
+                "to_reference": "sally@rehive.com",
+                "created": 1487066686668,
+                "updated": 1487066694343
+            }
+        ]
+    }
+}
 ```
 
-Endpoint description.
+Get a company's transaction list.
+
+### Pagination
+
+The list is paginated by default and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+### Filtering
+
+The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
+
+`/api/3/admins/transactions/?tx_type=transfer`
+
+There is a special format for fitering on metadata (ie. `metadata__{field_name}`):
+
+`/api/3/admins/transactions/?metadata__type=test`
+
+### Sorting
+
+Sorting of the transactions listing can be done on all the "filtering" fields mentioned above via an `orderby` parameter in the request URL:
+
+`/api/3/admins/transactions/?orderby=tx_type`
 
 ### Endpoint
 
-`https://rehive.com`
-
-### Fields
-
-Field | Description | Default
----------- | ----------------- | --------------
-field_name | field_description | value
+`https://rehive.com/api/3/admins/transactions/`
 
 ## Total Transactions
 
-> Request description
+> Admin total transactions request
 
 ```shell
+curl https://www.rehive.com/api/3/admins/transactions/totals/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
 ```
 
-> Response description
+> Admin total transactions response
 
 ```json
+{
+    "status": "success",
+    "data": {
+        "amount": 1000,
+        "fees": 0,
+        "count": 2,
+        "currency": "ZAR"
+    }
+}
 ```
 
-Endpoint description.
+Get a company's total transaction details. This is a summary of transaction details like: amount totals, fee totals, and the total number of transactions.
+
+### Filtering
+
+The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
+
+`/api/3/admins/transactions/?tx_type=transfer`
+
+There is a special format for fitering on metadata (ie. `metadata__{field_name}`):
+
+`/api/3/admins/transactions/?metadata__type=test`
+
+### Sorting
+
+Sorting of the transactions listing can be done on all the "filtering" fields mentioned above via an `orderby` parameter in the request URL:
+
+`/api/3/transactions/?orderby=tx_type`
 
 ### Endpoint
 
-`https://rehive.com`
-
-### Fields
-
-Field | Description | Default
----------- | ----------------- | --------------
-field_name | field_description | value
+`https://rehive.com/api/3/admins/transactions/totals/`
 
 ## Transfer
 
-> Request description
+> Admin transfer request
 
 ```shell
+curl https://www.rehive.com/api/3/admins/transactions/transfer/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"user": "joe@rehive.com",
+       "amount": 500,
+       "reference": "sally@rehive.com"}'
 ```
 
-> Response description
+> Admin transfer response
 
 ```json
+{
+    "status": "success",
+    "data": {
+        "tx_code": "00000000000000000000",
+        "metadata": {}
+    }
+}
 ```
 
-Endpoint description.
+Create a transfer transaction on behalf of a user. This will transfer currency from one user to another. If the recipient reference does not exist as a user in Rehive and the reference is an email address or mobile number then an invitation message will be sent to the recipient informing them they have an unclaimed transaction.
 
 ### Endpoint
 
-`https://rehive.com`
+`https://rehive.com/api/3/admins/transactions/transfer/`
 
 ### Fields
 
-Field | Description | Default
----------- | ----------------- | --------------
-field_name | field_description | value
+Field | Description | Default | Required
+--- | --- | --- | ---
+`user` | email, mobile number, unique identifier | null | true
+`amount` | amount | 0 | true
+`reference` | email, mobile number, unique identifier | null | true
+`subtype` | a custom defined subtype | null | false
+`account` | account reference code | null | false
+`note` | user's note or message | blank | false
+`metadata` | custom metadata | {} | false
 
-## Deposit
+<aside class="notice">
+For all admin "create transaction" endpoints a <code>user</code> should always be specified in the request.
+</aside>
 
-> Request description
+## Deposits
+
+> Admin deposit request
 
 ```shell
+curl https://www.rehive.com/api/3/admins/transactions/deposit/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"user": "joe@rehive.com",
+       "amount": 500}'
 ```
 
-> Response description
+> Admin deposit response
 
 ```json
+{
+    "status": "success",
+    "data": {
+        "tx_code": "00000000000000000000",
+        "metadata": {}
+    }
+}
 ```
 
-Endpoint description.
+Create a deposit transaction on behalf of a user.
 
 ### Endpoint
 
-`https://rehive.com`
+`https://rehive.com/api/3/admins/transactions/deposit/`
 
 ### Fields
 
-Field | Description | Default
----------- | ----------------- | --------------
-field_name | field_description | value
+Field | Description | Default | Required
+--- | --- | --- | ---
+`user` | email, mobile number, unique identifier | null | true
+`amount` | amount | 0 | true
+`reference` | optional deposit reference | blank | false
+`subtype` | a custom defined subtype | null | false
+`account` | account reference code | null | false
+`note` | user's note or message | blank | false
+`metadata` | custom metadata | {} | false
+`confirm_on_create` | complete immediately after creation | false | false
+
+<aside class="notice">
+Admin deposits (and withdrawals) have an additional <code>confirm_on_create</code> boolean that can be used when the deposit/withdraw should be processed and completed at the same time. This will override the normal behaviour of requiring an update or manual "completion" via the dashboard.
+</aside>
 
 ## Withdraw
 
-> Request description
+> Admin withdraw request
 
 ```shell
+curl https://www.rehive.com/api/3/admins/transactions/withdraw/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"user": "joe@rehive.com",
+       "amount": 500}'
 ```
 
-> Response description
+> Admin withdraw response
 
 ```json
+{
+    "status": "success",
+    "data": {
+        "tx_code": "00000000000000000000",
+        "metadata": {}
+    }
+}
 ```
 
-Endpoint description.
+Create a withdraw transaction on behalf of a user.
 
 ### Endpoint
 
-`https://rehive.com`
+`https://rehive.com/api/3/admins/transactions/withdraw/`
 
 ### Fields
 
-Field | Description | Default
----------- | ----------------- | --------------
-field_name | field_description | value
+Field | Description | Default | Required
+--- | --- | --- | ---
+`user` | email, mobile number, unique identifier | null | true
+`amount` | amount | 0 | true
+`reference` | optional withdraw reference | blank | false
+`subtype` | a custom defined subtype | null | false
+`account` | account reference code | null | false
+`note` | user's note or message | blank | false
+`metadata` | custom metadata | {} | false
+`confirm_on_create` | complete immediately after creation | false | false
 
 ## Update Transaction
 
-> Request description
+> Admin update transaction request
 
 ```shell
+curl https://rehive.com/api/3/admins/transactions/update/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"tx_code": "00000000000000000000",
+       "status": "Confirmed"}'
 ```
 
-> Response description
+> Admin update transaction response
 
 ```json
+{
+    "status": "success"
+}
 ```
 
-Endpoint description.
+Update a transaction's status and metadata. This endpoint can be used to move transactions from pending to complete/failed/deleted and updated the corresponding user's balance accordingly.
 
 ### Endpoint
 
-`https://rehive.com`
+`https://rehive.com/api/3/admins/transactions/update/`
 
 ### Fields
 
-Field | Description | Default
----------- | ----------------- | --------------
-field_name | field_description | value
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_code` | transaction reference code | null | true
+`status` | update action/status (`Confirmed`, `Failed`, `Deleted`) | null | true
+`metadata` | custom metadata | {} | false
 
 ## Verify Email Address
 
-> Request description
+> Admin verify email request
 
 ```shell
+curl https://rehive.com/api/3/admins/users/emails/verify/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"email": "joe@rehive.com"}'
 ```
 
-> Response description
+> Admin verify email response
 
 ```json
+{
+    "status": "success",
+    "data": {
+        "email": "joe@rehive.com",
+        "verified": true
+    }
+}
 ```
 
-Endpoint description.
+Verify an email address on behalf of a user.
 
 ### Endpoint
 
-`https://rehive.com`
+`https://rehive.com/api/3/admins/users/emails/verify/`
 
 ### Fields
 
-Field | Description | Default
----------- | ----------------- | --------------
-field_name | field_description | value
+Field | Description | Default | Required
+--- | --- | --- | ---
+`email` | email address | null | true
 
 ## Verify Mobile Number
 
-> Request description
+> Admin verify mobile request
 
 ```shell
+curl https://rehive.com/api/3/admins/users/mobiles/verify/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"email": "joe@rehive.com"}'
 ```
 
-> Response description
+> Admin verify mobile response
 
 ```json
+{
+    "status": "success",
+    "data": {
+        "email": "joe@rehive.com",
+        "verified": true
+    }
+}
 ```
 
-Endpoint description.
+Verify a mobile number on behalf of a user.
 
 ### Endpoint
 
-`https://rehive.com`
+`https://rehive.com/api/3/admins/users/mobiles/verify/`
 
 ### Fields
 
-Field | Description | Default
----------- | ----------------- | --------------
-field_name | field_description | value
+Field | Description | Default | Required
+--- | --- | --- | ---
+`number` | mobile number | null | true

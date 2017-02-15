@@ -1,14 +1,12 @@
 # Users
 
-Description of section.
-
 ## Profile
 
 > User profile request
 
 ```shell
 curl https://www.rehive.com/api/3/users/profile/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -59,7 +57,7 @@ Get a user's profile information.
 
 ```shell
 curl https://www.rehive.com/api/3/users/company/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -85,13 +83,13 @@ Get a user's company information.
 
 `https://rehive.com/api/3/users/company/`
 
-## Address 
+## Address
 
 > User address request
 
 ```shell
 curl https://www.rehive.com/api/3/users/address/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -124,7 +122,7 @@ get a user's address.
 
 ```shell
 curl https://www.rehive.com/api/3/users/bank_accounts/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -162,7 +160,7 @@ Get a user's bank account details.
 
 ```shell
 curl https://www.rehive.com/api/3/users/bitcoin_accounts/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -194,9 +192,9 @@ Get a user's bitcoin addresses.
 
 ```shell
 curl https://www.rehive.com/api/3/users/document/
-  -X POST 
+  -X POST
   -H "Authorization: JWT {token}"
-  -H "Content-Type: application/json" 
+  -H "Content-Type: application/json"
   -F file=@localfilename
 ```
 
@@ -233,7 +231,7 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/users/emails/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -266,7 +264,7 @@ Get a list of user's email addresses.
 
 ```shell
 curl https://www.rehive.com/api/3/users/mobiles/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -299,7 +297,7 @@ Get a list of user's mobile numbers.
 
 ```shell
 curl https://www.rehive.com/api/3/users/notifications/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```

@@ -1,6 +1,4 @@
-# Transactions 
-
-Description of section.
+# Transactions
 
 Transaction currency values are always inputted/outputted in their lowest currency unit. For most currencies this will be the cents values, so a $ 1.00 transaction will output an amount of 100.
 
@@ -14,7 +12,7 @@ Transactions are run as asynchronous processes within Rehive, so the latest stat
 
 ```shell
 curl https://www.rehive.com/api/3/transactions/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -86,7 +84,7 @@ curl https://www.rehive.com/api/3/transactions/
 }
 ```
 
-Get a list of user's transactions. 
+Get a a user's transaction list.
 
 ### Pagination
 
@@ -94,7 +92,7 @@ The list is paginated by default and can be navigated via the `next` and `previo
 
 ### Filtering
 
-The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL: 
+The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
 
 `/api/3/transactions/?tx_type=transfer`
 
@@ -118,7 +116,7 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 
 ```shell
 curl https://www.rehive.com/api/3/transactions/totals/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -141,7 +139,7 @@ Get a user's total transaction details. This is a summary of transaction details
 
 ### Filtering
 
-The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL: 
+The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
 
 `/api/3/transactions/?tx_type=transfer`
 
@@ -165,7 +163,7 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 
 ```shell
 curl https://www.rehive.com/api/3/transactions/transfer/
-  -X POST 
+  -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
   -d '{"amount": 500,
@@ -215,7 +213,7 @@ Bear in mind that the <code>amount</code> should always be in the lowest currenc
 
 ```shell
 curl https://www.rehive.com/api/3/transactions/deposit/
-  -X POST 
+  -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
   -d '{"amount": 500}'
@@ -256,7 +254,7 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/transactions/withdraw/
-  -X POST 
+  -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
   -d '{"amount": 500}'

@@ -1,5 +1,33 @@
 # Errors
 
+> Basic error response:
+
+```json
+{
+    "status": "error",
+    "message": "Error message."
+}
+```
+
+> Multiple errors response:
+
+```json
+ {
+    "status": "error",
+    "message": "First error message, Second error message",
+    "data": {
+        "field_name1": [
+            "First error message."
+        ],
+        "field_name2": [
+            "Second error message."
+        ]
+    }
+}
+```
+
+Rehive errors result in an API response message (formatted in JSON) as well as an HTTP response code.
+
 The Rehive API uses the following error codes:
 
 Error Code | Meaning

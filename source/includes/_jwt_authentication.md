@@ -1,18 +1,29 @@
 # JWT Authentication
 
-The [JWT](https://jwt.io/introduction/) authentication method should be used for any user based interactions with the Rehive platform. 
+The [JWT](https://jwt.io/introduction/) authentication method should be used for all user based interactions with the Rehive platform.
 
 Once a user is logged in, each subsequent request should include a JSON Web Token (JWT) in the HTTP Authorization header. This will permit the user to access  their content and associated functionality.
 
+All JSON Web Tokens have a 100 minute lifespan and should be refreshed within that time period in order to maintain an uninterrupted session. When a JWT expires a `403` error will be thrown and a new JWT will have to be retrieved by logging in again.
+
 ## Authorization
+
+> JWT authorization request
+
+```shell
+curl https://www.rehive.com/api/3/
+  -X GET
+  -H "Authorization: JWT {token}"
+```
 
 When making requests using a JWT, the JWT should be included as a token in the `Authorization` header:
 
 `Authorization: JWT {jwt}`
 
 <aside class="notice">
-You must replace <code>{jwt}</code> with a user's JWT.
+Remember to replace <code>{jwt}</code> with the user's JWT.
 </aside>
+
 
 ## Register
 
@@ -20,9 +31,9 @@ You must replace <code>{jwt}</code> with a user's JWT.
 
 ```shell
 curl https://www.rehive.com/api/3/auth/register/
-  -X POST 
-  -H "Content-Type: application/json" 
-  -d '{"first_name": "Joe", 
+  -X POST
+  -H "Content-Type: application/json"
+  -d '{"first_name": "Joe",
        "last_name": "Soap",
        "email": "joe@rehive.com",
        "company_id": "rehive",
@@ -72,9 +83,9 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/auth/login/
-  -X POST 
-  -H "Content-Type: application/json" 
-  -d '{"idenifier": "joe@rehive.com", 
+  -X POST
+  -H "Content-Type: application/json"
+  -d '{"idenifier": "joe@rehive.com",
        "company_id": "rehive"
        "password1": "joe1234"}'
 ```
@@ -117,8 +128,8 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/auth/logout/
-  -X POST 
-  -H "Content-Type: application/json" 
+  -X POST
+  -H "Content-Type: application/json"
 ```
 
 > User logout response
@@ -142,8 +153,8 @@ Logs the current user out.
 
 ```shell
 curl https://www.rehive.com/api/3/auth/jwt/verify/
-  -X POST 
-  -H "Content-Type: application/json" 
+  -X POST
+  -H "Content-Type: application/json"
   -d '{"token": "{token}"}'
 ```
 
@@ -183,8 +194,8 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/auth/jwt/refresh/
-  -X POST 
-  -H "Content-Type: application/json" 
+  -X POST
+  -H "Content-Type: application/json"
   -d '{"token": "{token}"}'
 ```
 
@@ -206,7 +217,7 @@ curl https://www.rehive.com/api/3/auth/jwt/refresh/
   }
 ```
 
-Refresh JWT. This endpoint will return a user's details in addition to a new JWT if the JWT provided is successfully verified.
+Refresh a JWT. This endpoint will return a user's details in addition to a new JWT if the JWT provided is successfully verified.
 
 ### Endpoint
 
@@ -224,9 +235,9 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/auth/password/change/
-  -X POST 
+  -X POST
   -H "Authorization: JWT {token}"
-  -H "Content-Type: application/json" 
+  -H "Content-Type: application/json"
   -d '{"old_password": "joe1234",
        "new_password1": "joe1234",
        "new_password2": "joe1234"}'
@@ -265,8 +276,8 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/auth/password/reset/
-  -X POST 
-  -H "Content-Type: application/json" 
+  -X POST
+  -H "Content-Type: application/json"
   -d '{"identifier": "joe@rehive.com",
        "company_id": "rehive"}'
 ```
@@ -299,8 +310,8 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/auth/password/reset/confirm/
-  -X POST 
-  -H "Content-Type: application/json" 
+  -X POST
+  -H "Content-Type: application/json"
   -d '{"new_password1": "joe1234",
        "new_password1": "joe1234",
        "uid": "{uid}",
@@ -316,7 +327,11 @@ curl https://www.rehive.com/api/3/auth/password/reset/confirm/
 }
 ```
 
-Reset a password using a reset `token` and `uid`. These details are sent in an email by Rehive. The included reset URL can be customized via the dashboard in `settings -> company info`.
+Reset a password using a reset `token` and `uid`. These details are sent in an email by Rehive.
+
+<aside class="notice">
+The URL included in the reset email can be customized via the dashboard in `settings -> company info`. Changing this URL is required if you wish to make use of your own client side UI for resetting emails.
+</aside>
 
 ### Endpoint
 
@@ -337,8 +352,8 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/auth/email/verify/resend/
-  -X POST 
-  -H "Content-Type: application/json" 
+  -X POST
+  -H "Content-Type: application/json"
   -d '{"identifier": "joe@rehive.com",
        "company_id": "rehive"}'
 ```
@@ -351,7 +366,7 @@ curl https://www.rehive.com/api/3/auth/email/verify/resend/
 }
 ```
 
-Resends all email verification for an account.
+Resends all email verifications for an account.
 
 ### Endpoint
 
@@ -370,8 +385,8 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3auth/mobile/verify/resend/
-  -X POST 
-  -H "Content-Type: application/json" 
+  -X POST
+  -H "Content-Type: application/json"
   -d '{"identifier": "joe@rehive.com",
        "company_id": "rehive"}'
 ```
@@ -403,8 +418,8 @@ Field | Description | Default | Required
 
 ```shell
 curl https://rehive.com/api/3/auth/mobile/verify/
-  -X POST 
-  -H "Content-Type: application/json" 
+  -X POST
+  -H "Content-Type: application/json"
   -d '{"otp": "{otp}"}'
 ```
 

@@ -1,7 +1,5 @@
 # Accounts
 
-Description of section.
-
 ## Balances
 
 > User balance request
@@ -9,7 +7,7 @@ Description of section.
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/balance/
-  -X POST 
+  -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -52,7 +50,7 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/currencies/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -115,7 +113,7 @@ Get a list of currencies available to a user.
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/currency/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
@@ -167,10 +165,10 @@ Get the details for the current active currency.
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/currency/set/
-  -X POST 
+  -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
-  -d '{"currency": "ZAR", 
+  -d '{"currency": "ZAR",
        "account": "xxxxxxxxxx"}'
 ```
 
@@ -216,7 +214,7 @@ Field | Description | Default | Required
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/deposits/bank/
-  -X GET 
+  -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
 ```
