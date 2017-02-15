@@ -154,7 +154,7 @@ Get a user's bank account details.
 
 ### Endpoint
 
-`https://rehive.com/3/users/bank_accounts/`
+`https://rehive.com/api/3/users/bank_accounts/`
 
 ## Bitcoin Accounts
 
