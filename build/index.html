@@ -1,0 +1,2123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<blockquote>
+<p>API Endpoint </p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://rehive.com/api/3/
+</code></pre>
+<p>Welcome to the Rehive API.</p>
+
+<p>JSON is returned by all API responses. API errors will result in a JSON response as well as a correspoding HTTP response code.</p>
+
+          <h1 id="jwt-authentication">JWT Authentication</h1>
+
+<p>The <a href="https://jwt.io/introduction/">JWT</a> authentication method should be used for any user based interactions with the Rehive platform. </p>
+
+<p>Once a user is logged in, each subsequent request should include a JSON Web Token (JWT) in the HTTP Authorization header. This will permit the user to access  their content and associated functionality.</p>
+
+<h2 id="authorization">Authorization</h2>
+
+<p>When making requests using a JWT, the JWT should be included as a token in the <code class="prettyprint">Authorization</code> header:</p>
+
+<p><code class="prettyprint">Authorization: JWT {jwt}</code></p>
+
+<aside class="notice">
+You must replace <code>{jwt}</code> with a user&rsquo;s JWT.
+</aside>
+
+<h2 id="register">Register</h2>
+
+<blockquote>
+<p>User registration request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/register/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"first_name": "Joe", 
+       "last_name": "Soap",
+       "email": "joe@rehive.com",
+       "company_id": "rehive",
+       "password1": "joe1234",
+       "password2":"joe1234"}'</span>
+</code></pre>
+<blockquote>
+<p>User registration response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{token}"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joe@rehive.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+00000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soap"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Register a user with the credentials provided. A successful registration will return the user&rsquo;s details and a JWT that can be used for subsequent requests.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/register/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">first_name</code></td>
+<td>first name</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">last_name</code></td>
+<td>last name</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">email</code></td>
+<td>email address</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mobile_number</code></td>
+<td>mobile number</td>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">company_id</code></td>
+<td>company identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">password1</code></td>
+<td>password</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">password2</code></td>
+<td>repeat password</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="login">Login</h2>
+
+<blockquote>
+<p>User login request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/login/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"idenifier": "joe@rehive.com", 
+       "company_id": "rehive"
+       "password1": "joe1234"}'</span>
+</code></pre>
+<blockquote>
+<p>User login response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{token}"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joe@rehive.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+00000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soap"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Login a user with the credentials provided. A successful login will return the user&rsquo;s details and a JWT that can be used for subsequent requests.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/login/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">identifier</code></td>
+<td>email, mobile number, unique identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">company_id</code></td>
+<td>company identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">password</code></td>
+<td>password</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="logout">Logout</h2>
+
+<blockquote>
+<p>User logout request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/logout/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+</code></pre>
+<blockquote>
+<p>User logout response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successfully logged out."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Logs the current user out.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/auth/logout/</code></p>
+
+<h2 id="verify">Verify</h2>
+
+<blockquote>
+<p>User verify jwt request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/jwt/verify/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"token": "{token}"}'</span>
+</code></pre>
+<blockquote>
+<p>User verify jwt response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{token}"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joe@rehive.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+00000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soap"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Verify JWT. This endpoint will return a user&rsquo;s details if the JWT is successfully verified.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/auth/jwt/verify/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">token</code></td>
+<td>jwt to be verified</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="refresh">Refresh</h2>
+
+<blockquote>
+<p>User refresh jwt request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/jwt/refresh/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"token": "{token}"}'</span>
+</code></pre>
+<blockquote>
+<p>User refresh jwt response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{token}"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joe@rehive.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+00000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soap"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Refresh JWT. This endpoint will return a user&rsquo;s details in addition to a new JWT if the JWT provided is successfully verified.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/auth/jwt/refresh/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">token</code></td>
+<td>jwt to be verified</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="change-password">Change Password</h2>
+
+<blockquote>
+<p>User change password request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/password/change/
+  -X POST 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"old_password": "joe1234",
+       "new_password1": "joe1234",
+       "new_password2": "joe1234"}'</span>
+</code></pre>
+<blockquote>
+<p>User change password response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New password has been saved."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Change a user&rsquo;s password.</p>
+
+<aside class="notice">
+Take note of the <code>Authorization</code> header required for authentication.
+</aside>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/auth/password/change/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">old_password</code></td>
+<td>old password</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">new_password1</code></td>
+<td>new password</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">new_password2</code></td>
+<td>confirm new password</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="reset-password">Reset Password</h2>
+
+<blockquote>
+<p>User reset password request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/password/reset/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"identifier": "joe@rehive.com",
+       "company_id": "rehive"}'</span>
+</code></pre>
+<blockquote>
+<p>User reset password response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password reset message has been sent."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Send a password reset email.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/auth/password/reset/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">identifier</code></td>
+<td>email, mobile number, unique identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">company_id</code></td>
+<td>company identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="reset-cofirm-password">Reset Cofirm Password</h2>
+
+<blockquote>
+<p>User reset confirm password request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/password/reset/confirm/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"new_password1": "joe1234",
+       "new_password1": "joe1234",
+       "uid": "{uid}",
+       "token": "{token}"}'</span>
+</code></pre>
+<blockquote>
+<p>User reset confirm password response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password has been reset with the new password."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Reset a password using a reset <code class="prettyprint">token</code> and <code class="prettyprint">uid</code>. These details are sent in an email by Rehive. The included reset URL can be customized via the dashboard in <code class="prettyprint">settings -&gt; company info</code>.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/auth/password/reset/confirm/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">new_password1</code></td>
+<td>password</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">new_password2</code></td>
+<td>password confirm</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">uid</code></td>
+<td>uniqie identifer for reset</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">token</code></td>
+<td>uniqie token for reset</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="resend-email-verification">Resend Email Verification</h2>
+
+<blockquote>
+<p>User resend email verification request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/auth/email/verify/resend/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"identifier": "joe@rehive.com",
+       "company_id": "rehive"}'</span>
+</code></pre>
+<blockquote>
+<p>User resend email verification response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Resends all email verification for an account.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/auth/email/verify/resend/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">identifier</code></td>
+<td>email, mobile number, unique identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">company_id</code></td>
+<td>company identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="resend-mobile-verification">Resend Mobile Verification</h2>
+
+<blockquote>
+<p>User resend email verification request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3auth/mobile/verify/resend/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"identifier": "joe@rehive.com",
+       "company_id": "rehive"}'</span>
+</code></pre>
+<blockquote>
+<p>User resend email verification response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Resends all mobile verifications for an account.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://www.rehive.com/api/3/auth/mobile/verify/resend/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">identifier</code></td>
+<td>email, mobile number, unique identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">company_id</code></td>
+<td>company identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="verify-mobile">Verify Mobile</h2>
+
+<blockquote>
+<p>User verify mobile request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://rehive.com/api/3/auth/mobile/verify/
+  -X POST 
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -d <span class="s1">'{"otp": "{otp}"}'</span>
+</code></pre>
+<blockquote>
+<p>User verify mobile response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Verify a mobile number with an OTP.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/auth/mobile/verify/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">otp</code></td>
+<td>one time password</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+          <h1 id="users">Users</h1>
+
+<p>Description of section.</p>
+
+<h2 id="profile">Profile</h2>
+
+<blockquote>
+<p>User profile request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/profile/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User profile response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soap"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joe@rehive.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rehive"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wallets for everyone."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.rehive.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a user&rsquo;s profile information.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/users/profile/</code></p>
+
+<h2 id="company">Company</h2>
+
+<blockquote>
+<p>User company request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/company/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User company response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rehive"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wallets for everyone."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.rehive.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a user&rsquo;s company information.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/users/company/</code></p>
+
+<h2 id="address">Address</h2>
+
+<blockquote>
+<p>User address request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/address/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User address response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"line_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 Main Street"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"line_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"East City"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cape Town"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"state_province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Western Cape"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8001"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>get a user&rsquo;s address.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/users/address/</code></p>
+
+<h2 id="bank-accounts">Bank Accounts</h2>
+
+<blockquote>
+<p>User bank accounts request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/bank_accounts/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User bank accounts response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999999"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheque"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bank_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Central Bank"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"branch_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"swift"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bank_account_VEM7k1y5hnuF"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a user&rsquo;s bank account details.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/3/users/bank_accounts/</code></p>
+
+<h2 id="bitcoin-accounts">Bitcoin Accounts</h2>
+
+<blockquote>
+<p>User bitcoin accounts request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/bitcoin_accounts/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User bitcoin accounts response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789asd"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bitcoin_123456789asd"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a user&rsquo;s bitcoin addresses.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/users/bitcoin_accounts/</code></p>
+
+<h2 id="documents">Documents</h2>
+
+<blockquote>
+<p>User documents request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/document/
+  -X POST 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span> 
+  -F <span class="nv">file</span><span class="o">=</span>@localfilename
+</code></pre>
+<blockquote>
+<p>User documents response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{file_url}"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"document_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"other"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"document_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"other"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Upload user documents.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/users/document/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">file</code></td>
+<td>a document file</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">document_category</code></td>
+<td>The document category</td>
+<td>other</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">document_type</code></td>
+<td>The type of docuemnt</td>
+<td>other</td>
+<td>false</td>
+</tr>
+</tbody></table>
+
+<h2 id="email-addresses">Email Addresses</h2>
+
+<blockquote>
+<p>User email addresses request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/emails/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User email addresses response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joe@rehive.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"primary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a list of user&rsquo;s email addresses.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://www.rehive.com/api/3/users/emails/</code></p>
+
+<h2 id="mobile-numbers">Mobile Numbers</h2>
+
+<blockquote>
+<p>User mobile numbers request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/mobiles/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User mobile numbers response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+00000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"primary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a list of user&rsquo;s mobile numbers.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://www.rehive.com/api/3/users/mobiles/</code></p>
+
+<h2 id="notifications">Notifications</h2>
+
+<blockquote>
+<p>User notifcations request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/users/notifications/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User notifcations response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tx_send"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Send transaction notifications"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sms_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tx_receive"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receive transaction notifications"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sms_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tx_unclaimed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unclaimed transaction notifications"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sms_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tx_deposit"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deposit transaction notifications"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sms_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_upload"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document upload notifications"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sms_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_change"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document status change notifications"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sms_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a list of available notifcation settings.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/users/notifications/</code></p>
+
+          <h1 id="transactions">Transactions</h1>
+
+<p>Description of section.</p>
+
+<p>Transaction currency values are always inputted/outputted in their lowest currency unit. For most currencies this will be the cents values, so a $ 1.00 transaction will output an amount of 100.</p>
+
+<aside class="notice">
+Transactions are run as asynchronous processes within Rehive, so the latest state of the transaction will not necessarily be available immediately after a request has been completed. To get the latest transaction details you will have to make a follow up request using its `tx_code`.
+</aside>
+
+<h2 id="list-transactions">List Transactions</h2>
+
+<blockquote>
+<p>User transactions request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/transactions/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User transactions response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"tx_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000000000000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"tx_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"subtype"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"external"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nt">"external_response"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Complete"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sally@rehive.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-500</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfer"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rand"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rand"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1474399284065</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"updated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1474399285570</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"tx_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000000000000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"tx_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"subtype"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"external"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nt">"external_response"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Complete"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sally@rehive.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-500</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfer"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rand"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rand"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1474399284065</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"updated"</span><span class="p">:</span><span class="w"> </span><span class="mi">1474399285570</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a list of user&rsquo;s transactions. </p>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>The list is paginated by default and can be navigated via the <code class="prettyprint">next</code> and <code class="prettyprint">previous</code> fields or by setting a <code class="prettyprint">page</code> parameter in the request URL.</p>
+
+<h3 id="filtering">Filtering</h3>
+
+<p>The transactions listing offers filtering on the <code class="prettyprint">tx_code</code>, <code class="prettyprint">tx_type</code>, <code class="prettyprint">subtype</code>, <code class="prettyprint">status</code>, <code class="prettyprint">created</code> and <code class="prettyprint">metadata</code> fields. This is done through URL parameters in the request URL: </p>
+
+<p><code class="prettyprint">/api/3/transactions/?tx_type=transfer</code></p>
+
+<p>There is a special format for fitering on metadata (ie. <code class="prettyprint">metadata__{field_name}</code>):</p>
+
+<p><code class="prettyprint">/api/3/transactions/?metadata__type=test</code></p>
+
+<h3 id="sorting">Sorting</h3>
+
+<p>Sorting of the transactions listing can be done on all the &ldquo;filtering&rdquo; fields mentioned above via an <code class="prettyprint">orderby</code> parameter in the request URL:</p>
+
+<p><code class="prettyprint">/api/3/transactions/?orderby=tx_type</code></p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/transactions/</code></p>
+
+<h2 id="total-transactions">Total Transactions</h2>
+
+<blockquote>
+<p>User total transactions request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/transactions/totals/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User total transactions response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"fees"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a user&rsquo;s total transaction details. This is a summary of transaction details like: amount totals, fee totals, and the total number of transactions.</p>
+
+<h3 id="filtering">Filtering</h3>
+
+<p>The transactions listing offers filtering on the <code class="prettyprint">tx_code</code>, <code class="prettyprint">tx_type</code>, <code class="prettyprint">subtype</code>, <code class="prettyprint">status</code>, <code class="prettyprint">created</code> and <code class="prettyprint">metadata</code> fields. This is done through URL parameters in the request URL: </p>
+
+<p><code class="prettyprint">/api/3/transactions/?tx_type=transfer</code></p>
+
+<p>There is a special format for fitering on metadata (ie. <code class="prettyprint">metadata__{field_name}</code>):</p>
+
+<p><code class="prettyprint">/api/3/transactions/?metadata__type=test</code></p>
+
+<h3 id="sorting">Sorting</h3>
+
+<p>Sorting of the transactions listing can be done on all the &ldquo;filtering&rdquo; fields mentioned above via an <code class="prettyprint">orderby</code> parameter in the request URL:</p>
+
+<p><code class="prettyprint">/api/3/transactions/?orderby=tx_type</code></p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/transactions/totals/</code></p>
+
+<h2 id="transfer">Transfer</h2>
+
+<blockquote>
+<p>User transfer request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/transactions/transfer/
+  -X POST 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -d <span class="s1">'{"amount": 500,
+       "reference": "sally@rehive.com"}'</span>
+</code></pre>
+<blockquote>
+<p>User transfer response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"tx_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Create a transfer transaction. This will transfer currency from one user to another. If the recipient reference does not exist as a user in Rehive and the reference is an email address or mobile number then an invitation message will be sent to the recipient informing them thay have an unclaimed transaction.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/transactions/transfer/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>amount</td>
+<td>0</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reference</code></td>
+<td>email, mobile number, unique identifier</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">subtype</code></td>
+<td>a custom defined subtype</td>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">account</code></td>
+<td>account reference code</td>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">note</code></td>
+<td>user&rsquo;s note or message</td>
+<td>blank</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">metadata</code></td>
+<td>custom metadata</td>
+<td>{}</td>
+<td>false</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Bear in mind that the <code>amount</code> should always be in the lowest currency unit available (ie, cents).
+</aside>
+
+<aside class="notice">
+<code>subtype</code>s can be set in the admin dashboard by an admin user. A blank <code>subtype</code> can be sent without errors, but if a subtype is sent in the request it must match an existing <code>subtype</code> and it&rsquo;s related <code>tx_type</code> in Rehive.
+</aside>
+
+<h2 id="deposits">Deposits</h2>
+
+<blockquote>
+<p>User deposit request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/transactions/deposit/
+  -X POST 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -d <span class="s1">'{"amount": 500}'</span>
+</code></pre>
+<blockquote>
+<p>User deposit response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"tx_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Create a deposit transaction.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/transactions/deposit/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>amount</td>
+<td>0</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reference</code></td>
+<td>optional deposit reference</td>
+<td>blank</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">subtype</code></td>
+<td>a custom defined subtype</td>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">account</code></td>
+<td>account reference code</td>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">note</code></td>
+<td>user&rsquo;s note or message</td>
+<td>blank</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">metadata</code></td>
+<td>custom metadata</td>
+<td>{}</td>
+<td>false</td>
+</tr>
+</tbody></table>
+
+<h2 id="withdraw">Withdraw</h2>
+
+<blockquote>
+<p>User withdraw request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/transactions/withdraw/
+  -X POST 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -d <span class="s1">'{"amount": 500}'</span>
+</code></pre>
+<blockquote>
+<p>User withdraw response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"tx_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Create a withdraw transaction.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/transactions/withdraw/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>amount</td>
+<td>0</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reference</code></td>
+<td>optional withdraw reference</td>
+<td>blank</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">subtype</code></td>
+<td>a custom defined subtype</td>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">account</code></td>
+<td>account reference code</td>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">note</code></td>
+<td>user&rsquo;s note or message</td>
+<td>blank</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">metadata</code></td>
+<td>custom metadata</td>
+<td>{}</td>
+<td>false</td>
+</tr>
+</tbody></table>
+
+          <h1 id="accounts">Accounts</h1>
+
+<p>Description of section.</p>
+
+<h2 id="balances">Balances</h2>
+
+<blockquote>
+<p>User balance request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/accounts/balance/
+  -X POST 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User balance response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get the balance of either the current active currency or a specific currency/account.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://www.rehive.com/api/3/accounts/balance/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td>currency code</td>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code class="prettyprint">account</code></td>
+<td>accound reference code</td>
+<td>null</td>
+<td>false</td>
+</tr>
+</tbody></table>
+
+<h2 id="currencies">Currencies</h2>
+
+<blockquote>
+<p>User currencies list request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/accounts/currencies/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>User currencies list response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxx"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-02T09:01:08.745000Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rand"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rand"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rehive"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wallets for everyone."</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.rehive.com"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"South African Rand for Rehive."</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-24T14:11:26.228000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-29T19:45:40.008208Z"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a list of currencies available to a user.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/accounts/currencies/</code></p>
+
+<h2 id="active-currency">Active Currency</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/accounts/currency/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rehive"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rehive"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wallets for everyone."</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.rehive.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"South African Rand for Rehive."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"icon"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-24T14:11:26.228000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-29T19:45:40.008208Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get the details for the current active currency.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/accounts/currency/</code></p>
+
+<h2 id="set-currency">Set Currency</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/accounts/currency/set/
+  -X POST 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -d <span class="s1">'{"currency": "ZAR", 
+       "account": "xxxxxxxxxx"}'</span>
+</code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"divisibility"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-02T09:01:08.745000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Set the active currency for a user. Get the currency code and account reference from the currency list.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/accounts/currency/set/</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td>currency code</td>
+<td>null</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code class="prettyprint">account</code></td>
+<td>accound reference code</td>
+<td>null</td>
+<td>true</td>
+</tr>
+</tbody></table>
+
+<h2 id="bank-deposits">Bank Deposits</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code>curl https://www.rehive.com/api/3/accounts/deposits/bank/
+  -X GET 
+  -H <span class="s2">"Authorization: JWT {token}"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"bank_account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rehive"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheque"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"bank_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barclays"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"bank_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxx"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"branch_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxx"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"swift"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"iban"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"bic"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxxxx"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get the bank deposit details for the user&rsquo;s company.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com/api/3/accounts/deposits/bank/</code></p>
+
+          <h1 id="token-authentication">Token Authentication</h1>
+
+<p>Token authntication is an extra method of authentication that comapny&rsquo;s can use to access admin only functionality. Admin endpoints that require token authentication can be used to interact with admin functionality or alternatively complete tasks on behalf of a user.</p>
+
+<h2 id="authorization">Authorization</h2>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="o">{</span>api_endpoint<span class="o">}</span>
+  -H <span class="s2">"Authorization: Token {token}"</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">token</code> with your API key.</p>
+</blockquote>
+
+<p>The admin API key can be retrieved via <code class="prettyprint">settings -&gt; security</code> in the Rehive dashboard.</p>
+
+<p>When making requests on admin resources, the API key should be included as a token in the <code class="prettyprint">Authorization</code> header:</p>
+
+<p><code class="prettyprint">Authorization: Token {token}</code></p>
+
+<aside class="notice">
+You must replace <code>{token}</code> with your company API key.
+</aside>
+
+<h1 id="administration">Administration</h1>
+
+<p>Description of section.</p>
+
+<h2 id="list-transactions">List Transactions</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code></code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code></code></pre>
+<p>Endpoint description.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_name</td>
+<td>field_description</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
+<h2 id="total-transactions">Total Transactions</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code></code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code></code></pre>
+<p>Endpoint description.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_name</td>
+<td>field_description</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
+<h2 id="transfer">Transfer</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code></code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code></code></pre>
+<p>Endpoint description.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_name</td>
+<td>field_description</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
+<h2 id="deposit">Deposit</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code></code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code></code></pre>
+<p>Endpoint description.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_name</td>
+<td>field_description</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
+<h2 id="withdraw">Withdraw</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code></code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code></code></pre>
+<p>Endpoint description.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_name</td>
+<td>field_description</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-transaction">Update Transaction</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code></code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code></code></pre>
+<p>Endpoint description.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_name</td>
+<td>field_description</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
+<h2 id="verify-email-address">Verify Email Address</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code></code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code></code></pre>
+<p>Endpoint description.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_name</td>
+<td>field_description</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
+<h2 id="verify-mobile-number">Verify Mobile Number</h2>
+
+<blockquote>
+<p>Request description</p>
+</blockquote>
+<pre class="highlight shell"><code></code></pre>
+<blockquote>
+<p>Response description</p>
+</blockquote>
+<pre class="highlight json"><code></code></pre>
+<p>Endpoint description.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+
+<p><code class="prettyprint">https://rehive.com</code></p>
+
+<h3 id="fields">Fields</h3>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field_name</td>
+<td>field_description</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
+          
+          <h1 id="errors">Errors</h1>
+
+<p>The Rehive API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

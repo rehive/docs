@@ -24,6 +24,6 @@ search: true
 https://rehive.com/api/3/
 ```
 
-Welcome to the Rehive API!
+Welcome to the Rehive API.
 
 JSON is returned by all API responses. API errors will result in a JSON response as well as a correspoding HTTP response code.
