@@ -157,7 +157,7 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 
 `https://rehive.com/api/3/transactions/totals/`
 
-## Transfer
+## Create Transfer
 
 > User transfer request
 
@@ -207,7 +207,7 @@ Bear in mind that the <code>amount</code> should always be in the lowest currenc
 <code>subtype</code>s can be set in the admin dashboard by an admin user. A blank <code>subtype</code> can be sent without errors, but if a subtype is sent in the request it must match an existing <code>subtype</code> and it's related <code>tx_type</code> in Rehive.
 </aside>
 
-## Deposits
+## Create Deposit
 
 > User deposit request
 
@@ -248,7 +248,7 @@ Field | Description | Default | Required
 `note` | user's note or message | blank | false
 `metadata` | custom metadata | {} | false
 
-## Withdraw
+## Create Withdraw
 
 > User withdraw request
 

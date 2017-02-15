@@ -1,6 +1,6 @@
 # Users
 
-## Profile
+## Retrieve Profile
 
 > User profile request
 
@@ -45,15 +45,79 @@ curl https://www.rehive.com/api/3/users/profile/
 }
 ```
 
-Get a user's profile information.
+Retrieve a user's profile information.
 
 ### Endpoint
 
 `https://rehive.com/api/3/users/profile/`
 
-## Company
+## Update Profile
 
-> User company request
+> User update profile request
+
+```shell
+curl https://www.rehive.com/api/3/users/profile/
+  -X PATCH
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"first_name": "Joe"}'
+```
+
+> User update profile response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": "",
+        "profile": null,
+        "balance": 0,
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "company": {
+            "identifier": "rehive",
+            "name": "Rehive",
+            "description": "Wallets for everyone.",
+            "website": "http://www.rehive.com",
+            "logo": null
+        },
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": null
+    }
+}
+```
+
+Update a user's profile information.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/profile/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`first_name` | first name | blank | false
+`last_name` | last name | blank | false
+`id_number` | ID number | blank | false
+`profile` | profile image | blank | false
+`language` | language code (`af`, `en` etc.) | blank | false
+`nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
+`metadata` | custom metadata | {} | false
+
+## Retrieve Company
+
+> User retrieve company request
 
 ```shell
 curl https://www.rehive.com/api/3/users/company/
@@ -62,7 +126,7 @@ curl https://www.rehive.com/api/3/users/company/
   -H "Content-Type: application/json"
 ```
 
-> User company response
+> User retrieve company response
 
 ```json
 {
@@ -77,15 +141,15 @@ curl https://www.rehive.com/api/3/users/company/
 }
 ```
 
-Get a user's company information.
+Retrieve a user's company information.
 
 ### Endpoint
 
 `https://rehive.com/api/3/users/company/`
 
-## Address
+## Retrieve Address
 
-> User address request
+> User retrieve address request
 
 ```shell
 curl https://www.rehive.com/api/3/users/address/
@@ -94,7 +158,7 @@ curl https://www.rehive.com/api/3/users/address/
   -H "Content-Type: application/json"
 ```
 
-> User address response
+> User retrieve address response
 
 ```json
 {
@@ -110,15 +174,60 @@ curl https://www.rehive.com/api/3/users/address/
 }
 ```
 
-get a user's address.
+Retrieve a user's address.
 
 ### Endpoint
 
 `https://rehive.com/api/3/users/address/`
 
-## Bank Accounts
+## Update Address
 
-> User bank accounts request
+> User update address request
+
+```shell
+curl https://www.rehive.com/api/3/users/address/
+  -X PATCH
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"city": "Cape Town"}'
+```
+
+> User update address response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "line_1": "1 Main Street",
+        "line_2": "East City",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001"
+    }
+}
+```
+
+Update a user's address.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/address/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`line_1` | address line one | blank | false
+`line_2` | address line 2 | blank | false
+`city` | city | blank | false
+`state_province` | state or province | blank | false
+`country` | country code | blank | false
+`postal_code` | postal or zip code) | blank | false
+
+## List Bank Accounts
+
+> User list bank accounts request
 
 ```shell
 curl https://www.rehive.com/api/3/users/bank_accounts/
@@ -127,36 +236,38 @@ curl https://www.rehive.com/api/3/users/bank_accounts/
   -H "Content-Type: application/json"
 ```
 
-> User bank accounts response
+> User list bank accounts response
 
 ```json
 {
     "status": "success",
-    "data": {
-        "id": 25,
-        "name": "Default",
-        "number": "9999999999",
-        "type": "Cheque",
-        "bank_name": "Central Bank",
-        "bank_code": "0000",
-        "branch_code": "0000",
-        "swift": "",
-        "iban": "",
-        "bic": "",
-        "code": "bank_account_VEM7k1y5hnuF"
-    }
+    "data": [
+        {
+            "id": 25,
+            "name": "Default",
+            "number": "9999999999",
+            "type": "Cheque",
+            "bank_name": "Central Bank",
+            "bank_code": "0000",
+            "branch_code": "0000",
+            "swift": "",
+            "iban": "",
+            "bic": "",
+            "code": "bank_account_VEM7k1y5hnuF"
+        }
+    ]
 }
 ```
 
-Get a user's bank account details.
+List a user's bank accounts.
 
 ### Endpoint
 
 `https://rehive.com/api/3/users/bank_accounts/`
 
-## Bitcoin Accounts
+## List Bitcoin Accounts
 
-> User bitcoin accounts request
+> User list bitcoin accounts request
 
 ```shell
 curl https://www.rehive.com/api/3/users/bitcoin_accounts/
@@ -165,7 +276,7 @@ curl https://www.rehive.com/api/3/users/bitcoin_accounts/
   -H "Content-Type: application/json"
 ```
 
-> User bitcoin accounts response
+> User list bitcoin accounts response
 
 ```json
 {
@@ -180,13 +291,13 @@ curl https://www.rehive.com/api/3/users/bitcoin_accounts/
 }
 ```
 
-Get a user's bitcoin addresses.
+List a user's bitcoin addresses.
 
 ### Endpoint
 
 `https://rehive.com/api/3/users/bitcoin_accounts/`
 
-## Documents
+## Create Document
 
 > User documents request
 
@@ -211,7 +322,7 @@ curl https://www.rehive.com/api/3/users/document/
 }
 ```
 
-Upload user documents.
+Upload user document.
 
 ### Endpoint
 
@@ -225,9 +336,9 @@ Field | Description | Default | Required
 `document_category` | The document category | other | false
 `document_type` | The type of docuemnt | other | false
 
-## Email Addresses
+## List Email Addresses
 
-> User email addresses request
+> User list email addresses request
 
 ```shell
 curl https://www.rehive.com/api/3/users/emails/
@@ -236,7 +347,7 @@ curl https://www.rehive.com/api/3/users/emails/
   -H "Content-Type: application/json"
 ```
 
-> User email addresses response
+> User list email addresses response
 
 ```json
 {
@@ -258,7 +369,7 @@ Get a list of user's email addresses.
 
 `https://www.rehive.com/api/3/users/emails/`
 
-## Mobile Numbers
+## List Mobile Numbers
 
 > User mobile numbers request
 
@@ -291,9 +402,9 @@ Get a list of user's mobile numbers.
 
 `https://www.rehive.com/api/3/users/mobiles/`
 
-## Notifications
+## List Notifications
 
-> User notifcations request
+> User list notifcations request
 
 ```shell
 curl https://www.rehive.com/api/3/users/notifications/
@@ -302,7 +413,7 @@ curl https://www.rehive.com/api/3/users/notifications/
   -H "Content-Type: application/json"
 ```
 
-> User notifcations response
+> User list notifcations response
 
 ```json
 {
@@ -354,7 +465,7 @@ curl https://www.rehive.com/api/3/users/notifications/
 }
 ```
 
-Get a list of available notifcation settings.
+Get a list of available notification settings.
 
 ### Endpoint
 

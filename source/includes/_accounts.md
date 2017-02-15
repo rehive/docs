@@ -1,8 +1,8 @@
 # Accounts
 
-## Balances
+## Retrieve Balance
 
-> User balance request
+> User retrieve balance request
 
 
 ```shell
@@ -12,7 +12,7 @@ curl https://www.rehive.com/api/3/accounts/balance/
   -H "Content-Type: application/json"
 ```
 
-> User balance response
+> User retrieve balance response
 
 ```json
 {
@@ -31,7 +31,7 @@ curl https://www.rehive.com/api/3/accounts/balance/
 }
 ```
 
-Get the balance of either the current active currency or a specific currency/account.
+Retrieve the balance of either the current active currency or a specific currency/account.
 
 ### Endpoint
 
@@ -44,9 +44,9 @@ Field | Description | Default | Required
 `currency` | currency code | null | false
 `account` | accound reference code | null | false
 
-## Currencies
+## List Currencies
 
-> User currencies list request
+> User list currencies request
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/currencies/
@@ -55,7 +55,7 @@ curl https://www.rehive.com/api/3/accounts/currencies/
   -H "Content-Type: application/json"
 ```
 
-> User currencies list response
+> User list currencies response
 
 ```json
   {
@@ -107,9 +107,9 @@ Get a list of currencies available to a user.
 
 `https://rehive.com/api/3/accounts/currencies/`
 
-## Active Currency
+## Retrieve Active Currency
 
-> Request description
+> Retrieve active currency request
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/currency/
@@ -118,7 +118,7 @@ curl https://www.rehive.com/api/3/accounts/currency/
   -H "Content-Type: application/json"
 ```
 
-> Response description
+> Retrieve active currency response
 
 ```json
 {
@@ -153,15 +153,15 @@ curl https://www.rehive.com/api/3/accounts/currency/
 }
 ```
 
-Get the details for the current active currency.
+Retrieve the details for the current active currency.
 
 ### Endpoint
 
 `https://rehive.com/api/3/accounts/currency/`
 
-## Set Currency
+## Update Active Currency
 
-> Request description
+> User update currency request
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/currency/set/
@@ -172,7 +172,7 @@ curl https://www.rehive.com/api/3/accounts/currency/set/
        "account": "xxxxxxxxxx"}'
 ```
 
-> Response description
+> User update currency response
 
 ```json
 {
@@ -195,7 +195,7 @@ curl https://www.rehive.com/api/3/accounts/currency/set/
 }
 ```
 
-Set the active currency for a user. Get the currency code and account reference from the currency list.
+Update the active currency for a user. Get the currency code and account reference from the currency list.
 
 ### Endpoint
 
@@ -208,9 +208,9 @@ Field | Description | Default | Required
 `currency` | currency code | null | true
 `account` | accound reference code | null | true
 
-## Bank Deposits
+## Retrieve Deposits Bank
 
-> Request description
+> User retrieve deposits ban request
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/deposits/bank/
@@ -219,7 +219,7 @@ curl https://www.rehive.com/api/3/accounts/deposits/bank/
   -H "Content-Type: application/json"
 ```
 
-> Response description
+> User retrieve deposits ban response
 
 ```json
 {
@@ -246,7 +246,7 @@ curl https://www.rehive.com/api/3/accounts/deposits/bank/
 }
 ```
 
-Get the bank deposit details for the user's company.
+Retrieve bank deposit details for the user's company.
 
 ### Endpoint
 
