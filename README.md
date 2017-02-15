@@ -13,10 +13,10 @@ Deployment:
 -----------
 ### Push to container registry:
 1. Build the static webserver:  
-   `docker build -t docs-server server/.`  
+   `docker build -f server/Dockerfile -t docs-server .`  
 2. Push to Container Registry:  
-   `docker tag docs-server gcr.io/zapgo-1273/docs-server`  
-   `gcloud docker -- push gcr.io/zapgo-1273/docs-server`  
+   `docker tag docs-server gcr.io/zapgo-1273/docs-server:production`  
+   `gcloud docker -- push gcr.io/zapgo-1273/docs-server:production`  
    
 ### Once-off setup:
 1. Create a Kubernetes Cluster

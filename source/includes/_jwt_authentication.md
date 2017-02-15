@@ -1,8 +1,8 @@
 # JWT Authentication
 
-The JWT authentication method should be used for any user based interactions with the Rehive platform. This authentication schema offers a simple standardized way to securely trasmit information between parties using a JSON object.
+The [JWT](https://jwt.io/introduction/) authentication method should be used for any user based interactions with the Rehive platform. 
 
-Once a user is logged in, each subsequent request should include a JWT. This will permit the user to access  their content and associated functionality.
+Once a user is logged in, each subsequent request should include a JSON Web Token (JWT) in the HTTP Authorization header. This will permit the user to access  their content and associated functionality.
 
 ## Authorization
 
