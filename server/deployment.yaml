@@ -12,7 +12,7 @@ spec:
         app: docs-server
     spec:
       containers:
-      - image: gcr.io/zapgo-1273/docs-server:production
+      - image: gcr.io/zapgo-1273/docs-server
         imagePullPolicy: Always
         name: docs-server
         ports:
