@@ -1,7 +1,9 @@
 from invoke import task
+import json
 import yaml
 import semver
 from server.tasks import *
+
 
 @task
 def prepare(ctx):
@@ -17,6 +19,7 @@ def prepare(ctx):
     ctx.run('docker run --rm -v $PWD/source:/usr/src/app/source -v $PWD/build:/usr/src/app/build '
             '-w /usr/src/app docs_middleman bundle exec middleman build --clean', echo=True)
 
+
 @task
 def build(ctx, tag):
     """
@@ -26,6 +29,7 @@ def build(ctx, tag):
     cmd = 'docker build -f server/Dockerfile -t %s .' % tag
     ctx.run(cmd, echo=True)
 
+
 @task
 def run(ctx, image, port):
     """
@@ -34,6 +38,7 @@ def run(ctx, image, port):
 
     cmd = 'docker run -p {}:{} {}'.format(port, 80, image)
     ctx.run(cmd, echo=True)
+
 
 @task
 def push(ctx, config, version_tag):
@@ -58,6 +63,7 @@ def push(ctx, config, version_tag):
 
     build(ctx, image)
     ctx.run('gcloud docker -- push %s' % image, echo=True)
+
 
 @task
 def version(ctx, bump='prerelease'):
@@ -114,6 +120,7 @@ def release(ctx, config, version_bump='prerelease'):
           'Tag: {}\n'
           'Image: {}\n'.format(tag, image_name))
 
+
 @task
 def deploy(ctx, config, version_tag):
     """
@@ -139,3 +146,30 @@ def deploy(ctx, config, version_tag):
             'docs-server={} --namespace={}'.format(config_dict['PROJECT_NAME'],
                                                    image,
                                                    config_dict['NAMESPACE']), echo=True)
+
+
+@task
+def live(ctx, config):
+    """Checks which version_tag is live"""
+    if config[-5:] != '.yaml':
+        config += '.yaml'
+
+    # Use /server as base path
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    server_dir_path = os.path.join(dir_path, 'server/')
+    if not os.path.isabs(config):
+        config = os.path.join(server_dir_path, config)
+
+    with open(config, 'r') as stream:
+        config_dict = yaml.load(stream)
+
+    result = ctx.run('kubectl get deployment/{} --output=json --namespace={}'.format(config_dict['PROJECT_NAME'],
+                                                                                     config_dict['NAMESPACE']),
+                     echo=True,
+                     hide='stdout')
+
+    server_config = json.loads(result.stdout)
+    image = server_config['spec']['template']['spec']['containers'][0]['image']
+    print(image)
+    return image
+

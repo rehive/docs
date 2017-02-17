@@ -31,6 +31,12 @@ To update the live deployment on kubernetes, run:
 
 where `{config}` is the value used for the release command above and `{version_tag}` is the version tag output by the release command.
 
+To check which docker image version is currently running on the server, run:
+
+> inv live {config}
+
+where `config` is the config file name. E.g. `staging`
+
 Once-off setup:
 --------------
 1. Create a Kubernetes Cluster, Install GCloud SDK, PIP install invoke
