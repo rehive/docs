@@ -12,10 +12,10 @@ Documentation:
 Deployment:
 -----------
 ### Push to container registry:
-1. Build the static webserver:  
+1. Build the docker image to deploy:  
    `docker build -f server/Dockerfile -t docs-server .`  
 2. Push to Container Registry:  
-   `docker tag docs-server gcr.io/zapgo-1273/docs-server:production`  
+   `docker tag docs-server gcr.io/zapgo-1273/docs-server:v`  
    `gcloud docker -- push gcr.io/zapgo-1273/docs-server:production`  
    
 ### Once-off setup:
@@ -26,16 +26,11 @@ Deployment:
 3. Connect to kubernetes cluster:  
 	`gcloud container clusters get-credentials hosting-cluster --zone us-west1-a --project zapgo-1273`  
 4. Letsencrypt SSL setup:  
-	- Namespace:  
-	  `kubectl apply -f server/lego/00-namespace.yaml` 
-	- ConfigMap:  
-	  `kubectl apply -f server/lego/configmap.yaml` 
-	- LEGO Pod:  
-	  `kubectl apply -f server/lego/deployment.yaml`  
+	`kubectl apply -f server/kubernetes/lego/00-namespace.yaml && kubectl apply -f server/kubernetes/lego/configmap.yaml && kubectl apply -f server/kubernetes/lego/deployment.yaml`  
 5. Webserver setup:  
-   - `kubectl apply -f server/00-namespace.yaml`  
-   - `kubectl apply -f server/service.yaml`  
-   - `kubectl apply -f server/deployment.yaml`  
-   - `kubectl apply -f server/ingress-tls.yaml`  
+   - Staging:
+   	  `kubectl apply -f server/kubernetes/docs-server-staging/all-in-one.yaml`  
+   	- Production:
+     `kubectl apply -f server/kubernetes/docs-server/all-in-one.yaml`. 
 6. Check the external IP address and setup DNS:  
    - `kubectl get ingress --namespace docs-server docs-server`  

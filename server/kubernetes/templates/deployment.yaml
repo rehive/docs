@@ -2,18 +2,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: docs-server
-  namespace: docs-server
+  name: ${PROJECT_NAME}
+  namespace: ${NAMESPACE}
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: docs-server
+        app: ${PROJECT_NAME}
     spec:
       containers:
-      - image: gcr.io/zapgo-1273/docs-server:production
+      - image: ${IMAGE}
         imagePullPolicy: Always
-        name: docs-server
+        name: ${PROJECT_NAME}
         ports:
         - containerPort: 80
