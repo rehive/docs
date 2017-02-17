@@ -9,7 +9,7 @@ def prepare(ctx):
     Builds docs HTML
     """
     # check if container exists:
-    result = ctx.run('echo $(docker ps -q -f name=docs_middleman_1)')
+    result = ctx.run('echo $(docker images -q docs_middleman)', hide='both')
     if not result.stdout.strip():
         # build middle man if it doesn't exist
         ctx.run('docker-compose build middleman', echo=True)
@@ -40,6 +40,16 @@ def push(ctx, config, version_tag):
     """
     Build, tag and push docker image
     """
+
+    if config[-5:] != '.yaml':
+        config += '.yaml'
+
+    # Use /server as base path
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    server_dir_path = os.path.join(dir_path, 'server/')
+    if not os.path.isabs(config):
+        config = os.path.join(server_dir_path, config)
+
     with open(config, 'r') as stream:
         config_dict = yaml.load(stream)
 
@@ -47,10 +57,10 @@ def push(ctx, config, version_tag):
     image = '{}:{}'.format(image_name, version_tag)
 
     build(ctx, image)
-    ctx.run('docker push %s' % image, echo=True)
+    ctx.run('gcloud docker -- push %s' % image, echo=True)
 
 @task
-def version(ctx, bump='patch'):
+def version(ctx, bump='prerelease'):
     """
     Returns incremented version number by looking at git tags
     """
@@ -70,7 +80,7 @@ def version(ctx, bump='patch'):
 
 
 @task
-def release(ctx, config, version_bump='patch'):
+def release(ctx, config, version_bump='prerelease'):
     """
     Bump version, push git tag, push docker image
     N.B. Commit changes first
@@ -88,17 +98,18 @@ def release(ctx, config, version_bump='patch'):
     with open(config, 'r') as stream:
         config_dict = yaml.load(stream)
 
-    bumped_version = version(bump=version_bump)
+    bumped_version = version(ctx, bump=version_bump)
     tag = 'v' + bumped_version
     comment = 'Version ' + bumped_version
 
+    # Create, tag and push docker image:
+    image_name = config_dict['IMAGE'].split(':')[0]
+    push(ctx, config, tag)
+
     # Create an push git tag:
-    ctx.run("git tag %s -m %s" % (tag, comment), echo=True)
+    ctx.run("git tag '%s' -m '%s'" % (tag, comment), echo=True)
     ctx.run("git push origin %s" % tag, echo=True)
 
-    image_name = config_dict['IMAGE'].split(':')[0]
-
-    push(ctx, config, tag)
     print('Release Info:\n'
           'Tag: {}\n'
           'Image: {}\n'.format(tag, image_name))

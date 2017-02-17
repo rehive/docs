@@ -10,6 +10,8 @@ As described in the docker-compose file, middleman will run on [127.0.0.1:4567](
 
 ### Build and release:
 Commit all changes and then run:  
+(if already authenticated, skip the first command)
+> gcloud auth login  
 > inv release {config} {bump}
   
 `{config}` is the name of the deployment config YAML file in the server directory.  
@@ -21,7 +23,10 @@ Options are:  `prerelease`, `patch`, `minor` or `major.`
 ### Deployment:
 The deployment commands require the Invoke, Semver and PyYAML packages.
 
-To update the live deployment on kubernetes, run:
+To update the live deployment on kubernetes, run:  
+(if already authenticated, skip the first two commands)
+> gcloud auth login  
+> gcloud container clusters get-credentials hosting-cluster --zone us-west1-a --project zapgo-1273  
 > inv deploy {config} {version_tag}  
 
 where `{config}` is the value used for the release command above and `{version_tag}` is the version tag output by the release command.
