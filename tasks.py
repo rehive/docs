@@ -70,7 +70,7 @@ def version(ctx, bump='patch'):
 
 
 @task
-def release(ctx, config, bump='patch'):
+def release(ctx, config, version_bump='patch'):
     """
     Bump version, push git tag, push docker image
     N.B. Commit changes first
@@ -88,7 +88,7 @@ def release(ctx, config, bump='patch'):
     with open(config, 'r') as stream:
         config_dict = yaml.load(stream)
 
-    bumped_version = version(bump=bump)
+    bumped_version = version(bump=version_bump)
     tag = 'v' + bumped_version
     comment = 'Version ' + bumped_version
 
