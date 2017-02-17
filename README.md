@@ -19,6 +19,8 @@ E.g. `staging` or `production.`
 Options are:  `prerelease`, `patch`, `minor` or `major.`  
  
 ### Deployment:
+The deployment commands require the Invoke, Semver and PyYAML packages.
+
 To update the live deployment on kubernetes, run:
 > inv deploy {config} {version_tag}  
 
