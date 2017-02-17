@@ -490,7 +490,7 @@ html, body {
 
   aside.success:before {
     @extend %icon-ok-sign;
-    color: $tg-green;
+    color: $tg-blue;
   }
 
   .search-highlight {
