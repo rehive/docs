@@ -243,7 +243,7 @@ curl https://www.rehive.com/api/3/users/bank_accounts/
     "status": "success",
     "data": [
         {
-            "id": 25,
+            "id": 1,
             "name": "Default",
             "number": "9999999999",
             "type": "Cheque",
@@ -265,6 +265,117 @@ List a user's bank accounts.
 
 `https://rehive.com/api/3/users/bank_accounts/`
 
+## Create Bank Account
+
+> User create bank account request
+
+```shell
+curl https://www.rehive.com/api/3/users/bank_accounts/
+  -X POST
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "Bank",
+       "number": "000000000000000",
+       "type": "Cheque",
+       "bank_name": "Bank Ltd.",
+       "branch_code": "0000"}'
+```
+
+> User create bank account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "Bank",
+        "number": "000000000000000",
+        "type": "Cheque",
+        "bank_name": "Bank Ltd.",
+        "bank_code": null,
+        "branch_code": "0000",
+        "swift": null,
+        "iban": null,
+        "bic": null,
+        "code": "bank_account_000000000000"
+    }
+}
+```
+
+Create a bank account for a user.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/bank_accounts/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | account name | null | false
+`number` | account number | null | false
+`type` | account type | null | false
+`bank_name` | bank name | null | false
+`bank_code` | bank code | null | false
+`branch_code` | branch code | null | false
+`swift` | swift number | null | false
+`iban` | IBAN number | null | false
+`bic` | BIC number | null | false
+
+## Update Bank Account
+
+> User update bank account request
+
+```shell
+curl https://www.rehive.com/api/3/users/bank_accounts/{account_id}
+  -X PATCH
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "Bank"}'
+```
+
+> User update bank account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": {account_id},
+        "name": "Bank",
+        "number": "000000000000000",
+        "type": "Cheque",
+        "bank_name": "Bank Ltd.",
+        "bank_code": null,
+        "branch_code": "0000",
+        "swift": null,
+        "iban": null,
+        "bic": null,
+        "code": "bank_account_000000000000"
+    }
+}
+```
+
+Update a user's bank account.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/bank_accounts/{account_id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | account name | null | false
+`number` | account number | null | false
+`type` | account type | null | false
+`bank_name` | bank name | null | false
+`bank_code` | bank code | null | false
+`branch_code` | branch code | null | false
+`swift` | swift number | null | false
+`iban` | IBAN number | null | false
+`bic` | BIC number | null | false
+
+
 ## List Bitcoin Accounts
 
 > User list bitcoin accounts request
@@ -283,7 +394,7 @@ curl https://www.rehive.com/api/3/users/bitcoin_accounts/
     "status": "success",
     "data": [
         {
-            "id": 30,
+            "id": 1,
             "address": "123456789asd",
             "code": "bitcoin_123456789asd"
         }
@@ -296,6 +407,80 @@ List a user's bitcoin addresses.
 ### Endpoint
 
 `https://rehive.com/api/3/users/bitcoin_accounts/`
+
+## Create Bitcoin Account
+
+> User create bitcoin account request
+
+```shell
+curl https://www.rehive.com/api/3/users/bitcoin_accounts/
+  -X POST
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"address": "0000000000000000000000000000000000"}'
+```
+
+> User create bitcoin account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "address": "0000000000000000000000000000000000",
+        "code": "bitcoin_0000000000000000000000000000000000"
+    }
+}
+```
+
+Create a bitcoin account for a user.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/bitcoin_accounts/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`address` | full bitcoin address | null | true
+
+## Update Bitcoin Account
+
+> User update bitcoin account request
+
+```shell
+curl https://www.rehive.com/api/3/users/bitcoin_accounts/{account_id}
+  -X PATCH
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"address": "0000000000000000000000000000000000"}'
+```
+
+> User update bitcoin account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": {account_id},
+        "address": "0000000000000000000000000000000000",
+        "code": "bitcoin_0000000000000000000000000000000000"
+    }
+}
+```
+
+Update a user's bitcoin account.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/bitcoin_accounts/{account_id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`address` | full bitcoin address | null | true
 
 ## Create Document
 
@@ -354,7 +539,7 @@ curl https://www.rehive.com/api/3/users/emails/
     "status": "success",
     "data": [
         {
-            "id": 8,
+            "id": 1,
             "email": "joe@rehive.com",
             "primary": true,
             "verified": true
@@ -368,6 +553,84 @@ Get a list of user's email addresses.
 ### Endpoint
 
 `https://www.rehive.com/api/3/users/emails/`
+
+## Create Email Address
+
+> User create email address request
+
+```shell
+curl https://www.rehive.com/api/3/users/emails/
+  -X POST
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"email": "joe@rehive.com",
+       "primary": true}'
+```
+
+> User create email address response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Create an email address for a user.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/emails/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`email` | email address | null | true
+`primary` | is a primary user email | false | false
+
+## Update Email Address
+
+> User update email address request
+
+```shell
+curl https://www.rehive.com/api/3/users/emails/{email_id}
+  -X PATCH
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"primary": true}'
+```
+
+> User update email address response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": {email_id},
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Update a user's email adress. The email adress can be changed to be the user's primary email address. The actual address cannot be updated ann a new one should instead be created.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/emails/{email_id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`primary` | is a primary user email | false | false
 
 ## List Mobile Numbers
 
@@ -401,6 +664,84 @@ Get a list of user's mobile numbers.
 ### Endpoint
 
 `https://www.rehive.com/api/3/users/mobiles/`
+
+## Create Mobile Number
+
+> User create mobile number request
+
+```shell
+curl https://www.rehive.com/api/3/users/mobiles/
+  -X PATCH
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"number": "+00000000000",
+       "primary": true}'
+```
+
+> User create mobile number response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "number": "+00000000000",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Create a mobile number for a user.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/mobiles/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`number` | mobile number address (including area code)| null | true
+`primary` | is a primary user number | false | false
+
+## Update Mobile Number
+
+> User update mobile number request
+
+```shell
+curl https://www.rehive.com/api/3/users/mobiles/{number_id}
+  -X PATCH
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"primary": true}'
+```
+
+> User update mobile number response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": {number_id},
+        "number": "+00000000000",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Update a user's mobile number. The number can be changed to be the user's primary mobile number. The actual number cannot be updated and a new one should be created instead.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/numbers/{number_id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`primary` | is a primary user email | false | false
 
 ## List Notifications
 
@@ -470,3 +811,43 @@ Get a list of available notification settings.
 ### Endpoint
 
 `https://rehive.com/api/3/users/notifications/`
+
+## Update Notification
+
+> User update notification request
+
+```shell
+curl https://www.rehive.com/api/3/users/notifcations/{notification_id}
+  -X PATCH
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+  -d '{"email_enabled": true}'
+```
+
+> User update notification response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": {notification_id},
+        "email_enabled": true,
+        "sms_enabled": true,
+        "name": "tx_deposit",
+        "description": "Deposit transaction notifications"
+    }
+}
+```
+
+Update a user's settings for a notification.
+
+### Endpoint
+
+`https://rehive.com/api/3/users/notifcations/{notification_id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`email_enabled` | is email notifcation enabled | false | false
+`sms_enabled` | is sms notifcation enabled | false | false
