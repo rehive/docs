@@ -22,6 +22,7 @@ under the License.
 
 // TG COLORS
 ////////////////////
+$tg-yellow: #F8CF51;
 $tg-dark-blue: #204a63;
 $tg-blue: #3C8DBC;
 $tg-green: #70cf32;
@@ -62,7 +63,7 @@ $search-notice-bg: #c97a7e;
 ////////////////////
 $main-text: $tg-slate; // main content text color
 $nav-text: $tg-grey;
-$nav-active-text: $main-text;
+$nav-active-text: $tg-yellow;
 $nav-footer-text: $base-grey-70;
 $content-link: $tg-blue;
 $content-link-hover: $tg-dark-blue;
