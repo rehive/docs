@@ -23,7 +23,7 @@ under the License.
 // TG COLORS
 ////////////////////
 $tg-yellow: #F8CF51;
-$tg-dark-blue: #204a63;
+$tg-dark-blue: #1f80b7;
 $tg-blue: #3C8DBC;
 $tg-green: #70cf32;
 $tg-dark-green: #61b729;
@@ -41,16 +41,16 @@ $black: #000000;
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: $white;
+$nav-bg: $tg-blue;
 $examples-bg: #4d4d4d;
 $code-bg: $tg-slate;
-$code-annotation-bg: #222;
+$code-annotation-bg: $tg-blue;
 $search-highlight: rgba($tg-bermuda-green, .3);
-$nav-subitem-bg: #fff;
-$nav-active-bg: $base-grey-5;
-$lang-select-border: #000;
-$lang-select-bg: #222;
-$lang-select-active-bg: #3C8DBC; // feel free to change this to blue or something
+$nav-subitem-bg: $tg-blue;
+$nav-active-bg: $tg-dark-blue;
+$lang-select-border: $tg-dark-blue;
+$lang-select-bg: $tg-blue;
+$lang-select-active-bg: $tg-dark-blue; // feel free to change this to blue or something
 $lang-select-pressed-bg: $code-annotation-bg; // color of language tab bg when mouse is pressed
 $main-bg: $base-grey-5;
 $aside-notice-bg: #8fbcd4;
@@ -62,8 +62,8 @@ $search-notice-bg: #c97a7e;
 // TEXT COLORS
 ////////////////////
 $main-text: $tg-slate; // main content text color
-$nav-text: $tg-grey;
-$nav-active-text: $tg-yellow;
+$nav-text: $white;
+$nav-active-text: $white;
 $nav-footer-text: $base-grey-70;
 $content-link: $tg-blue;
 $content-link-hover: $tg-dark-blue;

@@ -217,7 +217,7 @@ html, body {
     display: block;
     margin-top: $nav-v-padding;
     padding: $nav-padding;
-    background-color: $tg-slate;
+    background-color: $tg-blue;
     border-radius: 0 3px 3px 0;
   }
   padding: 0 1.5em 5em 0; // increase touch size area
@@ -226,7 +226,7 @@ html, body {
   top: 0;
   left: 0;
   z-index: 100;
-  color: $tg-slate;
+  color: $white;
   text-decoration: none;
   font-weight: bold;
   line-height: 16px;
