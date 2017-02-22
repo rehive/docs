@@ -87,7 +87,7 @@ curl https://www.rehive.com/api/3/auth/login/
   -H "Content-Type: application/json"
   -d '{"idenifier": "joe@rehive.com",
        "company_id": "rehive"
-       "password1": "joe1234"}'
+       "password": "joe1234"}'
 ```
 
 > User login response
