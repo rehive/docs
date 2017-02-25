@@ -12,7 +12,7 @@ As described in the docker-compose file, middleman will run on [127.0.0.1:4567](
 Commit all changes and then run:  
 (if already authenticated, skip the first command)
 > gcloud auth login  
-> inv release {config} {bump}
+> inv release -c {config} -v {bump}
   
 `{config}` is the name of the deployment config YAML file in the server directory.  
 E.g. `staging` or `production.`  
