@@ -4,9 +4,9 @@ Rehive Docs
 Requirements:
 ------------
 
-[Invoke](http://www.pyinvoke.org/)
-[Gcloud SDK](https://cloud.google.com/sdk/)
-[Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)
+1. [Invoke](http://www.pyinvoke.org/)
+2. [Gcloud SDK](https://cloud.google.com/sdk/)
+3. [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)
 
 Quickstart:
 ----------
