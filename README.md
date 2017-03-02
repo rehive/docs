@@ -7,6 +7,8 @@ Requirements:
 1. [Invoke](http://www.pyinvoke.org/)
 2. [Gcloud SDK](https://cloud.google.com/sdk/)
 3. [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)
+4. [Docker](https://docs.docker.com/)
+5. [Docker Compose](https://docs.docker.com/compose/)
 
 Quickstart:
 ----------
