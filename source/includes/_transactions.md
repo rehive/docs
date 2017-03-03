@@ -157,6 +157,57 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 
 `https://rehive.com/api/3/transactions/totals/`
 
+## Retrieve Transaction
+
+> Retrieve transaction request
+
+```shell
+curl https://www.rehive.com/api/3/transactions/{tx_code}/
+  -X GET
+  -H "Authorization: JWT {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve transaction response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "tx_code": "000000000000000000000",
+        "tx_type": "transfer",
+        "subtype": null,
+        "external": false,
+        "note": "",
+        "metadata": {},
+        "external_response": {},
+        "status": "Complete",
+        "reference": "sally@rehive.com",
+        "amount": -500,
+        "fee": 0,
+        "balance": 1000,
+        "label": "Transfer",
+        "account": "default",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "created": 1474399284065,
+        "updated": 1474399285570
+    }
+}
+```
+
+Get transaction details for a spcific transactions.
+
+### Endpoint
+
+`https://rehive.com/api/3/transactions/{tx_code}/`
+
 ## Create Transfer
 
 > User transfer request

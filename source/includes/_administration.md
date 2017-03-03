@@ -157,6 +157,90 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 
 `https://rehive.com/api/3/admins/transactions/totals/`
 
+## Retrieve Transaction
+
+> Retrieve transaction request
+
+```shell
+curl https://www.rehive.com/api/3/admins/transactions/{tx_code}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve transaction response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "tx_code": "000000000000000000000",
+        "tx_type": "transfer",
+        "subtype": null,
+        "external": false,
+        "note": "",
+        "metadata": {},
+        "external_response": {},
+        "status": "Complete",
+        "reference": "sally@rehive.com",
+        "amount": -500,
+        "fee": 0,
+        "balance": 1000,
+        "label": "Transfer",
+        "account": "default",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "created": 1474399284065,
+        "updated": 1474399285570
+    }
+}
+```
+
+Get transaction details for a spcific transactions.
+
+### Endpoint
+
+`https://rehive.com/api/3/admins/transactions/{tx_code}/`
+
+## Update Transaction
+
+> Admin update transaction request
+
+```shell
+curl https://rehive.com/api/3/admins/transactions/{tx_code}/
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"status": "Confirmed"}'
+```
+
+> Admin update transaction response
+
+```json
+{
+    "status": "success"
+}
+```
+
+Update a transaction's status and metadata. This endpoint can be used to move transactions from pending to complete/failed/deleted and updated the corresponding user's balance accordingly.
+
+### Endpoint
+
+`https://rehive.com/api/3/admins/transactions/{tx_code}/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`status` | update action/status (`Confirmed`, `Failed`, `Deleted`) | null | true
+`metadata` | custom metadata | {} | false
+
 ## Create Transfer
 
 > Admin transfer request
@@ -296,41 +380,6 @@ Field | Description | Default | Required
 `note` | user's note or message | blank | false
 `metadata` | custom metadata | {} | false
 `confirm_on_create` | complete immediately after creation | false | false
-
-## Update Transaction
-
-> Admin update transaction request
-
-```shell
-curl https://rehive.com/api/3/admins/transactions/update/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"tx_code": "00000000000000000000",
-       "status": "Confirmed"}'
-```
-
-> Admin update transaction response
-
-```json
-{
-    "status": "success"
-}
-```
-
-Update a transaction's status and metadata. This endpoint can be used to move transactions from pending to complete/failed/deleted and updated the corresponding user's balance accordingly.
-
-### Endpoint
-
-`https://rehive.com/api/3/admins/transactions/update/`
-
-### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`tx_code` | transaction reference code | null | true
-`status` | update action/status (`Confirmed`, `Failed`, `Deleted`) | null | true
-`metadata` | custom metadata | {} | false
 
 ## Verify Email Address
 
