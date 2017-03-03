@@ -1,5 +1,15 @@
 Rehive Docs
 ===========
+
+Requirements:
+------------
+
+1. [Invoke](http://www.pyinvoke.org/)
+2. [Gcloud SDK](https://cloud.google.com/sdk/)
+3. [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)
+4. [Docker](https://docs.docker.com/)
+5. [Docker Compose](https://docs.docker.com/compose/)
+
 Quickstart:
 ----------
 ### Preview Docs:  
@@ -39,6 +49,9 @@ where `config` is the config file name. E.g. `staging`
 
 Once-off setup:
 --------------
+
+**NB The Once-off setup should only be done when setting up a new deployment environment. See above headers for building and deploying on an existing environment.**
+
 1. Create a Kubernetes Cluster, Install GCloud SDK, PIP install invoke
 2. Athenticate gcloud:  
 	`gcloud auth login`  
