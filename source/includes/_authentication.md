@@ -1,12 +1,20 @@
-# JWT Authentication
+# Authentication
 
-The [JWT](https://jwt.io/introduction/) authentication method should be used for all user based interactions with the Rehive platform.
-
-Once a user is logged in, each subsequent request should include a JSON Web Token (JWT) in the HTTP Authorization header. This will permit the user to access  their content and associated functionality.
-
-All JSON Web Tokens have a 100 minute lifespan and should be refreshed within that time period in order to maintain an uninterrupted session. When a JWT expires a `403` error will be thrown and a new JWT will have to be retrieved by logging in again.
+The authentication endpoints provide the core for all Rehive access control. This inclused such tasks as registrations, login, verification, password changes and lost password retrievals.
 
 ## Authorization
+
+There are two methods of authorization in Rehive: JWT and Token. Both methods can be used for all endpoints but within the context of the documentation only the JWT method will be used in example code.
+
+### JWT
+
+[JWT](https://jwt.io/introduction/) authentication is the primary means of authentication on the Rehive platform.
+
+Once a user has logged in and received a JSON Web Token (JWT), each subsequent request should include the JWT in the HTTP Authorization header.
+
+All JSON Web Tokens have a 100 minute lifespan and should be refreshed within that time period in order to maintain an uninterrupted session. When a JWT expires a `403` error will be thrown and a new JWT will have to be retrieved by calling th elogin endpoint again.
+
+**Authorization**
 
 > JWT authorization request
 
@@ -24,6 +32,28 @@ When making requests using a JWT, the JWT should be included as a token in the `
 Remember to replace <code>{jwt}</code> with the user's JWT.
 </aside>
 
+### Token
+
+Token authentication is an additional method of authentication that can be used to access functionality without volatile sessios or token expiry. Token authentication is currently only available to Company owners.
+
+The API token key can be retrieved via `Settings -> Security` in the Rehive dashboard.
+
+**Authorization**
+
+> Token authorization request
+
+```shell
+curl https://www.rehive.com/api/3/
+  -H "Authorization: Token {token}"
+```
+
+When making requests, the API key should be included as a token in the `Authorization` header:
+
+`Authorization: Token {token}`
+
+<aside class="notice">
+You must replace <code>{token}</code> with your API token.
+</aside>
 
 ## Register
 
@@ -45,16 +75,19 @@ curl https://www.rehive.com/api/3/auth/register/
 
 ```json
   {
-    "token": "{token}",
-    "user": {
-      "identifier": "00000000-0000-0000-0000-000000000000",
-      "email": "joe@rehive.com",
-      "mobile_number": "+00000000000",
-      "first_name": "Joe",
-      "last_name": "Soap",
-      "company": "rehive",
-      "profile": null,
-      "language": "en"
+    "status": "success"
+    "data": {
+      "token": "{token}",
+      "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "email": "joe@rehive.com",
+        "mobile_number": "+00000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "company": "rehive",
+        "profile": null,
+        "language": "en"
+      }
     }
   }
 ```
@@ -63,7 +96,7 @@ Register a user with the credentials provided. A successful registration will re
 
 ### Endpoint
 
-`https://rehive.com/api/3/register/`
+`https://rehive.com/api/3/auth/register/`
 
 ### Fields
 
@@ -94,16 +127,19 @@ curl https://www.rehive.com/api/3/auth/login/
 
 ```json
   {
-    "token": "{token}",
-    "user": {
-      "identifier": "00000000-0000-0000-0000-000000000000",
-      "email": "joe@rehive.com",
-      "mobile_number": "+00000000000",
-      "first_name": "Joe",
-      "last_name": "Soap",
-      "company": "rehive",
-      "profile": null,
-      "language": "en"
+    "status": "success"
+    "data": {
+      "token": "{token}",
+      "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "email": "joe@rehive.com",
+        "mobile_number": "+00000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "company": "rehive",
+        "profile": null,
+        "language": "en"
+      }
     }
   }
 ```
@@ -112,7 +148,7 @@ Login a user with the credentials provided. A successful login will return the u
 
 ### Endpoint
 
-`https://rehive.com/api/3/login/`
+`https://rehive.com/api/3/auth/login/`
 
 ### Fields
 
@@ -162,16 +198,19 @@ curl https://www.rehive.com/api/3/auth/jwt/verify/
 
 ```json
   {
-    "token": "{token}",
-    "user": {
-      "identifier": "00000000-0000-0000-0000-000000000000",
-      "email": "joe@rehive.com",
-      "mobile_number": "+00000000000",
-      "first_name": "Joe",
-      "last_name": "Soap",
-      "company": "rehive",
-      "profile": null,
-      "language": "en"
+    "status": "success"
+    "data": {
+      "token": "{token}",
+      "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "email": "joe@rehive.com",
+        "mobile_number": "+00000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "company": "rehive",
+        "profile": null,
+        "language": "en"
+      }
     }
   }
 ```
@@ -203,16 +242,19 @@ curl https://www.rehive.com/api/3/auth/jwt/refresh/
 
 ```json
   {
-    "token": "{token}",
-    "user": {
-      "identifier": "00000000-0000-0000-0000-000000000000",
-      "email": "joe@rehive.com",
-      "mobile_number": "+00000000000",
-      "first_name": "Joe",
-      "last_name": "Soap",
-      "company": "rehive",
-      "profile": null,
-      "language": "en"
+    "status": "success"
+    "data": {
+      "token": "{token}",
+      "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "email": "joe@rehive.com",
+        "mobile_number": "+00000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "company": "rehive",
+        "profile": null,
+        "language": "en"
+      }
     }
   }
 ```

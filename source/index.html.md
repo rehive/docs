@@ -5,11 +5,11 @@ language_tabs:
   - shell
 
 includes:
-  - jwt_authentication
+  - authentication
   - users
   - transactions
   - accounts
-  - token_authentication
+  - company
   - administration
   - errors
 

@@ -5,7 +5,7 @@
 > User profile request
 
 ```shell
-curl https://www.rehive.com/api/3/users/profile/
+curl https://www.rehive.com/api/3/user/
   -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -49,14 +49,14 @@ Retrieve a user's profile information.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/profile/`
+`https://rehive.com/api/3/user/`
 
 ## Update Profile
 
 > User update profile request
 
 ```shell
-curl https://www.rehive.com/api/3/users/profile/
+curl https://www.rehive.com/api/3/user/
   -X PATCH
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -101,7 +101,7 @@ Update a user's profile information.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/profile/`
+`https://rehive.com/api/3/user/`
 
 ### Fields
 
@@ -115,44 +115,12 @@ Field | Description | Default | Required
 `nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
 `metadata` | custom metadata | {} | false
 
-## Retrieve Company
-
-> User retrieve company request
-
-```shell
-curl https://www.rehive.com/api/3/users/company/
-  -X GET
-  -H "Authorization: JWT {token}"
-  -H "Content-Type: application/json"
-```
-
-> User retrieve company response
-
-```json
-{
-    "status": "success",
-    "data": {
-        "identifier": "rehive",
-        "name": "Rehive",
-        "description": "Wallets for everyone.",
-        "website": "http://www.rehive.com",
-        "logo": null
-    }
-}
-```
-
-Retrieve a user's company information.
-
-### Endpoint
-
-`https://rehive.com/api/3/users/company/`
-
 ## Retrieve Address
 
 > User retrieve address request
 
 ```shell
-curl https://www.rehive.com/api/3/users/address/
+curl https://www.rehive.com/api/3/user/address/
   -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -178,14 +146,14 @@ Retrieve a user's address.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/address/`
+`https://rehive.com/api/3/user/address/`
 
 ## Update Address
 
 > User update address request
 
 ```shell
-curl https://www.rehive.com/api/3/users/address/
+curl https://www.rehive.com/api/3/user/address/
   -X PATCH
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -212,7 +180,7 @@ Update a user's address.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/address/`
+`https://rehive.com/api/3/user/address/`
 
 ### Fields
 
@@ -230,7 +198,7 @@ Field | Description | Default | Required
 > User list bank accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/users/bank_accounts/
+curl https://www.rehive.com/api/3/user/bank_accounts/
   -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -263,14 +231,14 @@ List a user's bank accounts.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/bank_accounts/`
+`https://rehive.com/api/3/user/bank_accounts/`
 
 ## Create Bank Account
 
 > User create bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/users/bank_accounts/
+curl https://www.rehive.com/api/3/user/bank_accounts/
   -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -306,7 +274,7 @@ Create a bank account for a user.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/bank_accounts/`
+`https://rehive.com/api/3/user/bank_accounts/`
 
 ### Fields
 
@@ -327,7 +295,7 @@ Field | Description | Default | Required
 > User update bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/users/bank_accounts/{account_id}
+curl https://www.rehive.com/api/3/user/bank_accounts/{account_id}
   -X PATCH
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -359,7 +327,7 @@ Update a user's bank account.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/bank_accounts/{account_id}`
+`https://rehive.com/api/3/user/bank_accounts/{account_id}`
 
 ### Fields
 
@@ -381,7 +349,7 @@ Field | Description | Default | Required
 > User list bitcoin accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/users/bitcoin_accounts/
+curl https://www.rehive.com/api/3/user/bitcoin_accounts/
   -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -406,14 +374,14 @@ List a user's bitcoin addresses.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/bitcoin_accounts/`
+`https://rehive.com/api/3/user/bitcoin_accounts/`
 
 ## Create Bitcoin Account
 
 > User create bitcoin account request
 
 ```shell
-curl https://www.rehive.com/api/3/users/bitcoin_accounts/
+curl https://www.rehive.com/api/3/user/bitcoin_accounts/
   -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -437,7 +405,7 @@ Create a bitcoin account for a user.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/bitcoin_accounts/`
+`https://rehive.com/api/3/user/bitcoin_accounts/`
 
 ### Fields
 
@@ -450,7 +418,7 @@ Field | Description | Default | Required
 > User update bitcoin account request
 
 ```shell
-curl https://www.rehive.com/api/3/users/bitcoin_accounts/{account_id}
+curl https://www.rehive.com/api/3/user/bitcoin_accounts/{account_id}
   -X PATCH
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -474,7 +442,7 @@ Update a user's bitcoin account.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/bitcoin_accounts/{account_id}`
+`https://rehive.com/api/3/user/bitcoin_accounts/{account_id}`
 
 ### Fields
 
@@ -487,7 +455,7 @@ Field | Description | Default | Required
 > User documents request
 
 ```shell
-curl https://www.rehive.com/api/3/users/document/
+curl https://www.rehive.com/api/3/user/document/
   -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -511,7 +479,7 @@ Upload user document.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/document/`
+`https://rehive.com/api/3/user/document/`
 
 ### Fields
 
@@ -526,7 +494,7 @@ Field | Description | Default | Required
 > User list email addresses request
 
 ```shell
-curl https://www.rehive.com/api/3/users/emails/
+curl https://www.rehive.com/api/3/user/emails/
   -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -552,14 +520,14 @@ Get a list of user's email addresses.
 
 ### Endpoint
 
-`https://www.rehive.com/api/3/users/emails/`
+`https://www.rehive.com/api/3/user/emails/`
 
 ## Create Email Address
 
 > User create email address request
 
 ```shell
-curl https://www.rehive.com/api/3/users/emails/
+curl https://www.rehive.com/api/3/user/emails/
   -X POST
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -585,7 +553,7 @@ Create an email address for a user.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/emails/`
+`https://rehive.com/api/3/user/emails/`
 
 ### Fields
 
@@ -599,7 +567,7 @@ Field | Description | Default | Required
 > User update email address request
 
 ```shell
-curl https://www.rehive.com/api/3/users/emails/{email_id}
+curl https://www.rehive.com/api/3/user/emails/{email_id}
   -X PATCH
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -620,11 +588,11 @@ curl https://www.rehive.com/api/3/users/emails/{email_id}
 }
 ```
 
-Update a user's email adress. The email adress can be changed to be the user's primary email address. The actual address cannot be updated ann a new one should instead be created.
+Update a user's email adress. The email adress can be changed to be the user's primary email address. The actual address cannot be updated and a new one should instead be created.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/emails/{email_id}`
+`https://rehive.com/api/3/user/emails/{email_id}`
 
 ### Fields
 
@@ -637,7 +605,7 @@ Field | Description | Default | Required
 > User mobile numbers request
 
 ```shell
-curl https://www.rehive.com/api/3/users/mobiles/
+curl https://www.rehive.com/api/3/user/mobiles/
   -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -663,14 +631,14 @@ Get a list of user's mobile numbers.
 
 ### Endpoint
 
-`https://www.rehive.com/api/3/users/mobiles/`
+`https://www.rehive.com/api/3/user/mobiles/`
 
 ## Create Mobile Number
 
 > User create mobile number request
 
 ```shell
-curl https://www.rehive.com/api/3/users/mobiles/
+curl https://www.rehive.com/api/3/user/mobiles/
   -X PATCH
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -696,7 +664,7 @@ Create a mobile number for a user.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/mobiles/`
+`https://rehive.com/api/3/user/mobiles/`
 
 ### Fields
 
@@ -710,7 +678,7 @@ Field | Description | Default | Required
 > User update mobile number request
 
 ```shell
-curl https://www.rehive.com/api/3/users/mobiles/{number_id}
+curl https://www.rehive.com/api/3/user/mobiles/{number_id}
   -X PATCH
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -735,7 +703,7 @@ Update a user's mobile number. The number can be changed to be the user's primar
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/numbers/{number_id}`
+`https://rehive.com/api/3/user/numbers/{number_id}`
 
 ### Fields
 
@@ -748,7 +716,7 @@ Field | Description | Default | Required
 > User list notifcations request
 
 ```shell
-curl https://www.rehive.com/api/3/users/notifications/
+curl https://www.rehive.com/api/3/user/notifications/
   -X GET
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -810,14 +778,14 @@ Get a list of available notification settings.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/notifications/`
+`https://rehive.com/api/3/user/notifications/`
 
 ## Update Notification
 
 > User update notification request
 
 ```shell
-curl https://www.rehive.com/api/3/users/notifcations/{notification_id}
+curl https://www.rehive.com/api/3/user/notifcations/{notification_id}
   -X PATCH
   -H "Authorization: JWT {token}"
   -H "Content-Type: application/json"
@@ -843,7 +811,7 @@ Update a user's settings for a notification.
 
 ### Endpoint
 
-`https://rehive.com/api/3/users/notifcations/{notification_id}`
+`https://rehive.com/api/3/user/notifcations/{notification_id}`
 
 ### Fields
 
