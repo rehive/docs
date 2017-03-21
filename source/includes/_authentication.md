@@ -1,6 +1,6 @@
 # Authentication
 
-The authentication endpoints provide the core for all Rehive access control. This inclused such tasks as registrations, login, verification, password changes and lost password retrievals.
+The authentication endpoints provide the core for all Rehive access control. This includes such tasks as registration, login, verification, password changes and lost password retrievals.
 
 ## Authorization
 

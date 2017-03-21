@@ -65,7 +65,7 @@ curl https://www.rehive.com/api/3/company/currencies/
 }
 ```
 
-Get a list of available currencies for the current company.
+Get a list of available currencies for the current user's company.
 
 ### Endpoint
 
@@ -109,7 +109,7 @@ curl https://www.rehive.com/api/3/accounts/deposits/bank/
 }
 ```
 
-List company banks for the current company.
+List company banks for the current user's company.
 
 ### Endpoint
 
