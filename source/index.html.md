@@ -35,5 +35,5 @@ To ensure the API is easily explorable Rehive has implemented a browsable API. I
 [Browsable API](https://rehive.com/api/3/)
 
 <aside class="notice">
-It is important to remember that the browsable API uses cookie based sessions for authentication and therefore differs from the documented method of authentication. See <a href="/#jwt-authentication">JWT Authentication</a> for 3rd party authentication.
+It is important to remember that the browsable API uses cookie based sessions for authentication and therefore differs from the documented method of authentication. See <a href="/#authorization">JWT Authentication</a> for 3rd party authentication.
 </aside>
