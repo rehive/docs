@@ -283,6 +283,7 @@ Field | Description | Default | Required
 `subtype` | a custom defined subtype | null | false
 `account` | account reference code | null | false
 `note` | user's note or message | blank | false
+`currency` | currency code | blank | false
 `metadata` | custom metadata | {} | false
 
 <aside class="notice">
@@ -330,6 +331,7 @@ Field | Description | Default | Required
 `subtype` | a custom defined subtype | null | false
 `account` | account reference code | null | false
 `note` | user's note or message | blank | false
+`currency` | currency code | blank | false
 `metadata` | custom metadata | {} | false
 `confirm_on_create` | complete immediately after creation | false | false
 
@@ -378,6 +380,7 @@ Field | Description | Default | Required
 `subtype` | a custom defined subtype | null | false
 `account` | account reference code | null | false
 `note` | user's note or message | blank | false
+`currency` | currency code | blank | false
 `metadata` | custom metadata | {} | false
 `confirm_on_create` | complete immediately after creation | false | false
 
