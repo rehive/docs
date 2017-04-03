@@ -92,9 +92,16 @@ The list is paginated by default and can be navigated via the `next` and `previo
 
 ### Filtering
 
-The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
+The transactions listing offers filtering on the `tx_code`, `tx_type`, 
+`subtype`, `status`, `user`, `from_reference`, `to_reference`, `currency`, 
+`created` and `metadata` fields. This is done through URL parameters in the request URL:
 
 `/api/3/admin/transactions/?tx_type=transfer`
+
+Filtering on a timestamp range using 
+`created__gt` and `created__lt` for greater than and less than a timestamp.
+ 
+ `/api/3/admin/transactions/?created__gt=1490033384080&created__lt=1490033384089`
 
 There is a special format for fitering on metadata (ie. `metadata__{field_name}`):
 
