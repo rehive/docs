@@ -13,7 +13,7 @@ Transactions are run as asynchronous processes within Rehive, so the latest stat
 ```shell
 curl https://www.rehive.com/api/3/transactions/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -117,7 +117,7 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 ```shell
 curl https://www.rehive.com/api/3/transactions/totals/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -164,7 +164,7 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 ```shell
 curl https://www.rehive.com/api/3/transactions/{tx_code}/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -215,7 +215,7 @@ Get transaction details for a spcific transactions.
 ```shell
 curl https://www.rehive.com/api/3/transactions/transfer/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"amount": 500,
        "reference": "sally@rehive.com"}'
@@ -265,7 +265,7 @@ Bear in mind that the <code>amount</code> should always be in the lowest currenc
 ```shell
 curl https://www.rehive.com/api/3/transactions/deposit/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"amount": 500}'
 ```
@@ -306,7 +306,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/transactions/withdraw/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"amount": 500}'
 ```

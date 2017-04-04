@@ -7,7 +7,7 @@
 ```shell
 curl https://www.rehive.com/api/3/company/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -39,7 +39,7 @@ Retrieve current user's company details.
 ```shell
 curl https://www.rehive.com/api/3/company/currencies/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -78,7 +78,7 @@ Get a list of available currencies for the current user's company.
 ```shell
 curl https://www.rehive.com/api/3/accounts/deposits/bank/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 

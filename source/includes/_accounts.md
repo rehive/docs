@@ -7,7 +7,7 @@
 ```shell
 curl https://www.rehive.com/api/3/accounts/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -58,7 +58,7 @@ Get a list of accounts belonging to a user.
 ```shell
 curl https://www.rehive.com/api/3/accounts/{reference}/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -102,7 +102,7 @@ Retrieve an account belonging to a user.
 ```shell
 curl https://www.rehive.com/api/3/accounts/{reference}/currencies/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -145,7 +145,7 @@ Get a list of currencies for an account belonging to a user.
 ```shell
 curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -181,7 +181,7 @@ Retrieve an account's currency belonging to a user.
 ```shell
 curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
   -X PUT
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"active": true}'
 ```
