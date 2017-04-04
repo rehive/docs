@@ -5,7 +5,8 @@ The ability to create infinite lifespan tokens as well as viewing active tokens 
 deleting unused tokens.
 
 <aside class="notice">
-    For security purposes Rehive does not store the authentication tokens.
+    For security purposes Rehive stores hashed authentication tokens and has 
+    no access to the orginal token value.
 </aside>
 
 ## List Tokens

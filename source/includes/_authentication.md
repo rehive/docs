@@ -1,20 +1,25 @@
 # Authentication
 
-The authentication endpoints provide the core for all Rehive access control. This includes such tasks as registration, login, verification, password changes and lost password retrievals.
+The authentication endpoints provide the core for all Rehive access control. 
+This includes such tasks as registration, login, verification, password 
+changes and lost password retrievals.
 
 ## Authorization
 
-Rehive uses Token as the method of authorization.
+Rehive uses token as the method of authorization.
 
-Once a user has logged in and received a Token, each subsequent request should include the Token in the HTTP Authorization header.
+Once a user has logged in and received a token, each subsequent request should 
+include the token in the HTTP Authorization header.
 
-All Tokens have a 10 hour lifespan after which it will be removed. Login would be required in order to re-authenticate.
+All tokens have a 10 hour lifespan after which it will be removed. Login would 
+be required in order to re-authenticate.
 
 Rehive's tokens allows for a single user to have multiple active tokens on separate devices as well
 as the ability for admin users to create tokens that do not expire.
 
 <aside class="warning">
-    For security reasons Rehive will only expose the token once, on login and register, and never again. Be sure to store it somewhere safe.
+    For security reasons Rehive will only expose the token once, on login and 
+    register, and never again. Be sure to store it somewhere safe.
 </aside>
 
 <aside class="notice">
@@ -75,7 +80,8 @@ curl https://www.rehive.com/api/3/auth/register/
   }
 ```
 
-Register a user with the credentials provided. A successful registration will return the user's details and a Token that can be used for subsequent requests.
+Register a user with the credentials provided. A successful registration will 
+return the user's details and a token that can be used for subsequent requests.
 
 ### Endpoint
 
@@ -127,7 +133,8 @@ curl https://www.rehive.com/api/3/auth/login/
   }
 ```
 
-Login a user with the credentials provided. A successful login will return the user's details and a Token that can be used for subsequent requests.
+Login a user with the credentials provided. A successful login will return the 
+user's details and a token that can be used for subsequent requests.
 
 ### Endpoint
 
@@ -161,7 +168,7 @@ curl https://www.rehive.com/api/3/auth/logout/
 }
 ```
 
-Logs the current user out and destroy the Token that was used to authenticate.
+Logs the current user out and destroys the token that was used to authenticate.
 
 ### Endpoint
 
@@ -187,7 +194,7 @@ curl https://www.rehive.com/api/3/auth/logout/all/
 }
 ```
 
-Logs the current user out and destroy all the Tokens related to the user that have expiry dates.
+Logs the current user out and destroy all the tokens related to the user that have expiry dates.
 
 ### Endpoint
 
@@ -294,7 +301,9 @@ curl https://www.rehive.com/api/3/auth/password/reset/confirm/
 Reset a password using a reset `token` and `uid`. These details are sent in an email by Rehive.
 
 <aside class="notice">
-The URL included in the reset email can be customized via the dashboard in `settings -> company info`. Changing this URL is required if you wish to make use of your own client side UI for resetting emails.
+The URL included in the reset email can be customized via the dashboard in 
+`settings -> company info`. Changing this URL is required if you wish to make 
+use of your own client side UI for resetting emails.
 </aside>
 
 ### Endpoint
