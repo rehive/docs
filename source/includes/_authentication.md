@@ -4,6 +4,7 @@ The authentication endpoints provide the core for all Rehive access control.
 This includes such tasks as registration, login, verification, password 
 changes and lost password retrievals.
 
+## Token Authentication
 Rehive uses a token-based HTTP Authentication scheme.
 
 Once a user has logged in and received a token, each subsequent request should 
@@ -21,7 +22,7 @@ as the ability for admin users to create tokens that do not expire.
 
 <aside class="notice">
     See <a href="/#tokens">Tokens</a> for managing authentication tokens.
-</aside>
+</aside>  
 
 **Authorization Header**
 
