@@ -4,21 +4,18 @@ The authentication endpoints provide the core for all Rehive access control.
 This includes such tasks as registration, login, verification, password 
 changes and lost password retrievals.
 
-## Authorization
-
 Rehive uses a token-based HTTP Authentication scheme.
 
 Once a user has logged in and received a token, each subsequent request should 
 include the token in the HTTP Authorization header.
 
-All tokens have a 10 hour lifespan after which it will be removed. Login would 
-be required in order to re-authenticate.
+Tokens expire 10 hours after creation. Once a token has expired, login is required in order to re-authenticate.
 
-Rehive's tokens allows for a single user to have multiple active tokens on separate devices as well
+Rehive's tokens allow for a single user to have multiple active tokens on separate devices as well
 as the ability for admin users to create tokens that do not expire.
 
 <aside class="warning">
-    For security reasons Rehive will only expose the token once, on login and 
+    For security reasons Rehive will only expose the token once, on login or on 
     register, and never again. Be sure to store it somewhere safe.
 </aside>
 
@@ -26,9 +23,9 @@ as the ability for admin users to create tokens that do not expire.
     See <a href="/#tokens">Tokens</a> for managing authentication tokens.
 </aside>
 
-**Authorization**
+**Authorization Header**
 
-> Token authorization request
+> Token authentication request
 
 ```shell
 curl https://www.rehive.com/api/3/
@@ -168,7 +165,7 @@ curl https://www.rehive.com/api/3/auth/logout/
 }
 ```
 
-Logs the current user out and destroys the token that was used to authenticate.
+Logs the current user out and invalidates the token that was used to authenticate.
 
 ### Endpoint
 
@@ -194,7 +191,7 @@ curl https://www.rehive.com/api/3/auth/logout/all/
 }
 ```
 
-Logs the current user out and destroy all the tokens related to the user that have expiry dates.
+Logs the current user out and invalidates all the tokens related to the user that have expiry dates.
 
 ### Endpoint
 
