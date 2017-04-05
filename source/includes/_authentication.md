@@ -6,7 +6,7 @@ changes and lost password retrievals.
 
 ## Authorization
 
-Rehive uses token as the method of authorization.
+Rehive uses a token-based HTTP Authentication scheme.
 
 Once a user has logged in and received a token, each subsequent request should 
 include the token in the HTTP Authorization header.
