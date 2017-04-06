@@ -1,44 +1,30 @@
 # Authentication
 
-The authentication endpoints provide the core for all Rehive access control. This includes such tasks as registration, login, verification, password changes and lost password retrievals.
+The authentication endpoints provide the core for all Rehive access control. 
+This includes such tasks as registration, login, verification, password 
+changes and lost password retrievals.
 
 ## Authorization
+Rehive uses a token-based HTTP Authentication scheme.
 
-There are two methods of authorization in Rehive: JWT and Token. Both methods can be used for all endpoints but within the context of the documentation only the JWT method will be used in example code.
+Once a user has logged in and received a token, each subsequent request should 
+include the token in the HTTP Authorization header.
 
-### JWT
+Tokens expire 10 hours after creation. Once a token has expired, login is required in order to re-authenticate.
 
-[JWT](https://jwt.io/introduction/) authentication is the primary means of authentication on the Rehive platform.
+Rehive's tokens allow for a single user to have multiple active tokens on separate devices as well
+as the ability for admin users to create tokens that do not expire.
 
-Once a user has logged in and received a JSON Web Token (JWT), each subsequent request should include the JWT in the HTTP Authorization header.
-
-All JSON Web Tokens have a 100 minute lifespan and should be refreshed within that time period in order to maintain an uninterrupted session. When a JWT expires a `403` error will be thrown and a new JWT will have to be retrieved by calling th elogin endpoint again.
-
-**Authorization**
-
-> JWT authorization request
-
-```shell
-curl https://www.rehive.com/api/3/
-  -X GET
-  -H "Authorization: JWT {token}"
-```
-
-When making requests using a JWT, the JWT should be included as a token in the `Authorization` header:
-
-`Authorization: JWT {jwt}`
-
-<aside class="notice">
-Remember to replace <code>{jwt}</code> with the user's JWT.
+<aside class="warning">
+    For security reasons Rehive will only expose the token once, on login or on 
+    register, and never again. Be sure to store it somewhere safe.
 </aside>
 
-### Token
+<aside class="notice">
+    See <a href="/#tokens">Tokens</a> for managing authentication tokens.
+</aside>  
 
-Token authentication is an additional method of authentication that can be used to access functionality without volatile sessios or token expiry. Token authentication is currently only available to Company owners.
-
-The API token key can be retrieved via `Settings -> Security` in the Rehive dashboard.
-
-**Authorization**
+**Authorization Header**
 
 > Token authorization request
 
@@ -92,7 +78,8 @@ curl https://www.rehive.com/api/3/auth/register/
   }
 ```
 
-Register a user with the credentials provided. A successful registration will return the user's details and a JWT that can be used for subsequent requests.
+Register a user with the credentials provided. A successful registration will 
+return the user's details and a token that can be used for subsequent requests.
 
 ### Endpoint
 
@@ -144,7 +131,8 @@ curl https://www.rehive.com/api/3/auth/login/
   }
 ```
 
-Login a user with the credentials provided. A successful login will return the user's details and a JWT that can be used for subsequent requests.
+Login a user with the credentials provided. A successful login will return the 
+user's details and a token that can be used for subsequent requests.
 
 ### Endpoint
 
@@ -166,6 +154,7 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/auth/logout/
   -X POST
   -H "Content-Type: application/json"
+  -H "Authorization: Token {token}"
 ```
 
 > User logout response
@@ -177,99 +166,37 @@ curl https://www.rehive.com/api/3/auth/logout/
 }
 ```
 
-Logs the current user out.
+Logs the current user out and invalidates the token that was used to authenticate.
 
 ### Endpoint
 
 `https://rehive.com/api/3/auth/logout/`
 
-## Verify
+## Logout All
 
-> User verify jwt request
+> User logout all request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/jwt/verify/
+curl https://www.rehive.com/api/3/auth/logout/all/
   -X POST
   -H "Content-Type: application/json"
-  -d '{"token": "{token}"}'
+  -H "Authorization: Token {token}"
 ```
 
-> User verify jwt response
+> User logout all response
 
 ```json
-  {
-    "status": "success"
-    "data": {
-      "token": "{token}",
-      "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "email": "joe@rehive.com",
-        "mobile_number": "+00000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "company": "rehive",
-        "profile": null,
-        "language": "en"
-      }
-    }
-  }
+{
+  "message": "Successfully logged out all sessions.",
+  "status": "success"
+}
 ```
 
-Verify JWT. This endpoint will return a user's details if the JWT is successfully verified.
+Logs the current user out and invalidates all the tokens related to the user that have expiry dates.
 
 ### Endpoint
 
-`https://rehive.com/api/3/auth/jwt/verify/`
-
-### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`token` | jwt to be verified | null | true
-
-## Refresh
-
-> User refresh jwt request
-
-```shell
-curl https://www.rehive.com/api/3/auth/jwt/refresh/
-  -X POST
-  -H "Content-Type: application/json"
-  -d '{"token": "{token}"}'
-```
-
-> User refresh jwt response
-
-```json
-  {
-    "status": "success"
-    "data": {
-      "token": "{token}",
-      "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "email": "joe@rehive.com",
-        "mobile_number": "+00000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "company": "rehive",
-        "profile": null,
-        "language": "en"
-      }
-    }
-  }
-```
-
-Refresh a JWT. This endpoint will return a user's details in addition to a new JWT if the JWT provided is successfully verified.
-
-### Endpoint
-
-`https://rehive.com/api/3/auth/jwt/refresh/`
-
-### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`token` | jwt to be verified | null | true
+`https://rehive.com/api/3/auth/logout/all/`
 
 ## Change Password
 
@@ -278,7 +205,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/auth/password/change/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"old_password": "joe1234",
        "new_password1": "joe1234",
@@ -372,7 +299,9 @@ curl https://www.rehive.com/api/3/auth/password/reset/confirm/
 Reset a password using a reset `token` and `uid`. These details are sent in an email by Rehive.
 
 <aside class="notice">
-The URL included in the reset email can be customized via the dashboard in `settings -> company info`. Changing this URL is required if you wish to make use of your own client side UI for resetting emails.
+The URL included in the reset email can be customized via the dashboard in 
+`settings -> company info`. Changing this URL is required if you wish to make 
+use of your own client side UI for resetting emails.
 </aside>
 
 ### Endpoint

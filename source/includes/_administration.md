@@ -9,7 +9,7 @@ Rehive includes a set of admin-only endpoints that can make working with users a
 ```shell
 curl https://www.rehive.com/api/3/admin/transactions/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -124,7 +124,7 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 ```shell
 curl https://www.rehive.com/api/3/admin/transactions/totals/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -171,7 +171,7 @@ Sorting of the transactions listing can be done on all the "filtering" fields me
 ```shell
 curl https://www.rehive.com/api/3/admin/transactions/{tx_code}/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -222,7 +222,7 @@ Get transaction details for a spcific transactions.
 ```shell
 curl https://rehive.com/api/3/admin/transactions/{tx_code}/
   -X PUT
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"status": "Confirmed"}'
 ```
@@ -255,7 +255,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/admin/transactions/transfer/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
        "amount": 500,
@@ -304,7 +304,7 @@ For all admin "create transaction" endpoints a <code>user</code> should always b
 ```shell
 curl https://www.rehive.com/api/3/admin/transactions/deposit/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
        "amount": 500}'
@@ -353,7 +353,7 @@ Admin deposits (and withdrawals) have an additional <code>confirm_on_create</cod
 ```shell
 curl https://www.rehive.com/api/3/admin/transactions/withdraw/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
        "amount": 500}'
@@ -398,7 +398,7 @@ Field | Description | Default | Required
 ```shell
 curl https://rehive.com/api/3/admin/users/emails/verify/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"email": "joe@rehive.com"}'
 ```
@@ -434,7 +434,7 @@ Field | Description | Default | Required
 ```shell
 curl https://rehive.com/api/3/admin/users/mobiles/verify/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"email": "joe@rehive.com"}'
 ```

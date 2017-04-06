@@ -7,7 +7,7 @@
 ```shell
 curl https://www.rehive.com/api/3/user/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -58,7 +58,7 @@ Retrieve a user's profile information.
 ```shell
 curl https://www.rehive.com/api/3/user/
   -X PATCH
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"first_name": "Joe"}'
 ```
@@ -122,7 +122,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/address/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -155,7 +155,7 @@ Retrieve a user's address.
 ```shell
 curl https://www.rehive.com/api/3/user/address/
   -X PATCH
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"city": "Cape Town"}'
 ```
@@ -200,7 +200,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/bank_accounts/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -240,7 +240,7 @@ List a user's bank accounts.
 ```shell
 curl https://www.rehive.com/api/3/user/bank_accounts/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"name": "Bank",
        "number": "000000000000000",
@@ -297,7 +297,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/bank_accounts/{account_id}
   -X PATCH
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"name": "Bank"}'
 ```
@@ -351,7 +351,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/bitcoin_accounts/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -383,7 +383,7 @@ List a user's bitcoin addresses.
 ```shell
 curl https://www.rehive.com/api/3/user/bitcoin_accounts/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"address": "0000000000000000000000000000000000"}'
 ```
@@ -420,7 +420,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/bitcoin_accounts/{account_id}
   -X PATCH
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"address": "0000000000000000000000000000000000"}'
 ```
@@ -457,7 +457,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/document/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -F file=@localfilename
 ```
@@ -496,7 +496,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/emails/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -529,7 +529,7 @@ Get a list of user's email addresses.
 ```shell
 curl https://www.rehive.com/api/3/user/emails/
   -X POST
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"email": "joe@rehive.com",
        "primary": true}'
@@ -569,7 +569,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/emails/{email_id}
   -X PATCH
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"primary": true}'
 ```
@@ -607,7 +607,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/mobiles/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -640,7 +640,7 @@ Get a list of user's mobile numbers.
 ```shell
 curl https://www.rehive.com/api/3/user/mobiles/
   -X PATCH
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"number": "+00000000000",
        "primary": true}'
@@ -680,7 +680,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/mobiles/{number_id}
   -X PATCH
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"primary": true}'
 ```
@@ -718,7 +718,7 @@ Field | Description | Default | Required
 ```shell
 curl https://www.rehive.com/api/3/user/notifications/
   -X GET
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
@@ -787,7 +787,7 @@ Get a list of available notification settings.
 ```shell
 curl https://www.rehive.com/api/3/user/notifcations/{notification_id}
   -X PATCH
-  -H "Authorization: JWT {token}"
+  -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"email_enabled": true}'
 ```
