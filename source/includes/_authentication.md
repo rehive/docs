@@ -282,7 +282,7 @@ curl https://www.rehive.com/api/3/auth/password/reset/confirm/
   -X POST
   -H "Content-Type: application/json"
   -d '{"new_password1": "joe1234",
-       "new_password1": "joe1234",
+       "new_password2": "joe1234",
        "uid": "{uid}",
        "token": "{token}"}'
 ```

@@ -224,7 +224,7 @@ curl https://rehive.com/api/3/admin/transactions/{tx_code}/
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -d '{"status": "Confirmed"}'
+  -d '{"status": "Complete"}'
 ```
 
 > Admin update transaction response
@@ -245,7 +245,7 @@ Update a transaction's status and metadata. This endpoint can be used to move tr
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`status` | update action/status (`Confirmed`, `Failed`, `Deleted`) | null | true
+`status` | update action/status (`Complete`, `Failed`, `Deleted`) | null | true
 `metadata` | custom metadata | {} | false
 
 ## Create Transfer
