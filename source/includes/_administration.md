@@ -462,3 +462,86 @@ Verify a mobile number on behalf of a user.
 Field | Description | Default | Required
 --- | --- | --- | ---
 `number` | mobile number | null | true
+
+## Retrieve Company
+
+> View the company info
+
+```shell
+curl https://rehive.com/api/3/admin/company/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Company info response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "identifier": "test_company",
+        "name": "Test Company 1",
+        "description": "A Test Company.",
+        "website": "http://www.test_company.com",
+        "logo": "https://www.test_company.com/logo.jpg",
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "default_currency": "XBT"
+    }
+}
+```
+
+Retrieve the company info.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/company/`
+
+## Update Company
+
+> Update company info
+
+```shell
+curl https://rehive.com/api/3/admin/company/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"description": "A new description"}'
+```
+
+> Update company info response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "identifier": "test_company",
+        "name": "Test Company 1",
+        "description": "A new description",
+        "website": "http://www.test_company.com",
+        "logo": "https://www.test_company.com/logo.jpg",
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "default_currency": "XBT"
+    }
+}
+```
+
+Retrieve the company info.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/company/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Company Name | blank | false
+`description` | Company Description | blank | false
+`website` | Company website URL | blank | false
+`logo` | Company logo URL | blank | false
+`password_reset_url` | Custom company password reset URL | blank | false
+`email_confirmation_url` | Custom company email confirmation URL | blank | false
+`default_currency` | Default company currency | null | false
