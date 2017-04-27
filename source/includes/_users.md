@@ -23,7 +23,6 @@ curl https://www.rehive.com/api/3/user/
         "username": "",
         "id_number": "",
         "profile": null,
-        "balance": 0,
         "currency": {
             "description": "Rand",
             "code": "ZAR",
@@ -40,7 +39,10 @@ curl https://www.rehive.com/api/3/user/
         },
         "language": "en",
         "nationality": "ZA",
-        "metadata": null
+        "metadata": null,
+        "mobile_number": "+27840000000",
+        "skype_name": "@skype",
+        "timezone": "Asia/Dhaka"
     }
 }
 ```
@@ -75,7 +77,6 @@ curl https://www.rehive.com/api/3/user/
         "username": "",
         "id_number": "",
         "profile": null,
-        "balance": 0,
         "currency": {
             "description": "Rand",
             "code": "ZAR",
@@ -92,7 +93,10 @@ curl https://www.rehive.com/api/3/user/
         },
         "language": "en",
         "nationality": "ZA",
-        "metadata": null
+        "metadata": null,
+        "mobile_number": "+27840000000",
+        "skype_name": "@skype",
+        "timezone": "Asia/Dhaka"
     }
 }
 ```
@@ -114,6 +118,9 @@ Field | Description | Default | Required
 `language` | language code (`af`, `en` etc.) | blank | false
 `nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
 `metadata` | custom metadata | {} | false
+`mobile_number` | mobile number | blank | false
+`skype_name` | skype name | blank | false
+`timezone` | timezone | blank | false
 
 ## Retrieve Address
 
