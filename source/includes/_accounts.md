@@ -47,6 +47,16 @@ curl https://www.rehive.com/api/3/accounts/
 
 Get a list of accounts belonging to a user.
 
+### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+### Filtering
+
+The account listing offers filtering on the `active` attribute. This is done through a URL parameter in the request URL:
+
+`/api/3/accounts/?active=true`
+
 ### Endpoint
 
 `https://rehive.com/api/3/accounts/`
