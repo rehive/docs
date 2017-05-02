@@ -203,6 +203,13 @@ curl https://www.rehive.com/api/3/admin/transactions/{tx_code}/
             "unit": "rand",
             "divisibility": 2
         },
+        "messages": [
+            {
+                "level": "info",
+                "message": "Info message.",
+                "created": 1493729659821
+            }
+        ],
         "created": 1474399284065,
         "updated": 1474399285570
     }
@@ -231,11 +238,54 @@ curl https://rehive.com/api/3/admin/transactions/{tx_code}/
 
 ```json
 {
-    "status": "success"
+    "status": "success",
+    "data": {
+        "tx_code": "000000000000000000000",
+        "tx_type": "transfer",
+        "subtype": null,
+        "external": false,
+        "note": "",
+        "metadata": {},
+        "external_response": {},
+        "status": "Complete",
+        "reference": "sally@rehive.com",
+        "amount": -500,
+        "fee": 0,
+        "balance": 1000,
+        "label": "Transfer",
+        "account": "default",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "messages": [
+            {
+                "level": "info",
+                "message": "Info message.",
+                "created": 1493729659821
+            }
+        ],
+        "created": 1474399284065,
+        "updated": 1474399285570
+    }
 }
 ```
 
 Update a transaction's status and metadata. This endpoint can be used to move transactions from pending to complete/failed/deleted and updated the corresponding user's balance accordingly.
+
+### Messsage
+
+Custom messages can be attached to transactions by including a `message` attribute in an update request. The `message`
+attribute should be a JSOn object with 2 attributes `level` and `message`.
+
+1. `level` : message log level, can be `info`, `warning`, `error`.
+2. `message`: A text message.
+
+Each message added to a transaction will be stored in a list. 
 
 ### Endpoint
 
@@ -247,7 +297,7 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `status` | update action/status (`Complete`, `Failed`, `Deleted`) | null | true
 `metadata` | custom metadata | {} | false
-
+`message` | message object | [] | false
 ## Create Transfer
 
 > Admin transfer request

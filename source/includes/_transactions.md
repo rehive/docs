@@ -196,6 +196,13 @@ curl https://www.rehive.com/api/3/transactions/{tx_code}/
             "unit": "rand",
             "divisibility": 2
         },
+        "messages": [
+            {
+                "level": "info",
+                "message": "Info message.",
+                "created": 1493729659821
+            }
+        ],
         "created": 1474399284065,
         "updated": 1474399285570
     }
