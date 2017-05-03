@@ -545,3 +545,294 @@ Field | Description | Default | Required
 `password_reset_url` | Custom company password reset URL | blank | false
 `email_confirmation_url` | Custom company email confirmation URL | blank | false
 `default_currency` | Default company currency | null | false
+
+## List Webhooks
+
+> List webhooks request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List webhooks response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "tx_type": "transfer",
+            "secret": "supersecret"
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/`
+
+## Create Webhooks
+
+> Create webhooks request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"url": "http://mysite.com/webhook_endpoint",
+       "tx_type": "transfer",
+       "secret": "supersecret"}'
+```
+
+> List webhooks response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "tx_type": "transfer",
+            "secret": "supersecret"
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`url` | Webhook URL | blank | true
+`tx_type` | Transaction type | blank | true
+`secret` | Webhook secret | blank | false
+
+## Retrieve Webhook
+
+> Retrieve webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/{id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve webhook response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "url": "http://mysite.com/webhook_endpoint",
+        "tx_type": "transfer",
+        "secret": "supersecret"
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/{id}`
+
+## Update Webhook
+
+> Update webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"url": "http://mysite.com/new_webhook_endpoint"}'
+```
+
+> Update webhook response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/new_webhook_endpoint",
+            "tx_type": "transfer",
+            "secret": "supersecret"
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`url` | Webhook URL | blank | true
+`tx_type` | Transaction type | blank | true
+`secret` | Webhook secret | blank | false
+
+## List Subtypes
+
+> List subtypes request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List subtypes response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 20,
+            "name": "deposit_subtype",
+            "label": "Our deposit",
+            "description": "Description for out deposit",
+            "tx_type": "deposit",
+            "created": "2017-04-28T11:36:57.396723Z",
+            "updated": "2017-04-28T11:36:57.396743Z"
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/`
+
+## Create subtypes
+
+> Create subtypes request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Create subtypes response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 20,
+        "name": "deposit_subtype",
+        "label": "Our deposit",
+        "description": "Description for out deposit",
+        "tx_type": "deposit",
+        "created": "2017-04-28T11:36:57.396723Z",
+        "updated": "2017-04-28T11:36:57.396743Z"
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | name | blank | true
+`label` | label | blank | false
+`description` | description | blank | false
+`tx_type` | Transaction type | blank | true
+
+## Retrieve Subtypes
+
+> Retrieve subtypes request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve subtypes response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 20,
+        "name": "deposit_subtype",
+        "label": "Our deposit",
+        "description": "Description for out deposit",
+        "tx_type": "deposit",
+        "created": "2017-04-28T11:36:57.396723Z",
+        "updated": "2017-04-28T11:36:57.396743Z"
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/{id}`
+
+## Update subtypes
+
+> Update subtypes request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"description": "New description"}'
+```
+
+> Update subtypes response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 20,
+        "name": "deposit_subtype",
+        "label": "Our deposit",
+        "description": "New description",
+        "tx_type": "deposit",
+        "created": "2017-04-28T11:36:57.396723Z",
+        "updated": "2017-04-28T11:36:57.396743Z"
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | name | blank | true
+`label` | label | blank | false
+`description` | description | blank | false
+`tx_type` | Transaction type | blank | true
