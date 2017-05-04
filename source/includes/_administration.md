@@ -836,3 +836,174 @@ Field | Description | Default | Required
 `label` | label | blank | false
 `description` | description | blank | false
 `tx_type` | Transaction type | blank | true
+
+## List Bank Accounts
+
+> List Bank Accounts request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Bank Accounts response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "name": "Bank Account",
+            "number": "12341234",
+            "type": "Cheque",
+            "bank_name": "Barclays",
+            "bank_code": "1234",
+            "branch_code": "1234",
+            "swift": null,
+            "iban": null,
+            "bic": null
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/bank-account/`
+
+## Create Bank Account
+
+> Create Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-account/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234"}'
+```
+
+> Create Bank Account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 2,
+        "name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/bank-account/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Account Name | blank | false
+`number` | Account Number | blank | false
+`type` | Account Type | blank | false
+`bank_name` | Bank Name | blank | false
+`bank_code` | Bank Code | blank | false
+`branch_code` | Branch Code | blank | false
+
+## Retrieve Bank Account
+
+> Retrieve Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-account/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Bank Account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/bank-account/{id}`
+
+## Update Bank Account
+
+> Update Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-account/{id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "New account name"}'
+```
+
+> Update Bank Account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "New account name",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/bank-account/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Account Name | blank | false
+`number` | Account Number | blank | false
+`type` | Account Type | blank | false
+`bank_name` | Bank Name | blank | false
+`bank_code` | Bank Code | blank | false
+`branch_code` | Branch Code | blank | false
