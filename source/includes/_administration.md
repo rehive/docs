@@ -872,14 +872,14 @@ curl https://rehive.com/api/3/admin/bank-accounts/
 
 ### Endpoint
 
-`https://rehive.com/api/3/admin/bank-account/`
+`https://rehive.com/api/3/admin/bank-accounts/`
 
 ## Create Bank Account
 
 > Create Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-account/
+curl https://rehive.com/api/3/admin/bank-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -913,7 +913,7 @@ curl https://rehive.com/api/3/admin/bank-account/
 
 ### Endpoint
 
-`https://rehive.com/api/3/admin/bank-account/`
+`https://rehive.com/api/3/admin/bank-accounts/`
 
 ### Fields
 
@@ -931,7 +931,7 @@ Field | Description | Default | Required
 > Retrieve Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-account/{id}/
+curl https://rehive.com/api/3/admin/bank-accounts/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -959,14 +959,14 @@ curl https://rehive.com/api/3/admin/bank-account/{id}/
 
 ### Endpoint
 
-`https://rehive.com/api/3/admin/bank-account/{id}`
+`https://rehive.com/api/3/admin/bank-accounts/{id}`
 
 ## Update Bank Account
 
 > Update Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-account/{id}
+curl https://rehive.com/api/3/admin/bank-accounts/{id}
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -995,7 +995,7 @@ curl https://rehive.com/api/3/admin/bank-account/{id}
 
 ### Endpoint
 
-`https://rehive.com/api/3/admin/bank-account/{id}`
+`https://rehive.com/api/3/admin/bank-accounts/{id}`
 
 ### Fields
 
@@ -1007,3 +1007,195 @@ Field | Description | Default | Required
 `bank_name` | Bank Name | blank | false
 `bank_code` | Bank Code | blank | false
 `branch_code` | Branch Code | blank | false
+
+## List Notifications
+
+> List Notifications request
+
+```shell
+curl https://rehive.com/api/3/admin/notifications/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Notifications response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "name": "tx_send",
+            "description": "Send transaction notifications",
+            "enabled": true
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/notifications/`
+
+## Retrieve Notifications
+
+> Retrieve Notifications request
+
+```shell
+curl https://rehive.com/api/3/admin/notifications/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Notifications response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "tx_send",
+        "description": "Send transaction notifications",
+        "enabled": true
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/notifications/{id}`
+
+## Update Notifications
+
+> Update Notifications request
+
+```shell
+curl https://rehive.com/api/3/admin/notifications/{id}
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update Notifications response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "tx_send",
+        "description": "Send transaction notifications",
+        "enabled": false
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/notifications/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`enabled` | Account Name | false | true
+
+## List Controls
+
+> List Controls request
+
+```shell
+curl https://rehive.com/api/3/admin/controls/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Controls response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "name": "tx_all",
+            "description": "Allow transactions",
+            "enabled": true
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/controls/`
+
+## Retrieve Controls
+
+> Retrieve Controls request
+
+```shell
+curl https://rehive.com/api/3/admin/controls/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Controls response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "tx_all",
+        "description": "Allow transactions",
+        "enabled": true
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/controls/{id}`
+
+## Update Controls
+
+> Update Controls request
+
+```shell
+curl https://rehive.com/api/3/admin/controls/{id}
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update Controls response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "tx_all",
+        "description": "Allow transactions",
+        "enabled": false
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/controls/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`enabled` | Account Name | false | true
