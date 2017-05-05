@@ -686,51 +686,6 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `active` | is active currency | false | false
 
-
-
-
-
-
-
-## List Currencies
-
-> Admin list currencies request
-
-```shell
-curl https://www.rehive.com/api/3/company/currencies/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-> Admin list currencies response
-
-```json
-{
-    "status": "success",
-    "data": {
-        "count": 1,
-        "next": null,
-        "previous": null,
-        "results": [
-            {
-                "code": "XBT",
-                "description": "bitcoin",
-                "symbol": "฿",
-                "unit": "bitcoin",
-                "divisibility": 8
-            }
-        ]
-    }
-}
-```
-
-Get a list of all existing currencies. This includes default Rehive currencies as well as any currencies added by the company.
-
-### Endpoint
-
-`https://rehive.com/api/3/admin/currencies/`
-
 ## List Currencies
 
 > Admin list currencies request

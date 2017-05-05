@@ -101,6 +101,12 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
 
 Retrieve an account belonging to a user.
 
+### Filtering
+
+The account view offers filtering of currencies based on the `active` attribute. This is done through a URL parameter in the request URL:
+
+`/api/3/accounts/{reference}/?active=true`
+
 ### Endpoint
 
 `https://rehive.com/api/3/accounts/{reference}/`
@@ -143,6 +149,16 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/
 ```
 
 Get a list of currencies for an account belonging to a user.
+
+### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+### Filtering
+
+The account currency listing offers filtering on the `active` attribute. This is done through a URL parameter in the request URL:
+
+`/api/3/accounts/{reference}/currencies/?active=true`
 
 ### Endpoint
 
