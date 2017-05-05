@@ -49,7 +49,7 @@ curl https://www.rehive.com/api/3/company/currencies/
 {
     "status": "success",
     "data": {
-        "count": 4,
+        "count": 1,
         "next": null,
         "previous": null,
         "results": [

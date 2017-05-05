@@ -203,6 +203,13 @@ curl https://www.rehive.com/api/3/admin/transactions/{tx_code}/
             "unit": "rand",
             "divisibility": 2
         },
+        "messages": [
+            {
+                "level": "info",
+                "message": "Info message.",
+                "created": 1493729659821
+            }
+        ],
         "created": 1474399284065,
         "updated": 1474399285570
     }
@@ -231,11 +238,54 @@ curl https://rehive.com/api/3/admin/transactions/{tx_code}/
 
 ```json
 {
-    "status": "success"
+    "status": "success",
+    "data": {
+        "tx_code": "000000000000000000000",
+        "tx_type": "transfer",
+        "subtype": null,
+        "external": false,
+        "note": "",
+        "metadata": {},
+        "external_response": {},
+        "status": "Complete",
+        "reference": "sally@rehive.com",
+        "amount": -500,
+        "fee": 0,
+        "balance": 1000,
+        "label": "Transfer",
+        "account": "default",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "messages": [
+            {
+                "level": "info",
+                "message": "Info message.",
+                "created": 1493729659821
+            }
+        ],
+        "created": 1474399284065,
+        "updated": 1474399285570
+    }
 }
 ```
 
 Update a transaction's status and metadata. This endpoint can be used to move transactions from pending to complete/failed/deleted and updated the corresponding user's balance accordingly.
+
+### Messsage
+
+Custom messages can be attached to transactions by including a `message` attribute in an update request. The `message`
+attribute should be a JSOn object with 2 attributes `level` and `message`.
+
+1. `level` : message log level, can be `info`, `warning`, `error`.
+2. `message`: A text message.
+
+Each message added to a transaction will be stored in a list. 
 
 ### Endpoint
 
@@ -247,7 +297,7 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `status` | update action/status (`Complete`, `Failed`, `Deleted`) | null | true
 `metadata` | custom metadata | {} | false
-
+`message` | message object | [] | false
 ## Create Transfer
 
 > Admin transfer request
@@ -390,6 +440,462 @@ Field | Description | Default | Required
 `currency` | currency code | blank | false
 `metadata` | custom metadata | {} | false
 `confirm_on_create` | complete immediately after creation | false | false
+
+## List Accounts
+
+> Admin list accounts request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list accounts response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "name": "default",
+                "reference": "0000000000",
+                "user": "joe@rehive.com",
+                "balances": [
+                    {
+                        "balance": 10000,
+                        "currency": {
+                            "code": "XBT",
+                            "description": "bitcoin",
+                            "symbol": "฿",
+                            "unit": "bitcoin",
+                            "divisibility": 8
+                        },
+                        "active": true
+                    }
+                ],
+                "created": 1464858068745,
+                "updated": 1464858068745
+            }
+        ]
+    }
+}
+```
+
+Get a list of accounts belonging to users in a company.
+
+### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+### Filtering
+
+The account listing offers filtering on the `active` and `user` attributes. This is done through URL parameters in the request URL:
+
+`/api/3/admin/accounts/?active=true`
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/`
+
+## Retrieve Account
+
+> Admin retrieve account request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/{reference}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin retrieve account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "name": "default",
+        "reference": "0000000000",
+        "user": "joe@rehive.com",
+        "balances": [
+            {
+                "balance": 10000,
+                "currency": {
+                    "code": "XBT",
+                    "description": "bitcoin",
+                    "symbol": "฿",
+                    "unit": "bitcoin",
+                    "divisibility": 8
+                },
+                "active": true
+            }
+        ],
+        "created": 1464858068745,
+        "updated": 1464858068745
+    }
+}
+```
+
+Retrieve an account belonging to a company.
+
+### Filtering
+
+The account view offers filtering of currencies based on the `active` attribute. This is done through a URL parameter in the request URL:
+
+`/api/3/admin/accounts/{reference}/?active=true`
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/`
+
+## List Account Currencies
+
+> Admin list account currencies request
+
+```shell
+curl https://www.rehive.com/admin/api/3/accounts/{reference}/currencies/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list account currencies response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "balance": 10000,
+                "currency": {
+                    "code": "XBT",
+                    "description": "bitcoin",
+                    "symbol": "฿",
+                    "unit": "bitcoin",
+                    "divisibility": 8
+                },
+                "active": true
+            }
+        ]
+    }
+}
+```
+
+Get a list of currencies for an account belonging to a company.
+
+### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+### Filtering
+
+The account currency listing offers filtering on the `active` attribute. This is done through a URL parameter in the request URL:
+
+`/api/3/admin/accounts/{reference}/currencies/?active=true`
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/`
+
+## Retrieve Account Currency
+
+> Admin retrieve account currency request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin retrieve account currency response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "balance": 10000,
+        "currency": {
+            "code": "XBT",
+            "description": "bitcoin",
+            "symbol": "฿",
+            "unit": "bitcoin",
+            "divisibility": 8
+        },
+        "active": true
+    }
+}
+```
+
+Retrieve an account's currency belonging to a company.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}`
+
+## Update Account Currency
+
+> Admin retrieve account currency request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"active": true}'
+```
+
+> Admin retrieve account currency response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "balance": 10000,
+        "currency": {
+            "code": "XBT",
+            "description": "bitcoin",
+            "symbol": "฿",
+            "unit": "bitcoin",
+            "divisibility": 8
+        },
+        "active": true
+    }
+}
+```
+
+Update the active status of an account currency. Activating an account's currency will result in that currency getting used by default for all transactions if no other account/currency is specified.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`active` | is active currency | false | false
+
+
+
+
+
+
+
+## List Currencies
+
+> Admin list currencies request
+
+```shell
+curl https://www.rehive.com/api/3/company/currencies/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list currencies response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "code": "XBT",
+                "description": "bitcoin",
+                "symbol": "฿",
+                "unit": "bitcoin",
+                "divisibility": 8
+            }
+        ]
+    }
+}
+```
+
+Get a list of all existing currencies. This includes default Rehive currencies as well as any currencies added by the company.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/`
+
+## List Currencies
+
+> Admin list currencies request
+
+```shell
+curl https://www.rehive.com/api/3/admin/currencies/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list currencies response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "code": "XBT",
+                "description": "bitcoin",
+                "symbol": "฿",
+                "unit": "bitcoin",
+                "divisibility": 8
+            }
+        ]
+    }
+}
+```
+
+Get a list of all existing currencies. This includes default Rehive currencies as well as any currencies added by the company.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/`
+
+## Create Currency
+
+> Admin create currency request
+
+```shell
+curl https://www.rehive.com/api/3/admin/currencies/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8}'
+```
+
+> Admin create currency response
+
+```json
+ {
+    "status": "success",
+    "data": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8,
+        "enabled": false
+    }
+}
+```
+
+Create a custom currency. This currency will be unique to the company that created it.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`code` | currency code | null | true
+`description` | name of currency | null | true
+`symbol` | currency symbol | null | true
+`unit` | unit, like `dollar` | null | true
+`divisibility` | number of decimal places | 0 | true
+
+
+## Retrieve Currency
+
+> Admin retrieve currency request
+
+```shell
+curl https://www.rehive.com/api/3/admin/currencies/{code}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin retrieve currency response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8,
+        "enabled": true
+    }
+}
+```
+
+Retrieve a currencies details.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/{code}/`
+
+## Update Currency
+
+> Admin update currency request
+
+```shell
+curl https://www.rehive.com/api/3/admin/currencies/{code}/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"enabled": true}'
+```
+
+> Admin update currency response
+
+```json
+ {
+    "status": "success",
+    "data": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8,
+        "enabled": true
+    }
+}
+```
+
+Update a currency. this endpoint can be used to enable an existing currency or if it is a custom currency, edit its details.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/{code}/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`code` | currency code | null | true
+`description` | name of currency | null | true
+`symbol` | currency symbol | null | true
+`unit` | unit, like `dollar` | null | true
+`divisibility` | number of decimal places | 0 | true
+`enabled` | whether active for a company | false | true
 
 ## Verify Email Address
 
