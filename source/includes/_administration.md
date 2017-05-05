@@ -545,3 +545,657 @@ Field | Description | Default | Required
 `password_reset_url` | Custom company password reset URL | blank | false
 `email_confirmation_url` | Custom company email confirmation URL | blank | false
 `default_currency` | Default company currency | null | false
+
+## List Webhooks
+
+> List webhooks request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List webhooks response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "tx_type": "transfer",
+            "secret": "supersecret"
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/`
+
+## Create Webhooks
+
+> Create webhooks request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"url": "http://mysite.com/webhook_endpoint",
+       "tx_type": "transfer",
+       "secret": "supersecret"}'
+```
+
+> List webhooks response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "tx_type": "transfer",
+            "secret": "supersecret"
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`url` | Webhook URL | blank | true
+`tx_type` | Transaction type | blank | true
+`secret` | Webhook secret | blank | false
+
+## Retrieve Webhook
+
+> Retrieve webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/{id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve webhook response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "url": "http://mysite.com/webhook_endpoint",
+        "tx_type": "transfer",
+        "secret": "supersecret"
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/{id}`
+
+## Update Webhook
+
+> Update webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"url": "http://mysite.com/new_webhook_endpoint"}'
+```
+
+> Update webhook response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/new_webhook_endpoint",
+            "tx_type": "transfer",
+            "secret": "supersecret"
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`url` | Webhook URL | blank | true
+`tx_type` | Transaction type | blank | true
+`secret` | Webhook secret | blank | false
+
+## List Subtypes
+
+> List subtypes request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List subtypes response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 20,
+            "name": "deposit_subtype",
+            "label": "Our deposit",
+            "description": "Description for out deposit",
+            "tx_type": "deposit",
+            "created": "2017-04-28T11:36:57.396723Z",
+            "updated": "2017-04-28T11:36:57.396743Z"
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/`
+
+## Create subtypes
+
+> Create subtypes request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Create subtypes response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 20,
+        "name": "deposit_subtype",
+        "label": "Our deposit",
+        "description": "Description for out deposit",
+        "tx_type": "deposit",
+        "created": "2017-04-28T11:36:57.396723Z",
+        "updated": "2017-04-28T11:36:57.396743Z"
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | name | blank | true
+`label` | label | blank | false
+`description` | description | blank | false
+`tx_type` | Transaction type | blank | true
+
+## Retrieve Subtypes
+
+> Retrieve subtypes request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve subtypes response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 20,
+        "name": "deposit_subtype",
+        "label": "Our deposit",
+        "description": "Description for out deposit",
+        "tx_type": "deposit",
+        "created": "2017-04-28T11:36:57.396723Z",
+        "updated": "2017-04-28T11:36:57.396743Z"
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/{id}`
+
+## Update subtypes
+
+> Update subtypes request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"description": "New description"}'
+```
+
+> Update subtypes response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 20,
+        "name": "deposit_subtype",
+        "label": "Our deposit",
+        "description": "New description",
+        "tx_type": "deposit",
+        "created": "2017-04-28T11:36:57.396723Z",
+        "updated": "2017-04-28T11:36:57.396743Z"
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | name | blank | true
+`label` | label | blank | false
+`description` | description | blank | false
+`tx_type` | Transaction type | blank | true
+
+## List Bank Accounts
+
+> List Bank Accounts request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Bank Accounts response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "name": "Bank Account",
+            "number": "12341234",
+            "type": "Cheque",
+            "bank_name": "Barclays",
+            "bank_code": "1234",
+            "branch_code": "1234",
+            "swift": null,
+            "iban": null,
+            "bic": null
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/`
+
+## Create Bank Account
+
+> Create Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234"}'
+```
+
+> Create Bank Account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 2,
+        "name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Account Name | blank | false
+`number` | Account Number | blank | false
+`type` | Account Type | blank | false
+`bank_name` | Bank Name | blank | false
+`bank_code` | Bank Code | blank | false
+`branch_code` | Branch Code | blank | false
+
+## Retrieve Bank Account
+
+> Retrieve Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Bank Account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/{id}`
+
+## Update Bank Account
+
+> Update Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/{id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "New account name"}'
+```
+
+> Update Bank Account response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "New account name",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Account Name | blank | false
+`number` | Account Number | blank | false
+`type` | Account Type | blank | false
+`bank_name` | Bank Name | blank | false
+`bank_code` | Bank Code | blank | false
+`branch_code` | Branch Code | blank | false
+
+## List Notifications
+
+> List Notifications request
+
+```shell
+curl https://rehive.com/api/3/admin/notifications/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Notifications response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "name": "tx_send",
+            "description": "Send transaction notifications",
+            "enabled": true
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/notifications/`
+
+## Retrieve Notifications
+
+> Retrieve Notifications request
+
+```shell
+curl https://rehive.com/api/3/admin/notifications/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Notifications response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "tx_send",
+        "description": "Send transaction notifications",
+        "enabled": true
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/notifications/{id}`
+
+## Update Notifications
+
+> Update Notifications request
+
+```shell
+curl https://rehive.com/api/3/admin/notifications/{id}
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update Notifications response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "tx_send",
+        "description": "Send transaction notifications",
+        "enabled": false
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/notifications/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`enabled` | Account Name | false | true
+
+## List Controls
+
+> List Controls request
+
+```shell
+curl https://rehive.com/api/3/admin/controls/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Controls response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "name": "tx_all",
+            "description": "Allow transactions",
+            "enabled": true
+        }
+    ]
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/controls/`
+
+## Retrieve Controls
+
+> Retrieve Controls request
+
+```shell
+curl https://rehive.com/api/3/admin/controls/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Controls response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "tx_all",
+        "description": "Allow transactions",
+        "enabled": true
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/controls/{id}`
+
+## Update Controls
+
+> Update Controls request
+
+```shell
+curl https://rehive.com/api/3/admin/controls/{id}
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update Controls response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "name": "tx_all",
+        "description": "Allow transactions",
+        "enabled": false
+    }
+}
+```
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/controls/{id}`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`enabled` | Account Name | false | true
