@@ -646,7 +646,7 @@ Get a list of user's mobile numbers.
 
 ```shell
 curl https://www.rehive.com/api/3/user/mobiles/
-  -X PATCH
+  -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"number": "+00000000000",
@@ -710,7 +710,7 @@ Update a user's mobile number. The number can be changed to be the user's primar
 
 ### Endpoint
 
-`https://rehive.com/api/3/user/numbers/{number_id}`
+`https://rehive.com/api/3/user/mobiles/{number_id}`
 
 ### Fields
 

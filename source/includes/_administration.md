@@ -148,17 +148,17 @@ Get a company's total transaction details. This is a summary of transaction deta
 
 The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
 
-`/api/3/admin/transactions/?tx_type=transfer`
+`/api/3/admin/transactions/totals/?tx_type=transfer`
 
 There is a special format for fitering on metadata (ie. `metadata__{field_name}`):
 
-`/api/3/admin/transactions/?metadata__type=test`
+`/api/3/admin/transactions/totals/?metadata__type=test`
 
 ### Sorting
 
 Sorting of the transactions listing can be done on all the "filtering" fields mentioned above via an `orderby` parameter in the request URL:
 
-`/api/3/transactions/?orderby=tx_type`
+`/api/3/transactions/totals/?orderby=tx_type`
 
 ### Endpoint
 
