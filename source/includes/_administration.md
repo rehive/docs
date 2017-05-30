@@ -24,19 +24,20 @@ curl https://www.rehive.com/api/3/admin/transactions/
         "previous": null,
         "results": [
             {
-                "tx_code": "000000000000000000000",
-                "tx_type": "transfer",
+                "id": "000000000000000000000",
+                "tx_type": "credit",
                 "subtype": null,
-                "status": "Complete",
                 "external": false,
                 "note": "",
                 "metadata": {},
-                "external_response": {},
+                "status": "Complete",
+                "reference": "",
                 "amount": 500,
                 "fee": 0,
-                "from_balance": 1500,
-                "to_balance": 500,
-                "label": "Transfer",
+                "balance": 1000,
+                "account": "akC49YT8x4",
+                "label": "Credit",
+                "company": "rehive",
                 "currency": {
                     "description": "Rand",
                     "code": "ZAR",
@@ -44,27 +45,35 @@ curl https://www.rehive.com/api/3/admin/transactions/
                     "unit": "rand",
                     "divisibility": 2
                 },
-                "from_account": "default",
-                "to_account": "default",
-                "from_reference": "joe@rehive.com",
-                "to_reference": "sally@rehive.com",
-                "created": 1487066686668,
-                "updated": 1487066694343
+                "user": {
+                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": "",
+                    "mobile_number": "+27840000000",
+                    "profile": null
+                },
+                "source_transaction": null,
+                "destination_transaction": null,
+                "created": 1496135465218,
+                "updated": 1496135465287
             },
             {
-                "tx_code": "000000000000000000000",
-                "tx_type": "transfer",
+                "id": "000000000000000000000",
+                "tx_type": "credit",
                 "subtype": null,
-                "status": "Complete",
                 "external": false,
                 "note": "",
                 "metadata": {},
-                "external_response": {},
+                "status": "Complete",
+                "reference": "",
                 "amount": 500,
                 "fee": 0,
-                "from_balance": 1000,
-                "to_balance": 1000,
-                "label": "Transfer",
+                "balance": 500,
+                "account": "akC49YT8x4",
+                "label": "Credit",
+                "company": "rehive",
                 "currency": {
                     "description": "Rand",
                     "code": "ZAR",
@@ -72,12 +81,19 @@ curl https://www.rehive.com/api/3/admin/transactions/
                     "unit": "rand",
                     "divisibility": 2
                 },
-                "from_account": "default",
-                "to_account": "default",
-                "from_reference": "joe@rehive.com",
-                "to_reference": "sally@rehive.com",
-                "created": 1487066686668,
-                "updated": 1487066694343
+                "user": {
+                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": "",
+                    "mobile_number": "+27840000000",
+                    "profile": null
+                },
+                "source_transaction": null,
+                "destination_transaction": null,
+                "created": 1496135465218,
+                "updated": 1496135465287
             }
         ]
     }
@@ -92,26 +108,23 @@ The list is paginated by default and can be navigated via the `next` and `previo
 
 ### Filtering
 
-The transactions listing offers filtering on the `tx_code`, `tx_type`, 
-`subtype`, `status`, `user`, `from_reference`, `to_reference`, `currency`, 
-`created` and `metadata` fields. This is done through URL parameters in the request URL:
+The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
 
-`/api/3/admin/transactions/?tx_type=transfer`
+`/api/3/transactions/?tx_type=debit`
 
-Filtering on a timestamp range using 
-`created__gt` and `created__lt` for greater than and less than a timestamp.
- 
- `/api/3/admin/transactions/?created__gt=1490033384080&created__lt=1490033384089`
+You can also do boolean filtering on `source_transaction` and `destination_transaction` like this:
+
+`/api/3/transactions/?destination_transaction=true`
 
 There is a special format for fitering on metadata (ie. `metadata__{field_name}`):
 
-`/api/3/admin/transactions/?metadata__type=test`
+`/api/3/transactions/?metadata__type=test`
 
 ### Sorting
 
 Sorting of the transactions listing can be done on all the "filtering" fields mentioned above via an `orderby` parameter in the request URL:
 
-`/api/3/admin/transactions/?orderby=tx_type`
+`/api/3/transactions/?orderby=tx_type`
 
 ### Endpoint
 
@@ -146,19 +159,7 @@ Get a company's total transaction details. This is a summary of transaction deta
 
 ### Filtering
 
-The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
-
-`/api/3/admin/transactions/totals/?tx_type=transfer`
-
-There is a special format for fitering on metadata (ie. `metadata__{field_name}`):
-
-`/api/3/admin/transactions/totals/?metadata__type=test`
-
-### Sorting
-
-Sorting of the transactions listing can be done on all the "filtering" fields mentioned above via an `orderby` parameter in the request URL:
-
-`/api/3/transactions/totals/?orderby=tx_type`
+The admin transaction totals endpoint has identical filtering to the admin transaction list endpoint.
 
 ### Endpoint
 
@@ -180,21 +181,20 @@ curl https://www.rehive.com/api/3/admin/transactions/{tx_code}/
 ```json
 {
     "status": "success",
-    "data": {
-        "tx_code": "000000000000000000000",
-        "tx_type": "transfer",
+    "data":  {
+        "id": "000000000000000000000",
+        "tx_type": "credit",
         "subtype": null,
         "external": false,
         "note": "",
         "metadata": {},
-        "external_response": {},
         "status": "Complete",
-        "reference": "sally@rehive.com",
-        "amount": -500,
+        "reference": "",
+        "amount": 500,
         "fee": 0,
-        "balance": 1000,
-        "label": "Transfer",
-        "account": "default",
+        "balance": 500,
+        "account": "akC49YT8x4",
+        "label": "Credit",
         "company": "rehive",
         "currency": {
             "description": "Rand",
@@ -203,15 +203,26 @@ curl https://www.rehive.com/api/3/admin/transactions/{tx_code}/
             "unit": "rand",
             "divisibility": 2
         },
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": null,
         "messages": [
             {
                 "level": "info",
-                "message": "Info message.",
-                "created": 1493729659821
+                "message": "Transaction completed.",
+                "created": 1496144568989
             }
         ],
-        "created": 1474399284065,
-        "updated": 1474399285570
+        "created": 1496135465218,
+        "updated": 1496135465287
     }
 }
 ```
@@ -239,21 +250,20 @@ curl https://rehive.com/api/3/admin/transactions/{tx_code}/
 ```json
 {
     "status": "success",
-    "data": {
-        "tx_code": "000000000000000000000",
-        "tx_type": "transfer",
+    "data":  {
+        "id": "000000000000000000000",
+        "tx_type": "credit",
         "subtype": null,
         "external": false,
         "note": "",
         "metadata": {},
-        "external_response": {},
         "status": "Complete",
-        "reference": "sally@rehive.com",
-        "amount": -500,
+        "reference": "",
+        "amount": 500,
         "fee": 0,
-        "balance": 1000,
-        "label": "Transfer",
-        "account": "default",
+        "balance": 500,
+        "account": "akC49YT8x4",
+        "label": "Credit",
         "company": "rehive",
         "currency": {
             "description": "Rand",
@@ -262,30 +272,41 @@ curl https://rehive.com/api/3/admin/transactions/{tx_code}/
             "unit": "rand",
             "divisibility": 2
         },
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": null,
         "messages": [
             {
                 "level": "info",
-                "message": "Info message.",
-                "created": 1493729659821
+                "message": "Transaction completed.",
+                "created": 1496144568989
             }
         ],
-        "created": 1474399284065,
-        "updated": 1474399285570
+        "created": 1496135465218,
+        "updated": 1496135465287
     }
 }
 ```
 
-Update a transaction's status and metadata. This endpoint can be used to move transactions from pending to complete/failed/deleted and updated the corresponding user's balance accordingly.
+Update a transaction's status and metadata. This endpoint can be used to move transactions from pending to complete/failed/deleted and updated the corresponding user's balance accordingly. In addition, you can add metadata and messages to the transaction.
 
-### Messsage
+### Messsages
 
 Custom messages can be attached to transactions by including a `message` attribute in an update request. The `message`
-attribute should be a JSOn object with 2 attributes `level` and `message`.
+attribute should be a JSON object with 2 attributes `level` and `message`.
 
 1. `level` : message log level, can be `info`, `warning`, `error`.
 2. `message`: A text message.
 
-Each message added to a transaction will be stored in a list. 
+Each message added to a transaction will be stored in a list. Rehive itself will also add messages to this attribute when erorrs occur during processing. 
 
 ### Endpoint
 
@@ -297,7 +318,106 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `status` | update action/status (`Complete`, `Failed`, `Deleted`) | null | true
 `metadata` | custom metadata | {} | false
-`message` | message object | [] | false
+`message` | message object | {} | false
+
+## Create Credit
+
+> Admin credit request
+
+```shell
+curl https://www.rehive.com/api/3/admin/transactions/credit/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"user": "joe@rehive.com",
+       "amount": 500}'
+```
+
+> Admin credit response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "tx_code": "00000000000000000000",
+        "metadata": {}
+    }
+}
+```
+
+Create a credit transaction on behalf of a user.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/credit/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`user` | email, mobile number, unique identifier | null | true
+`amount` | amount | 0 | true
+`reference` | optional credit reference | blank | false
+`subtype` | a custom defined subtype | null | false
+`account` | account reference code | null | false
+`note` | user's note or message | blank | false
+`currency` | currency code | blank | false
+`metadata` | custom metadata | {} | false
+`confirm_on_create` | complete immediately after creation | false | false
+
+<aside class="notice">
+Admin credits (and debit) have an additional <code>confirm_on_create</code> boolean that can be used when the credit/debit  should be processed and completed at the same time. This will override the normal behaviour of requiring an update or manual "completion" via the dashboard.
+</aside>
+
+<aside class="notice">
+For all admin "create transaction" endpoints a <code>user</code> should always be specified in the request.
+</aside>
+
+## Create Debit
+
+> Admin debit request
+
+```shell
+curl https://www.rehive.com/api/3/admin/transactions/debit/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"user": "joe@rehive.com",
+       "amount": 500}'
+```
+
+> Admin debit response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "tx_code": "00000000000000000000",
+        "metadata": {}
+    }
+}
+```
+
+Create a debit transaction on behalf of a user.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/debit/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`user` | email, mobile number, unique identifier | null | true
+`amount` | amount | 0 | true
+`reference` | optional debit reference | blank | false
+`subtype` | a custom defined subtype | null | false
+`account` | account reference code | null | false
+`note` | user's note or message | blank | false
+`currency` | currency code | blank | false
+`metadata` | custom metadata | {} | false
+`confirm_on_create` | complete immediately after creation | false | false
+
 ## Create Transfer
 
 > Admin transfer request
@@ -336,110 +456,17 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `user` | email, mobile number, unique identifier | null | true
 `amount` | amount | 0 | true
-`reference` | email, mobile number, unique identifier | null | true
-`subtype` | a custom defined subtype | null | false
-`account` | account reference code | null | false
-`note` | user's note or message | blank | false
+`recipient` | email, mobile number, unique identifier | null | true
 `currency` | currency code | blank | false
-`metadata` | custom metadata | {} | false
-
-<aside class="notice">
-For all admin "create transaction" endpoints a <code>user</code> should always be specified in the request.
-</aside>
-
-## Create Deposit
-
-> Admin deposit request
-
-```shell
-curl https://www.rehive.com/api/3/admin/transactions/deposit/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"user": "joe@rehive.com",
-       "amount": 500}'
-```
-
-> Admin deposit response
-
-```json
-{
-    "status": "success",
-    "data": {
-        "tx_code": "00000000000000000000",
-        "metadata": {}
-    }
-}
-```
-
-Create a deposit transaction on behalf of a user.
-
-### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/deposit/`
-
-### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
-`amount` | amount | 0 | true
-`reference` | optional deposit reference | blank | false
-`subtype` | a custom defined subtype | null | false
-`account` | account reference code | null | false
-`note` | user's note or message | blank | false
-`currency` | currency code | blank | false
-`metadata` | custom metadata | {} | false
-`confirm_on_create` | complete immediately after creation | false | false
-
-<aside class="notice">
-Admin deposits (and withdrawals) have an additional <code>confirm_on_create</code> boolean that can be used when the deposit/withdraw should be processed and completed at the same time. This will override the normal behaviour of requiring an update or manual "completion" via the dashboard.
-</aside>
-
-## Create Withdraw
-
-> Admin withdraw request
-
-```shell
-curl https://www.rehive.com/api/3/admin/transactions/withdraw/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"user": "joe@rehive.com",
-       "amount": 500}'
-```
-
-> Admin withdraw response
-
-```json
-{
-    "status": "success",
-    "data": {
-        "tx_code": "00000000000000000000",
-        "metadata": {}
-    }
-}
-```
-
-Create a withdraw transaction on behalf of a user.
-
-### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/withdraw/`
-
-### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
-`amount` | amount | 0 | true
-`reference` | optional withdraw reference | blank | false
-`subtype` | a custom defined subtype | null | false
-`account` | account reference code | null | false
-`note` | user's note or message | blank | false
-`currency` | currency code | blank | false
-`metadata` | custom metadata | {} | false
-`confirm_on_create` | complete immediately after creation | false | false
+`debit_subtype` | a custom defined subtype | null | false
+`debit_account` | account reference code | null | false
+`debit_note` | user's note or message | blank | false
+`debit_metadata` | custom metadata | {} | false
+`debit_reference` | optional debit reference | string | false
+`credit_subtype` | a custom defined subtype | null | false
+`credit_note` | user's note or message | blank | false
+`credit_metadata` | custom metadata | {} | false
+`credit_reference` | optional credit reference | string | false
 
 ## List Accounts
 
@@ -1027,7 +1054,7 @@ curl https://rehive.com/api/3/admin/webhooks/
         {
             "id": 1,
             "url": "http://mysite.com/webhook_endpoint",
-            "tx_type": "transfer",
+            "tx_type": "debit",
             "secret": "supersecret"
         }
     ]
@@ -1048,7 +1075,7 @@ curl https://rehive.com/api/3/admin/webhooks/
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -D '{"url": "http://mysite.com/webhook_endpoint",
-       "tx_type": "transfer",
+       "tx_type": "debit",
        "secret": "supersecret"}'
 ```
 
@@ -1061,7 +1088,7 @@ curl https://rehive.com/api/3/admin/webhooks/
         {
             "id": 1,
             "url": "http://mysite.com/webhook_endpoint",
-            "tx_type": "transfer",
+            "tx_type": "debit",
             "secret": "supersecret"
         }
     ]
@@ -1099,7 +1126,7 @@ curl https://rehive.com/api/3/admin/webhooks/{id}
     "data": {
         "id": 1,
         "url": "http://mysite.com/webhook_endpoint",
-        "tx_type": "transfer",
+        "tx_type": "debit",
         "secret": "supersecret"
     }
 }
@@ -1130,7 +1157,7 @@ curl https://rehive.com/api/3/admin/webhooks/
         {
             "id": 1,
             "url": "http://mysite.com/new_webhook_endpoint",
-            "tx_type": "transfer",
+            "tx_type": "debit",
             "secret": "supersecret"
         }
     ]
@@ -1168,10 +1195,10 @@ curl https://rehive.com/api/3/admin/subtypes/
     "data": [
         {
             "id": 20,
-            "name": "deposit_subtype",
-            "label": "Our deposit",
-            "description": "Description for out deposit",
-            "tx_type": "deposit",
+            "name": "credit_subtype",
+            "label": "Our credit",
+            "description": "Description for our credit",
+            "tx_type": "credit",
             "created": "2017-04-28T11:36:57.396723Z",
             "updated": "2017-04-28T11:36:57.396743Z"
         }
@@ -1201,10 +1228,10 @@ curl https://rehive.com/api/3/admin/subtypes/
     "status": "success",
     "data": {
         "id": 20,
-        "name": "deposit_subtype",
-        "label": "Our deposit",
-        "description": "Description for out deposit",
-        "tx_type": "deposit",
+        "name": "credit_subtype",
+        "label": "Our credit",
+        "description": "Description for our credit",
+        "tx_type": "credit",
         "created": "2017-04-28T11:36:57.396723Z",
         "updated": "2017-04-28T11:36:57.396743Z"
     }
@@ -1242,10 +1269,10 @@ curl https://rehive.com/api/3/admin/subtypes/{id}/
     "status": "success",
     "data": {
         "id": 20,
-        "name": "deposit_subtype",
-        "label": "Our deposit",
-        "description": "Description for out deposit",
-        "tx_type": "deposit",
+        "name": "credit_subtype",
+        "label": "Our credit",
+        "description": "Description for our credit",
+        "tx_type": "credit",
         "created": "2017-04-28T11:36:57.396723Z",
         "updated": "2017-04-28T11:36:57.396743Z"
     }
@@ -1275,10 +1302,10 @@ curl https://rehive.com/api/3/admin/subtypes/
     "status": "success",
     "data": {
         "id": 20,
-        "name": "deposit_subtype",
-        "label": "Our deposit",
+        "name": "credit_subtype",
+        "label": "Our credit",
         "description": "New description",
-        "tx_type": "deposit",
+        "tx_type": "credit",
         "created": "2017-04-28T11:36:57.396723Z",
         "updated": "2017-04-28T11:36:57.396743Z"
     }
@@ -1488,8 +1515,8 @@ curl https://rehive.com/api/3/admin/notifications/
     "data": [
         {
             "id": 1,
-            "name": "tx_send",
-            "description": "Send transaction notifications",
+            "name": "tx_debit",
+            "description": "Debit transaction notifications",
             "enabled": true
         }
     ]
@@ -1518,8 +1545,8 @@ curl https://rehive.com/api/3/admin/notifications/{id}/
     "status": "success",
     "data": {
         "id": 1,
-        "name": "tx_send",
-        "description": "Send transaction notifications",
+        "name": "tx_debit",
+        "description": "Debit transaction notifications",
         "enabled": true
     }
 }
@@ -1548,8 +1575,8 @@ curl https://rehive.com/api/3/admin/notifications/{id}
     "status": "success",
     "data": {
         "id": 1,
-        "name": "tx_send",
-        "description": "Send transaction notifications",
+        "name": "tx_debit",
+        "description": "Debit transaction notifications",
         "enabled": false
     }
 }
