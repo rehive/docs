@@ -52,7 +52,7 @@ curl https://www.rehive.com/api/3/auth/register/
   -d '{"first_name": "Joe",
        "last_name": "Soap",
        "email": "joe@rehive.com",
-       "company_id": "rehive",
+       "company": "rehive",
        "password1": "joe1234",
        "password2":"joe1234"}'
 ```
@@ -93,7 +93,7 @@ Field | Description | Default | Required
 `last_name` | last name | null | true
 `email` | email address | null | true
 `mobile_number` | mobile number | null | false
-`company_id` | company identifier | null | true
+`company` | company identifier | null | true
 `password1` | password | null | true
 `password2` | repeat password | null | true
 
@@ -105,8 +105,8 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/auth/login/
   -X POST
   -H "Content-Type: application/json"
-  -d '{"idenifier": "joe@rehive.com",
-       "company_id": "rehive"
+  -d '{"user": "joe@rehive.com",
+       "company": "rehive"
        "password": "joe1234"}'
 ```
 
@@ -142,8 +142,8 @@ user's details and a token that can be used for subsequent requests.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`identifier` | email, mobile number, unique identifier | null | true
-`company_id` | company identifier | null | true
+`user` | email, mobile number, unique identifier | null | true
+`company` | company identifier | null | true
 `password` | password | null | true
 
 ## Logout
@@ -247,8 +247,8 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/auth/password/reset/
   -X POST
   -H "Content-Type: application/json"
-  -d '{"identifier": "joe@rehive.com",
-       "company_id": "rehive"}'
+  -d '{"user": "joe@rehive.com",
+       "company": "rehive"}'
 ```
 
 > User reset password response
@@ -270,8 +270,8 @@ Send a password reset email.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`identifier` | email, mobile number, unique identifier | null | true
-`company_id` | company identifier | null | true
+`user` | email, mobile number, unique identifier | null | true
+`company` | company identifier | null | true
 
 ## Reset Cofirm Password
 
@@ -325,8 +325,8 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/auth/email/verify/resend/
   -X POST
   -H "Content-Type: application/json"
-  -d '{"identifier": "joe@rehive.com",
-       "company_id": "rehive"}'
+  -d '{"user": "joe@rehive.com",
+       "company": "rehive"}'
 ```
 
 > User resend email verification response
@@ -347,8 +347,8 @@ Resends all email verifications for an account.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`identifier` | email, mobile number, unique identifier | null | true
-`company_id` | company identifier | null | true
+`user` | email, mobile number, unique identifier | null | true
+`company` | company identifier | null | true
 
 ## Resend Mobile Verification
 
@@ -358,8 +358,8 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3auth/mobile/verify/resend/
   -X POST
   -H "Content-Type: application/json"
-  -d '{"identifier": "joe@rehive.com",
-       "company_id": "rehive"}'
+  -d '{"user": "joe@rehive.com",
+       "company": "rehive"}'
 ```
 
 > User resend email verification response
@@ -380,8 +380,8 @@ Resends all mobile verifications for an account.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`identifier` | email, mobile number, unique identifier | null | true
-`company_id` | company identifier | null | true
+`user` | email, mobile number, unique identifier | null | true
+`company` | company identifier | null | true
 
 ## Verify Mobile
 
