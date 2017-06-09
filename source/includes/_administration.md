@@ -2,6 +2,652 @@
 
 Rehive includes a set of admin-only endpoints that can make working with users and their transactions extremely easy.
 
+## List Users
+
+> Admin list users request
+
+```shell
+curl https://www.rehive.com/admin/api/3/admin/users/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list users response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "id_number": "",
+                "profile": null,
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "company": "rehive",
+                "language": "en",
+                "nationality": "ZA",
+                "metadata": null,
+                "mobile_number": "+27840000000",
+                "skype_name": "@skype",
+                "timezone": "Asia/Dhaka"
+                "date_joined": 1464912953000
+            }
+        ]
+    }
+}
+```
+
+Get a list of users belonging to a company.
+
+### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+### Filtering
+
+The account currency listing offers filtering on the `identifier, `email`, `mobile_number`, `first_name`, `last_name`, `username`, `id_number`, `date_joined`, and `last_login` attribute. This is done through a URL parameter in the request URL:
+
+`/api/3/admin/users/?first_name=Joe`
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/`
+
+## Create User
+
+> Admin create user reuest
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/`
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"first_name": "Joe",
+       "last_name": "Soap",
+       "mobile_number": "+27840000000",
+       "email": "joe@rehive.com"}'
+```
+
+> Admin update user response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": "",
+        "profile": null,
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": null,
+        "mobile_number": "+27840000000",
+        "skype_name": "@skype",
+        "timezone": "Asia/Dhaka"
+        "date_joined": 1464912953000
+    }
+}
+```
+
+Update a user's details.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`first_name` | first name | "" | false
+`last_name` | last name | "" | false
+`email` | email address | null| false
+`mobile_number` | mobile number | null | false
+
+<aside class="warning">
+    A `mobile_number` or `email` is required.
+</aside>
+
+## Retrieve User
+
+> Admin retrieve user request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{identifier}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin retrieve user response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": "",
+        "profile": null,
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": null,
+        "mobile_number": "+27840000000",
+        "skype_name": "@skype",
+        "timezone": "Asia/Dhaka"
+        "date_joined": 1464912953000
+    }
+}
+```
+
+Retrieve a company's user.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/`
+
+## Update User
+
+> Admin update user request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{identifier}/`
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"first_name": "Joe"}'
+```
+
+> Admin update user response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": "",
+        "profile": null,
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": null,
+        "mobile_number": "+27840000000",
+        "skype_name": "@skype",
+        "timezone": "Asia/Dhaka"
+        "date_joined": 1464912953000
+    }
+}
+```
+
+Update a user's details.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`first_name` | first name | "" | false
+`last_name` | last name | "" | false
+`id_number` | ID number | "" | false
+`language` | language code (en, af etc.) | "" | false
+`nationality` | bationality code (ZA, USA etc.) | "" | false
+`metadata` | custom user data  | {} | false
+`timezone` | timezone (Asia/Dhaka, Africa/Harare etc.) | string | false
+
+
+## List Emails
+
+> Admin list emails request
+
+```shell
+curl https://www.rehive.com/admin/api/3/admin/users/emails/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list emails response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "user": {
+                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": "",
+                    "mobile_number": "+27840000000",
+                    "profile": null
+                },
+                "id": {id},
+                "email": "joe@rehive.com",
+                "primary": true,
+                "verified": true
+            },
+        ]
+    }
+}
+```
+
+Get a list of emails belonging to a company.
+
+### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+### Filtering
+
+The account currency listing offers filtering on the `user` attribute. This is done through a URL parameter in the request URL:
+
+`/api/3/admin/users/emails/?user=00000000-0000-0000-0000-000000000000`
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/emails/`
+
+## Create Email
+
+> Admin create email reuest
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/emails/`
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"user": 00000000-0000-0000-0000-000000000000,
+       "verified": true,
+       "primary": true,
+       "email": "joe@rehive.com"}'
+```
+
+> Admin create email response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "id": {id},
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Create an email address for a user.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/emails/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`user` | user identifier | null | true
+`verified` | last name | false | false
+`primary` | email address | false | false
+`email` | email address | null | true
+
+## Retrieve User
+
+> Admin retrieve email request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/emails/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin retrieve email response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "id": {id},
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Retrieve a company's email.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/emails/{id}/`
+
+## Update Email
+
+> Admin update email request
+
+```shell
+curl https://www.rehive.com/api/3/admin/emails/{id}/`
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"verified": true}'
+```
+
+> Admin update email response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "id": {id},
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Update a user's email.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/emails/{id}/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`verified` | last name | false | false
+`primary` | email address | false | false
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+## List Mobiles
+
+> Admin list mobiles request
+
+```shell
+curl https://www.rehive.com/admin/api/3/admin/users/mobiles/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list mobiles response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "user": {
+                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": "",
+                    "mobile_number": "+27840000000",
+                    "profile": null
+                },
+                "id": {id},
+                "number": "+27840000000",
+                "primary": true,
+                "verified": true
+            },
+        ]
+    }
+}
+```
+
+Get a list of mobile numbers belonging to a company.
+
+### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+### Filtering
+
+The account currency listing offers filtering on the `user` attribute. This is done through a URL parameter in the request URL:
+
+`/api/3/admin/user/smobiles/?user=00000000-0000-0000-0000-000000000000`
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/mobiles/`
+
+## Create Mobile
+
+> Admin create mobile request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/mobiles/`
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"user": 00000000-0000-0000-0000-000000000000,
+       "verified": true,
+       "primary": true,
+       "number": "+27840000000"}'
+```
+
+> Admin create mobile response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "id": {id},
+        "email": "+27840000000",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Create a mobile number for a user.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/mobiles/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`user` | user identifier | null | true
+`verified` | last name | false | false
+`primary` | email address | false | false
+`email` | email address | null | true
+
+## Retrieve Mobile
+
+> Admin retrieve mobile request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin retrieve mobile response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "id": {id},
+        "number": "+27840000000",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Retrieve a company's mobile.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/mobiles/{id}/`
+
+## Update Mobile
+
+> Admin update mobile request
+
+```shell
+curl https://www.rehive.com/api/3/admin/mobiles/{id}/`
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"verified": true}'
+```
+
+> Admin update mobile response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "id": {id},
+        "number": "+27840000000",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+Update a user's mobile.
+
+### Endpoint
+
+`https://rehive.com/api/3/admin/users/mobiles/{id}/`
+
+### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`verified` | last name | false | false
+`primary` | email address | false | false
+
 ## List Transactions
 
 > Admin transactions request
@@ -879,78 +1525,6 @@ Field | Description | Default | Required
 `divisibility` | number of decimal places | 0 | true
 `enabled` | whether active for a company | false | true
 
-## Verify Email Address
-
-> Admin verify email request
-
-```shell
-curl https://rehive.com/api/3/admin/users/emails/verify/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"email": "joe@rehive.com"}'
-```
-
-> Admin verify email response
-
-```json
-{
-    "status": "success",
-    "data": {
-        "email": "joe@rehive.com",
-        "verified": true
-    }
-}
-```
-
-Verify an email address on behalf of a user.
-
-### Endpoint
-
-`https://rehive.com/api/3/admin/users/emails/verify/`
-
-### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`email` | email address | null | true
-
-## Verify Mobile Number
-
-> Admin verify mobile request
-
-```shell
-curl https://rehive.com/api/3/admin/users/mobiles/verify/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"email": "joe@rehive.com"}'
-```
-
-> Admin verify mobile response
-
-```json
-{
-    "status": "success",
-    "data": {
-        "email": "joe@rehive.com",
-        "verified": true
-    }
-}
-```
-
-Verify a mobile number on behalf of a user.
-
-### Endpoint
-
-`https://rehive.com/api/3/admin/users/mobiles/verify/`
-
-### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`number` | mobile number | null | true
-
 ## Retrieve Company
 
 > View the company info
@@ -1592,7 +2166,7 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `enabled` | Account Name | false | true
 
-## List Controls
+<!-- ## List Controls
 
 > List Controls request
 
@@ -1686,4 +2260,4 @@ curl https://rehive.com/api/3/admin/controls/{id}
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`enabled` | Account Name | false | true
+`enabled` | Account Name | false | true -->

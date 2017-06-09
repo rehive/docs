@@ -71,6 +71,7 @@ curl https://www.rehive.com/api/3/user/
 {
     "status": "success",
     "data": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",

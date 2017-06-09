@@ -273,7 +273,7 @@ Field | Description | Default | Required
 `user` | email, mobile number, unique identifier | null | true
 `company` | company identifier | null | true
 
-## Reset Cofirm Password
+## Reset Confirm Password
 
 > User reset confirm password request
 
