@@ -646,7 +646,7 @@ Get a list of user's mobile numbers.
 
 ```shell
 curl https://www.rehive.com/api/3/user/mobiles/
-  -X PATCH
+  -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"number": "+00000000000",
@@ -710,7 +710,7 @@ Update a user's mobile number. The number can be changed to be the user's primar
 
 ### Endpoint
 
-`https://rehive.com/api/3/user/numbers/{number_id}`
+`https://rehive.com/api/3/user/mobiles/{number_id}`
 
 ### Fields
 
@@ -737,29 +737,36 @@ curl https://www.rehive.com/api/3/user/notifications/
     "data": [
         {
             "id": 1,
-            "name": "tx_send",
-            "description": "Send transaction notifications",
+            "name": "tx_transfer_debit",
+            "description": "Transfer debit notifications",
             "email_enabled": true,
             "sms_enabled": true
         },
         {
             "id": 2,
-            "name": "tx_receive",
-            "description": "Receive transaction notifications",
+            "name": "tx_debit",
+            "description": "Debit notifications",
             "email_enabled": true,
             "sms_enabled": true
         },
         {
             "id": 3,
-            "name": "tx_unclaimed",
-            "description": "Unclaimed transaction notifications",
+            "name": "tx_transfer_credit",
+            "description": "Transfer credit notifications",
             "email_enabled": true,
             "sms_enabled": true
         },
         {
             "id": 4,
-            "name": "tx_deposit",
-            "description": "Deposit transaction notifications",
+            "name": "tx_credit",
+            "description": "Credit notifications",
+            "email_enabled": true,
+            "sms_enabled": true
+        },
+        {
+            "id": 5,
+            "name": "tx_transfer_invite",
+            "description": "Transfer invite notifications",
             "email_enabled": true,
             "sms_enabled": true
         },
@@ -808,8 +815,8 @@ curl https://www.rehive.com/api/3/user/notifcations/{notification_id}
         "id": {notification_id},
         "email_enabled": true,
         "sms_enabled": true,
-        "name": "tx_deposit",
-        "description": "Deposit transaction notifications"
+        "name": "tx_credit",
+        "description": "Credit transaction notifications"
     }
 }
 ```
