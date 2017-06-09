@@ -277,7 +277,7 @@ curl https://www.rehive.com/admin/api/3/admin/users/emails/
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
-                "id": {id},
+                "id": 1,
                 "email": "joe@rehive.com",
                 "primary": true,
                 "verified": true
@@ -333,7 +333,7 @@ curl https://www.rehive.com/api/3/admin/users/emails/`
             "mobile_number": "+27840000000",
             "profile": null
         },
-        "id": {id},
+        "id": 1,
         "email": "joe@rehive.com",
         "primary": true,
         "verified": true
@@ -382,7 +382,7 @@ curl https://www.rehive.com/api/3/admin/users/emails/{id}/
             "mobile_number": "+27840000000",
             "profile": null
         },
-        "id": {id},
+        "id": 1,
         "email": "joe@rehive.com",
         "primary": true,
         "verified": true
@@ -423,7 +423,7 @@ curl https://www.rehive.com/api/3/admin/emails/{id}/`
             "mobile_number": "+27840000000",
             "profile": null
         },
-        "id": {id},
+        "id": 1,
         "email": "joe@rehive.com",
         "primary": true,
         "verified": true
@@ -481,7 +481,7 @@ curl https://www.rehive.com/admin/api/3/admin/users/mobiles/
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
-                "id": {id},
+                "id": 1,
                 "number": "+27840000000",
                 "primary": true,
                 "verified": true
@@ -537,7 +537,7 @@ curl https://www.rehive.com/api/3/admin/users/mobiles/`
             "mobile_number": "+27840000000",
             "profile": null
         },
-        "id": {id},
+        "id": 1,
         "email": "+27840000000",
         "primary": true,
         "verified": true
@@ -586,7 +586,7 @@ curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/
             "mobile_number": "+27840000000",
             "profile": null
         },
-        "id": {id},
+        "id": 1,
         "number": "+27840000000",
         "primary": true,
         "verified": true
@@ -627,7 +627,7 @@ curl https://www.rehive.com/api/3/admin/mobiles/{id}/`
             "mobile_number": "+27840000000",
             "profile": null
         },
-        "id": {id},
+        "id": 1,
         "number": "+27840000000",
         "primary": true,
         "verified": true

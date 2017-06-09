@@ -27,15 +27,15 @@ curl https://www.rehive.com/api/3/auth/tokens/
   "status": "success",
   "data": [
     {
-      "token_key": "{token_key}",
+      "token_key": "00000000",
       "expires": null
     },
     {
-      "token_key": "{token_key}",
+      "token_key": "00000000",
       "expires": "2001-01-01T01:01:01.000001Z"
     },
     {
-      "token_key": "{token_key}",
+      "token_key": "00000000",
       "expires": "2001-01-01T01:01:01.000002Z"
     }
   ]

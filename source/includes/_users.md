@@ -371,8 +371,8 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/
     "data": [
         {
             "id": 1,
-            "address": "123456789asd",
-            "code": "bitcoin_123456789asd"
+            "address": "0000000000000000000000000000000000",
+            "code": "bitcoin_0000000000000000000000000000000000"
         }
     ]
 }
@@ -476,7 +476,7 @@ curl https://www.rehive.com/api/3/user/document/
 {
     "status": "success",
     "data": {
-        "file": "{file_url}",
+        "file": "https://url.to/file.pdf",
         "document_category": "other",
         "document_type": "other"
     }
@@ -588,7 +588,7 @@ curl https://www.rehive.com/api/3/user/emails/{email_id}
 {
     "status": "success",
     "data": {
-        "id": {email_id},
+        "id": 1,
         "email": "joe@rehive.com",
         "primary": true,
         "verified": true
@@ -626,7 +626,7 @@ curl https://www.rehive.com/api/3/user/mobiles/
     "status": "success",
     "data": [
         {
-            "id": 8,
+            "id": 1,
             "number": "+00000000000",
             "primary": true,
             "verified": true
@@ -699,7 +699,7 @@ curl https://www.rehive.com/api/3/user/mobiles/{number_id}
 {
     "status": "success",
     "data": {
-        "id": {number_id},
+        "id": 1,
         "number": "+00000000000",
         "primary": true,
         "verified": true
@@ -813,7 +813,7 @@ curl https://www.rehive.com/api/3/user/notifcations/{notification_id}
 {
     "status": "success",
     "data": {
-        "id": {notification_id},
+        "id": 1,
         "email_enabled": true,
         "sms_enabled": true,
         "name": "tx_credit",

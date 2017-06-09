@@ -12,7 +12,6 @@ includes:
   - accounts
   - company
   - administration
-  - errors
 
 search: true
 ---
@@ -68,3 +67,36 @@ API requests made with a new key will get saved along with their HTTP response. 
 <aside class="notice">
 Idempotent requests will not work for anonymous users and/or any endpoints found under <a href="/#authorization">Authentication</a> (eg. URL paths beginning with `/api/3/auth/`)
 </aside>
+
+## Errors
+
+> Basic error response:
+
+```json
+{
+    "status": "error",
+    "message": "Error message."
+}
+```
+
+> Multiple errors response:
+
+```json
+ {
+    "status": "error",
+    "message": "First error message, Second error message",
+    "data": {
+        "field_name1": [
+            "First error message."
+        ],
+        "field_name2": [
+            "Second error message."
+        ]
+    }
+}
+```
+
+Rehive errors return an API response message (formatted in JSON) as well as a standard HTTP response code.
+
+The JSON error respone generally includes a `message` string. If an error occurred on a specific attribute or
+key they will be outputted in the `data` object.
