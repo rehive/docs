@@ -60,7 +60,7 @@ The list is paginated and can be navigated via the `next` and `previous` fields 
 
 ### Filtering
 
-The account currency listing offers filtering on the `identifier, `email`, `mobile_number`, `first_name`, `last_name`, `username`, `id_number`, `date_joined`, and `last_login` attribute. This is done through a URL parameter in the request URL:
+The account currency listing offers filtering on the `identifier`, `email`, `mobile_number`, `first_name`, `last_name`, `username`, `id_number`, `date_joined`, and `last_login` attribute. This is done through a URL parameter in the request URL:
 
 `/api/3/admin/users/?first_name=Joe`
 
