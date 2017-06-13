@@ -247,6 +247,150 @@ Field | Description | Default | Required
 `metadata` | custom user data  | {} | false
 `timezone` | timezone (Asia/Dhaka, Africa/Harare etc.) | string | false
 
+### List User Switches
+
+List all switches related to a user.
+
+> List User Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/users/{identifier}/switches/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List User Switches response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "tx_type": "credit",
+            "subtype": null,
+            "enabled": true,
+            "created": 1497362397968,
+            "updated": 1497362397968
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/switches/`
+
+### Create User Switches
+
+Create a new switch related to a user.
+
+> Create User Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/users/{identifier}/switches/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"tx_type": "credit",
+       "enabled": true}'
+```
+
+> Create User Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/switches/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_type` | Transaction Type | | true
+`subtype_id` | Subtype ID | null | false
+`enabled` | Enabled | false | true
+
+### Retrieve User Switches
+
+Retrieve a specific switch related to a user
+
+> Retrieve User Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve User Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
+
+### Update User Switches
+
+Update a specific switch related to a user
+
+> Update User Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update User Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": false,
+        "created": 1497362397968,
+        "updated": 1497362931403
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
 
 
 --------------------------------------------------------------------------------
@@ -1375,6 +1519,151 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `active` | is active currency | false | false
 
+### List Account Currency Switches
+
+List all switches related to the currency
+
+> List Account Currency Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Account Currency Switches response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "tx_type": "credit",
+            "subtype": null,
+            "enabled": true,
+            "created": 1497362397968,
+            "updated": 1497362397968
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/`
+
+### Create Account Currency Switches
+
+Create a new switch for the currency
+
+> Create Account Currency Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"tx_type": "credit",
+       "enabled": true}'
+```
+
+> Create Account Currency Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_type` | Transaction Type | | true
+`subtype_id` | Subtype ID | null | false
+`enabled` | Enabled | false | true
+
+### Retrieve Account Currency Switches
+
+Retrieve a specific switch related to the currency
+
+> Retrieve Account Currency Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Account Currency Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}`
+
+### Update Account Currency Switches
+
+Update a specific switch related to the currency
+
+> Update Account Currency Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update Account Currency Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": false,
+        "created": 1497362397968,
+        "updated": 1497362931403
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}`
+
 --------------------------------------------------------------------------------
 
 ## Currencies
@@ -1631,6 +1920,153 @@ Field | Description | Default | Required
 `password_reset_url` | Custom company password reset URL | blank | false
 `email_confirmation_url` | Custom company email confirmation URL | blank | false
 `default_currency` | Default company currency | null | false
+
+### List Company Switches
+
+List all switches related to a company.
+
+> List Company Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/company/switches/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Company Switches response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "tx_type": "credit",
+            "subtype": null,
+            "enabled": true,
+            "created": 1497362397968,
+            "updated": 1497362397968
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/company/switches/`
+
+### Create Company Switches
+
+Create switches related to a company.
+
+> Create Company Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/company/switches/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"tx_type": "credit",
+       "enabled": true}'
+```
+
+> Create Company Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/company/switches/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_type` | Transaction Type | | true
+`subtype_id` | Subtype ID | null | false
+`enabled` | Enabled | false | true
+
+### Retrieve Company Switches
+
+Retrieve a specific switch related to a company.
+
+> Retrieve Company Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/company/switches/{id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Company Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/company/switches/{id}`
+
+### Update Company Switches
+
+Update a specific switch related to a company.
+
+> Update Company Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/company/switches/{id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update Company Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": false,
+        "created": 1497362397968,
+        "updated": 1497362931403
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/company/switches/{id}`
+
+
 
 --------------------------------------------------------------------------------
 
@@ -2210,7 +2646,70 @@ Field | Description | Default | Required
 
 ## Switches
 
+Switches are a way to determine which actions are allowed to the users in terms of transactions.
+
+Global switches are the highest level switches by overriding any switches that are
+set on a user, company, currency or tier level.
+
+### Create Global Switches
+
+Create a new global switch.
+
+> Create Global Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/switches/
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"switch_type": "transactions",
+       "enabled": false}'
+```
+
+> Create Global Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "company": {
+            "identifier": "test_company_1",
+            "name": "Test Company 1",
+            "description": "Wallets for everyone.",
+            "website": "http://wwww.rehive.io",
+            "logo": null
+        },
+        "switch_type": "Allow transactions",
+        "enabled": false,
+        "created": 1497348308625,
+        "updated": 1497348318654
+    }
+}
+```
+
+#### Types
+Global switches can be one of the following 2 types.
+
+Value | Description
+--- | ---
+`transactions` | Allow transactions
+`verification` | Allow transactions for unverified users
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/switches/{id}`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`switch_type` | Global Switch Type Label | | true
+`enabled` | Account Name | false | true
+
 ### List Global Switches
+
+List all the global switches.
 
 > List Global Switches request
 
@@ -2251,6 +2750,8 @@ curl https://rehive.com/api/3/admin/switches/
 
 ### Retrieve Global Switches
 
+Retrieve a specific global switch.
+
 > Retrieve Global Switches request
 
 ```shell
@@ -2287,6 +2788,8 @@ curl https://rehive.com/api/3/admin/switches/{id}/
 `https://rehive.com/api/3/admin/switches/{id}`
 
 ### Update Global Switches
+
+Update a specific global switch.
 
 > Update Global Switches request
 
