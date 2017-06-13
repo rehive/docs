@@ -2987,6 +2987,172 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{switch_id}
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}`
 
+### List Tier Limits
+
+List all Limits related to a tier.
+
+> List Tier Limits request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Tier Limits response
+
+```json
+  {
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "value": 1000,
+            "type": "Maximum",
+            "tx_type": "credit",
+            "subtype": null,
+            "created": 1497374071027,
+            "updated": 1497374071027
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/`
+
+### Create Tier Limits
+
+Create a new limit related to a Tier.
+
+> Create Tier Limits request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"requirement": "birth_date"}'
+```
+
+> Create Tier Limits response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "value": 1000,
+        "type": "Maximum",
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497374071027,
+        "updated": 1497374071027
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`value` | Limit value | 0 | true
+`type` | Limit Type |  | true
+`tx_type` | Transaction type limits are applied | | true
+`subtype_id` | Transaction subtype ID | null | false
+
+#### Limit Types
+
+Value | Description 
+--- | --- 
+`max` | Maximum 
+`day_max` | Maximum per day 
+`month_max` | Maximum per month 
+`min` | Minimum 
+
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
+### Retrieve Tier Limits
+
+Retrieve a specific requirement related to a Tier
+
+> Retrieve Tier Limits request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Tier Limits response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 1000,
+        "type": "Maximum",
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497374071027,
+        "updated": 1497374071027
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limits_id}`
+
+### Update Tier Limits
+
+Update a specific limits related to a Tier
+
+> Update Tier Limits request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{switch_id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"value": 5000,
+       "type": "min"}'
+```
+
+> Update Tier Limits response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "value": 5000,
+        "type": "Minimum",
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497374071027,
+        "updated": 1497374886088
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limits_id}`
+
 ### List Tier Switches
 
 List all switches related to a tier.
