@@ -2834,6 +2834,159 @@ Field | Description | Default | Required
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}`
 
+### List Tier Requirements
+
+List all requirements related to a tier.
+
+> List Tier Requirements request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Tier Requirements response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
+            "requirement": "First Name"
+        },
+        {
+            "id": 2,
+            "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
+            "requirement": "Last Name"
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
+
+### Create Tier Requirements
+
+Create a new switch related to a Tier.
+
+> Create Tier Requirements request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"requirement": "birth_date"}'
+```
+
+> Create Tier Requirements response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 3,
+        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
+        "requirement": "Birth Date"
+    }
+}
+```
+
+#### Requirement Types
+
+Value | Description 
+--- | --- 
+`first_name` | First Name
+`last_name` | Last Name
+`nationality` | Nationality
+`birth_date` | Birth Date
+`id_number` | ID Number
+`language` | Language
+`address` | Address
+`bank_account` | Bank Account
+`email_address` | Email Address
+`mobile_number` | Mobile Number
+`proof_of_identity` | Proof of identity
+`proof_of_address` | Proof of address
+`advanced_proof_of_identity` | Advanced proof of identity
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`requirement` | Requirement Type | | true
+
+### Retrieve Tier Requirements
+
+Retrieve a specific requirement related to a Tier
+
+> Retrieve Tier Requirements request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Tier Requirements response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 3,
+        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
+        "requirement": "Birth Date"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}`
+
+### Update Tier Requirements
+
+Update a specific requirement related to a Tier
+
+> Update Tier Requirements request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{switch_id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": "proof_of_identity"}'
+```
+
+> Update Tier Requirements response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 3,
+        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
+        "requirement": "Proof Of Identity"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}`
+
 ### List Tier Switches
 
 List all switches related to a tier.
