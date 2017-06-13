@@ -108,11 +108,11 @@ curl https://www.rehive.com/api/3/transactions/
 
 Get a a user's transaction list.
 
-### Pagination
+#### Pagination
 
 The list is paginated by default and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
 
-### Filtering
+#### Filtering
 
 The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
 
@@ -126,13 +126,13 @@ There is a special format for fitering on metadata (ie. `metadata__{field_name}`
 
 `/api/3/transactions/?metadata__type=test`
 
-### Sorting
+#### Sorting
 
 Sorting of the transactions listing can be done on all the "filtering" fields mentioned above via an `orderby` parameter in the request URL:
 
 `/api/3/transactions/?orderby=tx_type`
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/transactions/`
 
@@ -163,11 +163,11 @@ curl https://www.rehive.com/api/3/transactions/totals/
 
 Get a user's total transaction details. This is a summary of transaction details like: amount totals, fee totals, and the total number of transactions.
 
-### Filtering
+#### Filtering
 
 The transaction totals endpoint has identical filtering to the transaction list endpoint.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/transactions/totals/`
 
@@ -235,7 +235,7 @@ curl https://www.rehive.com/api/3/transactions/{tx_code}/
 
 Get transaction details for a spcific transactions.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/transactions/{tx_code}/`
 
@@ -265,11 +265,11 @@ curl https://www.rehive.com/api/3/transactions/credit/
 
 Create a credit transaction.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/transactions/credit/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -315,11 +315,11 @@ curl https://www.rehive.com/api/3/transactions/debit/
 
 Create a debit transaction.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/transactions/debit/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -362,11 +362,11 @@ Create a transfer transaction. This will transfer currency from one user to anot
 The transfer transaction endpoint is essentially a wrapper for standard debit/credit transactions. If a transfer is completed successfuly it will create 2 transactions: one to debit from the sender and one to credit the receiver. The transactions are otherwise indentical to normal debit/credit transactions. You can view sender/receiver details by accessing the attributes `source_transaction` (indicates who the transfer came from) and `destination_transaction` (indicates who the transfer was sent to).
 </aside>
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/transactions/transfer/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---

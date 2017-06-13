@@ -81,11 +81,11 @@ curl https://www.rehive.com/api/3/auth/register/
 Register a user with the credentials provided. A successful registration will 
 return the user's details and a token that can be used for subsequent requests.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/register/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -134,11 +134,11 @@ curl https://www.rehive.com/api/3/auth/login/
 Login a user with the credentials provided. A successful login will return the 
 user's details and a token that can be used for subsequent requests.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/login/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -168,7 +168,7 @@ curl https://www.rehive.com/api/3/auth/logout/
 
 Logs the current user out and invalidates the token that was used to authenticate.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/logout/`
 
@@ -194,7 +194,7 @@ curl https://www.rehive.com/api/3/auth/logout/all/
 
 Logs the current user out and invalidates all the tokens related to the user that have expiry dates.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/logout/all/`
 
@@ -227,11 +227,11 @@ Change a user's password.
 Take note of the <code>Authorization</code> header required for authentication.
 </aside>
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/password/change/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -262,11 +262,11 @@ curl https://www.rehive.com/api/3/auth/password/reset/
 
 Send a password reset email.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/password/reset/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -304,11 +304,11 @@ The URL included in the reset email can be customized via the dashboard in
 use of your own client side UI for resetting emails.
 </aside>
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/password/reset/confirm/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -339,11 +339,11 @@ curl https://www.rehive.com/api/3/auth/email/verify/resend/
 
 Resends all email verifications for an account.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/email/verify/resend/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -372,11 +372,11 @@ curl https://www.rehive.com/api/3auth/mobile/verify/resend/
 
 Resends all mobile verifications for an account.
 
-### Endpoint
+#### Endpoint
 
 `https://www.rehive.com/api/3/auth/mobile/verify/resend/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -404,11 +404,11 @@ curl https://rehive.com/api/3/auth/mobile/verify/
 
 Verify a mobile number with an OTP.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/mobile/verify/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---

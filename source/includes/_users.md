@@ -49,7 +49,7 @@ curl https://www.rehive.com/api/3/user/
 
 Retrieve a user's profile information.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/`
 
@@ -104,11 +104,11 @@ curl https://www.rehive.com/api/3/user/
 
 Update a user's profile information.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -152,7 +152,7 @@ curl https://www.rehive.com/api/3/user/address/
 
 Retrieve a user's address.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/address/`
 
@@ -186,11 +186,11 @@ curl https://www.rehive.com/api/3/user/address/
 
 Update a user's address.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/address/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -237,7 +237,7 @@ curl https://www.rehive.com/api/3/user/bank_accounts/
 
 List a user's bank accounts.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/bank_accounts/`
 
@@ -280,11 +280,11 @@ curl https://www.rehive.com/api/3/user/bank_accounts/
 
 Create a bank account for a user.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/bank_accounts/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -333,11 +333,11 @@ curl https://www.rehive.com/api/3/user/bank_accounts/{account_id}
 
 Update a user's bank account.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/bank_accounts/{account_id}`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -380,7 +380,7 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/
 
 List a user's bitcoin addresses.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/bitcoin_accounts/`
 
@@ -411,11 +411,11 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/
 
 Create a bitcoin account for a user.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/bitcoin_accounts/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -448,11 +448,11 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/{account_id}
 
 Update a user's bitcoin account.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/bitcoin_accounts/{account_id}`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -485,11 +485,11 @@ curl https://www.rehive.com/api/3/user/document/
 
 Upload user document.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/document/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -526,7 +526,7 @@ curl https://www.rehive.com/api/3/user/emails/
 
 Get a list of user's email addresses.
 
-### Endpoint
+#### Endpoint
 
 `https://www.rehive.com/api/3/user/emails/`
 
@@ -559,11 +559,11 @@ curl https://www.rehive.com/api/3/user/emails/
 
 Create an email address for a user.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/emails/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -598,11 +598,11 @@ curl https://www.rehive.com/api/3/user/emails/{email_id}
 
 Update a user's email adress. The email adress can be changed to be the user's primary email address. The actual address cannot be updated and a new one should instead be created.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/emails/{email_id}`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -637,7 +637,7 @@ curl https://www.rehive.com/api/3/user/mobiles/
 
 Get a list of user's mobile numbers.
 
-### Endpoint
+#### Endpoint
 
 `https://www.rehive.com/api/3/user/mobiles/`
 
@@ -670,11 +670,11 @@ curl https://www.rehive.com/api/3/user/mobiles/
 
 Create a mobile number for a user.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/mobiles/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -709,11 +709,11 @@ curl https://www.rehive.com/api/3/user/mobiles/{number_id}
 
 Update a user's mobile number. The number can be changed to be the user's primary mobile number. The actual number cannot be updated and a new one should be created instead.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/mobiles/{number_id}`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -791,7 +791,7 @@ curl https://www.rehive.com/api/3/user/notifications/
 
 Get a list of available notification settings.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/notifications/`
 
@@ -824,11 +824,11 @@ curl https://www.rehive.com/api/3/user/notifcations/{notification_id}
 
 Update a user's settings for a notification.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/user/notifcations/{notification_id}`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
