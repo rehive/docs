@@ -2644,6 +2644,198 @@ Field | Description | Default | Required
 
 --------------------------------------------------------------------------------
 
+## Tiers
+
+Tiers are a way in which to categorise users based on requirements for the tier.
+Tiers are set on a currency to limit users' transactions on that currency.
+
+Tiers are checked in ascending order based on their level, with the user getting
+validation corresponding to the highest tier they matched. 
+
+### Create Tier
+
+Create a new tier.
+
+> Create Tier request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"switch_type": "transactions",
+       "enabled": false}'
+```
+
+> Create Tier response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "currency": "ZAR",
+        "level": 1,
+        "name": "First Tier",
+        "description": "My First Tier",
+        "requirements": [],
+        "limits": [],
+        "fees": [],
+        "switches": [],
+        "created": 1497367640298,
+        "updated": 1497367640298
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`currency` | Currency code related to this tier | | true
+`name` | Name of the tier | blank | false
+`description` | Description of the tier | blank | false
+
+### List Tier
+
+List all tiers.
+
+> List Tier request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Tier response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "currency": "ZAR",
+            "level": 1,
+            "name": "First Tier",
+            "description": "My First Tier",
+            "requirements": [],
+            "limits": [],
+            "fees": [],
+            "switches": [],
+            "created": 1497367640298,
+            "updated": 1497367640298
+        }
+    ]
+}
+```
+
+#### Filtering
+
+Tiers can be filtered by `currency` as well as `requirement`.
+This is done through URL parameters in the request URL:
+
+`/api/3/admin/tiers/?currency=ZAR` 
+
+`/api/3/admin/tiers/?requirement=nationality`
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/`
+
+### Retrieve Tier
+
+Retrieve a specific tier.
+
+> Retrieve Tier request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Tier response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "currency": "ZAR",
+        "level": 1,
+        "name": "First Tier",
+        "description": "My First Tier",
+        "requirements": [],
+        "limits": [],
+        "fees": [],
+        "switches": [],
+        "created": 1497367640298,
+        "updated": 1497367640298
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{id`
+
+### Update Tier
+
+Update the name of description of a tier.
+
+> Update Tier request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "Updated Name"}'
+```
+
+> Update Tier response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "currency": "ZAR",
+        "level": 1,
+        "name": "Updated Name",
+        "description": "My First Tier",
+        "requirements": [],
+        "limits": [],
+        "fees": [],
+        "switches": [],
+        "created": 1497367640298,
+        "updated": 1497369829536
+    }
+}
+```
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Name of the tier | blank | false
+`description` | Description of the tier | blank | false
+
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{id`
+
+--------------------------------------------------------------------------------
+
 ## Switches
 
 Switches are a way to determine which actions are allowed to the users in terms of transactions.
@@ -2659,7 +2851,7 @@ Create a new global switch.
 
 ```shell
 curl https://rehive.com/api/3/admin/switches/
-  -X PUT
+  -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -D '{"switch_type": "transactions",
@@ -2698,7 +2890,7 @@ Value | Description
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/switches/{id}`
+`https://rehive.com/api/3/admin/switches/`
 
 #### Fields
 
