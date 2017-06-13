@@ -325,7 +325,7 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/auth/email/verify/resend/
   -X POST
   -H "Content-Type: application/json"
-  -d '{"user": "joe@rehive.com",
+  -d '{"email": "joe@rehive.com",
        "company": "rehive"}'
 ```
 
@@ -337,7 +337,7 @@ curl https://www.rehive.com/api/3/auth/email/verify/resend/
 }
 ```
 
-Resends all email verifications for an account.
+Resend email verifications for an email.
 
 ### Endpoint
 
@@ -347,22 +347,22 @@ Resends all email verifications for an account.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
+`email` | email address | null | true
 `company` | company identifier | null | true
 
 ## Resend Mobile Verification
 
-> User resend email verification request
+> User resend mobile verification request
 
 ```shell
 curl https://www.rehive.com/api/3auth/mobile/verify/resend/
   -X POST
   -H "Content-Type: application/json"
-  -d '{"user": "joe@rehive.com",
+  -d '{"mobile": "joe@rehive.com",
        "company": "rehive"}'
 ```
 
-> User resend email verification response
+> User resend mobile verification response
 
 ```json
 {
@@ -370,7 +370,7 @@ curl https://www.rehive.com/api/3auth/mobile/verify/resend/
 }
 ```
 
-Resends all mobile verifications for an account.
+Resends mobile verifications for a mobile number.
 
 ### Endpoint
 
@@ -380,7 +380,7 @@ Resends all mobile verifications for an account.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
+`mobile` | mobile number | null | true
 `company` | company identifier | null | true
 
 ## Verify Mobile
