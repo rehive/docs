@@ -2832,7 +2832,152 @@ Field | Description | Default | Required
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{id`
+`https://rehive.com/api/3/admin/tiers/{tier_id}`
+
+### List Tier Switches
+
+List all switches related to a tier.
+
+> List Tier Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Tier Switches response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "tx_type": "credit",
+            "subtype": null,
+            "enabled": true,
+            "created": 1497370313086,
+            "updated": 1497370313086
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/`
+
+### Create Tier Switches
+
+Create a new switch related to a Tier.
+
+> Create Tier Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"tx_type": "credit",
+       "enabled": true}'
+```
+
+> Create Tier Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497370313086,
+        "updated": 1497370313086
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_type` | Transaction Type | | true
+`subtype_id` | Subtype ID | null | false
+`enabled` | Enabled | false | true
+
+### Retrieve Tier Switches
+
+Retrieve a specific switch related to a Tier
+
+> Retrieve Tier Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Tier Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497370313086,
+        "updated": 1497370313086
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}`
+
+### Update Tier Switches
+
+Update a specific switch related to a Tier
+
+> Update Tier Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update Tier Switches response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497370313086,
+        "updated": 1497370313086
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}`
 
 --------------------------------------------------------------------------------
 
