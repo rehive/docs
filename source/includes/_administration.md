@@ -1299,7 +1299,7 @@ curl https://www.rehive.com/api/3/admin/accounts/
                 "name": "default",
                 "reference": "0000000000",
                 "user": "joe@rehive.com",
-                "balances": [
+                "currencies": [
                     {
                         "balance": 10000,
                         "currency": {
@@ -1356,7 +1356,7 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/
         "name": "default",
         "reference": "0000000000",
         "user": "joe@rehive.com",
-        "balances": [
+        "currencies": [
             {
                 "balance": 10000,
                 "currency": {
