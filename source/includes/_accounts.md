@@ -47,17 +47,17 @@ curl https://www.rehive.com/api/3/accounts/
 
 Get a list of accounts belonging to a user.
 
-### Pagination
+#### Pagination
 
 The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
 
-### Filtering
+#### Filtering
 
 The account listing offers filtering on the `active` attribute. This is done through a URL parameter in the request URL:
 
 `/api/3/accounts/?active=true`
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/accounts/`
 
@@ -101,13 +101,13 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
 
 Retrieve an account belonging to a user.
 
-### Filtering
+#### Filtering
 
 The account view offers filtering of currencies based on the `active` attribute. This is done through a URL parameter in the request URL:
 
 `/api/3/accounts/{reference}/?active=true`
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/accounts/{reference}/`
 
@@ -150,17 +150,17 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/
 
 Get a list of currencies for an account belonging to a user.
 
-### Pagination
+#### Pagination
 
 The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
 
-### Filtering
+#### Filtering
 
 The account currency listing offers filtering on the `active` attribute. This is done through a URL parameter in the request URL:
 
 `/api/3/accounts/{reference}/currencies/?active=true`
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/accounts/{reference}/currencies/`
 
@@ -196,7 +196,7 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
 
 Retrieve an account's currency belonging to a user.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/accounts/{reference}/currencies/{code}`
 
@@ -233,11 +233,11 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
 
 Update the active status of an account currency. Activating an account's currency will result in that currency getting used by default for all transactions if no other account/currency is specified.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/accounts/{reference}/currencies/{code}`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---

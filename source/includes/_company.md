@@ -28,7 +28,7 @@ curl https://www.rehive.com/api/3/company/
 
 Retrieve current user's company details.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/company/`
 
@@ -67,7 +67,7 @@ curl https://www.rehive.com/api/3/company/currencies/
 
 Get a list of available currencies for the current user's company.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/company/currencies/`
 
@@ -111,6 +111,6 @@ curl https://www.rehive.com/api/3/accounts/deposits/bank/
 
 List company banks for the current user's company.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/company/banks/`

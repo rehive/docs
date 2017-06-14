@@ -81,11 +81,11 @@ curl https://www.rehive.com/api/3/auth/tokens/
 
 Creating a token here will remove the expiration time on the token, thus giving it an infinite lifespan.
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/tokens/`
 
-### Fields
+#### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
@@ -110,7 +110,7 @@ curl https://www.rehive.com/api/3/auth/tokens/{token_key}
 }
 ```
 
-### Endpoint
+#### Endpoint
 
 `https://rehive.com/api/3/auth/tokens/{token_key}`
 
