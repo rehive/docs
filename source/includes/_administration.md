@@ -1653,7 +1653,7 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limit
 
 ### Update Account Currency Limit
 
-Update a specific limits related to am account currency.
+Update a specific limits related to an account currency.
 
 > Update Account Currency request
 
@@ -1686,6 +1686,163 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limit
 #### Endpoint
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}`
+
+### List Account Currency Fees
+
+List all fees related to am account currency.
+
+> List Account Currency Fees request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Account Currency Fees response
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "value": 1000,
+            "percentage": null,
+            "tx_type": "credit",
+            "subtype": null,
+            "created": 1497431721587,
+            "updated": 1497431721587
+        }
+    ],
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/`
+
+### Create Account Currency Fee
+
+Create a new fee related to an account currency.
+
+> Create Account Currency Fee request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"value": 1000,
+       "tx_type": "credit"}'
+```
+
+> Create Account Currency Fee response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 1000,
+        "percentage": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497431721587,
+        "updated": 1497431721587
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`value` | Fee amount | | true
+`percentage` | Percentage amount |  | false
+`tx_type` | Transaction type fees are applied | | true
+`subtype_id` | Transaction subtype ID | null | false
+
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
+### Retrieve Account Currency fee
+
+Retrieve a specific requirement related to an account currency.
+
+> Retrieve Account Currency Fee request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Account Currency fee response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 1000,
+        "percentage": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497431721587,
+        "updated": 1497431721587
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}`
+
+### Update Account Currency Fee
+
+Update a specific fees related to an account currency.
+
+> Update Account Currency request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"value": 5000}'
+```
+
+> Update Account Currency response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 5000,
+        "percentage": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497431721587,
+        "updated": 1497431938971
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}`
 
 ### List Account Currency Switches
 
@@ -3320,6 +3477,163 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{switch_id}
 #### Endpoint
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limits_id}`
+
+### List Tier Fees
+
+List all fees related to a Tier.
+
+> List Tier Fees request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Tier Fees response
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "value": 1000,
+            "percentage": null,
+            "tx_type": "credit",
+            "subtype": null,
+            "created": 1497431721587,
+            "updated": 1497431721587
+        }
+    ],
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/`
+
+### Create Tier Fee
+
+Create a new fee related to a Tier.
+
+> Create Tier Fee request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"value": 1000,
+       "tx_type": "credit"}'
+```
+
+> Create Tier Fee response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 1000,
+        "percentage": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497431721587,
+        "updated": 1497431721587
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`value` | Fee amount | | true
+`percentage` | Percentage amount |  | false
+`tx_type` | Transaction type fees are applied | | true
+`subtype_id` | Transaction subtype ID | null | false
+
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
+### Retrieve Tier fee
+
+Retrieve a specific requirement related to a Tier.
+
+> Retrieve Tier Fee request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Tier Fee response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 1000,
+        "percentage": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497431721587,
+        "updated": 1497431721587
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}`
+
+### Update Tier Fee
+
+Update a specific fees related to a Tier.
+
+> Update Tier request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"value": 5000}'
+```
+
+> Update Tier response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 5000,
+        "percentage": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497431721587,
+        "updated": 1497431938971
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}`
 
 ### List Tier Switches
 
