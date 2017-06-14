@@ -1763,7 +1763,7 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`value` | Fee amount | | true
+`value` | Fee amount | 0 | false
 `percentage` | Percentage amount |  | false
 `tx_type` | Transaction type fees are applied | | true
 `subtype_id` | Transaction subtype ID | null | false
@@ -3554,7 +3554,7 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`value` | Fee amount | | true
+`value` | Fee amount | 0 | false
 `percentage` | Percentage amount |  | false
 `tx_type` | Transaction type fees are applied | | true
 `subtype_id` | Transaction subtype ID | null | false
