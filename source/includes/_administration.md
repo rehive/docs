@@ -1519,6 +1519,174 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `active` | is active currency | false | false
 
+### List Account Currency Limits
+
+List all Limits related to am account currency.
+
+> List Account Currency request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List Account Currency Limits response
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "value": 1000,
+            "type": "Maximum",
+            "tx_type": "credit",
+            "subtype": null,
+            "created": 1497428787920,
+            "updated": 1497428787921
+        }
+    ],
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/`
+
+### Create Account Currency Limit
+
+Create a new limit related to an account currency.
+
+> Create Account Currency Limit request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"value": 1000,
+       "type": "max",
+       "tx_type": "credit"}'
+```
+
+> Create Account Currency response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 1000,
+        "type": "Maximum",
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497428787920,
+        "updated": 1497428787921
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`value` | Limit value | 0 | true
+`type` | Limit Type |  | true
+`tx_type` | Transaction type limits are applied | | true
+`subtype_id` | Transaction subtype ID | null | false
+
+#### Limit Types
+
+Value | Description 
+--- | --- 
+`max` | Maximum 
+`day_max` | Maximum per day 
+`month_max` | Maximum per month 
+`min` | Minimum 
+
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
+### Retrieve Account Currency Limit
+
+Retrieve a specific requirement related to an account currency.
+
+> Retrieve Account Currency request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve Account Currency Limit response
+
+```json
+{
+    "data": {
+        "id": 1,
+        "value": 1000,
+        "type": "Maximum",
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497428787920,
+        "updated": 1497428787921
+    },
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}`
+
+### Update Account Currency Limit
+
+Update a specific limits related to am account currency.
+
+> Update Account Currency request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"value": 5000,
+       "type": "min"}'
+```
+
+> Update Account Currency response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "value": 5000,
+        "type": "Minimum",
+        "tx_type": "credit",
+        "subtype": null,
+        "created": 1497428787920,
+        "updated": 1497429648948
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}`
+
 ### List Account Currency Switches
 
 List all switches related to the currency
