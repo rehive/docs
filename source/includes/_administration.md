@@ -653,7 +653,7 @@ The list is paginated and can be navigated via the `next` and `previous` fields 
 
 The account currency listing offers filtering on the `user` attribute. This is done through a URL parameter in the request URL:
 
-`/api/3/admin/user/smobiles/?user=00000000-0000-0000-0000-000000000000`
+`/api/3/admin/users/mobiles/?user=00000000-0000-0000-0000-000000000000`
 
 #### Endpoint
 
