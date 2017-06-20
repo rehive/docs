@@ -57,9 +57,24 @@ curl https://www.rehive.com/api/3/auth/register/
        "password2":"joe1234"}'
 ```
 
+```javascript
+rehive.auth.register(
+        {first_name: "Joe",
+         last_name: "Soap",
+         email: "joe@rehive.com",
+         company: "rehive",
+         password1: "joe1234",
+         password2:"joe1234"
+        }).then(function(user){
+            console.log(user);
+        },function(err){
+            console.log(err);
+        });
+```
+
 > User registration response
 
-```json
+```shell
   {
     "status": "success"
     "data": {
@@ -74,6 +89,21 @@ curl https://www.rehive.com/api/3/auth/register/
         "profile": null,
         "language": "en"
       }
+    }
+  }
+```
+
+```javascript
+  {
+    "user": {
+      identifier: "00000000-0000-0000-0000-000000000000",
+      email: "joe@rehive.com",
+      mobile_number: "+00000000000",
+      first_name: "Joe",
+      last_name: "Soap",
+      company: "rehive",
+      profile: null,
+      language: "en"
     }
   }
 ```
@@ -110,9 +140,21 @@ curl https://www.rehive.com/api/3/auth/login/
        "password": "joe1234"}'
 ```
 
+```javascript
+rehive.auth.login({
+            user: "joe@rehive.com",
+            company: "rehive",
+            password: "joe1234"
+        }).then(function(user){
+            console.log(user);
+            },function(err){
+            console.log(err);
+        })
+```
+
 > User login response
 
-```json
+```shell
   {
     "status": "success"
     "data": {
@@ -127,6 +169,21 @@ curl https://www.rehive.com/api/3/auth/login/
         "profile": null,
         "language": "en"
       }
+    }
+  }
+```
+
+```javascript
+  {
+    "user": {
+      identifier: "00000000-0000-0000-0000-000000000000",
+      email: "joe@rehive.com",
+      mobile_number: "+00000000000",
+      first_name: "Joe",
+      last_name: "Soap",
+      company: "rehive",
+      profile: null,
+      language: "en"
     }
   }
 ```

@@ -3,6 +3,7 @@ title: API Reference
 
 language_tabs:
   - shell
+  - javascript
 
 includes:
   - authentication
@@ -17,6 +18,13 @@ search: true
 ---
 
 # Introduction
+
+```javascript
+SDK Initialization
+
+
+window.rehive = new Rehive({apiVersion: 3});
+```
 
 > API Endpoint
 
