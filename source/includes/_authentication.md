@@ -68,7 +68,7 @@ rehive.auth.register(
         }).then(function(user){
             console.log(user);
         },function(err){
-            console.log(err);
+            // ...
         });
 ```
 
@@ -94,18 +94,16 @@ rehive.auth.register(
 ```
 
 ```javascript
-  {
-    "user": {
-      identifier: "00000000-0000-0000-0000-000000000000",
-      email: "joe@rehive.com",
-      mobile_number: "+00000000000",
-      first_name: "Joe",
-      last_name: "Soap",
-      company: "rehive",
-      profile: null,
-      language: "en"
-    }
-  }
+{
+  identifier: "00000000-0000-0000-0000-000000000000",
+  email: "joe@rehive.com",
+  mobile_number: "+00000000000",
+  first_name: "Joe",
+  last_name: "Soap",
+  company: "rehive",
+  profile: null,
+  language: "en"
+}
 ```
 
 Register a user with the credentials provided. A successful registration will 
@@ -148,7 +146,7 @@ rehive.auth.login({
         }).then(function(user){
             console.log(user);
             },function(err){
-            console.log(err);
+            // ...
         })
 ```
 
@@ -174,18 +172,16 @@ rehive.auth.login({
 ```
 
 ```javascript
-  {
-    "user": {
-      identifier: "00000000-0000-0000-0000-000000000000",
-      email: "joe@rehive.com",
-      mobile_number: "+00000000000",
-      first_name: "Joe",
-      last_name: "Soap",
-      company: "rehive",
-      profile: null,
-      language: "en"
-    }
-  }
+{
+  identifier: "00000000-0000-0000-0000-000000000000",
+  email: "joe@rehive.com",
+  mobile_number: "+00000000000",
+  first_name: "Joe",
+  last_name: "Soap",
+  company: "rehive",
+  profile: null,
+  language: "en"
+}
 ```
 
 Login a user with the credentials provided. A successful login will return the 
@@ -216,9 +212,9 @@ curl https://www.rehive.com/api/3/auth/logout/
 
 ```javascript
 rehive.auth.logout().then(function(res){
-        console.log(res);
+        // ...
     },function(err){
-        console.log(err);
+        // ...
     })
 ```
 
@@ -250,9 +246,9 @@ curl https://www.rehive.com/api/3/auth/logout/all/
 
 ```javascript
 rehive.auth.logoutAll().then(function(res){
-            console.log(res);
+            // ...
         }, function (err){
-            console.log(err);
+            // ...
         })
 ```
 
@@ -292,9 +288,9 @@ rehive.auth.changePassword(
             new_password1: "joe1234",
             new_password2: "joe1234"
         }).then(function(res){
-            console.log(res);
+            // ...
         },function(err){
-            console.log(err);
+            // ...
         })
 ```
 
@@ -343,9 +339,9 @@ rehive.auth.resetPassword(
             user: "joe@rehive.com",
             company: "rehive"
         }).then(function(res){
-            console.log(res);
+            // ...
         }, function (err) {
-            console.log(err);
+            // ...
         })
 ```
 
@@ -393,9 +389,9 @@ rehive.auth.resetConfirmPassword(
             uid: "{uid}",
             token: "{token}"
         }).then(function(res){
-            console.log(res);
+            // ...
         },function(err){
-            console.log(err);
+            // ...
         })
 ```
 
@@ -447,9 +443,9 @@ rehive.auth.resendEmailVerification(
             email: "joe@rehive.com",
             company: "rehive"
         }).then(function(res){
-            console.log(res);
+            // ...
         },function(err){
-            console.log(err);
+            // ...
         })
 ```
 
@@ -492,9 +488,9 @@ rehive.auth.resendMobileVerification(
             mobile: "+27840000000",
             company: "rehive"
         }).then(function(res){
-            console.log(res);
+            // ...
         },function(err){
-            console.log(err);
+            // ...
         })
 ```
 
@@ -535,9 +531,9 @@ rehive.auth.verifyMobile(
         {
             otp: "{otp}"
         }).then(function(res){
-            console.log(res);
+            // ...
         },function(err){
-            console.log(err);
+            // ...
         })
 ```
 

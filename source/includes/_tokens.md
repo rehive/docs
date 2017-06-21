@@ -20,9 +20,17 @@ curl https://www.rehive.com/api/3/auth/tokens/
   -H "Authorization: Token {token}"
 ```
 
+```javascript
+rehive.token.getTokensList().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    });
+```
+
 > List user tokens response
 
-```json
+```shell
 {
   "status": "success",
   "data": [
@@ -42,6 +50,24 @@ curl https://www.rehive.com/api/3/auth/tokens/
 }
 ```
 
+```javascript
+[
+  {
+    "token_key": "00000000",
+    "expires": null
+  },
+  {
+    "token_key": "00000000",
+    "expires": "2001-01-01T01:01:01.000001Z"
+  },
+  {
+    "token_key": "00000000",
+    "expires": "2001-01-01T01:01:01.000002Z"
+  }
+]
+
+```
+
 Retrieve a list of the current active tokens for the authenticated user. 
 Notice that only the `token_key` is exposed here and not the whole token, in case
 user tokens need to be managed on the client side.
@@ -58,9 +84,20 @@ curl https://www.rehive.com/api/3/auth/tokens/
   -D "{"password": "joe1234"}"
 ```
 
+```javascript
+rehive.token.createToken(
+        {
+            password: "joe1234"
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > Create token response
 
-```json
+```shell
 {
   "status": "success",
   "data": {
@@ -76,6 +113,22 @@ curl https://www.rehive.com/api/3/auth/tokens/
       "language": "en"
     }
   }
+}
+```
+
+```javascript
+{
+    token: "{token}",
+    user: {
+      identifier: "00000000-0000-0000-0000-000000000000",
+      email: "joe@rehive.com",
+      mobile_number: "+00000000000",
+      first_name: "Joe",
+      last_name: "Soap",
+      company: "rehive",
+      profile: null,
+      language: "en"
+    }
 }
 ```
 
@@ -100,6 +153,14 @@ curl https://www.rehive.com/api/3/auth/tokens/{token_key}
   -X DELETE
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
+```
+
+```javascript
+rehive.token.deleteToken("000a0a00").then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
 ```
 
 > Delete token response
