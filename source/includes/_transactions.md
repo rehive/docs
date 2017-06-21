@@ -19,9 +19,19 @@ curl https://www.rehive.com/api/3/transactions/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+var filters = {tx_type: 'credit',currency: 'ZAR'};
+
+rehive.transactions.getTransactionsList(filters).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User transactions response
 
-```json
+```shell
  {
     "status": "success",
     "data": {
@@ -106,6 +116,88 @@ curl https://www.rehive.com/api/3/transactions/
 }
 ```
 
+```javascript
+ {
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": "000000000000000000000",
+            "tx_type": "credit",
+            "subtype": null,
+            "external": false,
+            "note": "",
+            "metadata": {},
+            "status": "Complete",
+            "reference": "",
+            "amount": 500,
+            "fee": 0,
+            "balance": 1000,
+            "account": "akC49YT8x4",
+            "label": "Credit",
+            "company": "rehive",
+            "currency": {
+                "description": "Rand",
+                "code": "ZAR",
+                "symbol": "R",
+                "unit": "rand",
+                "divisibility": 2
+            },
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "source_transaction": null,
+            "destination_transaction": null,
+            "created": 1496135465218,
+            "updated": 1496135465287
+        },
+        {
+            "id": "000000000000000000000",
+            "tx_type": "credit",
+            "subtype": null,
+            "external": false,
+            "note": "",
+            "metadata": {},
+            "status": "Complete",
+            "reference": "",
+            "amount": 500,
+            "fee": 0,
+            "balance": 500,
+            "account": "akC49YT8x4",
+            "label": "Credit",
+            "company": "rehive",
+            "currency": {
+                "description": "Rand",
+                "code": "ZAR",
+                "symbol": "R",
+                "unit": "rand",
+                "divisibility": 2
+            },
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "source_transaction": null,
+            "destination_transaction": null,
+            "created": 1496135465218,
+            "updated": 1496135465287
+        }
+    ]
+ }
+```
+
 Get a a user's transaction list.
 
 #### Pagination
@@ -147,9 +239,19 @@ curl https://www.rehive.com/api/3/transactions/totals/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+var filters = {currency:'ZAR'};
+
+rehive.transactions.getTotalTransactionsList(filters).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User total transactions response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -158,6 +260,15 @@ curl https://www.rehive.com/api/3/transactions/totals/
         "count": 2,
         "currency": "ZAR"
     }
+}
+```
+
+```javascript
+{
+    "amount": 1000,
+    "fees": 0,
+    "count": 2,
+    "currency": "ZAR"
 }
 ```
 
@@ -182,9 +293,17 @@ curl https://www.rehive.com/api/3/transactions/{tx_code}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.transactions.getTransaction(txCode).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > Retrieve transaction response
 
-```json
+```shell
 {
     "status": "success",
     "data":  {
@@ -233,6 +352,52 @@ curl https://www.rehive.com/api/3/transactions/{tx_code}/
 }
 ```
 
+```javascript
+{
+    "id": "000000000000000000000",
+    "tx_type": "credit",
+    "subtype": null,
+    "external": false,
+    "note": "",
+    "metadata": {},
+    "status": "Complete",
+    "reference": "",
+    "amount": 500,
+    "fee": 0,
+    "balance": 500,
+    "account": "akC49YT8x4",
+    "label": "Credit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [
+        {
+            "level": "info",
+            "message": "Transaction completed.",
+            "created": 1496144568989
+        }
+    ],
+    "created": 1496135465218,
+    "updated": 1496135465287
+}
+```
+
 Get transaction details for a spcific transactions.
 
 #### Endpoint
@@ -251,15 +416,33 @@ curl https://www.rehive.com/api/3/transactions/credit/
   -d '{"amount": 500}'
 ```
 
+```javascript
+rehive.transactions.createCredit(
+        {
+            amount: 500
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > User credit response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
         "tx_code": "00000000000000000000",
         "metadata": {}
     }
+}
+```
+
+```javascript
+{
+    "tx_code": "00000000000000000000",
+    "metadata": {}
 }
 ```
 
@@ -301,15 +484,33 @@ curl https://www.rehive.com/api/3/transactions/debit/
   -d '{"amount": 500}'
 ```
 
+```javascript
+rehive.transactions.createDebit(
+        {
+            amount: 500
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > User debit response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
         "tx_code": "00000000000000000000",
         "metadata": {}
     }
+}
+```
+
+```javascript
+{
+    "tx_code": "00000000000000000000",
+    "metadata": {}
 }
 ```
 
@@ -344,15 +545,34 @@ curl https://www.rehive.com/api/3/transactions/transfer/
        "recipient": "joe@rehive.com"}'
 ```
 
+```javascript
+rehive.transactions.createTransfer(
+    {
+        amount: 500,
+        recipient: "joe@rehive.com"
+    }).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User transfer response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
         "tx_code": "00000000000000000000",
         "metadata": {}
     }
+}
+```
+
+```javascript
+{
+    "tx_code": "00000000000000000000",
+    "metadata": {}
 }
 ```
 
