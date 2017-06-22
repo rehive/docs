@@ -57,32 +57,32 @@ rehive.user.getUserProfile().then(function(user){
 
 ```javascript
 {
-    first_name: "Joe",
-    last_name: "Soap",
-    email: "joe@rehive.com",
-    username: "",
-    id_number: "",
-    profile: null,
-    currency: {
-        description: "Rand",
-        code: "ZAR",
-        symbol: "R",
-        unit: "rand",
-        divisibility: 2
-    },
-    company: {
-        identifier: "rehive",
-        name: "Rehive",
-        description: "Wallets for everyone.",
-        website: "http://www.rehive.com",
-        logo: null
-    },
-    language: "en",
-    nationality: "ZA",
-    metadata: null,
-    mobile_number: "+27840000000",
-    skype_name: "@skype",
-    timezone: "Asia/Dhaka"
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": "",
+    "profile": null,
+    "currency": {
+         "description": "Rand",
+         "code": "ZAR",
+         "symbol": "R",
+         "unit": "rand",
+         "divisibility": 2
+         },
+    "company": {
+         "identifier": "rehive",
+         "name": "Rehive",
+         "description": "Wallets for everyone.",
+         "website": "http://www.rehive.com",
+         "logo": null
+         },
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": null,
+    "mobile_number": "+27840000000",
+    "skype_name": "@skype",
+    "timezone": "Asia/Dhaka"
 }
 ```
 
@@ -154,33 +154,33 @@ rehive.user.updateUserProfile(
 
 ```javascript
 {
-    identifier: "00000000-0000-0000-0000-000000000000",
-    first_name: "Joe",
-    last_name: "Soap",
-    email: "joe@rehive.com",
-    username: "",
-    id_number: "",
-    profile: null,
-    currency: {
-        description: "Rand",
-        code: "ZAR",
-        symbol: "R",
-        unit: "rand",
-        divisibility: 2
-    },
-    company": {
-        identifier: "rehive",
-        name: "Rehive",
-        description: "Wallets for everyone.",
-        website: "http://www.rehive.com",
-        logo: null
-    },
-    language: "en",
-    nationality: "ZA",
-    metadata: null,
-    mobile_number: "+27840000000",
-    skype_name: "@skype",
-    timezone: "Asia/Dhaka"
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": "",
+    "profile": null,
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+       },
+    "company": {
+        "identifier": "rehive",
+        "name": "Rehive",
+        "description": "Wallets for everyone.",
+        "website": "http://www.rehive.com",
+        "logo": null
+       },
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": null,
+    "mobile_number": "+27840000000",
+    "skype_name": "@skype",
+    "timezone": "Asia/Dhaka"
 }
 ```
 
@@ -298,12 +298,12 @@ rehive.user.updateUserAddress(
 
 ```javascript
 {
-    line_1: "1 Main Street",
-    line_2: "East City",
-    city: "Cape Town",
-    state_province: "Western Cape",
-    country: "ZA",
-    postal_code: "8001"
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
 }
 ```
 
@@ -369,17 +369,17 @@ rehive.user.getUserBankAccounts().then(function(res){
 ```javascript
 [
     {
-        id: 1,
-        name: "Default",
-        number: "9999999999",
-        type: "Cheque",
-        bank_name: "Central Bank",
-        bank_code: "0000",
-        branch_code: "0000",
-        swift: "",
-        iban: "",
-        bic: "",
-        code: "bank_account_VEM7k1y5hnuF"
+        "id": 1,
+        "name": "Default",
+        "number": "9999999999",
+        "type": "Cheque",
+        "bank_name": "Central Bank",
+        "bank_code": "0000",
+        "branch_code": "0000",
+        "swift": "",
+        "iban": "",
+        "bic": "",
+        "code": "bank_account_VEM7k1y5hnuF"
     }
 ]
 
@@ -445,17 +445,17 @@ rehive.user.createUserBankAccount(
 
 ```javascript
 {
-    id: 1,
-    name: "Bank",
-    number: "000000000000000",
-    type: "Cheque",
-    bank_name: "Bank Ltd.",
-    bank_code: null,
-    branch_code: "0000",
-    swift: null,
-    iban: null,
-    bic: null,
-    code: "bank_account_000000000000"
+    "id": 1,
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000"
 }
 
 ```
@@ -523,17 +523,17 @@ rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
 
 ```javascript
 {
-    id: {account_id},
-    name: "Bank",
-    number: "000000000000000",
-    type: "Cheque",
-    bank_name: "Bank Ltd.",
-    bank_code: null,
-    branch_code: "0000",
-    swift: null,
-    iban: null,
-    bic: null,
-    code: "bank_account_000000000000"
+    "id": {account_id},
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000"
 }
 ```
 
@@ -595,9 +595,9 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
 ```javascript
 [
     {
-        id: 1,
-        address: "0000000000000000000000000000000000",
-        code: "bitcoin_0000000000000000000000000000000000"
+        "id": 1,
+        "address": "0000000000000000000000000000000000",
+        "code": "bitcoin_0000000000000000000000000000000000"
     }
 ]
 ```
@@ -646,9 +646,9 @@ rehive.user.createUserBitcoinAccount(
 
 ```javascript
 {
-    id: 1,
-    address: "0000000000000000000000000000000000",
-    code: "bitcoin_0000000000000000000000000000000000"
+    "id": 1,
+    "address": "0000000000000000000000000000000000",
+    "code": "bitcoin_0000000000000000000000000000000000"
 }
 ```
 
@@ -699,9 +699,9 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
 
 ```javascript
 {
-    id: {account_id},
-    address: "0000000000000000000000000000000000",
-    code: "bitcoin_0000000000000000000000000000000000"
+    "id": {account_id},
+    "address": "0000000000000000000000000000000000",
+    "code": "bitcoin_0000000000000000000000000000000000"
 }
 ```
 
@@ -759,9 +759,9 @@ curl https://www.rehive.com/api/3/user/document/
 
 ```javascript
 {
-    file: "https://url.to/file.pdf",
-    document_category: "other",
-    document_type: "other"
+    "file": "https://url.to/file.pdf",
+    "document_category": "other",
+    "document_type": "other"
 }
 ```
 
@@ -817,10 +817,10 @@ rehive.user.getUserEmailAddresses().then(function(res){
 ```javascript
 [
     {
-        id: 1,
-        email: "joe@rehive.com",
-        primary: true,
-        verified: true
+        "id": 1,
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
     }
 ]
 ```
@@ -872,10 +872,10 @@ rehive.user.createUserEmailAddress(
 
 ```javascript
 {
-    id: 1,
-    email: "joe@rehive.com",
-    primary: true,
-    verified: true
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -928,10 +928,10 @@ rehive.user.updateUserEmailAddress(emailId,{primary: true}).then(function(res){
 
 ```javascript
 {
-    id: 1,
-    email: "joe@rehive.com",
-    primary: true,
-    verified: true
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -985,10 +985,10 @@ rehive.user.getUserMobileNumbers().then(function(res){
 ```javascript
 [
     {
-        id: 1,
-        number: "+00000000000",
-        primary: true,
-        verified: true
+        "id": 1,
+        "number": "+00000000000",
+        "primary": true,
+        "verified": true
     }
 ]
 ```
@@ -1040,10 +1040,10 @@ rehive.user.createUserMobileNumber(
 
 ```javascript
 {
-    id: 1,
-    number: "+00000000000",
-    primary: true,
-    verified: true
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
 }
 ```
 

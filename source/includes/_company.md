@@ -11,9 +11,17 @@ curl https://www.rehive.com/api/3/company/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.company.getCompanyDetails().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User retrieve company details response
 
-```json
+```shell
 {
     "data": {
         "identifier": "rehive",
@@ -23,6 +31,16 @@ curl https://www.rehive.com/api/3/company/
         "logo": null
     },
     "status": "success"
+}
+```
+
+```javascript
+{
+    "identifier": "rehive",
+    "name": "Rehive",
+    "description": "Wallets for everyone.",
+    "website": "http://www.rehive.com",
+    "logo": null
 }
 ```
 
@@ -43,9 +61,17 @@ curl https://www.rehive.com/api/3/company/currencies/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.company.getCompanyCurrencies().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User list company currencies response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -62,6 +88,23 @@ curl https://www.rehive.com/api/3/company/currencies/
             }
         ]
     }
+}
+```
+
+```javascript
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "code": "XBT",
+            "description": "bitcoin",
+            "symbol": "฿",
+            "unit": "bitcoin",
+            "divisibility": 8
+        }
+    ]
 }
 ```
 
@@ -82,9 +125,17 @@ curl https://www.rehive.com/api/3/accounts/deposits/bank/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.company.getCompanyBanks().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User list company banks response
 
-```json
+```shell
 {
     "status": "success",
     "data": [
@@ -107,6 +158,28 @@ curl https://www.rehive.com/api/3/accounts/deposits/bank/
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 53,
+        "token": 1,
+        "bank_account": {
+            "id": 1,
+            "name": "Rehive",
+            "number": "xxxxxxxx",
+            "type": "Cheque",
+            "bank_name": "Barclays",
+            "bank_code": "xxxx",
+            "branch_code": "xxxxx",
+            "swift": "",
+            "iban": "",
+            "bic": ""
+        },
+        "reference": "xxxxxxxxxx"
+    }
+]
 ```
 
 List company banks for the current user's company.

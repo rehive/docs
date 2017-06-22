@@ -118,16 +118,16 @@ rehive.token.createToken(
 
 ```javascript
 {
-    token: "{token}",
-    user: {
-      identifier: "00000000-0000-0000-0000-000000000000",
-      email: "joe@rehive.com",
-      mobile_number: "+00000000000",
-      first_name: "Joe",
-      last_name: "Soap",
-      company: "rehive",
-      profile: null,
-      language: "en"
+    "token": "{token}",
+    "user": {
+      "identifier": "00000000-0000-0000-0000-000000000000",
+      "email": "joe@rehive.com",
+      "mobile_number": "+00000000000",
+      "first_name": "Joe",
+      "last_name": "Soap",
+      "company": "rehive",
+      "profile": null,
+      "language": "en"
     }
 }
 ```
