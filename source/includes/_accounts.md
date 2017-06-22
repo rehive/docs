@@ -11,9 +11,19 @@ curl https://www.rehive.com/api/3/accounts/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+var filter = {active:true};
+
+rehive.accounts.getAccountsList(filter).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User list accounts response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -45,6 +55,36 @@ curl https://www.rehive.com/api/3/accounts/
 }
 ```
 
+```javascript
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "name": "default",
+            "reference": "0000000000",
+            "balances": [
+                {
+                    "balance": 10000,
+                    "currency": {
+                        "code": "XBT",
+                        "description": "bitcoin",
+                        "symbol": "฿",
+                        "unit": "bitcoin",
+                        "divisibility": 8
+                    },
+                    "active": true
+                }
+            ],
+            "created": 1464858068745,
+            "updated": 1464858068745
+        }
+    ]
+
+}
+```
+
 Get a list of accounts belonging to a user.
 
 #### Pagination
@@ -72,9 +112,19 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+var filter = {active:true}
+
+rehive.accounts.getAccount(reference,filter).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User retrieve account response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -96,6 +146,28 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
         "created": 1464858068745,
         "updated": 1464858068745
     }
+}
+```
+
+```javascript
+{
+    "name": "default",
+    "reference": "0000000000",
+    "balances": [
+        {
+            "balance": 10000,
+            "currency": {
+                "code": "XBT",
+                "description": "bitcoin",
+                "symbol": "฿",
+                "unit": "bitcoin",
+                "divisibility": 8
+            },
+            "active": true
+        }
+    ],
+    "created": 1464858068745,
+    "updated": 1464858068745
 }
 ```
 
@@ -122,9 +194,19 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+var filter = {active:true}
+
+rehive.accounts.getAccountCurrenciesList(reference,filter).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User list account currencies response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -145,6 +227,28 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/
             }
         ]
     }
+}
+```
+
+```javascript
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "balance": 10000,
+            "currency": {
+                "code": "XBT",
+                "description": "bitcoin",
+                "symbol": "฿",
+                "unit": "bitcoin",
+                "divisibility": 8
+            },
+            "active": true
+        }
+    ]
+
 }
 ```
 
@@ -175,9 +279,17 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.accounts.getAccountCurrency(reference,currencyCode).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User retrieve account currency response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -191,6 +303,20 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
         },
         "active": true
     }
+}
+```
+
+```javascript
+{
+    "balance": 10000,
+    "currency": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8
+    },
+    "active": true
 }
 ```
 
@@ -212,9 +338,17 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
   -d '{"active": true}'
 ```
 
+```javascript
+rehive.accounts.updateAccountCurrency(reference,currencyCode,{active: true}).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User retrieve account currency response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -228,6 +362,20 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
         },
         "active": true
     }
+}
+```
+
+```javascript
+{
+    "balance": 10000,
+    "currency": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8
+    },
+    "active": true
 }
 ```
 

@@ -57,9 +57,24 @@ curl https://www.rehive.com/api/3/auth/register/
        "password2":"joe1234"}'
 ```
 
+```javascript
+rehive.auth.register(
+        {first_name: "Joe",
+         last_name: "Soap",
+         email: "joe@rehive.com",
+         company: "rehive",
+         password1: "joe1234",
+         password2:"joe1234"
+        }).then(function(user){
+            console.log(user);
+        },function(err){
+            // ...
+        });
+```
+
 > User registration response
 
-```json
+```shell
   {
     "status": "success"
     "data": {
@@ -76,6 +91,19 @@ curl https://www.rehive.com/api/3/auth/register/
       }
     }
   }
+```
+
+```javascript
+{
+  "identifier": "00000000-0000-0000-0000-000000000000",
+  "email": "joe@rehive.com",
+  "mobile_number": "+00000000000",
+  "first_name": "Joe",
+  "last_name": "Soap",
+  "company": "rehive",
+  "profile": null,
+  "language": "en"
+}
 ```
 
 Register a user with the credentials provided. A successful registration will 
@@ -110,9 +138,21 @@ curl https://www.rehive.com/api/3/auth/login/
        "password": "joe1234"}'
 ```
 
+```javascript
+rehive.auth.login({
+            user: "joe@rehive.com",
+            company: "rehive",
+            password: "joe1234"
+        }).then(function(user){
+            console.log(user);
+            },function(err){
+            // ...
+        })
+```
+
 > User login response
 
-```json
+```shell
   {
     "status": "success"
     "data": {
@@ -129,6 +169,19 @@ curl https://www.rehive.com/api/3/auth/login/
       }
     }
   }
+```
+
+```javascript
+{
+  "identifier": "00000000-0000-0000-0000-000000000000",
+  "email": "joe@rehive.com",
+  "mobile_number": "+00000000000",
+  "first_name": "Joe",
+  "last_name": "Soap",
+  "company": "rehive",
+  "profile": null,
+  "language": "en"
+}
 ```
 
 Login a user with the credentials provided. A successful login will return the 
@@ -157,6 +210,14 @@ curl https://www.rehive.com/api/3/auth/logout/
   -H "Authorization: Token {token}"
 ```
 
+```javascript
+rehive.auth.logout().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User logout response
 
 ```json
@@ -181,6 +242,14 @@ curl https://www.rehive.com/api/3/auth/logout/all/
   -X POST
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
+```
+
+```javascript
+rehive.auth.logoutAll().then(function(res){
+            // ...
+        }, function (err){
+            // ...
+        })
 ```
 
 > User logout all response
@@ -210,6 +279,19 @@ curl https://www.rehive.com/api/3/auth/password/change/
   -d '{"old_password": "joe1234",
        "new_password1": "joe1234",
        "new_password2": "joe1234"}'
+```
+
+```javascript
+rehive.auth.changePassword(
+        {
+            old_password: "joe1234",
+            new_password1: "joe1234",
+            new_password2: "joe1234"
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
 ```
 
 > User change password response
@@ -251,6 +333,18 @@ curl https://www.rehive.com/api/3/auth/password/reset/
        "company": "rehive"}'
 ```
 
+```javascript
+rehive.auth.resetPassword(
+        {
+            user: "joe@rehive.com",
+            company: "rehive"
+        }).then(function(res){
+            // ...
+        }, function (err) {
+            // ...
+        })
+```
+
 > User reset password response
 
 ```json
@@ -285,6 +379,20 @@ curl https://www.rehive.com/api/3/auth/password/reset/confirm/
        "new_password2": "joe1234",
        "uid": "{uid}",
        "token": "{token}"}'
+```
+
+```javascript
+rehive.auth.resetConfirmPassword(
+        {
+            new_password1: "joe1234",
+            new_password2: "joe1234",
+            uid: "{uid}",
+            token: "{token}"
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
 ```
 
 > User reset confirm password response
@@ -329,6 +437,18 @@ curl https://www.rehive.com/api/3/auth/email/verify/resend/
        "company": "rehive"}'
 ```
 
+```javascript
+rehive.auth.resendEmailVerification(
+        {
+            email: "joe@rehive.com",
+            company: "rehive"
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > User resend email verification response
 
 ```json
@@ -362,6 +482,18 @@ curl https://www.rehive.com/api/3auth/mobile/verify/resend/
        "company": "rehive"}'
 ```
 
+```javascript
+rehive.auth.resendMobileVerification(
+        {
+            mobile: "+27840000000",
+            company: "rehive"
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > User resend mobile verification response
 
 ```json
@@ -392,6 +524,17 @@ curl https://rehive.com/api/3/auth/mobile/verify/
   -X POST
   -H "Content-Type: application/json"
   -d '{"otp": "{otp}"}'
+```
+
+```javascript
+rehive.auth.verifyMobile(
+        {
+            otp: "{otp}"
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
 ```
 
 > User verify mobile response

@@ -11,9 +11,17 @@ curl https://www.rehive.com/api/3/user/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.user.getUserProfile().then(function(user){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User profile response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -47,6 +55,37 @@ curl https://www.rehive.com/api/3/user/
 }
 ```
 
+```javascript
+{
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": "",
+    "profile": null,
+    "currency": {
+         "description": "Rand",
+         "code": "ZAR",
+         "symbol": "R",
+         "unit": "rand",
+         "divisibility": 2
+         },
+    "company": {
+         "identifier": "rehive",
+         "name": "Rehive",
+         "description": "Wallets for everyone.",
+         "website": "http://www.rehive.com",
+         "logo": null
+         },
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": null,
+    "mobile_number": "+27840000000",
+    "skype_name": "@skype",
+    "timezone": "Asia/Dhaka"
+}
+```
+
 Retrieve a user's profile information.
 
 #### Endpoint
@@ -65,9 +104,20 @@ curl https://www.rehive.com/api/3/user/
   -d '{"first_name": "Joe"}'
 ```
 
+```javascript
+rehive.user.updateUserProfile(
+    {
+        first_name: "Joe"
+    }).then(function(user){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User update profile response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -99,6 +149,38 @@ curl https://www.rehive.com/api/3/user/
         "skype_name": "@skype",
         "timezone": "Asia/Dhaka"
     }
+}
+```
+
+```javascript
+{
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": "",
+    "profile": null,
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+       },
+    "company": {
+        "identifier": "rehive",
+        "name": "Rehive",
+        "description": "Wallets for everyone.",
+        "website": "http://www.rehive.com",
+        "logo": null
+       },
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": null,
+    "mobile_number": "+27840000000",
+    "skype_name": "@skype",
+    "timezone": "Asia/Dhaka"
 }
 ```
 
@@ -134,9 +216,17 @@ curl https://www.rehive.com/api/3/user/address/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.user.getUserAddress().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User retrieve address response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -147,6 +237,17 @@ curl https://www.rehive.com/api/3/user/address/
         "country": "ZA",
         "postal_code": "8001"
     }
+}
+```
+
+```javascript
+{
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
 }
 ```
 
@@ -168,9 +269,20 @@ curl https://www.rehive.com/api/3/user/address/
   -d '{"city": "Cape Town"}'
 ```
 
+```javascript
+rehive.user.updateUserAddress(
+    {
+        city: "Cape Town"
+    }).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User update address response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -181,6 +293,17 @@ curl https://www.rehive.com/api/3/user/address/
         "country": "ZA",
         "postal_code": "8001"
     }
+}
+```
+
+```javascript
+{
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
 }
 ```
 
@@ -212,9 +335,17 @@ curl https://www.rehive.com/api/3/user/bank_accounts/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.user.getUserBankAccounts().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User list bank accounts response
 
-```json
+```shell
 {
     "status": "success",
     "data": [
@@ -233,6 +364,25 @@ curl https://www.rehive.com/api/3/user/bank_accounts/
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "name": "Default",
+        "number": "9999999999",
+        "type": "Cheque",
+        "bank_name": "Central Bank",
+        "bank_code": "0000",
+        "branch_code": "0000",
+        "swift": "",
+        "iban": "",
+        "bic": "",
+        "code": "bank_account_VEM7k1y5hnuF"
+    }
+]
+
 ```
 
 List a user's bank accounts.
@@ -257,9 +407,24 @@ curl https://www.rehive.com/api/3/user/bank_accounts/
        "branch_code": "0000"}'
 ```
 
+```javascript
+rehive.user.createUserBankAccount(
+        {
+            name: "Bank",
+            number: "000000000000000",
+            type: "Cheque",
+            bank_name: "Bank Ltd.",
+            branch_code: "0000"
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        });
+```
+
 > User create bank account response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -276,6 +441,23 @@ curl https://www.rehive.com/api/3/user/bank_accounts/
         "code": "bank_account_000000000000"
     }
 }
+```
+
+```javascript
+{
+    "id": 1,
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000"
+}
+
 ```
 
 Create a bank account for a user.
@@ -310,9 +492,17 @@ curl https://www.rehive.com/api/3/user/bank_accounts/{account_id}
   -d '{"name": "Bank"}'
 ```
 
+```javascript
+rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > User update bank account response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -328,6 +518,22 @@ curl https://www.rehive.com/api/3/user/bank_accounts/{account_id}
         "bic": null,
         "code": "bank_account_000000000000"
     }
+}
+```
+
+```javascript
+{
+    "id": {account_id},
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000"
 }
 ```
 
@@ -363,9 +569,17 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.user.getUserBitcoinAccounts().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User list bitcoin accounts response
 
-```json
+```shell
 {
     "status": "success",
     "data": [
@@ -376,6 +590,16 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "address": "0000000000000000000000000000000000",
+        "code": "bitcoin_0000000000000000000000000000000000"
+    }
+]
 ```
 
 List a user's bitcoin addresses.
@@ -396,9 +620,20 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/
   -d '{"address": "0000000000000000000000000000000000"}'
 ```
 
+```javascript
+rehive.user.createUserBitcoinAccount(
+        {
+            address: address
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > User create bitcoin account response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -406,6 +641,14 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/
         "address": "0000000000000000000000000000000000",
         "code": "bitcoin_0000000000000000000000000000000000"
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "address": "0000000000000000000000000000000000",
+    "code": "bitcoin_0000000000000000000000000000000000"
 }
 ```
 
@@ -433,9 +676,17 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/{account_id}
   -d '{"address": "0000000000000000000000000000000000"}'
 ```
 
+```javascript
+rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000000000000000"}).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User update bitcoin account response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -443,6 +694,14 @@ curl https://www.rehive.com/api/3/user/bitcoin_accounts/{account_id}
         "address": "0000000000000000000000000000000000",
         "code": "bitcoin_0000000000000000000000000000000000"
     }
+}
+```
+
+```javascript
+{
+    "id": {account_id},
+    "address": "0000000000000000000000000000000000",
+    "code": "bitcoin_0000000000000000000000000000000000"
 }
 ```
 
@@ -470,9 +729,24 @@ curl https://www.rehive.com/api/3/user/document/
   -F file=@localfilename
 ```
 
+```javascript
+ var fileSelected = document.getElementById("fileInput").files[0],
+        formData =  new FormData;
+
+    formData.append('file', fileSelected);
+    formData.append('document_category', 'other');
+    formData.append('document_type', 'other');
+
+    rehive.user.createDocument(formData).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User documents response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -480,6 +754,14 @@ curl https://www.rehive.com/api/3/user/document/
         "document_category": "other",
         "document_type": "other"
     }
+}
+```
+
+```javascript
+{
+    "file": "https://url.to/file.pdf",
+    "document_category": "other",
+    "document_type": "other"
 }
 ```
 
@@ -508,9 +790,17 @@ curl https://www.rehive.com/api/3/user/emails/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.user.getUserEmailAddresses().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User list email addresses response
 
-```json
+```shell
 {
     "status": "success",
     "data": [
@@ -522,6 +812,17 @@ curl https://www.rehive.com/api/3/user/emails/
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+]
 ```
 
 Get a list of user's email addresses.
@@ -543,9 +844,21 @@ curl https://www.rehive.com/api/3/user/emails/
        "primary": true}'
 ```
 
+```javascript
+rehive.user.createUserEmailAddress(
+        {
+            email: "joe@rehive.com",
+            primary: true
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > User create email address response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -554,6 +867,15 @@ curl https://www.rehive.com/api/3/user/emails/
         "primary": true,
         "verified": true
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -582,9 +904,17 @@ curl https://www.rehive.com/api/3/user/emails/{email_id}
   -d '{"primary": true}'
 ```
 
+```javascript
+rehive.user.updateUserEmailAddress(emailId,{primary: true}).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User update email address response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -593,6 +923,15 @@ curl https://www.rehive.com/api/3/user/emails/{email_id}
         "primary": true,
         "verified": true
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -619,9 +958,17 @@ curl https://www.rehive.com/api/3/user/mobiles/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.user.getUserMobileNumbers().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User mobile numbers response
 
-```json
+```shell
 {
     "status": "success",
     "data": [
@@ -633,6 +980,17 @@ curl https://www.rehive.com/api/3/user/mobiles/
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "number": "+00000000000",
+        "primary": true,
+        "verified": true
+    }
+]
 ```
 
 Get a list of user's mobile numbers.
@@ -654,9 +1012,21 @@ curl https://www.rehive.com/api/3/user/mobiles/
        "primary": true}'
 ```
 
+```javascript
+rehive.user.createUserMobileNumber(
+        {
+            number: "+00000000000",
+            primary: true
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
 > User create mobile number response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -665,6 +1035,15 @@ curl https://www.rehive.com/api/3/user/mobiles/
         "primary": true,
         "verified": true
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -693,9 +1072,17 @@ curl https://www.rehive.com/api/3/user/mobiles/{number_id}
   -d '{"primary": true}'
 ```
 
+```javascript
+rehive.user.updateUserMobileNumber(numberId,{primary: true}).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User update mobile number response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -704,6 +1091,15 @@ curl https://www.rehive.com/api/3/user/mobiles/{number_id}
         "primary": true,
         "verified": true
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -730,9 +1126,17 @@ curl https://www.rehive.com/api/3/user/notifications/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.user.getUserNotifications().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User list notifcations response
 
-```json
+```shell
 {
     "status": "success",
     "data": [
@@ -789,6 +1193,60 @@ curl https://www.rehive.com/api/3/user/notifications/
 }
 ```
 
+```javascript
+[
+    {
+        "id": 1,
+        "name": "tx_transfer_debit",
+        "description": "Transfer debit notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 2,
+        "name": "tx_debit",
+        "description": "Debit notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 3,
+        "name": "tx_transfer_credit",
+        "description": "Transfer credit notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 4,
+        "name": "tx_credit",
+        "description": "Credit notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 5,
+        "name": "tx_transfer_invite",
+        "description": "Transfer invite notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 9,
+        "name": "document_upload",
+        "description": "Document upload notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 10,
+        "name": "document_change",
+        "description": "Document status change notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    }
+]
+```
+
 Get a list of available notification settings.
 
 #### Endpoint
@@ -807,9 +1265,17 @@ curl https://www.rehive.com/api/3/user/notifcations/{notification_id}
   -d '{"email_enabled": true}'
 ```
 
+```javascript
+rehive.user.updateUserNotifications(notificationId,{email_enabled: true}).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
 > User update notification response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -819,6 +1285,16 @@ curl https://www.rehive.com/api/3/user/notifcations/{notification_id}
         "name": "tx_credit",
         "description": "Credit transaction notifications"
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "email_enabled": true,
+    "sms_enabled": true,
+    "name": "tx_credit",
+    "description": "Credit transaction notifications"
 }
 ```
 
