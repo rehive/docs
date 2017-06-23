@@ -33,6 +33,10 @@ curl https://www.rehive.com/api/3/
   -H "Authorization: Token {token}"
 ```
 
+```javascript
+"Not applicable for sdk"
+```
+
 When making requests, the API key should be included as a token in the `Authorization` header:
 
 `Authorization: Token {token}`
@@ -66,7 +70,7 @@ rehive.auth.register(
          password1: "joe1234",
          password2:"joe1234"
         }).then(function(user){
-            console.log(user);
+            // ...
         },function(err){
             // ...
         });
@@ -220,10 +224,16 @@ rehive.auth.logout().then(function(res){
 
 > User logout response
 
-```json
+```shell
 {
   "message": "Successfully logged out.",
   "status": "success"
+}
+```
+
+```javascript
+{
+  "message": "Successfully logged out."
 }
 ```
 
@@ -254,10 +264,16 @@ rehive.auth.logoutAll().then(function(res){
 
 > User logout all response
 
-```json
+```shell
 {
   "message": "Successfully logged out all sessions.",
   "status": "success"
+}
+```
+
+```javascript
+{
+  "message": "Successfully logged out all sessions."
 }
 ```
 
@@ -296,10 +312,16 @@ rehive.auth.changePassword(
 
 > User change password response
 
-```json
+```shell
 {
   "message": "New password has been saved.",
   "status": "success"
+}
+```
+
+```javascript
+{
+  "message": "New password has been saved."
 }
 ```
 
@@ -347,10 +369,16 @@ rehive.auth.resetPassword(
 
 > User reset password response
 
-```json
+```shell
 {
   "message": "Password reset message has been sent.",
   "status": "success"
+}
+```
+
+```javascript
+{
+  "message": "Password reset message has been sent."
 }
 ```
 
@@ -397,10 +425,16 @@ rehive.auth.resetConfirmPassword(
 
 > User reset confirm password response
 
-```json
+```shell
 {
   "message": "Password has been reset with the new password.",
   "status": "success"
+}
+```
+
+```javascript
+{
+  "message": "Password has been reset with the new password."
 }
 ```
 
@@ -451,10 +485,14 @@ rehive.auth.resendEmailVerification(
 
 > User resend email verification response
 
-```json
+```shell
 {
   "status": "success"
 }
+```
+
+```javascript
+{ }
 ```
 
 Resend email verifications for an email.
@@ -496,10 +534,14 @@ rehive.auth.resendMobileVerification(
 
 > User resend mobile verification response
 
-```json
+```shell
 {
   "status": "success"
 }
+```
+
+```javascript
+{ }
 ```
 
 Resends mobile verifications for a mobile number.
@@ -539,10 +581,14 @@ rehive.auth.verifyMobile(
 
 > User verify mobile response
 
-```json
+```shell
 {
   "status": "success"
 }
+```
+
+```javascript
+{ }
 ```
 
 Verify a mobile number with an OTP.

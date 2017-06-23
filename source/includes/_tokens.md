@@ -165,10 +165,14 @@ rehive.token.deleteToken("000a0a00").then(function(res){
 
 > Delete token response
 
-```json
+```shell
 {
   "status": "success"
 }
+```
+
+```javascript
+{ }
 ```
 
 #### Endpoint

@@ -53,31 +53,28 @@ rehive.user.getUserProfile().then(function(user){
 
 ```javascript
 {
-    "status": "success",
-    "data": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": "",
-        "id_number": null,
-        "profile": null,
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
-        "company": "rehive",
-        "language": "en",
-        "nationality": "ZA",
-        "metadata": {},
-        "mobile_number": "+27840000000",
-        "verified": true,
-        "timezone": "Asia/Dhaka",
-        "date_joined": 1464912953000
-    }
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": null,
+    "profile": null,
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "company": "rehive",
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": {},
+    "mobile_number": "+27840000000",
+    "verified": true,
+    "timezone": "Asia/Dhaka",
+    "date_joined": 1464912953000
 }
 ```
 
@@ -144,31 +141,28 @@ rehive.user.updateUserProfile(
 
 ```javascript
 {
-    "status": "success",
-    "data": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": "",
-        "id_number": null,
-        "profile": null,
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
-        "company": "rehive",
-        "language": "en",
-        "nationality": "ZA",
-        "metadata": {},
-        "mobile_number": "+27840000000",
-        "verified": true,
-        "timezone": "Asia/Dhaka",
-        "date_joined": 1464912953000
-    }
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": null,
+    "profile": null,
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "company": "rehive",
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": {},
+    "mobile_number": "+27840000000",
+    "verified": true,
+    "timezone": "Asia/Dhaka",
+    "date_joined": 1464912953000
 }
 ```
 

@@ -66,6 +66,10 @@ curl {url}
   -H "Content-Type: application/json"
 ```
 
+```javascript
+"Not applicable for sdk"
+```
+
 The Rehive API supports idempotent requests for ensuring the same operations never occur twice.
 
 To perform an idempotent request, attach a unique key to any `POST`, `PUT` or `PATCH` request made to the API: via the `Idempotency-Key: {key}` header.
