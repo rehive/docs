@@ -478,7 +478,7 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3auth/mobile/verify/resend/
   -X POST
   -H "Content-Type: application/json"
-  -d '{"mobile": "joe@rehive.com",
+  -d '{"mobile": "+27840000000",
        "company": "rehive"}'
 ```
 

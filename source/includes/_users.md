@@ -25,11 +25,12 @@ rehive.user.getUserProfile().then(function(user){
 {
     "status": "success",
     "data": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": "",
-        "id_number": "",
+        "id_number": null,
         "profile": null,
         "currency": {
             "description": "Rand",
@@ -38,51 +39,45 @@ rehive.user.getUserProfile().then(function(user){
             "unit": "rand",
             "divisibility": 2
         },
-        "company": {
-            "identifier": "rehive",
-            "name": "Rehive",
-            "description": "Wallets for everyone.",
-            "website": "http://www.rehive.com",
-            "logo": null
-        },
+        "company": "rehive",
         "language": "en",
         "nationality": "ZA",
-        "metadata": null,
+        "metadata": {},
         "mobile_number": "+27840000000",
-        "skype_name": "@skype",
-        "timezone": "Asia/Dhaka"
+        "verified": true,
+        "timezone": "Asia/Dhaka",
+        "date_joined": 1464912953000
     }
 }
 ```
 
 ```javascript
 {
-    "first_name": "Joe",
-    "last_name": "Soap",
-    "email": "joe@rehive.com",
-    "username": "",
-    "id_number": "",
-    "profile": null,
-    "currency": {
-         "description": "Rand",
-         "code": "ZAR",
-         "symbol": "R",
-         "unit": "rand",
-         "divisibility": 2
-         },
-    "company": {
-         "identifier": "rehive",
-         "name": "Rehive",
-         "description": "Wallets for everyone.",
-         "website": "http://www.rehive.com",
-         "logo": null
-         },
-    "language": "en",
-    "nationality": "ZA",
-    "metadata": null,
-    "mobile_number": "+27840000000",
-    "skype_name": "@skype",
-    "timezone": "Asia/Dhaka"
+    "status": "success",
+    "data": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "profile": null,
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+27840000000",
+        "verified": true,
+        "timezone": "Asia/Dhaka",
+        "date_joined": 1464912953000
+    }
 }
 ```
 
@@ -126,7 +121,7 @@ rehive.user.updateUserProfile(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": "",
-        "id_number": "",
+        "id_number": null,
         "profile": null,
         "currency": {
             "description": "Rand",
@@ -135,52 +130,45 @@ rehive.user.updateUserProfile(
             "unit": "rand",
             "divisibility": 2
         },
-        "company": {
-            "identifier": "rehive",
-            "name": "Rehive",
-            "description": "Wallets for everyone.",
-            "website": "http://www.rehive.com",
-            "logo": null
-        },
+        "company": "rehive",
         "language": "en",
         "nationality": "ZA",
-        "metadata": null,
+        "metadata": {},
         "mobile_number": "+27840000000",
-        "skype_name": "@skype",
-        "timezone": "Asia/Dhaka"
+        "verified": true,
+        "timezone": "Asia/Dhaka",
+        "date_joined": 1464912953000
     }
 }
 ```
 
 ```javascript
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
-    "first_name": "Joe",
-    "last_name": "Soap",
-    "email": "joe@rehive.com",
-    "username": "",
-    "id_number": "",
-    "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-       },
-    "company": {
-        "identifier": "rehive",
-        "name": "Rehive",
-        "description": "Wallets for everyone.",
-        "website": "http://www.rehive.com",
-        "logo": null
-       },
-    "language": "en",
-    "nationality": "ZA",
-    "metadata": null,
-    "mobile_number": "+27840000000",
-    "skype_name": "@skype",
-    "timezone": "Asia/Dhaka"
+    "status": "success",
+    "data": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "profile": null,
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+27840000000",
+        "verified": true,
+        "timezone": "Asia/Dhaka",
+        "date_joined": 1464912953000
+    }
 }
 ```
 
@@ -329,7 +317,7 @@ Field | Description | Default | Required
 > User list bank accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank_accounts/
+curl https://www.rehive.com/api/3/user/bank-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -389,14 +377,14 @@ List a user's bank accounts.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank_accounts/`
+`https://rehive.com/api/3/user/bank-accounts/`
 
 ## Create Bank Account
 
 > User create bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank_accounts/
+curl https://www.rehive.com/api/3/user/bank-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -464,7 +452,7 @@ Create a bank account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank_accounts/`
+`https://rehive.com/api/3/user/bank-accounts/`
 
 #### Fields
 
@@ -485,7 +473,7 @@ Field | Description | Default | Required
 > User update bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank_accounts/{account_id}
+curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -541,7 +529,7 @@ Update a user's bank account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank_accounts/{account_id}`
+`https://rehive.com/api/3/user/bank-accounts/{account_id}`
 
 #### Fields
 
@@ -563,7 +551,7 @@ Field | Description | Default | Required
 > User list bitcoin accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bitcoin_accounts/
+curl https://www.rehive.com/api/3/user/bitcoin-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -606,14 +594,14 @@ List a user's bitcoin addresses.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bitcoin_accounts/`
+`https://rehive.com/api/3/user/bitcoin-accounts/`
 
 ## Create Bitcoin Account
 
 > User create bitcoin account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bitcoin_accounts/
+curl https://www.rehive.com/api/3/user/bitcoin-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -656,7 +644,7 @@ Create a bitcoin account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bitcoin_accounts/`
+`https://rehive.com/api/3/user/bitcoin-accounts/`
 
 #### Fields
 
@@ -669,7 +657,7 @@ Field | Description | Default | Required
 > User update bitcoin account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bitcoin_accounts/{account_id}
+curl https://www.rehive.com/api/3/user/bitcoin-accounts/{account_id}
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -709,7 +697,7 @@ Update a user's bitcoin account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bitcoin_accounts/{account_id}`
+`https://rehive.com/api/3/user/bitcoin-accounts/{account_id}`
 
 #### Fields
 

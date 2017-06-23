@@ -392,9 +392,6 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 
 `https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
 
-
---------------------------------------------------------------------------------
-
 ## Emails
 
 
@@ -504,8 +501,8 @@ Create an email address for a user.
 Field | Description | Default | Required
 --- | --- | --- | ---
 `user` | user identifier | null | true
-`verified` | last name | false | false
-`primary` | email address | false | false
+`verified` | verified status | false | false
+`primary` | primary status | false | false
 `email` | email address | null | true
 
 ### Retrieve Email
@@ -593,12 +590,8 @@ Update a user's email.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`verified` | last name | false | false
-`primary` | email address | false | false
-
-
-
---------------------------------------------------------------------------------
+`verified` | verified status | false | false
+`primary` | primary status | false | false
 
 ## Mobiles
 
@@ -708,9 +701,9 @@ Create a mobile number for a user.
 Field | Description | Default | Required
 --- | --- | --- | ---
 `user` | user identifier | null | true
-`verified` | last name | false | false
-`primary` | email address | false | false
-`email` | email address | null | true
+`verified` | verified status | false | false
+`primary` | primary status | false | false
+`mobile` | mobile number | null | true
 
 ### Retrieve Mobile
 
@@ -797,10 +790,9 @@ Update a user's mobile.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`verified` | last name | false | false
-`primary` | email address | false | false
+`verified` | verified status | false | false
+`primary` | primary status | false | false
 
---------------------------------------------------------------------------------
 
 ## Transactions
 
@@ -910,7 +902,7 @@ The list is paginated by default and can be navigated via the `next` and `previo
 
 #### Filtering
 
-The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
+The transactions listing offers filtering on the `id`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
 
 `/api/3/transactions/?tx_type=debit`
 
@@ -972,7 +964,7 @@ The admin transaction totals endpoint has identical filtering to the admin trans
 > Retrieve transaction request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/transactions/{tx_code}/
+curl https://www.rehive.com/api/3/admin/transactions/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1033,14 +1025,14 @@ Get transaction details for a spcific transactions.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/{tx_code}/`
+`https://rehive.com/api/3/admin/transactions/{id}/`
 
 ### Update Transaction
 
 > Admin update transaction request
 
 ```shell
-curl https://rehive.com/api/3/admin/transactions/{tx_code}/
+curl https://rehive.com/api/3/admin/transactions/{id}/
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1112,7 +1104,7 @@ Each message added to a transaction will be stored in a list. Rehive itself will
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/{tx_code}/`
+`https://rehive.com/api/3/admin/transactions/{id}/`
 
 #### Fields
 
@@ -1141,7 +1133,7 @@ curl https://www.rehive.com/api/3/admin/transactions/credit/
 {
     "status": "success",
     "data": {
-        "tx_code": "00000000000000000000",
+        "id": "00000000000000000000",
         "metadata": {}
     }
 }
@@ -1194,7 +1186,7 @@ curl https://www.rehive.com/api/3/admin/transactions/debit/
 {
     "status": "success",
     "data": {
-        "tx_code": "00000000000000000000",
+        "id": "00000000000000000000",
         "metadata": {}
     }
 }
@@ -1240,7 +1232,7 @@ curl https://www.rehive.com/api/3/admin/transactions/transfer/
 {
     "status": "success",
     "data": {
-        "tx_code": "00000000000000000000",
+        "id": "00000000000000000000",
         "metadata": {}
     }
 }
@@ -1269,8 +1261,6 @@ Field | Description | Default | Required
 `credit_note` | user's note or message | blank | false
 `credit_metadata` | custom metadata | {} | false
 `credit_reference` | optional credit reference | string | false
-
---------------------------------------------------------------------------------
 
 ## Accounts
 
@@ -1989,8 +1979,6 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switc
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}`
 
---------------------------------------------------------------------------------
-
 ## Currencies
 
 ### List Currencies
@@ -2158,8 +2146,6 @@ Field | Description | Default | Required
 `unit` | unit, like `dollar` | null | true
 `divisibility` | number of decimal places | 0 | true
 `enabled` | whether active for a company | false | true
-
---------------------------------------------------------------------------------
 
 ## Company
 
@@ -2391,10 +2377,6 @@ curl https://rehive.com/api/3/admin/company/switches/{id}
 
 `https://rehive.com/api/3/admin/company/switches/{id}`
 
-
-
---------------------------------------------------------------------------------
-
 ## Webhooks
 
 ### List Webhooks
@@ -2538,8 +2520,6 @@ Field | Description | Default | Required
 `url` | Webhook URL | blank | true
 `tx_type` | Transaction type | blank | true
 `secret` | Webhook secret | blank | false
-
---------------------------------------------------------------------------------
 
 ## Subtypes
 
@@ -2691,8 +2671,6 @@ Field | Description | Default | Required
 `label` | label | blank | false
 `description` | description | blank | false
 `tx_type` | Transaction type | blank | true
-
---------------------------------------------------------------------------------
 
 ## Bank Accounts
 
@@ -2867,8 +2845,6 @@ Field | Description | Default | Required
 `bank_code` | Bank Code | blank | false
 `branch_code` | Branch Code | blank | false
 
---------------------------------------------------------------------------------
-
 ## Notifications
 
 ### List Notifications
@@ -2966,8 +2942,6 @@ curl https://rehive.com/api/3/admin/notifications/{id}
 Field | Description | Default | Required
 --- | --- | --- | ---
 `enabled` | Account Name | false | true
-
---------------------------------------------------------------------------------
 
 ## Tiers
 
@@ -3381,7 +3355,7 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/`
 
 #### Fields
 
@@ -3449,7 +3423,7 @@ Update a specific limits related to a Tier
 > Update Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{switch_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limits_id}
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3780,8 +3754,6 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}`
 
---------------------------------------------------------------------------------
-
 ## Switches
 
 Switches are a way to determine which actions are allowed to the users in terms of transactions.
@@ -3971,5 +3943,3 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `switch_type` | Global Switch Type | | false
 `enabled` | Account Name | false | false
-
---------------------------------------------------------------------------------

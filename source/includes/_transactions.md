@@ -5,7 +5,7 @@ Rehive offers 2 standard type transactions: Debit and Credit. Debit transactiosn
 Transaction currency values are always inputted/outputted in their lowest currency unit. For most currencies this will be the cents values, so a $ 1.00 transaction will output an amount of 100.
 
 <aside class="notice">
-Transactions are run as asynchronous processes within Rehive, so the latest state of the transaction will not necessarily be available immediately after a request has been completed. To get the latest transaction details you will have to make a follow up request using its `tx_code`.
+Transactions are run as asynchronous processes within Rehive, so the latest state of the transaction will not necessarily be available immediately after a request has been completed. To get the latest transaction details you will have to make a follow up request using its `id`.
 </aside>
 
 ## List Transactions
@@ -206,7 +206,7 @@ The list is paginated by default and can be navigated via the `next` and `previo
 
 #### Filtering
 
-The transactions listing offers filtering on the `tx_code`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
+The transactions listing offers filtering on the `id`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
 
 `/api/3/transactions/?tx_type=debit`
 
@@ -287,7 +287,7 @@ The transaction totals endpoint has identical filtering to the transaction list 
 > Retrieve transaction request
 
 ```shell
-curl https://www.rehive.com/api/3/transactions/{tx_code}/
+curl https://www.rehive.com/api/3/transactions/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -402,7 +402,7 @@ Get transaction details for a spcific transactions.
 
 #### Endpoint
 
-`https://rehive.com/api/3/transactions/{tx_code}/`
+`https://rehive.com/api/3/transactions/{id}/`
 
 ## Create Credit
 
@@ -433,7 +433,7 @@ rehive.transactions.createCredit(
 {
     "status": "success",
     "data": {
-        "tx_code": "00000000000000000000",
+        "id": "00000000000000000000",
         "metadata": {}
     }
 }
@@ -441,7 +441,7 @@ rehive.transactions.createCredit(
 
 ```javascript
 {
-    "tx_code": "00000000000000000000",
+    "id": "00000000000000000000",
     "metadata": {}
 }
 ```
@@ -501,7 +501,7 @@ rehive.transactions.createDebit(
 {
     "status": "success",
     "data": {
-        "tx_code": "00000000000000000000",
+        "id": "00000000000000000000",
         "metadata": {}
     }
 }
@@ -509,7 +509,7 @@ rehive.transactions.createDebit(
 
 ```javascript
 {
-    "tx_code": "00000000000000000000",
+    "id": "00000000000000000000",
     "metadata": {}
 }
 ```
@@ -563,7 +563,7 @@ rehive.transactions.createTransfer(
 {
     "status": "success",
     "data": {
-        "tx_code": "00000000000000000000",
+        "id": "00000000000000000000",
         "metadata": {}
     }
 }
@@ -571,7 +571,7 @@ rehive.transactions.createTransfer(
 
 ```javascript
 {
-    "tx_code": "00000000000000000000",
+    "id": "00000000000000000000",
     "metadata": {}
 }
 ```
