@@ -80,16 +80,22 @@ Idempotent requests will not work for anonymous users and/or any endpoints found
 
 > Basic error response:
 
-```json
+```shell
 {
     "status": "error",
     "message": "Error message."
 }
 ```
 
+```javascript
+{
+    "message": "Error message."
+}
+```
+
 > Multiple errors response:
 
-```json
+```shell
  {
     "status": "error",
     "message": "First error message, Second error message",
@@ -101,6 +107,17 @@ Idempotent requests will not work for anonymous users and/or any endpoints found
             "Second error message."
         ]
     }
+}
+```
+
+```javascript
+ {
+    "field_name1": [
+        "First error message."
+    ],
+    "field_name2": [
+        "Second error message."
+    ]
 }
 ```
 
