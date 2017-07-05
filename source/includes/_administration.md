@@ -1599,6 +1599,7 @@ Value | Description
 `day_max` | Maximum per day 
 `month_max` | Maximum per month 
 `min` | Minimum 
+`overdraft` | Overdraft 
 
 #### Transaction Types
 
@@ -2377,20 +2378,26 @@ curl https://rehive.com/api/3/admin/company/switches/{id}
 
 `https://rehive.com/api/3/admin/company/switches/{id}`
 
-## Webhooks
+## Transaction Webhooks
 
-### List Webhooks
+<aside class="warning">
+    The Rehive events that trigger webhooks are an experimental feature. Take a 
+    look at the <a href="/#beta">Beta</a> section for details regarding how 
+    events work and what events are currently offered.
+</aside>
 
-> List webhooks request
+### List Transaction Webhooks
+
+> List transaction webhooks request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/
+curl https://rehive.com/api/3/admin/webhooks/transactions/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
-> List webhooks response
+> List transaction webhooks response
 
 ```json
 {
@@ -2399,6 +2406,7 @@ curl https://rehive.com/api/3/admin/webhooks/
         {
             "id": 1,
             "url": "http://mysite.com/webhook_endpoint",
+            "event": "transaction.create",
             "tx_type": "debit",
             "secret": "supersecret"
         }
@@ -2408,23 +2416,24 @@ curl https://rehive.com/api/3/admin/webhooks/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/`
+`https://rehive.com/api/3/admin/webhooks/transactions/`
 
-### Create Webhooks
+### Create Transaction Webhooks
 
-> Create webhooks request
+> Create transaction webhooks request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/
+curl https://rehive.com/api/3/admin/webhooks/transactions/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -D '{"url": "http://mysite.com/webhook_endpoint",
+       "event": "transaction.create",
        "tx_type": "debit",
-       "secret": "supersecret"}'
+       "secret": "secret"}'
 ```
 
-> List webhooks response
+> List transaction webhooks response
 
 ```json
 {
@@ -2433,8 +2442,9 @@ curl https://rehive.com/api/3/admin/webhooks/
         {
             "id": 1,
             "url": "http://mysite.com/webhook_endpoint",
+            "event": "transaction.create",
             "tx_type": "debit",
-            "secret": "supersecret"
+            "secret": "secret"
         }
     ]
 }
@@ -2442,28 +2452,29 @@ curl https://rehive.com/api/3/admin/webhooks/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/`
+`https://rehive.com/api/3/admin/webhooks/transactions/`
 
 #### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
 `url` | Webhook URL | blank | true
-`tx_type` | Transaction type | blank | true
-`secret` | Webhook secret | blank | false
+`event` | Webhook event | null | true
+`tx_type` | Transaction type | null | false
+`secret` | Webhook secret | "secret" | false
 
-### Retrieve Webhook
+### Retrieve Transaction Webhook
 
-> Retrieve webhook request
+> Retrieve transaction webhook request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/{id}
+curl https://rehive.com/api/3/admin/webhooks/transactions/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
-> Retrieve webhook response
+> Retrieve transaction webhook response
 
 ```json
 {
@@ -2471,29 +2482,30 @@ curl https://rehive.com/api/3/admin/webhooks/{id}
     "data": {
         "id": 1,
         "url": "http://mysite.com/webhook_endpoint",
+        "event": "transaction.create",
         "tx_type": "debit",
-        "secret": "supersecret"
+        "secret": "secret"
     }
 }
 ```
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/{id}`
+`https://rehive.com/api/3/admin/webhooks/transactions/{id}/`
 
-### Update Webhook
+### Update Transaction Webhook
 
-> Update webhook request
+> Update transaction webhook request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/
+curl https://rehive.com/api/3/admin/webhooks/transactions/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -D '{"url": "http://mysite.com/new_webhook_endpoint"}'
+  -D '{"url": "http://mysite.com/webhook_endpoint"}'
 ```
 
-> Update webhook response
+> Update transaction webhook response
 
 ```json
 {
@@ -2501,9 +2513,10 @@ curl https://rehive.com/api/3/admin/webhooks/
     "data": [
         {
             "id": 1,
-            "url": "http://mysite.com/new_webhook_endpoint",
+            "url": "http://mysite.com/webhook_endpoint",
+            "event": "transaction.create",
             "tx_type": "debit",
-            "secret": "supersecret"
+            "secret": "secret"
         }
     ]
 }
@@ -2511,15 +2524,166 @@ curl https://rehive.com/api/3/admin/webhooks/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/{id}`
+`https://rehive.com/api/3/admin/webhooks/transactions/{id}/`
 
 #### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
 `url` | Webhook URL | blank | true
-`tx_type` | Transaction type | blank | true
-`secret` | Webhook secret | blank | false
+`event` | Webhook event | null | true
+`tx_type` | Transaction type | null | false
+`secret` | Webhook secret | "secret" | false
+
+## User Webhooks
+
+<aside class="warning">
+    The Rehive events that trigger webhooks are an experimental feature. Take a 
+    look at the <a href="/#beta">Beta</a> section for details regarding how 
+    events work and what events are currently offered.
+</aside>
+
+### List User Webhooks
+
+> List user webhooks request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List user webhooks response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "event": "user.create",
+            "secret": "secret"
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/users/`
+
+### Create User Webhooks
+
+> Create user webhooks request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/users/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"url": "http://mysite.com/webhook_endpoint",
+       "event": "user.create",
+       "secret": "secret"}'
+```
+
+> List user webhooks response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "event": "user.create",
+            "secret": "secret"
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/users/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`url` | Webhook URL | blank | true
+`event` | Webhook event | null | true
+`secret` | Webhook secret | "secret" | false
+
+### Retrieve User Webhook
+
+> Retrieve user webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/users/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve user webhook response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "url": "http://mysite.com/webhook_endpoint",
+        "event": "user.create",
+        "secret": "secret"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/users/{id}/`
+
+### Update User Webhook
+
+> Update user webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/users/{id}/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"url": "http://mysite.com/webhook_endpoint"}'
+```
+
+> Update user webhook response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "event": "user.create",
+            "secret": "secret"
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/users/{id}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`url` | Webhook URL | blank | true
+`event` | Webhook event | null | true
+`secret` | Webhook secret | "secret" | false
 
 ## Subtypes
 
@@ -3374,6 +3538,7 @@ Value | Description
 `day_max` | Maximum per day 
 `month_max` | Maximum per month 
 `min` | Minimum 
+`overdraft` | Overdraft 
 
 #### Transaction Types
 
@@ -3805,6 +3970,8 @@ Value | Description
 --- | ---
 `transactions` | Allow transactions
 `verification` | Allow transactions for unverified users
+`overdraft` | Allow unlimited overdrafts
+`auto_confirm | Automatically complete transactions on creation
 
 #### Endpoint
 
