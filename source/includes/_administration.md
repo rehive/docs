@@ -2382,7 +2382,7 @@ curl https://rehive.com/api/3/admin/company/switches/{id}
 
 <aside class="warning">
     The Rehive events that trigger webhooks are an experimental feature. Take a 
-    look at the <a href="/#beta">Beta</a> section for details regarding how 
+    look at the <a href="/#beta-features">Beta</a> section for details regarding how 
     events work and what events are currently offered.
 </aside>
 
@@ -2539,7 +2539,7 @@ Field | Description | Default | Required
 
 <aside class="warning">
     The Rehive events that trigger webhooks are an experimental feature. Take a 
-    look at the <a href="/#beta">Beta</a> section for details regarding how 
+    look at the <a href="/#beta-features">Beta</a> section for details regarding how 
     events work and what events are currently offered.
 </aside>
 
