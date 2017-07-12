@@ -322,7 +322,7 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/
 Field | Description | Default | Required
 --- | --- | --- | ---
 `tx_type` | Transaction Type | | true
-`subtype_id` | Subtype ID | null | false
+`subtype` | Subtype name | null | false
 `enabled` | Enabled | false | true
 
 ### Retrieve User Switches
@@ -1589,7 +1589,7 @@ Field | Description | Default | Required
 `value` | Limit value | 0 | true
 `type` | Limit Type |  | true
 `tx_type` | Transaction type limits are applied | | true
-`subtype_id` | Transaction subtype ID | null | false
+`subtype` | Transaction subtype name | null | false
 
 #### Limit Types
 
@@ -1757,7 +1757,7 @@ Field | Description | Default | Required
 `value` | Fee amount | 0 | false
 `percentage` | Percentage amount |  | false
 `tx_type` | Transaction type fees are applied | | true
-`subtype_id` | Transaction subtype ID | null | false
+`subtype` | Transaction subtype name | null | false
 
 #### Transaction Types
 
@@ -1910,7 +1910,7 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switc
 Field | Description | Default | Required
 --- | --- | --- | ---
 `tx_type` | Transaction Type | | true
-`subtype_id` | Subtype ID | null | false
+`subtype` | Subtype name | null | false
 `enabled` | Enabled | false | true
 
 ### Retrieve Account Currency Switches
@@ -2308,7 +2308,7 @@ curl https://rehive.com/api/3/admin/company/switches/
 Field | Description | Default | Required
 --- | --- | --- | ---
 `tx_type` | Transaction Type | | true
-`subtype_id` | Subtype ID | null | false
+`subtype` | Subtype name | null | false
 `enabled` | Enabled | false | true
 
 ### Retrieve Company Switches
@@ -3528,7 +3528,7 @@ Field | Description | Default | Required
 `value` | Limit value | 0 | true
 `type` | Limit Type |  | true
 `tx_type` | Transaction type limits are applied | | true
-`subtype_id` | Transaction subtype ID | null | false
+`subtype` | Transaction subtype name | null | false
 
 #### Limit Types
 
@@ -3696,7 +3696,7 @@ Field | Description | Default | Required
 `value` | Fee amount | 0 | false
 `percentage` | Percentage amount |  | false
 `tx_type` | Transaction type fees are applied | | true
-`subtype_id` | Transaction subtype ID | null | false
+`subtype` | Transaction subtype name | null | false
 
 #### Transaction Types
 
@@ -3849,7 +3849,7 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/
 Field | Description | Default | Required
 --- | --- | --- | ---
 `tx_type` | Transaction Type | | true
-`subtype_id` | Subtype ID | null | false
+`subtype` | Subtype name | null | false
 `enabled` | Enabled | false | true
 
 ### Retrieve Tier Switches
