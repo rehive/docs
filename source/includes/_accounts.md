@@ -1,5 +1,53 @@
 # Accounts
 
+## Create Account
+
+> User create account request
+
+```shell
+curl https://www.rehive.com/api/3/accounts/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "savings"}'
+```
+
+> User create account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "name": "savings",
+        "reference": "0000000000",
+        "primary": true,
+        "currencies": [],
+        "created": 1501145581365,
+        "updated": 1501145581370
+    },
+}
+```
+
+Create a account for a user.
+
+<aside class="notice">
+Users cannot manage their accounts (create or update) by default. In order to 
+enable account management for users please set the corresponding global company 
+switch. 
+</aside>
+
+#### Endpoint
+
+`https://rehive.com/api/3/accounts/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | account name | null | true
+`primary` | account primary status | false | false
+
+
 ## List Accounts
 
 > User list accounts request
@@ -182,6 +230,55 @@ The account view offers filtering of currencies based on the `active` attribute.
 #### Endpoint
 
 `https://rehive.com/api/3/accounts/{reference}/`
+
+
+## Update Account
+
+> User update account request
+
+```shell
+curl https://www.rehive.com/api/3/accounts/{reference}/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "savings"}'
+```
+
+> User update account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "name": "savings",
+        "reference": "0000000000",
+        "primary": true,
+        "currencies": [],
+        "created": 1501145581365,
+        "updated": 1501145581370
+    },
+}
+```
+
+Update an account for a user.
+
+<aside class="notice">
+Users cannot manage their accounts (create or update) by default. In order to 
+enable account management for users please set the corresponding global company 
+switch. 
+</aside>
+
+#### Endpoint
+
+`https://rehive.com/api/3/accounts/{reference}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | account name | null | true
+`primary` | account primary status | false | false
+
 
 ## List Account Currencies
 

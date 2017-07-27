@@ -1264,6 +1264,51 @@ Field | Description | Default | Required
 
 ## Accounts
 
+### Create Account
+
+> Admin create account request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "savings",
+       "user": "joe@rehive.com",}'
+```
+
+> Admin create account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "name": "savings",
+        "reference": "0000000000",
+        "primary": true,
+        "currencies": [],
+        "created": 1501145581365,
+        "updated": 1501145581370
+    },
+}
+```
+
+Create a account for a user.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | account name | null | true
+`user` | account user | null | true
+`reference` | account reference | 10 random chars | false
+`primary` | account primary status | false | false
+
+
 ### List Accounts
 
 > Admin list accounts request
@@ -1376,6 +1421,51 @@ The account view offers filtering of currencies based on the `active` attribute.
 #### Endpoint
 
 `https://rehive.com/api/3/admin/accounts/{reference}/`
+
+
+## Update Account
+
+> Admin update account request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/{reference}/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "savings"}'
+```
+
+> Admin update account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "name": "savings",
+        "reference": "0000000000",
+        "primary": true,
+        "currencies": [],
+        "created": 1501145581365,
+        "updated": 1501145581370
+    },
+}
+```
+
+Update an account for a user.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | account name | null | true
+`user` | account user | null | true
+`reference` | account reference | 10 random chars | false
+`primary` | account primary status | false | false
+
 
 ### List Account Currencies
 
@@ -3972,6 +4062,8 @@ Value | Description
 `verification` | Allow transactions for unverified users
 `overdraft` | Allow unlimited overdrafts
 `auto_confirm | Automatically complete transactions on creation
+`manage_accounts` | Allow users to manage their accounts
+`session_duration` | Allow users to set their own session duration
 
 #### Endpoint
 
