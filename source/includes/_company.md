@@ -168,6 +168,10 @@ rehive.company.getCompanyBanks().then(function(res){
     })
 ```
 
+```python
+"To be implemented"
+```
+
 > User list company banks response
 
 ```shell
