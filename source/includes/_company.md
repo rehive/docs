@@ -19,6 +19,10 @@ rehive.company.getCompanyDetails().then(function(res){
     })
 ```
 
+```python
+rehive.company.get()
+```
+
 > User retrieve company details response
 
 ```shell
@@ -35,6 +39,16 @@ rehive.company.getCompanyDetails().then(function(res){
 ```
 
 ```javascript
+{
+    "identifier": "rehive",
+    "name": "Rehive",
+    "description": "Wallets for everyone.",
+    "website": "http://www.rehive.com",
+    "logo": null
+}
+```
+
+```python
 {
     "identifier": "rehive",
     "name": "Rehive",
@@ -67,6 +81,15 @@ rehive.company.getCompanyCurrencies().then(function(res){
     },function(err){
         // ...
     })
+```
+
+```python
+rehive.company.currencies.get()
+
+# A note, the SDK handles pagination internally
+# Use the below to iterate through pages after calling the initial get
+rehive.company.currencies.get_next()
+rehive.company.currencies.get_previous()
 ```
 
 > User list company currencies response
@@ -106,6 +129,18 @@ rehive.company.getCompanyCurrencies().then(function(res){
         }
     ]
 }
+```
+
+```python
+[
+    {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8
+    }
+]
 ```
 
 Get a list of available currencies for the current user's company.

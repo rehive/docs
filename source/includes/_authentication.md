@@ -37,6 +37,10 @@ curl https://www.rehive.com/api/3/
 "Not applicable for sdk"
 ```
 
+```python
+"Not applicable for sdk"
+```
+
 When making requests, the API key should be included as a token in the `Authorization` header:
 
 `Authorization: Token {token}`
@@ -76,6 +80,18 @@ rehive.auth.register(
         });
 ```
 
+```python
+rehive.auth.register(
+  first_name="Joe",
+  last_name="Soap",
+  email="joe@rehive.com",
+  company="rehive",
+  password1="joe1234",
+  password2="joe1234",
+  terms_and_conditions=True
+)
+```
+
 > User registration response
 
 ```shell
@@ -107,6 +123,34 @@ rehive.auth.register(
   "company": "rehive",
   "profile": null,
   "language": "en"
+}
+```
+
+```python
+{
+  "token": "{token}",
+  "user": {
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "email": "joe@rehive.com",
+    "mobile_number": "+00000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "company": "rehive",
+    "profile": null,
+    "language": "en",
+    'nationality': '',
+    "currency": {},
+    "metadata": {},
+    "mobile_number": "",
+    "timezone": None,
+    "verified": False,
+    "kyc_verified": False,
+    "status": "pending",
+    "permission_group": "user",
+    "groups": [],
+    "permissions": [],
+    "date_joined": 1505813314238
+  }
 }
 ```
 
@@ -154,6 +198,14 @@ rehive.auth.login({
         })
 ```
 
+```python
+rehive.auth.login(
+  user="joe@rehive.com",
+  company="rehive",
+  password="joe1234"
+)
+```
+
 > User login response
 
 ```shell
@@ -185,6 +237,25 @@ rehive.auth.login({
   "company": "rehive",
   "profile": null,
   "language": "en"
+}
+```
+
+```python
+{
+  "status": "success"
+  "data": {
+    "token": "{token}",
+    "user": {
+      "identifier": "00000000-0000-0000-0000-000000000000",
+      "email": "joe@rehive.com",
+      "mobile_number": "+00000000000",
+      "first_name": "Joe",
+      "last_name": "Soap",
+      "company": "rehive",
+      "profile": null,
+      "language": "en"
+    }
+  }
 }
 ```
 
@@ -222,6 +293,10 @@ rehive.auth.logout().then(function(res){
     })
 ```
 
+```python
+rehive.auth.logout()
+```
+
 > User logout response
 
 ```shell
@@ -234,6 +309,13 @@ rehive.auth.logout().then(function(res){
 ```javascript
 {
   "message": "Successfully logged out."
+}
+```
+
+```python
+{
+  "message": "Successfully logged out.",
+  "status": "success"
 }
 ```
 
@@ -262,6 +344,10 @@ rehive.auth.logoutAll().then(function(res){
         })
 ```
 
+```python
+rehive.auth.logout_all()
+```
+
 > User logout all response
 
 ```shell
@@ -274,6 +360,13 @@ rehive.auth.logoutAll().then(function(res){
 ```javascript
 {
   "message": "Successfully logged out all sessions."
+}
+```
+
+```python
+{
+  "message": "Successfully logged out all sessions.",
+  "status": "success"
 }
 ```
 
@@ -308,6 +401,10 @@ rehive.auth.changePassword(
         },function(err){
             // ...
         })
+```
+
+```python
+"To be implemented"
 ```
 
 > User change password response
@@ -367,6 +464,13 @@ rehive.auth.resetPassword(
         })
 ```
 
+```python
+rehive.auth.password.reset(
+  user="joe@rehive.com",
+  company="rehive"
+)
+```
+
 > User reset password response
 
 ```shell
@@ -379,6 +483,13 @@ rehive.auth.resetPassword(
 ```javascript
 {
   "message": "Password reset message has been sent."
+}
+```
+
+```python
+{
+  "message": "Password reset message has been sent.",
+  "status": "success"
 }
 ```
 
@@ -423,6 +534,15 @@ rehive.auth.resetConfirmPassword(
         })
 ```
 
+```python
+rehive.auth.password.reset_confirm_password(
+  new_password1="joe1234",
+  new_password2="joe1234",
+  uid="{uid}",
+  token="{token}"
+)
+```
+
 > User reset confirm password response
 
 ```shell
@@ -435,6 +555,13 @@ rehive.auth.resetConfirmPassword(
 ```javascript
 {
   "message": "Password has been reset with the new password."
+}
+```
+
+```python
+{
+  "message": "Password has been reset with the new password.",
+  "status": "success"
 }
 ```
 
@@ -483,6 +610,13 @@ rehive.auth.resendEmailVerification(
         })
 ```
 
+```python
+rehive.auth.email.resend_email_verification(
+  email="joe@rehive.com",
+  company="rehive"
+)
+```
+
 > User resend email verification response
 
 ```shell
@@ -493,6 +627,12 @@ rehive.auth.resendEmailVerification(
 
 ```javascript
 { }
+```
+
+```python
+{
+  "status": "success"
+}
 ```
 
 Resend email verifications for an email.
@@ -532,6 +672,13 @@ rehive.auth.resendMobileVerification(
         })
 ```
 
+```python
+rehive.auth.mobile.resend_mobile_verification(
+  mobile="+27840000000",
+  company="rehive"
+)
+```
+
 > User resend mobile verification response
 
 ```shell
@@ -542,6 +689,12 @@ rehive.auth.resendMobileVerification(
 
 ```javascript
 { }
+```
+
+```python
+{
+  "status": "success"
+}
 ```
 
 Resends mobile verifications for a mobile number.
@@ -579,6 +732,12 @@ rehive.auth.verifyMobile(
         })
 ```
 
+```python
+rehive.auth.verify(
+  otp="{otp}"
+)
+```
+
 > User verify mobile response
 
 ```shell
@@ -589,6 +748,12 @@ rehive.auth.verifyMobile(
 
 ```javascript
 { }
+```
+
+```python
+{
+  "status": "success"
+}
 ```
 
 Verify a mobile number with an OTP.

@@ -29,6 +29,18 @@ rehive.transactions.getTransactionsList(filters).then(function(res){
     })
 ```
 
+```python
+# Filters are not required
+filters = {
+    "tx_type": "credit",
+    "currency": "ZAR"
+}
+
+rehive.transactions.get(
+    filters=filters
+)
+```
+
 > User transactions response
 
 ```shell
@@ -198,6 +210,83 @@ rehive.transactions.getTransactionsList(filters).then(function(res){
  }
 ```
 
+```python
+ [
+    {
+        "id": "000000000000000000000",
+        "tx_type": "credit",
+        "subtype": null,
+        "external": false,
+        "note": "",
+        "metadata": {},
+        "status": "Complete",
+        "reference": "",
+        "amount": 500,
+        "fee": 0,
+        "balance": 1000,
+        "account": "akC49YT8x4",
+        "label": "Credit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": null,
+        "created": 1496135465218,
+        "updated": 1496135465287
+    },
+    {
+        "id": "000000000000000000000",
+        "tx_type": "credit",
+        "subtype": null,
+        "external": false,
+        "note": "",
+        "metadata": {},
+        "status": "Complete",
+        "reference": "",
+        "amount": 500,
+        "fee": 0,
+        "balance": 500,
+        "account": "akC49YT8x4",
+        "label": "Credit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": null,
+        "created": 1496135465218,
+        "updated": 1496135465287
+    }
+]
+```
+
 Get a a user's transaction list.
 
 #### Pagination
@@ -249,6 +338,10 @@ rehive.transactions.getTotalTransactionsList(filters).then(function(res){
     })
 ```
 
+```python
+rehive.transactions.get_totals()
+```
+
 > User total transactions response
 
 ```shell
@@ -264,6 +357,15 @@ rehive.transactions.getTotalTransactionsList(filters).then(function(res){
 ```
 
 ```javascript
+{
+    "amount": 1000,
+    "fees": 0,
+    "count": 2,
+    "currency": "ZAR"
+}
+```
+
+```python
 {
     "amount": 1000,
     "fees": 0,
@@ -299,6 +401,12 @@ rehive.transactions.getTransaction(txCode).then(function(res){
     },function(err){
         // ...
     })
+```
+
+```python
+rehive.transactions.get(
+   "{id}" 
+)
 ```
 
 > Retrieve transaction response
@@ -398,6 +506,52 @@ rehive.transactions.getTransaction(txCode).then(function(res){
 }
 ```
 
+```python
+{
+    "id": "000000000000000000000",
+    "tx_type": "credit",
+    "subtype": null,
+    "external": false,
+    "note": "",
+    "metadata": {},
+    "status": "Complete",
+    "reference": "",
+    "amount": 500,
+    "fee": 0,
+    "balance": 500,
+    "account": "akC49YT8x4",
+    "label": "Credit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [
+        {
+            "level": "info",
+            "message": "Transaction completed.",
+            "created": 1496144568989
+        }
+    ],
+    "created": 1496135465218,
+    "updated": 1496135465287
+}
+```
+
 Get transaction details for a spcific transactions.
 
 #### Endpoint
@@ -427,6 +581,12 @@ rehive.transactions.createCredit(
         })
 ```
 
+```python
+rehive.transactions.create_credit(
+    amount=500
+)
+```
+
 > User credit response
 
 ```shell
@@ -440,6 +600,13 @@ rehive.transactions.createCredit(
 ```
 
 ```javascript
+{
+    "id": "00000000000000000000",
+    "metadata": {}
+}
+```
+
+```python
 {
     "id": "00000000000000000000",
     "metadata": {}
@@ -495,6 +662,12 @@ rehive.transactions.createDebit(
         })
 ```
 
+```python
+rehive.transactions.create_debit(
+    amount=500
+)
+```
+
 > User debit response
 
 ```shell
@@ -508,6 +681,13 @@ rehive.transactions.createDebit(
 ```
 
 ```javascript
+{
+    "id": "00000000000000000000",
+    "metadata": {}
+}
+```
+
+```python
 {
     "id": "00000000000000000000",
     "metadata": {}
@@ -557,6 +737,13 @@ rehive.transactions.createTransfer(
     })
 ```
 
+```python
+rehive.transactions.create_transfer(
+    amount=500,
+    recipient="joe@rehive.com"
+)
+```
+
 > User transfer response
 
 ```shell
@@ -570,6 +757,13 @@ rehive.transactions.createTransfer(
 ```
 
 ```javascript
+{
+    "id": "00000000000000000000",
+    "metadata": {}
+}
+```
+
+```python
 {
     "id": "00000000000000000000",
     "metadata": {}

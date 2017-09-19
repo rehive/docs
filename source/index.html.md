@@ -4,6 +4,7 @@ title: API Reference
 language_tabs:
   - shell
   - javascript
+  - python
 
 includes:
   - authentication
@@ -27,11 +28,26 @@ SDK Initialization
 window.rehive = new Rehive({apiVersion: 3});
 ```
 
+```python
+from rehive import Rehive
+
+# The API_TOKEN can be left blank
+rehive = Rehive(API_TOKEN)
+```
+
 > API Endpoint
 
 ```
 https://rehive.com/api/3/
 ```
+
+```python
+"""
+To override the default add the ENV variable REHIVE_API_URL to your environment
+and set this to another Rehive api url: 'https://staging.rehive.com/api/3/'
+"""
+```
+
 
 The Rehive API is the core interface for communicating with Rehive. The API is 
 organized around [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) 
@@ -57,6 +73,18 @@ authentication. See <a href="/#authorization">Authentication</a> for 3rd party a
 
 ## Errors
 
+> Error Handling
+
+```python
+from rehive import APIException
+
+try:
+    rehive.admin.currencies.get()
+except APIException as e:
+    print(e.status_code)
+    print(e.data)
+```
+
 > Basic error response:
 
 ```shell
@@ -68,6 +96,13 @@ authentication. See <a href="/#authorization">Authentication</a> for 3rd party a
 
 ```javascript
 {
+    "message": "Error message."
+}
+```
+
+```python
+{
+    "status": "error",
     "message": "Error message."
 }
 ```
@@ -97,6 +132,21 @@ authentication. See <a href="/#authorization">Authentication</a> for 3rd party a
     "field_name2": [
         "Second error message."
     ]
+}
+```
+
+```python
+{
+    "status": "error",
+    "message": "First error message, Second error message",
+    "data": {
+        "field_name1": [
+            "First error message."
+        ],
+        "field_name2": [
+            "Second error message."
+        ]
+    }
 }
 ```
 

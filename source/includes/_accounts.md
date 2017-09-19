@@ -12,6 +12,13 @@ curl https://www.rehive.com/api/3/accounts/
   -d '{"name": "savings"}'
 ```
 
+```python
+rehive.accounts.create(
+    name="savings"
+)
+```
+
+
 > User create account response
 
 ```shell
@@ -25,6 +32,17 @@ curl https://www.rehive.com/api/3/accounts/
         "created": 1501145581365,
         "updated": 1501145581370
     },
+}
+```
+
+```shell
+{
+    "name": "savings",
+    "reference": "0000000000",
+    "primary": true,
+    "currencies": [],
+    "created": 1501145581365,
+    "updated": 1501145581370
 }
 ```
 
@@ -67,6 +85,16 @@ rehive.accounts.getAccountsList(filter).then(function(res){
     },function(err){
         // ...
     })
+```
+
+```python
+#Filters are not required
+filters = {
+    "active":True
+}
+rehive.accounts.get(
+    filters=filters
+)
 ```
 
 > User list accounts response
@@ -133,6 +161,30 @@ rehive.accounts.getAccountsList(filter).then(function(res){
 }
 ```
 
+```python
+[
+    {
+        "name": "default",
+        "reference": "0000000000",
+        "balances": [
+            {
+                "balance": 10000,
+                "currency": {
+                    "code": "XBT",
+                    "description": "bitcoin",
+                    "symbol": "฿",
+                    "unit": "bitcoin",
+                    "divisibility": 8
+                },
+                "active": true
+            }
+        ],
+        "created": 1464858068745,
+        "updated": 1464858068745
+    }
+]
+```
+
 Get a list of accounts belonging to a user.
 
 #### Pagination
@@ -168,6 +220,12 @@ rehive.accounts.getAccount(reference,filter).then(function(res){
     },function(err){
         // ...
     })
+```
+
+```python
+rehive.accounts.get(
+    "{reference}"
+)
 ```
 
 > User retrieve account response
@@ -219,6 +277,28 @@ rehive.accounts.getAccount(reference,filter).then(function(res){
 }
 ```
 
+```python
+{
+    "name": "default",
+    "reference": "0000000000",
+    "balances": [
+        {
+            "balance": 10000,
+            "currency": {
+                "code": "XBT",
+                "description": "bitcoin",
+                "symbol": "฿",
+                "unit": "bitcoin",
+                "divisibility": 8
+            },
+            "active": true
+        }
+    ],
+    "created": 1464858068745,
+    "updated": 1464858068745
+}
+```
+
 Retrieve an account belonging to a user.
 
 #### Filtering
@@ -244,6 +324,13 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
   -d '{"name": "savings"}'
 ```
 
+```python
+rehive.accounts.update(
+    "{reference}",
+    name="savings"
+)
+```
+
 > User update account response
 
 ```shell
@@ -257,6 +344,17 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
         "created": 1501145581365,
         "updated": 1501145581370
     },
+}
+```
+
+```python
+{
+    "name": "savings",
+    "reference": "0000000000",
+    "primary": true,
+    "currencies": [],
+    "created": 1501145581365,
+    "updated": 1501145581370
 }
 ```
 
@@ -299,6 +397,10 @@ rehive.accounts.getAccountCurrenciesList(reference,filter).then(function(res){
     },function(err){
         // ...
     })
+```
+
+```python
+rehive.accounts.obj("{reference}").currencies.get()
 ```
 
 > User list account currencies response
@@ -349,6 +451,22 @@ rehive.accounts.getAccountCurrenciesList(reference,filter).then(function(res){
 }
 ```
 
+```python
+[
+    {
+        "balance": 10000,
+        "currency": {
+            "code": "XBT",
+            "description": "bitcoin",
+            "symbol": "฿",
+            "unit": "bitcoin",
+            "divisibility": 8
+        },
+        "active": true
+    }
+]
+```
+
 Get a list of currencies for an account belonging to a user.
 
 #### Pagination
@@ -384,6 +502,12 @@ rehive.accounts.getAccountCurrency(reference,currencyCode).then(function(res){
     })
 ```
 
+```python
+rehive.accounts.obj("{reference}").currencies.get(
+    "{code}"
+)
+```
+
 > User retrieve account currency response
 
 ```shell
@@ -404,6 +528,20 @@ rehive.accounts.getAccountCurrency(reference,currencyCode).then(function(res){
 ```
 
 ```javascript
+{
+    "balance": 10000,
+    "currency": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8
+    },
+    "active": true
+}
+```
+
+```python
 {
     "balance": 10000,
     "currency": {
@@ -443,6 +581,18 @@ rehive.accounts.updateAccountCurrency(reference,currencyCode,{active: true}).the
     })
 ```
 
+```python
+rehive.accounts.obj("{reference}").currencies.update(
+    "{code}",
+    active=True
+)
+
+# Quick method for setting active
+rehive.accounts.obj("{reference}").currencies.make_active_currency(
+    "{code}"
+)
+```
+
 > User retrieve account currency response
 
 ```shell
@@ -463,6 +613,20 @@ rehive.accounts.updateAccountCurrency(reference,currencyCode,{active: true}).the
 ```
 
 ```javascript
+{
+    "balance": 10000,
+    "currency": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8
+    },
+    "active": true
+}
+```
+
+```python
 {
     "balance": 10000,
     "currency": {
