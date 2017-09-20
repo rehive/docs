@@ -7,6 +7,7 @@ language_tabs:
 
 includes:
   - authentication
+  - mf_authentication
   - tokens
   - users
   - transactions
