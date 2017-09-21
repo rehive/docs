@@ -262,6 +262,11 @@ rehive.auth.login(
 Login a user with the credentials provided. A successful login will return the 
 user's details and a token that can be used for subsequent requests.
 
+<aside class="warning">
+    If multi-factor authentication is enabled, see the OTP 
+    <a href="/#verify-multi-factor-authentication">verify endpoint</a> for how to verify OTPs after login.
+</aside>
+
 #### Endpoint
 
 `https://rehive.com/api/3/auth/login/`
