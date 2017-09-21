@@ -19,6 +19,10 @@ rehive.user.getUserProfile().then(function(user){
     })
 ```
 
+```python
+rehive.user.get()
+```
+
 > User profile response
 
 ```shell
@@ -78,6 +82,33 @@ rehive.user.getUserProfile().then(function(user){
 }
 ```
 
+```python
+{
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": null,
+    "profile": null,
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "company": "rehive",
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": {},
+    "mobile_number": "+27840000000",
+    "verified": true,
+    "timezone": "Asia/Dhaka",
+    "date_joined": 1464912953000
+}
+```
+
 Retrieve a user's profile information.
 
 #### Endpoint
@@ -105,6 +136,12 @@ rehive.user.updateUserProfile(
     },function(err){
         // ...
     })
+```
+
+```python
+rehive.user.update(
+    first_name="Joe"
+)
 ```
 
 > User update profile response
@@ -140,6 +177,33 @@ rehive.user.updateUserProfile(
 ```
 
 ```javascript
+{
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": null,
+    "profile": null,
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "company": "rehive",
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": {},
+    "mobile_number": "+27840000000",
+    "verified": true,
+    "timezone": "Asia/Dhaka",
+    "date_joined": 1464912953000
+}
+```
+
+```python
 {
     "identifier": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
@@ -206,6 +270,10 @@ rehive.user.getUserAddress().then(function(res){
     })
 ```
 
+```python
+rehive.user.address.get()
+```
+
 > User retrieve address response
 
 ```shell
@@ -223,6 +291,17 @@ rehive.user.getUserAddress().then(function(res){
 ```
 
 ```javascript
+{
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
+}
+```
+
+```python
 {
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -262,6 +341,12 @@ rehive.user.updateUserAddress(
     })
 ```
 
+```python
+rehive.user.address.update(
+    city="Cape Town"
+)
+```
+
 > User update address response
 
 ```shell
@@ -279,6 +364,17 @@ rehive.user.updateUserAddress(
 ```
 
 ```javascript
+{
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
+}
+```
+
+```python
 {
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -323,6 +419,10 @@ rehive.user.getUserBankAccounts().then(function(res){
     },function(err){
         // ...
     })
+```
+
+```python
+"To be implemented"
 ```
 
 > User list bank accounts response
@@ -404,6 +504,10 @@ rehive.user.createUserBankAccount(
         });
 ```
 
+```python
+"To be implemented"
+```
+
 > User create bank account response
 
 ```shell
@@ -480,6 +584,10 @@ rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
         },function(err){
             // ...
         })
+```
+
+```python
+"To be implemented"
 ```
 
 > User update bank account response
@@ -559,6 +667,10 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
     })
 ```
 
+```python
+"To be implemented"
+```
+
 > User list bitcoin accounts response
 
 ```shell
@@ -613,6 +725,10 @@ rehive.user.createUserBitcoinAccount(
         })
 ```
 
+```python
+"To be implemented"
+```
+
 > User create bitcoin account response
 
 ```shell
@@ -664,6 +780,10 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
     },function(err){
         // ...
     })
+```
+
+```python
+"To be implemented"
 ```
 
 > User update bitcoin account response
@@ -726,6 +846,10 @@ curl https://www.rehive.com/api/3/user/document/
     })
 ```
 
+```python
+"To be implemented"
+```
+
 > User documents response
 
 ```shell
@@ -780,6 +904,10 @@ rehive.user.getUserEmailAddresses().then(function(res){
     })
 ```
 
+```python
+rehive.user.emails.get()
+```
+
 > User list email addresses response
 
 ```shell
@@ -797,6 +925,17 @@ rehive.user.getUserEmailAddresses().then(function(res){
 ```
 
 ```javascript
+[
+    {
+        "id": 1,
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+]
+```
+
+```python
 [
     {
         "id": 1,
@@ -838,6 +977,12 @@ rehive.user.createUserEmailAddress(
         })
 ```
 
+```python
+rehive.user.email.create(
+    emai="joe@rehive.com"
+)
+```
+
 > User create email address response
 
 ```shell
@@ -853,6 +998,15 @@ rehive.user.createUserEmailAddress(
 ```
 
 ```javascript
+{
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
+}
+```
+
+```python
 {
     "id": 1,
     "email": "joe@rehive.com",
@@ -894,6 +1048,18 @@ rehive.user.updateUserEmailAddress(emailId,{primary: true}).then(function(res){
     })
 ```
 
+```python
+rehive.user.emails.update(
+    '{email_id}',
+    primary=True
+)
+
+# Quick method for setting primary
+rehive.user.emails.make_primary(
+   "{email_id}" 
+)
+```
+
 > User update email address response
 
 ```shell
@@ -909,6 +1075,15 @@ rehive.user.updateUserEmailAddress(emailId,{primary: true}).then(function(res){
 ```
 
 ```javascript
+{
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
+}
+```
+
+```python
 {
     "id": 1,
     "email": "joe@rehive.com",
@@ -948,6 +1123,10 @@ rehive.user.getUserMobileNumbers().then(function(res){
     })
 ```
 
+```python
+rehive.user.mobiles.get()
+```
+
 > User mobile numbers response
 
 ```shell
@@ -965,6 +1144,17 @@ rehive.user.getUserMobileNumbers().then(function(res){
 ```
 
 ```javascript
+[
+    {
+        "id": 1,
+        "number": "+00000000000",
+        "primary": true,
+        "verified": true
+    }
+]
+```
+
+```python
 [
     {
         "id": 1,
@@ -1006,6 +1196,12 @@ rehive.user.createUserMobileNumber(
         })
 ```
 
+```python
+rehive.user.mobiles.create(
+    number="+00000000000"
+)
+```
+
 > User create mobile number response
 
 ```shell
@@ -1021,6 +1217,15 @@ rehive.user.createUserMobileNumber(
 ```
 
 ```javascript
+{
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
+}
+```
+
+```python
 {
     "id": 1,
     "number": "+00000000000",
@@ -1062,6 +1267,18 @@ rehive.user.updateUserMobileNumber(numberId,{primary: true}).then(function(res){
     })
 ```
 
+```python
+rehive.user.mobiles.update(
+    "{number_id}",
+    primary=True
+)
+
+# Quick method for setting primary
+rehive.user.mobiles.make_primary(
+   "{number_id}" 
+)
+```
+
 > User update mobile number response
 
 ```shell
@@ -1077,6 +1294,15 @@ rehive.user.updateUserMobileNumber(numberId,{primary: true}).then(function(res){
 ```
 
 ```javascript
+{
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
+}
+```
+
+```python
 {
     "id": 1,
     "number": "+00000000000",
@@ -1114,6 +1340,10 @@ rehive.user.getUserNotifications().then(function(res){
     },function(err){
         // ...
     })
+```
+
+```python
+rehive.user.notifications.get()
 ```
 
 > User list notifcations response
@@ -1229,6 +1459,60 @@ rehive.user.getUserNotifications().then(function(res){
 ]
 ```
 
+```python
+[
+    {
+        "id": 1,
+        "name": "tx_transfer_debit",
+        "description": "Transfer debit notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 2,
+        "name": "tx_debit",
+        "description": "Debit notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 3,
+        "name": "tx_transfer_credit",
+        "description": "Transfer credit notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 4,
+        "name": "tx_credit",
+        "description": "Credit notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 5,
+        "name": "tx_transfer_invite",
+        "description": "Transfer invite notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 9,
+        "name": "document_upload",
+        "description": "Document upload notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    },
+    {
+        "id": 10,
+        "name": "document_change",
+        "description": "Document status change notifications",
+        "email_enabled": true,
+        "sms_enabled": true
+    }
+]
+```
+
 Get a list of available notification settings.
 
 #### Endpoint
@@ -1253,6 +1537,18 @@ rehive.user.updateUserNotifications(notificationId,{email_enabled: true}).then(f
     },function(err){
         // ...
     })
+```
+
+```python
+rehive.user.notifications.update(
+    "{notification_id}",
+    email_enabled=True
+)
+
+# For specific types, example:
+rehive.user.notifications.enable_sms(
+    "{notification_id}"
+)
 ```
 
 > User update notification response

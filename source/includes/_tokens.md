@@ -28,6 +28,10 @@ rehive.token.getTokensList().then(function(res){
     });
 ```
 
+```python
+rehive.auth.tokens.get()
+```
+
 > List user tokens response
 
 ```shell
@@ -68,6 +72,23 @@ rehive.token.getTokensList().then(function(res){
 
 ```
 
+```python
+[
+  {
+    "token_key": "00000000",
+    "expires": null
+  },
+  {
+    "token_key": "00000000",
+    "expires": "2001-01-01T01:01:01.000001Z"
+  },
+  {
+    "token_key": "00000000",
+    "expires": "2001-01-01T01:01:01.000002Z"
+  }
+]
+```
+
 Retrieve a list of the current active tokens for the authenticated user. 
 Notice that only the `token_key` is exposed here and not the whole token, in case
 user tokens need to be managed on the client side.
@@ -95,6 +116,12 @@ rehive.token.createToken(
         })
 ```
 
+```python
+rehive.auth.tokens.create(
+  password="joe1234"
+)
+```
+
 > Create token response
 
 ```shell
@@ -117,6 +144,22 @@ rehive.token.createToken(
 ```
 
 ```javascript
+{
+    "token": "{token}",
+    "user": {
+      "identifier": "00000000-0000-0000-0000-000000000000",
+      "email": "joe@rehive.com",
+      "mobile_number": "+00000000000",
+      "first_name": "Joe",
+      "last_name": "Soap",
+      "company": "rehive",
+      "profile": null,
+      "language": "en"
+    }
+}
+```
+
+```python
 {
     "token": "{token}",
     "user": {
@@ -163,6 +206,10 @@ rehive.token.deleteToken("000a0a00").then(function(res){
     })
 ```
 
+```python
+rehive.auth.tokens.delete("{token_key}")
+```
+
 > Delete token response
 
 ```shell
@@ -173,6 +220,12 @@ rehive.token.deleteToken("000a0a00").then(function(res){
 
 ```javascript
 { }
+```
+
+```python
+{
+  "status": "success"
+}
 ```
 
 #### Endpoint
