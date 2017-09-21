@@ -9,7 +9,7 @@ Rehive inclused fine-grained permission management system, that allows admin use
 > Admin list permission groups request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/permission-groups/
+curl https://www.rehive.com/api/3/admin/permission-groups/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -49,7 +49,7 @@ The list is paginated and can be navigated via the `next` and `previous` fields 
 > Admin create permission groups request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/permission-groups/
+curl https://www.rehive.com/api/3/admin/permission-groups/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -85,7 +85,7 @@ Field | Description | Default | Required
 > Admin update permission groups request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/
+curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -121,7 +121,7 @@ Field | Description | Default | Required
 > Admin delete permission groups request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/
+curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -146,7 +146,7 @@ Delete the permission group and all associated permissions assigned to it.
 > Admin list permissions request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/permissions/
+curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/permissions/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -253,3 +253,56 @@ Remove the permission from the permission group.
 
 Users can either be assigned permission groups, or permissions directly. When assigning permission groups to a user, the user will have the access specified in the permission assigned to the permission group. Individual permissions can be assigned to user if some additional permission only need to be provided to a specific user.
 
+### Assign permission group
+
+> Admin assign permission group request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"group": "test_group"}'
+```
+
+> Admin assign permission group response
+
+```json
+{
+    "data": {
+        "name": "test_group"
+    },
+    "status": "success"
+}
+```
+
+Assign a permission group to a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/`
+
+### Unassign permission group
+
+> Admin unassign permission group request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/{group_name}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin unassign permission group response
+
+```json
+{
+    "status": "success"
+}
+```
+
+Unassign a permission group for a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/{group_name}/`
