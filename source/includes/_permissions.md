@@ -223,6 +223,13 @@ The list is paginated and can be navigated via the `next` and `previous` fields 
 
 `https://rehive.com/api/3/admin/permission-groups/{group_name}/permissions/`
 
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`type` | Permission type | "" | true
+`level` | Level of permission | "" | true
+
 ### Remove permissions
 
 > Admin remove permissions request
@@ -282,6 +289,12 @@ Assign a permission group to a user.
 
 `https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/`
 
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`group` | Group name | "" | true
+
 ### Unassign permission group
 
 > Admin unassign permission group request
@@ -306,3 +319,67 @@ Unassign a permission group for a user.
 #### Endpoint
 
 `https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/{group_name}/`
+
+### Assign permissions
+
+> Admin assign permissions request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"type": "account",
+       "level": "view"}'
+```
+
+> Admin assign permissions response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 269,
+        "type": "account",
+        "level": "view"
+    }
+}
+```
+
+Assign a permission to a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/permissions/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`type` | Permission type | "" | true
+`level` | Level of permission | "" | true
+
+### Unassign permissions
+
+> Admin unassign permissions request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin unassign permissions response
+
+```json
+{
+    "status": "success"
+}
+```
+
+Unassign a permissions for a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}/`
