@@ -544,8 +544,1046 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 
 `https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
 
-## Emails
 
+## Addresses
+
+### List Addresses
+
+> List Addresses request
+
+```shell
+curl https://rehive.com/api/3/admin/addresses/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+"To be implemented"
+```
+
+> List Addresses response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 2,
+                "user": {
+                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": "",
+                    "mobile_number": "+27840000000",
+                    "profile": null
+                },
+                "line_1": "1 Main Street",
+                "line_2": "East City",
+                "city": "Cape Town",
+                "state_province": "Western Cape",
+                "country": "ZA",
+                "postal_code": "8001"
+                "status": "pending"
+            }
+        ]
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/addresses/`
+
+### Create Address
+
+> Create Address request
+
+```shell
+curl https://rehive.com/api/3/admin/addresses/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"line_1": "1 Main Street",
+        "line_2": "East City",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001",
+        "user": "joe@rehive.com"}'
+```
+
+```python
+"To be implemented"
+```
+
+> Create Address response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 2,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "line_1": "1 Main Street",
+        "line_2": "East City",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001"
+        "status": "pending"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/addresses/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`line_1` | address line one | blank | false
+`line_2` | address line 2 | blank | false
+`city` | city | blank | false
+`state_province` | state or province | blank | false
+`country` | country code | blank | false
+`postal_code` | postal or zip code) | blank | false
+`status` | account status | "pending" | false
+`user` | user identifier | null | true
+
+### Retrieve Address
+
+> Retrieve Address request
+
+```shell
+curl https://rehive.com/api/3/admin/addresses/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+"To be implemented"
+```
+
+> Retrieve Address response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 2,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "line_1": "1 Main Street",
+        "line_2": "East City",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001"
+        "status": "pending"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/addresses/{id}`
+
+### Update Address
+
+> Update Address request
+
+```shell
+curl https://rehive.com/api/3/admin/addresses/{id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"line_1": "1 Main Street"}'
+```
+
+> Update Address response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 2,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "line_1": "1 Main Street",
+        "line_2": "East City",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001"
+        "status": "pending"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/addresses/{id}`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`line_1` | address line one | blank | false
+`line_2` | address line 2 | blank | false
+`city` | city | blank | false
+`state_province` | state or province | blank | false
+`country` | country code | blank | false
+`postal_code` | postal or zip code) | blank | false
+`status` | account status | "pending" | false
+
+
+## Bank Accounts
+
+### List Bank Accounts
+
+> List Bank Accounts request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+rehive.admin.banks_accounts.get()
+```
+
+> List Bank Accounts response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "user": {
+                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": "",
+                    "mobile_number": "+27840000000",
+                    "profile": null
+                },
+                "name": "Bank Account",
+                "number": "12341234",
+                "type": "Cheque",
+                "bank_name": "Barclays",
+                "bank_code": "1234",
+                "branch_code": "1234",
+                "swift": null,
+                "iban": null,
+                "bic": null,
+                "code": "bank_account_000000000000",
+                "status": "pending"
+            }
+        ]
+    }
+}
+```
+
+```python
+[
+    {
+        "id": 1,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null,
+        "code": "bank_account_000000000000",
+        "status": "pending"
+    }
+]
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/`
+
+### Create Bank Account
+
+> Create Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "user": "joe@rehive.com"}'
+```
+
+```python
+rehive.admin.bank_accounts.create(
+    name="Bank Account",
+    number="12341234",
+    type="Cheque",
+    bank_name="Barclays",
+    bank_code="1234",
+    branch_code="1234",
+    user=joe@rehive.com
+)
+```
+
+> Create Bank Account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 2,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null,
+        "code": "bank_account_000000000000",
+        "status": "pending"
+    }
+}
+```
+
+```python
+ {
+    "id": 2,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "name": "Bank Account",
+    "number": "12341234",
+    "type": "Cheque",
+    "bank_name": "Barclays",
+    "bank_code": "1234",
+    "branch_code": "1234",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Account Name | blank | false
+`number` | Account Number | blank | false
+`type` | Account Type | blank | false
+`bank_name` | Bank Name | blank | false
+`bank_code` | Bank Code | blank | false
+`branch_code` | Branch Code | blank | false
+`status` | account status | "pending" | false
+`user` | user identifier | null | true
+
+### Retrieve Bank Account
+
+> Retrieve Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+rehive.admin.bank_accounts.get("{id}")
+```
+
+> Retrieve Bank Account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null,
+        "code": "bank_account_000000000000",
+        "status": "pending"
+    }
+}
+```
+
+```python
+{
+    "id": 1,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "name": "Bank Account",
+    "number": "12341234",
+    "type": "Cheque",
+    "bank_name": "Barclays",
+    "bank_code": "1234",
+    "branch_code": "1234",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/{id}`
+
+### Update Bank Account
+
+> Update Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/{id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "New account name"}'
+```
+
+```python
+rehive.admin.bank_accounts.update(
+    "{id}",
+    name="New account name"
+)
+```
+
+> Update Bank Account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "name": "New account name",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null,
+        "code": "bank_account_000000000000",
+        "status": "pending"
+    }
+}
+```
+
+```python
+{
+    "id": 1,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "name": "New account name",
+    "number": "12341234",
+    "type": "Cheque",
+    "bank_name": "Barclays",
+    "bank_code": "1234",
+    "branch_code": "1234",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/{id}`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Account Name | blank | false
+`number` | Account Number | blank | false
+`type` | Account Type | blank | false
+`bank_name` | Bank Name | blank | false
+`bank_code` | Bank Code | blank | false
+`branch_code` | Branch Code | blank | false
+`status` | account status | "pending" | false
+
+
+## Crypto Accounts
+
+### List Crypto Accounts
+
+> Admin list crypto accounts request
+
+```shell
+curl https://www.rehive.com/api/3/admin/crypto-accounts/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+"To be implemented"
+
+```
+
+```python
+"To be implemented"
+```
+
+> Admin list crypto accounts response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "user": {
+                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": "",
+                    "mobile_number": "+27840000000",
+                    "profile": null
+                },
+                "address": "0000000000000000000000000000000000",
+                "code": "crypto_account_000000000000",
+                "crypto_type": "bitcoin",
+                "metadata": {},
+                "status": "pending"
+            }
+        ]
+    }
+}
+```
+
+List a user's cryptocurrency addresses.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/crypto-accounts/`
+
+### Create Crypto Account
+
+> Admin create crypto account request
+
+```shell
+curl https://www.rehive.com/api/3/admin/crypto-accounts/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"address": "0000000000000000000000000000000000",
+        "user": "joe@rehive.com"}'
+```
+
+```javascript
+"To be implemented"
+```
+
+```python
+"To be implemented"
+```
+
+> Admin create crypto account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "address": "0000000000000000000000000000000000",
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
+    }
+}
+```
+
+Create a crypto account for a user.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/crypto-accounts/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`address` | full bitcoin address | null | true
+`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
+`metadata` | custom metadata | {} | false
+`status` | string status | 'pending' | false
+`user` | user identifier | null | true
+
+### Retrieve Crypto Account
+
+> Retrieve Crypto Account request
+
+```shell
+curl https://rehive.com/api/3/admin/crypto-accounts/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+"To be implemented"
+```
+
+> Retrieve Crypto Account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": {account_id},
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "address": "0000000000000000000000000000000000",
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/crypto-accounts/{id}`
+
+### Update Crypto Account
+
+> Admin update crypto account request
+
+```shell
+curl https://www.rehive.com/api/3/admin/crypto-accounts/{account_id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"address": "0000000000000000000000000000000000"}'
+```
+
+```javascript
+"To be implemented"
+```
+
+```python
+"To be implemented"
+```
+
+> Admin update crypto account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": {account_id},
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "address": "0000000000000000000000000000000000",
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
+    }
+}
+```
+
+Update a user's crypto account.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/crypto-accounts/{account_id}`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`address` | full bitcoin address | null | true
+`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
+`metadata` | custom metadata | {} | false
+`status` | string status | 'pending' | false
+
+
+## Documents
+
+### List Documents
+
+> Admin list documents request
+
+```shell
+curl https://www.rehive.com/api/3/admin/documents/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+"To be implemented"
+```
+
+```python
+"To be implemented"
+```
+
+> Admin list documents response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 0,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "user": {
+                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": "",
+                    "mobile_number": "+27840000000",
+                    "profile": null
+                },
+                "file": "https://url.to/file.pdf",
+                "document_category": "other",
+                "document_type": "other",
+                "metadata": {},
+                "status": "pending"
+            }
+        ]
+    }
+}
+```
+
+Get a list of users' documents.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/documents/`
+
+
+### Create Document
+
+> Admin documents request
+
+```shell
+curl https://www.rehive.com/api/3/admin/document/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -F file=@localfilename
+```
+
+```javascript
+"To be implemented"
+```
+
+```python
+"To be implemented"
+```
+
+> Admin documents response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "file": "https://url.to/file.pdf",
+        "document_category": "other",
+        "document_type": "other",
+        "metadata": {},
+        "status": "pending"
+    }
+}
+```
+
+Upload user document.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/document/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`file` | a document file | null | true
+`document_category` | The document category | other | false
+`document_type` | The type of docuemnt | other | false
+`metadata` | custom metadata | {} | false
+`status` | document status | pending | false
+`user` | user identifier | null | true
+
+### Retrieve Document
+
+> Retrieve Document request
+
+```shell
+curl https://rehive.com/api/3/admin/documents/{document_id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+"To be implemented"
+```
+
+> Retrieve Document response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "file": "https://url.to/file.pdf",
+        "document_category": "other",
+        "document_type": "other",
+        "metadata": {},
+        "status": "pending"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/documents/{document_id}`
+
+### Update Document
+
+> Update document request
+
+```shell
+curl https://www.rehive.com/api/3/admin/documents/{document_id}
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"status": "verified"}'
+```
+
+```javascript
+"To be implemented"
+```
+
+```python
+"To be implemented"
+```
+
+> Admin update crypto account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "file": "https://url.to/file.pdf",
+        "document_category": "other",
+        "document_type": "other",
+        "metadata": {},
+        "status": "verified"
+    }
+}
+```
+
+Update a user's document.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/documents/{document_id}`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`file` | a document file | null | true
+`document_category` | The document category | other | false
+`document_type` | The type of docuemnt | other | false
+`metadata` | custom metadata | {} | false
+`status` | document status | pending | false
+
+
+## Emails
 
 ### List Emails
 
@@ -3795,7 +4833,7 @@ Field | Description | Default | Required
 `tx_type` | Transaction type | null | false
 `secret` | Webhook secret | "secret" | false
 
-## User Webhooks
+## General Webhooks
 
 <aside class="warning">
     The Rehive events that trigger webhooks are an experimental feature. Take a 
@@ -3803,9 +4841,9 @@ Field | Description | Default | Required
     events work and what events are currently offered.
 </aside>
 
-### List User Webhooks
+### List General Webhooks
 
-> List user webhooks request
+> List general webhooks request
 
 ```shell
 curl https://rehive.com/api/3/admin/webhooks/
@@ -3818,7 +4856,7 @@ curl https://rehive.com/api/3/admin/webhooks/
 "To be implemented"
 ```
 
-> List user webhooks response
+> List general webhooks response
 
 ```json
 {
@@ -3836,14 +4874,14 @@ curl https://rehive.com/api/3/admin/webhooks/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/users/`
+`https://rehive.com/api/3/admin/webhooks/`
 
 ### Create User Webhooks
 
 > Create user webhooks request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/users/
+curl https://rehive.com/api/3/admin/webhooks/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3874,7 +4912,7 @@ curl https://rehive.com/api/3/admin/webhooks/users/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/users/`
+`https://rehive.com/api/3/admin/webhooks/`
 
 #### Fields
 
@@ -3884,12 +4922,12 @@ Field | Description | Default | Required
 `event` | Webhook event | null | true
 `secret` | Webhook secret | "secret" | false
 
-### Retrieve User Webhook
+### Retrieve General Webhook
 
-> Retrieve user webhook request
+> Retrieve general webhook request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/users/{id}/
+curl https://rehive.com/api/3/admin/webhooks/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3899,7 +4937,7 @@ curl https://rehive.com/api/3/admin/webhooks/users/{id}/
 "To be implemented"
 ```
 
-> Retrieve user webhook response
+> Retrieve general webhook response
 
 ```json
 {
@@ -3915,14 +4953,14 @@ curl https://rehive.com/api/3/admin/webhooks/users/{id}/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/users/{id}/`
+`https://rehive.com/api/3/admin/webhooks/{id}/`
 
-### Update User Webhook
+### Update General Webhook
 
-> Update user webhook request
+> Update general webhook request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/users/{id}/
+curl https://rehive.com/api/3/admin/webhooks/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3933,7 +4971,7 @@ curl https://rehive.com/api/3/admin/webhooks/users/{id}/
 "To be implemented"
 ```
 
-> Update user webhook response
+> Update general webhook response
 
 ```json
 {
@@ -3951,7 +4989,7 @@ curl https://rehive.com/api/3/admin/webhooks/users/{id}/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/users/{id}/`
+`https://rehive.com/api/3/admin/webhooks/{id}/`
 
 #### Fields
 
@@ -3960,6 +4998,7 @@ Field | Description | Default | Required
 `url` | Webhook URL | blank | true
 `event` | Webhook event | null | true
 `secret` | Webhook secret | "secret" | false
+
 
 ## Subtypes
 
@@ -4187,266 +5226,6 @@ Field | Description | Default | Required
 `description` | description | blank | false
 `tx_type` | Transaction type | blank | true
 
-## Bank Accounts
-
-### List Bank Accounts
-
-> List Bank Accounts request
-
-```shell
-curl https://rehive.com/api/3/admin/bank-accounts/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```python
-rehive.admin.banks_accounts.get()
-```
-
-> List Bank Accounts response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "name": "Bank Account",
-            "number": "12341234",
-            "type": "Cheque",
-            "bank_name": "Barclays",
-            "bank_code": "1234",
-            "branch_code": "1234",
-            "swift": null,
-            "iban": null,
-            "bic": null
-        }
-    ]
-}
-```
-
-```python
-[
-    {
-        "id": 1,
-        "name": "Bank Account",
-        "number": "12341234",
-        "type": "Cheque",
-        "bank_name": "Barclays",
-        "bank_code": "1234",
-        "branch_code": "1234",
-        "swift": null,
-        "iban": null,
-        "bic": null
-    }
-]
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/bank-accounts/`
-
-### Create Bank Account
-
-> Create Bank Account request
-
-```shell
-curl https://rehive.com/api/3/admin/bank-accounts/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"name": "Bank Account",
-        "number": "12341234",
-        "type": "Cheque",
-        "bank_name": "Barclays",
-        "bank_code": "1234",
-        "branch_code": "1234"}'
-```
-
-```python
-rehive.admin.bank_accounts.create(
-    name="Bank Account",
-    number="12341234",
-    type="Cheque",
-    bank_name="Barclays",
-    bank_code="1234",
-    branch_code="1234"
-)
-```
-
-> Create Bank Account response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 2,
-        "name": "Bank Account",
-        "number": "12341234",
-        "type": "Cheque",
-        "bank_name": "Barclays",
-        "bank_code": "1234",
-        "branch_code": "1234",
-        "swift": null,
-        "iban": null,
-        "bic": null
-    }
-}
-```
-
-```python
- {
-    "id": 2,
-    "name": "Bank Account",
-    "number": "12341234",
-    "type": "Cheque",
-    "bank_name": "Barclays",
-    "bank_code": "1234",
-    "branch_code": "1234",
-    "swift": null,
-    "iban": null,
-    "bic": null
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/bank-accounts/`
-
-#### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Account Name | blank | false
-`number` | Account Number | blank | false
-`type` | Account Type | blank | false
-`bank_name` | Bank Name | blank | false
-`bank_code` | Bank Code | blank | false
-`branch_code` | Branch Code | blank | false
-
-### Retrieve Bank Account
-
-> Retrieve Bank Account request
-
-```shell
-curl https://rehive.com/api/3/admin/bank-accounts/{id}/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```python
-rehive.admin.bank_accounts.get("{id}")
-```
-
-> Retrieve Bank Account response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "name": "Bank Account",
-        "number": "12341234",
-        "type": "Cheque",
-        "bank_name": "Barclays",
-        "bank_code": "1234",
-        "branch_code": "1234",
-        "swift": null,
-        "iban": null,
-        "bic": null
-    }
-}
-```
-
-```python
-{
-    "id": 1,
-    "name": "Bank Account",
-    "number": "12341234",
-    "type": "Cheque",
-    "bank_name": "Barclays",
-    "bank_code": "1234",
-    "branch_code": "1234",
-    "swift": null,
-    "iban": null,
-    "bic": null
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/bank-accounts/{id}`
-
-### Update Bank Account
-
-> Update Bank Account request
-
-```shell
-curl https://rehive.com/api/3/admin/bank-accounts/{id}
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"name": "New account name"}'
-```
-
-```python
-rehive.admin.bank_accounts.update(
-    "{id}",
-    name="New account name"
-)
-```
-
-> Update Bank Account response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "name": "New account name",
-        "number": "12341234",
-        "type": "Cheque",
-        "bank_name": "Barclays",
-        "bank_code": "1234",
-        "branch_code": "1234",
-        "swift": null,
-        "iban": null,
-        "bic": null
-    }
-}
-```
-
-```python
-{
-    "id": 1,
-    "name": "New account name",
-    "number": "12341234",
-    "type": "Cheque",
-    "bank_name": "Barclays",
-    "bank_code": "1234",
-    "branch_code": "1234",
-    "swift": null,
-    "iban": null,
-    "bic": null
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/bank-accounts/{id}`
-
-#### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Account Name | blank | false
-`number` | Account Number | blank | false
-`type` | Account Type | blank | false
-`bank_name` | Bank Name | blank | false
-`bank_code` | Bank Code | blank | false
-`branch_code` | Branch Code | blank | false
 
 ## Notifications
 
@@ -4473,8 +5252,8 @@ rehive.admin.notifications.get()
     "data": [
         {
             "id": 1,
-            "name": "tx_debit",
-            "description": "Debit transaction notifications",
+            "name": "account_verify",
+            "description": "Account verification notifications",
             "enabled": true
         }
     ]
@@ -4485,8 +5264,8 @@ rehive.admin.notifications.get()
 [
     {
         "id": 1,
-        "name": "tx_debit",
-        "description": "Debit transaction notifications",
+        "name": "account_verify",
+        "description": "Account verification notifications",
         "enabled": true
     }
 ]
@@ -4518,8 +5297,8 @@ rehive.admin.notifications.get("{id}")
     "status": "success",
     "data": {
         "id": 1,
-        "name": "tx_debit",
-        "description": "Debit transaction notifications",
+        "name": "account_verify",
+        "description": "Account verification notifications",
         "enabled": true
     }
 }
@@ -4528,9 +5307,9 @@ rehive.admin.notifications.get("{id}")
 ```python
 {
     "id": 1,
-    "name": "tx_debit",
-    "description": "Debit transaction notifications",
-    "enabled": true
+    "name": "account_verify",
+    "description": "Account verification notifications",
+    "enabled": trueed": true
 }
 ```
 
@@ -4564,8 +5343,8 @@ rehive.admin.notifications.update(
     "status": "success",
     "data": {
         "id": 1,
-        "name": "tx_debit",
-        "description": "Debit transaction notifications",
+        "name": "account_verify",
+        "description": "Account verification notifications",
         "enabled": false
     }
 }
@@ -4574,8 +5353,8 @@ rehive.admin.notifications.update(
 ```python
 {
     "id": 1,
-    "name": "tx_debit",
-    "description": "Debit transaction notifications",
+    "name": "account_verify",
+    "description": "Account verification notifications",
     "enabled": false
 }
 ```

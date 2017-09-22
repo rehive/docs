@@ -18,10 +18,9 @@ This section contains experimental features that are not fully developed yet. Ex
 
 Rehive has a collection of internal events that can be configured to fire off custom webhooks.
 
-Webhooks should always be created with a unique `secret` key (See the webhook API endpoint docs for more about creating webhooks). The secret key can be used to identify valid Rehive requests to your server. The secret should be checked in the Authorization header when
-receiving a webhook.
+Webhooks should always be created with a secure and private `secret` key (See the webhook API endpoint docs for more about creating webhooks). The secret key can be used to identify valid Rehive requests to your server. The secret should be checked in the Authorization header when receiving a webhook.
 
-Rehive expects a `200 OK` HTTP response when webhooks are called. If a 200 response is not returned, Rehive will retry the webhook up to a max of 24 times over up to 24 hours. Webhooks will retry every 5 min if the server does not repsond with a valid HTTP response. Non 200 responses will retry every hour.
+Rehive expects a `200 OK` HTTP response when webhooks are called. If a 200 response is not returned, Rehive will retry the webhook up to a max of 12 times with a gradually increasing delay between each retry.
 
 ### Transaction Events
 
@@ -35,18 +34,25 @@ Event | Description
 `transaction.initiate` | transaction initiated (pending) event
 `transaction.execute` | transaction executed (complete/failed) event
 
-### User Events
+### General Events
 
-Rehive currently support the following user events:
+Rehive currently support the following general events:
 
 Event | Description 
 --- | --- 
 `user.create`  | user created event
 `user.update` | user updated event
-`user.delete` | user deleted event
 `user.password.reset` | user password reset request event
 `user.email.verify` | user email verification event (Email key)
 `user.mobile.verify` | user mobile verification event (OTP key)
+`address.create` | address created event
+`address.update` | address updated event
+`document.create` | document created event
+`document.update` | document updated event
+`bank_account.create` | bank account created event
+`bank_account.update` | bank account updated event
+`crypto_account.create` | crypto account created event
+`crypto_account.update` | crypto account updated event
 
 ## Idempotent Requests
 

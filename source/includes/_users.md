@@ -402,6 +402,7 @@ Field | Description | Default | Required
 `country` | country code | blank | false
 `postal_code` | postal or zip code) | blank | false
 
+
 ## List Bank Accounts
 
 > User list bank accounts request
@@ -442,7 +443,8 @@ rehive.user.getUserBankAccounts().then(function(res){
             "swift": "",
             "iban": "",
             "bic": "",
-            "code": "bank_account_VEM7k1y5hnuF"
+            "code": "bank_account_VEM7k1y5hnuF",
+            "status": "pending"
         }
     ]
 }
@@ -461,7 +463,8 @@ rehive.user.getUserBankAccounts().then(function(res){
         "swift": "",
         "iban": "",
         "bic": "",
-        "code": "bank_account_VEM7k1y5hnuF"
+        "code": "bank_account_VEM7k1y5hnuF",
+        "status": "pending"
     }
 ]
 
@@ -524,7 +527,8 @@ rehive.user.createUserBankAccount(
         "swift": null,
         "iban": null,
         "bic": null,
-        "code": "bank_account_000000000000"
+        "code": "bank_account_000000000000",
+        "status": "pending"
     }
 }
 ```
@@ -541,7 +545,8 @@ rehive.user.createUserBankAccount(
     "swift": null,
     "iban": null,
     "bic": null,
-    "code": "bank_account_000000000000"
+    "code": "bank_account_000000000000",
+    "status": "pending"
 }
 
 ```
@@ -606,7 +611,8 @@ rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
         "swift": null,
         "iban": null,
         "bic": null,
-        "code": "bank_account_000000000000"
+        "code": "bank_account_000000000000",
+        "status": "pending"
     }
 }
 ```
@@ -623,7 +629,8 @@ rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
     "swift": null,
     "iban": null,
     "bic": null,
-    "code": "bank_account_000000000000"
+    "code": "bank_account_000000000000",
+    "status": "pending"
 }
 ```
 
@@ -648,12 +655,12 @@ Field | Description | Default | Required
 `bic` | BIC number | null | false
 
 
-## List Bitcoin Accounts
+## List Crypto Accounts
 
-> User list bitcoin accounts request
+> User list crypto accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bitcoin-accounts/
+curl https://www.rehive.com/api/3/user/crypto-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -671,7 +678,7 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
 "To be implemented"
 ```
 
-> User list bitcoin accounts response
+> User list crypto accounts response
 
 ```shell
 {
@@ -680,7 +687,10 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
         {
             "id": 1,
             "address": "0000000000000000000000000000000000",
-            "code": "bitcoin_0000000000000000000000000000000000"
+            "code": "crypto_account_000000000000",
+            "crypto_type": "bitcoin",
+            "metadata": {},
+            "status": "pending"
         }
     ]
 }
@@ -691,23 +701,26 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
     {
         "id": 1,
         "address": "0000000000000000000000000000000000",
-        "code": "bitcoin_0000000000000000000000000000000000"
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
     }
 ]
 ```
 
-List a user's bitcoin addresses.
+List a user's cryptocurrency addresses.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bitcoin-accounts/`
+`https://rehive.com/api/3/user/crypto-accounts/`
 
-## Create Bitcoin Account
+## Create Crypto Account
 
-> User create bitcoin account request
+> User create crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bitcoin-accounts/
+curl https://www.rehive.com/api/3/user/crypto-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -729,7 +742,7 @@ rehive.user.createUserBitcoinAccount(
 "To be implemented"
 ```
 
-> User create bitcoin account response
+> User create crypto account response
 
 ```shell
 {
@@ -737,7 +750,10 @@ rehive.user.createUserBitcoinAccount(
     "data": {
         "id": 1,
         "address": "0000000000000000000000000000000000",
-        "code": "bitcoin_0000000000000000000000000000000000"
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
     }
 }
 ```
@@ -746,28 +762,33 @@ rehive.user.createUserBitcoinAccount(
 {
     "id": 1,
     "address": "0000000000000000000000000000000000",
-    "code": "bitcoin_0000000000000000000000000000000000"
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
-Create a bitcoin account for a user.
+Create a crypto account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bitcoin-accounts/`
+`https://rehive.com/api/3/user/crypto-accounts/`
 
 #### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
 `address` | full bitcoin address | null | true
+`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
+`metadata` | custom metadata | {} | false
 
-## Update Bitcoin Account
+## Update Crypto Account
 
-> User update bitcoin account request
+> User update crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bitcoin-accounts/{account_id}
+curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -786,7 +807,7 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
 "To be implemented"
 ```
 
-> User update bitcoin account response
+> User update crypto account response
 
 ```shell
 {
@@ -794,7 +815,10 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
     "data": {
         "id": {account_id},
         "address": "0000000000000000000000000000000000",
-        "code": "bitcoin_0000000000000000000000000000000000"
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
     }
 }
 ```
@@ -803,21 +827,76 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
 {
     "id": {account_id},
     "address": "0000000000000000000000000000000000",
-    "code": "bitcoin_0000000000000000000000000000000000"
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
-Update a user's bitcoin account.
+Update a user's crypto account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bitcoin-accounts/{account_id}`
+`https://rehive.com/api/3/user/crypto-accounts/{account_id}`
 
 #### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
 `address` | full bitcoin address | null | true
+`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
+`metadata` | custom metadata | {} | false
+`status` | string status | 'pending' | false
+
+
+## List Documents
+
+> User list documents request
+
+```shell
+curl https://www.rehive.com/api/3/user/documents/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+"To be implemented"
+```
+
+```python
+"To be implemented"
+```
+
+> User list documents response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 0,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "file": "https://url.to/file.pdf",
+                "document_category": "other",
+                "document_type": "other",
+                "metadata": {},
+                "status": "pending"
+            }
+        ]
+    }
+}
+```
+
+Get a list of user's documents.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/documents/`
+
 
 ## Create Document
 
@@ -858,7 +937,9 @@ curl https://www.rehive.com/api/3/user/document/
     "data": {
         "file": "https://url.to/file.pdf",
         "document_category": "other",
-        "document_type": "other"
+        "document_type": "other",
+        "metadata": {},
+        "status": "pending"
     }
 }
 ```
@@ -867,7 +948,9 @@ curl https://www.rehive.com/api/3/user/document/
 {
     "file": "https://url.to/file.pdf",
     "document_category": "other",
-    "document_type": "other"
+    "document_type": "other",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
@@ -884,6 +967,8 @@ Field | Description | Default | Required
 `file` | a document file | null | true
 `document_category` | The document category | other | false
 `document_type` | The type of docuemnt | other | false
+`metadata` | custom metadata | {} | false
+
 
 ## List Email Addresses
 
@@ -1322,269 +1407,3 @@ Update a user's mobile number. The number can be changed to be the user's primar
 Field | Description | Default | Required
 --- | --- | --- | ---
 `primary` | is a primary user email | false | false
-
-## List Notifications
-
-> User list notifcations request
-
-```shell
-curl https://www.rehive.com/api/3/user/notifications/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.user.getUserNotifications().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
-```
-
-```python
-rehive.user.notifications.get()
-```
-
-> User list notifcations response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "name": "tx_transfer_debit",
-            "description": "Transfer debit notifications",
-            "email_enabled": true,
-            "sms_enabled": true
-        },
-        {
-            "id": 2,
-            "name": "tx_debit",
-            "description": "Debit notifications",
-            "email_enabled": true,
-            "sms_enabled": true
-        },
-        {
-            "id": 3,
-            "name": "tx_transfer_credit",
-            "description": "Transfer credit notifications",
-            "email_enabled": true,
-            "sms_enabled": true
-        },
-        {
-            "id": 4,
-            "name": "tx_credit",
-            "description": "Credit notifications",
-            "email_enabled": true,
-            "sms_enabled": true
-        },
-        {
-            "id": 5,
-            "name": "tx_transfer_invite",
-            "description": "Transfer invite notifications",
-            "email_enabled": true,
-            "sms_enabled": true
-        },
-        {
-            "id": 9,
-            "name": "document_upload",
-            "description": "Document upload notifications",
-            "email_enabled": true,
-            "sms_enabled": true
-        },
-        {
-            "id": 10,
-            "name": "document_change",
-            "description": "Document status change notifications",
-            "email_enabled": true,
-            "sms_enabled": true
-        }
-    ]
-}
-```
-
-```javascript
-[
-    {
-        "id": 1,
-        "name": "tx_transfer_debit",
-        "description": "Transfer debit notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 2,
-        "name": "tx_debit",
-        "description": "Debit notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 3,
-        "name": "tx_transfer_credit",
-        "description": "Transfer credit notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 4,
-        "name": "tx_credit",
-        "description": "Credit notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 5,
-        "name": "tx_transfer_invite",
-        "description": "Transfer invite notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 9,
-        "name": "document_upload",
-        "description": "Document upload notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 10,
-        "name": "document_change",
-        "description": "Document status change notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    }
-]
-```
-
-```python
-[
-    {
-        "id": 1,
-        "name": "tx_transfer_debit",
-        "description": "Transfer debit notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 2,
-        "name": "tx_debit",
-        "description": "Debit notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 3,
-        "name": "tx_transfer_credit",
-        "description": "Transfer credit notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 4,
-        "name": "tx_credit",
-        "description": "Credit notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 5,
-        "name": "tx_transfer_invite",
-        "description": "Transfer invite notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 9,
-        "name": "document_upload",
-        "description": "Document upload notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    },
-    {
-        "id": 10,
-        "name": "document_change",
-        "description": "Document status change notifications",
-        "email_enabled": true,
-        "sms_enabled": true
-    }
-]
-```
-
-Get a list of available notification settings.
-
-#### Endpoint
-
-`https://rehive.com/api/3/user/notifications/`
-
-## Update Notification
-
-> User update notification request
-
-```shell
-curl https://www.rehive.com/api/3/user/notifcations/{notification_id}
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"email_enabled": true}'
-```
-
-```javascript
-rehive.user.updateUserNotifications(notificationId,{email_enabled: true}).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
-```
-
-```python
-rehive.user.notifications.update(
-    "{notification_id}",
-    email_enabled=True
-)
-
-# For specific types, example:
-rehive.user.notifications.enable_sms(
-    "{notification_id}"
-)
-```
-
-> User update notification response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "email_enabled": true,
-        "sms_enabled": true,
-        "name": "tx_credit",
-        "description": "Credit transaction notifications"
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "email_enabled": true,
-    "sms_enabled": true,
-    "name": "tx_credit",
-    "description": "Credit transaction notifications"
-}
-```
-
-Update a user's settings for a notification.
-
-#### Endpoint
-
-`https://rehive.com/api/3/user/notifcations/{notification_id}`
-
-#### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`email_enabled` | is email notifcation enabled | false | false
-`sms_enabled` | is sms notifcation enabled | false | false
