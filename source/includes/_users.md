@@ -1413,6 +1413,66 @@ Field | Description | Default | Required
 `email` | email address | null | true
 `primary` | is a primary user email | false | false
 
+
+## Retrieve Email Address
+
+> User retrieve email address request
+
+```shell
+curl https://www.rehive.com/api/3/user/emails/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> User retrieve email address response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+```javascript
+rehive.user.getUserEmailAddresses(emailId).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
+```python
+rehive.user.emails.get("{email_id}")
+```
+
+```javascript
+{
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
+}
+```
+
+```python
+{
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
+}
+```
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/emails/{id}/`
+
 ## Update Email Address
 
 > User update email address request
@@ -1488,6 +1548,29 @@ Update a user's email adress. The email adress can be changed to be the user's p
 Field | Description | Default | Required
 --- | --- | --- | ---
 `primary` | is a primary user email | false | false
+
+## Delete Email Address
+
+> User delete email address request
+
+```shell
+curl https://www.rehive.com/api/3/user/emails/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> User delete email address response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/emails/{id}/`
 
 ## List Mobile Numbers
 
@@ -1632,6 +1715,67 @@ Field | Description | Default | Required
 `number` | mobile number address (including area code)| null | true
 `primary` | is a primary user number | false | false
 
+## Retrieve Mobile Numbers
+
+> User retrieve mobile number request
+
+```shell
+curl https://www.rehive.com/api/3/user/mobiles/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.user.getUserMobileNumbers(numberId).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
+```python
+rehive.user.mobiles.get("{number_id}")
+```
+
+> User mobile numbers response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "number": "+00000000000",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
+}
+```
+
+```python
+{
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
+}
+```
+
+Retrieve a user's mobile number.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/mobiles/`
+
 ## Update Mobile Number
 
 > User update mobile number request
@@ -1707,3 +1851,26 @@ Update a user's mobile number. The number can be changed to be the user's primar
 Field | Description | Default | Required
 --- | --- | --- | ---
 `primary` | is a primary user email | false | false
+
+## Delete Mobile Number
+
+> User delete mobile number request
+
+```shell
+curl https://www.rehive.com/api/3/user/mobiles/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> User delete mobile number response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/mobiles/{id}/`
