@@ -363,6 +363,11 @@ Field | Description | Default | Required
 `metadata` | custom metadata | {} | false
 `mobile_number` | mobile number | blank | false
 `timezone` | timezone | blank | false
+`birth_date` | birth date | blank | false
+
+<aside class="notice">
+    <code>birth_date</code> should be added in the formal yyyy-mm-dd
+</aside>
 
 ## Retrieve Address
 
