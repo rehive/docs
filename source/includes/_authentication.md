@@ -1054,3 +1054,515 @@ be logged in for this functionality to work.
 Field | Description | Default | Required
 --- | --- | --- | ---
 `otp` | one time password | null | true
+
+
+## Tokens
+
+The tokens endpoints provide some basic access to managing user and admin tokens.
+The ability to create infinite lifespan tokens as well as viewing active tokens and 
+deleting unused tokens.
+
+<aside class="notice">
+    For security purposes Rehive stores hashed authentication tokens and has 
+    no access to the orginal token value.
+</aside>
+
+### List Tokens
+
+> List tokens request
+
+```shell
+curl https://www.rehive.com/api/3/auth/tokens/
+  -X GET
+  -H "Content-Type: application/json"
+  -H "Authorization: Token {token}"
+```
+
+```javascript
+rehive.token.getTokensList().then(function(res){
+        // ...
+    },function(err){
+        // ...
+    });
+```
+
+```python
+rehive.auth.tokens.get()
+```
+
+> List user tokens response
+
+```shell
+{
+  "status": "success",
+  "data": [
+    {
+      "token_key": "00000000",
+      "expires": null
+    },
+    {
+      "token_key": "00000000",
+      "expires": 1509539800952
+    },
+    {
+      "token_key": "00000000",
+      "expires": 1509539800952
+    }
+  ]
+}
+```
+
+```javascript
+[
+  {
+    "token_key": "00000000",
+    "expires": null
+  },
+  {
+    "token_key": "00000000",
+    "expires": 1509539800952
+  },
+  {
+    "token_key": "00000000",
+    "expires": 1509539800952
+  }
+]
+
+```
+
+```python
+[
+  {
+    "token_key": "00000000",
+    "expires": null
+  },
+  {
+    "token_key": "00000000",
+    "expires": 1509539800952
+  },
+  {
+    "token_key": "00000000",
+    "expires": 1509539800952
+  }
+]
+```
+
+Retrieve a list of the current active tokens for the authenticated user. 
+Notice that only the `token_key` is exposed here and not the whole token, in case
+user tokens need to be managed on the client side.
+
+### Create Token
+
+> Create token request
+
+```shell
+curl https://www.rehive.com/api/3/auth/tokens/
+  -X POST
+  -H "Content-Type: application/json"
+  -H "Authorization: Token {token}"
+  -D "{"password": "joe1234"}"
+```
+
+```javascript
+rehive.token.createToken(
+        {
+            password: "joe1234"
+        }).then(function(res){
+            // ...
+        },function(err){
+            // ...
+        })
+```
+
+```python
+rehive.auth.tokens.create(
+  password="joe1234"
+)
+```
+
+> Create token response
+
+```shell
+{
+    "status": "success"
+    "data": {
+        "token": "{token}",
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "id_number": null,
+            "birth_date": null,
+            "profile": null,
+            "currency": null,
+            "company": "rehive",
+            "language": "en",
+            "nationality": "ZA",
+            "metadata": {},
+            "mobile_number": "+00000000000",
+            "timezone": null,
+            "verified": false,
+            "kyc": {
+                "documents": {
+                    "updated": null,
+                    "status": null
+                },
+                "updated": 1509539801040,
+                "status": "pending",
+                "bank_accounts": {
+                    "updated": null,
+                    "status": null
+                },
+                "addresses": {
+                    "updated": null,
+                    "status": null
+                }
+            },
+            "status": "pending",
+            "permission_groups": [
+                {
+                    "name": "admin"
+                }
+            ],
+            "permissions": [],
+            "date_joined": 1509539800952,
+            "switches": []
+        }
+    }
+}
+```
+
+```javascript
+{
+    "token": "{token}",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
+    }
+}
+```
+
+```python
+{
+    "token": "{token}",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
+    }
+}
+```
+
+Creating a token here will remove the expiration time on the token, thus giving it an infinite lifespan.
+
+#### Endpoint
+
+`https://rehive.com/api/3/auth/tokens/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`password` | password | null | true
+
+### Delete Token
+
+> Delete token request
+
+```shell
+curl https://www.rehive.com/api/3/auth/tokens/{token_key}/
+  -X DELETE
+  -H "Content-Type: application/json"
+  -H "Authorization: Token {token}"
+```
+
+```javascript
+rehive.token.deleteToken("000a0a00").then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
+```python
+rehive.auth.tokens.delete("{token_key}")
+```
+
+> Delete token response
+
+```shell
+{
+  "status": "success"
+}
+```
+
+```javascript
+{ }
+```
+
+```python
+{
+  "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/auth/tokens/{token_key}/`
+
+### Verify Token
+
+> Verify token request
+
+```shell
+curl https://www.rehive.com/api/3/auth/tokens/verify/
+  -X POST
+  -H "Content-Type: application/json"
+  -H "Authorization: Token {token}"
+  -D "{"token": "{token}"}"
+```
+
+```javascript
+rehive.token.deleteToken("000a0a00").then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
+```python
+rehive.auth.tokens.delete("{token_key}")
+```
+
+> Delete token response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
+    }
+}
+```
+
+```javascript
+{
+    "status": "success",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
+    }
+}
+```
+
+```python
+{
+    "status": "success",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/auth/tokens/{token_key}`
+
