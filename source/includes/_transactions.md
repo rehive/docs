@@ -47,7 +47,7 @@ rehive.transactions.get(
  {
     "status": "success",
     "data": {
-        "count": 2,
+        "count": 1,
         "next": null,
         "previous": null,
         "results": [
@@ -55,51 +55,15 @@ rehive.transactions.get(
                 "id": "000000000000000000000",
                 "tx_type": "credit",
                 "subtype": null,
-                "external": false,
                 "note": "",
                 "metadata": {},
                 "status": "Complete",
-                "reference": "",
+                "reference": null,
                 "amount": 500,
                 "fee": 0,
-                "balance": 1000,
-                "account": "akC49YT8x4",
-                "label": "Credit",
-                "company": "rehive",
-                "currency": {
-                    "description": "Rand",
-                    "code": "ZAR",
-                    "symbol": "R",
-                    "unit": "rand",
-                    "divisibility": 2
-                },
-                "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
-                    "first_name": "Joe",
-                    "last_name": "Soap",
-                    "email": "joe@rehive.com",
-                    "username": "",
-                    "mobile_number": "+27840000000",
-                    "profile": null
-                },
-                "source_transaction": null,
-                "destination_transaction": null,
-                "created": 1496135465218,
-                "updated": 1496135465287
-            },
-            {
-                "id": "000000000000000000000",
-                "tx_type": "credit",
-                "subtype": null,
-                "external": false,
-                "note": "",
-                "metadata": {},
-                "status": "Complete",
-                "reference": "",
-                "amount": 500,
-                "fee": 0,
+                "total_amount": 500,
                 "balance": 500,
-                "account": "akC49YT8x4",
+                "account": "0000000000 ",
                 "label": "Credit",
                 "company": "rehive",
                 "currency": {
@@ -120,7 +84,7 @@ rehive.transactions.get(
                 },
                 "source_transaction": null,
                 "destination_transaction": null,
-                "created": 1496135465218,
+                "created": 1476691969394,
                 "updated": 1496135465287
             }
         ]
@@ -130,7 +94,7 @@ rehive.transactions.get(
 
 ```javascript
  {
-    "count": 2,
+    "count": 1,
     "next": null,
     "previous": null,
     "results": [
@@ -138,51 +102,15 @@ rehive.transactions.get(
             "id": "000000000000000000000",
             "tx_type": "credit",
             "subtype": null,
-            "external": false,
             "note": "",
             "metadata": {},
             "status": "Complete",
-            "reference": "",
+            "reference": null,
             "amount": 500,
             "fee": 0,
-            "balance": 1000,
-            "account": "akC49YT8x4",
-            "label": "Credit",
-            "company": "rehive",
-            "currency": {
-                "description": "Rand",
-                "code": "ZAR",
-                "symbol": "R",
-                "unit": "rand",
-                "divisibility": 2
-            },
-            "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
-                "first_name": "Joe",
-                "last_name": "Soap",
-                "email": "joe@rehive.com",
-                "username": "",
-                "mobile_number": "+27840000000",
-                "profile": null
-            },
-            "source_transaction": null,
-            "destination_transaction": null,
-            "created": 1496135465218,
-            "updated": 1496135465287
-        },
-        {
-            "id": "000000000000000000000",
-            "tx_type": "credit",
-            "subtype": null,
-            "external": false,
-            "note": "",
-            "metadata": {},
-            "status": "Complete",
-            "reference": "",
-            "amount": 500,
-            "fee": 0,
+            "total_amount": 500,
             "balance": 500,
-            "account": "akC49YT8x4",
+            "account": "0000000000 ",
             "label": "Credit",
             "company": "rehive",
             "currency": {
@@ -203,7 +131,7 @@ rehive.transactions.get(
             },
             "source_transaction": null,
             "destination_transaction": null,
-            "created": 1496135465218,
+            "created": 1476691969394,
             "updated": 1496135465287
         }
     ]
@@ -216,51 +144,15 @@ rehive.transactions.get(
         "id": "000000000000000000000",
         "tx_type": "credit",
         "subtype": null,
-        "external": false,
         "note": "",
         "metadata": {},
         "status": "Complete",
-        "reference": "",
+        "reference": null,
         "amount": 500,
         "fee": 0,
-        "balance": 1000,
-        "account": "akC49YT8x4",
-        "label": "Credit",
-        "company": "rehive",
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
-        "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Joe",
-            "last_name": "Soap",
-            "email": "joe@rehive.com",
-            "username": "",
-            "mobile_number": "+27840000000",
-            "profile": null
-        },
-        "source_transaction": null,
-        "destination_transaction": null,
-        "created": 1496135465218,
-        "updated": 1496135465287
-    },
-    {
-        "id": "000000000000000000000",
-        "tx_type": "credit",
-        "subtype": null,
-        "external": false,
-        "note": "",
-        "metadata": {},
-        "status": "Complete",
-        "reference": "",
-        "amount": 500,
-        "fee": 0,
+        "total_amount": 500,
         "balance": 500,
-        "account": "akC49YT8x4",
+        "account": "0000000000 ",
         "label": "Credit",
         "company": "rehive",
         "currency": {
@@ -281,7 +173,7 @@ rehive.transactions.get(
         },
         "source_transaction": null,
         "destination_transaction": null,
-        "created": 1496135465218,
+        "created": 1476691969394,
         "updated": 1496135465287
     }
 ]
@@ -348,9 +240,9 @@ rehive.transactions.get_totals()
 {
     "status": "success",
     "data": {
-        "amount": 1000,
+        "amount": 500,
         "fees": 0,
-        "count": 2,
+        "count": 1,
         "currency": "ZAR"
     }
 }
@@ -358,18 +250,18 @@ rehive.transactions.get_totals()
 
 ```javascript
 {
-    "amount": 1000,
+    "amount": 500,
     "fees": 0,
-    "count": 2,
+    "count": 1,
     "currency": "ZAR"
 }
 ```
 
 ```python
 {
-    "amount": 1000,
+    "amount": 500,
     "fees": 0,
-    "count": 2,
+    "count": 1,
     "currency": "ZAR"
 }
 ```
@@ -418,15 +310,15 @@ rehive.transactions.get(
         "id": "000000000000000000000",
         "tx_type": "credit",
         "subtype": null,
-        "external": false,
         "note": "",
         "metadata": {},
         "status": "Complete",
-        "reference": "",
+        "reference": null,
         "amount": 500,
         "fee": 0,
+        "total_amount": 500,
         "balance": 500,
-        "account": "akC49YT8x4",
+        "account": "0000000000 ",
         "label": "Credit",
         "company": "rehive",
         "currency": {
@@ -450,11 +342,11 @@ rehive.transactions.get(
         "messages": [
             {
                 "level": "info",
-                "message": "Transaction completed.",
+                "message": "Example Message.",
                 "created": 1496144568989
             }
-        ],
-        "created": 1496135465218,
+        ],        
+        "created": 1476691969394,
         "updated": 1496135465287
     }
 }
@@ -465,15 +357,15 @@ rehive.transactions.get(
     "id": "000000000000000000000",
     "tx_type": "credit",
     "subtype": null,
-    "external": false,
     "note": "",
     "metadata": {},
     "status": "Complete",
-    "reference": "",
+    "reference": null,
     "amount": 500,
     "fee": 0,
+    "total_amount": 500,
     "balance": 500,
-    "account": "akC49YT8x4",
+    "account": "0000000000 ",
     "label": "Credit",
     "company": "rehive",
     "currency": {
@@ -497,11 +389,11 @@ rehive.transactions.get(
     "messages": [
         {
             "level": "info",
-            "message": "Transaction completed.",
+            "message": "Example Message.",
             "created": 1496144568989
         }
-    ],
-    "created": 1496135465218,
+    ],        
+    "created": 1476691969394,
     "updated": 1496135465287
 }
 ```
@@ -511,15 +403,15 @@ rehive.transactions.get(
     "id": "000000000000000000000",
     "tx_type": "credit",
     "subtype": null,
-    "external": false,
     "note": "",
     "metadata": {},
     "status": "Complete",
-    "reference": "",
+    "reference": null,
     "amount": 500,
     "fee": 0,
+    "total_amount": 500,
     "balance": 500,
-    "account": "akC49YT8x4",
+    "account": "0000000000 ",
     "label": "Credit",
     "company": "rehive",
     "currency": {
@@ -543,11 +435,11 @@ rehive.transactions.get(
     "messages": [
         {
             "level": "info",
-            "message": "Transaction completed.",
+            "message": "Example Message.",
             "created": 1496144568989
         }
-    ],
-    "created": 1496135465218,
+    ],        
+    "created": 1476691969394,
     "updated": 1496135465287
 }
 ```
@@ -623,7 +515,7 @@ Create a credit transaction.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`amount` | amount | 0 | true
+`amount` | amount | null | true
 `currency` | currency code | blank | false
 `reference` | optional credit reference | blank | false
 `subtype` | a custom defined subtype | null | false
@@ -636,7 +528,7 @@ Bear in mind that the <code>amount</code> should always be in the lowest currenc
 </aside>
 
 <aside class="notice">
-<code>subtype</code>s can be set in the admin dashboard by an admin user. A blank <code>subtype</code> can be sent without errors, but if a subtype is sent in the request it must match an existing <code>subtype</code> and it's related <code>tx_type</code> in Rehive.
+A <code>subtype</code> can be created in the admin dashboard (or via the API). A blank/null<code>subtype</code> can be sent without errors but if a subtype is sent in the request it must match an existing <code>subtype</code> and it's related <code>tx_type</code> in Rehive.
 </aside>
 
 ## Create Debit
@@ -704,7 +596,7 @@ Create a debit transaction.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`amount` | amount | 0 | true
+`amount` | amount | null | true
 `currency` | currency code | blank | false
 `reference` | optional debit reference | blank | false
 `subtype` | a custom defined subtype | null | false
@@ -770,7 +662,7 @@ rehive.transactions.create_transfer(
 }
 ```
 
-Create a transfer transaction. This will transfer currency from one user to another. If the recipient reference does not exist as a user in Rehive and the reference is an email address or mobile number then an invitation message will be sent to the recipient informing them thay have an unclaimed transaction.
+Create a transfer transaction. This will transfer currency from one user/account to another. If the recipient reference does not exist as a user in Rehive and the reference is an email address or mobile number then an invitation message will be sent to the recipient informing them thay have an unclaimed transaction.
 
 <aside class="notice">
 The transfer transaction endpoint is essentially a wrapper for standard debit/credit transactions. If a transfer is completed successfuly it will create 2 transactions: one to debit from the sender and one to credit the receiver. The transactions are otherwise indentical to normal debit/credit transactions. You can view sender/receiver details by accessing the attributes `source_transaction` (indicates who the transfer came from) and `destination_transaction` (indicates who the transfer was sent to).
@@ -784,8 +676,8 @@ The transfer transaction endpoint is essentially a wrapper for standard debit/cr
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`amount` | amount | 0 | true
-`recipient` | email, mobile number, unique identifier | null | true
+`amount` | amount | null | true
+`recipient` | email, mobile number, or unique identifier | null | true
 `currency` | currency code | blank | false
 `debit_subtype` | a custom defined subtype | null | false
 `debit_account` | account reference code | null | false
@@ -793,6 +685,7 @@ Field | Description | Default | Required
 `debit_metadata` | custom metadata | {} | false
 `debit_reference` | optional debit reference | string | false
 `credit_subtype` | a custom defined subtype | null | false
+`credit_account` | account reference code | null | false
 `credit_note` | user's note or message | blank | false
 `credit_metadata` | custom metadata | {} | false
 `credit_reference` | optional credit reference | string | false

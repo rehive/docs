@@ -27,7 +27,7 @@ rehive.accounts.create(
     "data": {
         "name": "savings",
         "reference": "0000000000",
-        "primary": true,
+        "primary": false,
         "currencies": [],
         "created": 1501145581365,
         "updated": 1501145581370
@@ -35,11 +35,11 @@ rehive.accounts.create(
 }
 ```
 
-```shell
+```python
 {
     "name": "savings",
     "reference": "0000000000",
-    "primary": true,
+    "primary": false,
     "currencies": [],
     "created": 1501145581365,
     "updated": 1501145581370
@@ -110,9 +110,11 @@ rehive.accounts.get(
             {
                 "name": "default",
                 "reference": "0000000000",
-                "balances": [
+                "primary": true,
+                "currencies": [
                     {
                         "balance": 10000,
+                        "available_balance": 10000,
                         "currency": {
                             "code": "XBT",
                             "description": "bitcoin",
@@ -120,6 +122,9 @@ rehive.accounts.get(
                             "unit": "bitcoin",
                             "divisibility": 8
                         },
+                        "limits": [],
+                        "fees": [],
+                        "switches": [],
                         "active": true
                     }
                 ],
@@ -140,9 +145,11 @@ rehive.accounts.get(
         {
             "name": "default",
             "reference": "0000000000",
-            "balances": [
+            "primary": true,
+            "currencies": [
                 {
                     "balance": 10000,
+                    "available_balance": 10000,
                     "currency": {
                         "code": "XBT",
                         "description": "bitcoin",
@@ -150,6 +157,9 @@ rehive.accounts.get(
                         "unit": "bitcoin",
                         "divisibility": 8
                     },
+                    "limits": [],
+                    "fees": [],
+                    "switches": [],
                     "active": true
                 }
             ],
@@ -157,7 +167,6 @@ rehive.accounts.get(
             "updated": 1464858068745
         }
     ]
-
 }
 ```
 
@@ -166,9 +175,11 @@ rehive.accounts.get(
     {
         "name": "default",
         "reference": "0000000000",
-        "balances": [
+        "primary": true,
+        "currencies": [
             {
                 "balance": 10000,
+                "available_balance": 10000,
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
@@ -176,6 +187,9 @@ rehive.accounts.get(
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
+                "limits": [],
+                "fees": [],
+                "switches": [],
                 "active": true
             }
         ],
@@ -236,9 +250,11 @@ rehive.accounts.get(
     "data": {
         "name": "default",
         "reference": "0000000000",
-        "balances": [
+        "primary": true,
+        "currencies": [
             {
                 "balance": 10000,
+                "available_balance": 10000,
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
@@ -246,6 +262,9 @@ rehive.accounts.get(
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
+                "limits": [],
+                "fees": [],
+                "switches": [],
                 "active": true
             }
         ],
@@ -259,9 +278,11 @@ rehive.accounts.get(
 {
     "name": "default",
     "reference": "0000000000",
-    "balances": [
+    "primary": true,
+    "currencies": [
         {
             "balance": 10000,
+            "available_balance": 10000,
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
@@ -269,6 +290,9 @@ rehive.accounts.get(
                 "unit": "bitcoin",
                 "divisibility": 8
             },
+            "limits": [],
+            "fees": [],
+            "switches": [],
             "active": true
         }
     ],
@@ -281,9 +305,11 @@ rehive.accounts.get(
 {
     "name": "default",
     "reference": "0000000000",
-    "balances": [
+    "primary": true,
+    "currencies": [
         {
             "balance": 10000,
+            "available_balance": 10000,
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
@@ -291,6 +317,9 @@ rehive.accounts.get(
                 "unit": "bitcoin",
                 "divisibility": 8
             },
+            "limits": [],
+            "fees": [],
+            "switches": [],
             "active": true
         }
     ],
@@ -415,6 +444,7 @@ rehive.accounts.obj("{reference}").currencies.get()
         "results": [
             {
                 "balance": 10000,
+                "available_balance": 10000,
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
@@ -422,6 +452,9 @@ rehive.accounts.obj("{reference}").currencies.get()
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
+                "limits": [],
+                "fees": [],
+                "switches": [],
                 "active": true
             }
         ]
@@ -437,6 +470,7 @@ rehive.accounts.obj("{reference}").currencies.get()
     "results": [
         {
             "balance": 10000,
+            "available_balance": 10000,
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
@@ -444,6 +478,9 @@ rehive.accounts.obj("{reference}").currencies.get()
                 "unit": "bitcoin",
                 "divisibility": 8
             },
+            "limits": [],
+            "fees": [],
+            "switches": [],
             "active": true
         }
     ]
@@ -455,6 +492,7 @@ rehive.accounts.obj("{reference}").currencies.get()
 [
     {
         "balance": 10000,
+        "available_balance": 10000,
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
@@ -462,6 +500,9 @@ rehive.accounts.obj("{reference}").currencies.get()
             "unit": "bitcoin",
             "divisibility": 8
         },
+        "limits": [],
+        "fees": [],
+        "switches": [],
         "active": true
     }
 ]
@@ -515,6 +556,7 @@ rehive.accounts.obj("{reference}").currencies.get(
     "status": "success",
     "data": {
         "balance": 10000,
+        "available_balance": 10000,
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
@@ -522,6 +564,9 @@ rehive.accounts.obj("{reference}").currencies.get(
             "unit": "bitcoin",
             "divisibility": 8
         },
+        "limits": [],
+        "fees": [],
+        "switches": [],
         "active": true
     }
 }
@@ -530,6 +575,7 @@ rehive.accounts.obj("{reference}").currencies.get(
 ```javascript
 {
     "balance": 10000,
+    "available_balance": 10000,
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
@@ -537,6 +583,9 @@ rehive.accounts.obj("{reference}").currencies.get(
         "unit": "bitcoin",
         "divisibility": 8
     },
+    "limits": [],
+    "fees": [],
+    "switches": [],
     "active": true
 }
 ```
@@ -544,6 +593,7 @@ rehive.accounts.obj("{reference}").currencies.get(
 ```python
 {
     "balance": 10000,
+    "available_balance": 10000,
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
@@ -551,6 +601,9 @@ rehive.accounts.obj("{reference}").currencies.get(
         "unit": "bitcoin",
         "divisibility": 8
     },
+    "limits": [],
+    "fees": [],
+    "switches": [],
     "active": true
 }
 ```
@@ -600,6 +653,7 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
     "status": "success",
     "data": {
         "balance": 10000,
+        "available_balance": 10000,
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
@@ -607,6 +661,9 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
             "unit": "bitcoin",
             "divisibility": 8
         },
+        "limits": [],
+        "fees": [],
+        "switches": [],
         "active": true
     }
 }
@@ -615,6 +672,7 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
 ```javascript
 {
     "balance": 10000,
+    "available_balance": 10000,
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
@@ -622,6 +680,9 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
         "unit": "bitcoin",
         "divisibility": 8
     },
+    "limits": [],
+    "fees": [],
+    "switches": [],
     "active": true
 }
 ```
@@ -629,6 +690,7 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
 ```python
 {
     "balance": 10000,
+    "available_balance": 10000,
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
@@ -636,6 +698,9 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
         "unit": "bitcoin",
         "divisibility": 8
     },
+    "limits": [],
+    "fees": [],
+    "switches": [],
     "active": true
 }
 ```

@@ -285,7 +285,8 @@ rehive.user.address.get()
         "city": "Cape Town",
         "state_province": "Western Cape",
         "country": "ZA",
-        "postal_code": "8001"
+        "postal_code": "8001",
+        "status": "pending"
     }
 }
 ```
@@ -297,7 +298,8 @@ rehive.user.address.get()
     "city": "Cape Town",
     "state_province": "Western Cape",
     "country": "ZA",
-    "postal_code": "8001"
+    "postal_code": "8001",
+    "status": "pending"
 }
 ```
 
@@ -308,7 +310,8 @@ rehive.user.address.get()
     "city": "Cape Town",
     "state_province": "Western Cape",
     "country": "ZA",
-    "postal_code": "8001"
+    "postal_code": "8001",
+    "status": "pending"
 }
 ```
 
@@ -358,7 +361,8 @@ rehive.user.address.update(
         "city": "Cape Town",
         "state_province": "Western Cape",
         "country": "ZA",
-        "postal_code": "8001"
+        "postal_code": "8001",
+        "status": "pending"
     }
 }
 ```
@@ -370,7 +374,8 @@ rehive.user.address.update(
     "city": "Cape Town",
     "state_province": "Western Cape",
     "country": "ZA",
-    "postal_code": "8001"
+    "postal_code": "8001",
+    "status": "pending"
 }
 ```
 
@@ -381,7 +386,8 @@ rehive.user.address.update(
     "city": "Cape Town",
     "state_province": "Western Cape",
     "country": "ZA",
-    "postal_code": "8001"
+    "postal_code": "8001",
+    "status": "pending"
 }
 ```
 
@@ -884,7 +890,8 @@ curl https://www.rehive.com/api/3/user/documents/
                 "document_category": "other",
                 "document_type": "other",
                 "metadata": {},
-                "status": "pending"
+                "status": "pending",
+                "note": null
             }
         ]
     }
@@ -906,7 +913,7 @@ Get a list of user's documents.
 curl https://www.rehive.com/api/3/user/document/
   -X POST
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
+  -H "Content-Type: multipart/form-data"
   -F file=@localfilename
 ```
 
@@ -939,7 +946,8 @@ curl https://www.rehive.com/api/3/user/document/
         "document_category": "other",
         "document_type": "other",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "note": null
     }
 }
 ```
@@ -950,7 +958,8 @@ curl https://www.rehive.com/api/3/user/document/
     "document_category": "other",
     "document_type": "other",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "note": null
 }
 ```
 

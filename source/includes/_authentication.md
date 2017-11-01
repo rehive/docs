@@ -49,6 +49,103 @@ When making requests, the API key should be included as a token in the `Authoriz
 You must replace <code>{token}</code> with your API token.
 </aside>
 
+
+## Company Register
+
+> Company registration request
+
+```shell
+curl https://www.rehive.com/api/3/auth/company/register/
+  -X POST
+  -H "Content-Type: application/json"
+  -d '{"first_name": "Joe",
+       "last_name": "Soap",
+       "email": "joe@rehive.com",
+       "mobile_number": "+00000000000",
+       "company": "rehive",
+       "password1": "joe1234",
+       "password2":"joe1234",
+       "terms_and_conditions": true}'
+```
+
+> Company registration response
+
+```shell
+{
+    "status": "success"
+    "data": {
+        "token": "{token}",
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "id_number": null,
+            "birth_date": null,
+            "profile": null,
+            "currency": null,
+            "company": "rehive",
+            "language": "en",
+            "nationality": "ZA",
+            "metadata": {},
+            "mobile_number": "+00000000000",
+            "timezone": null,
+            "verified": false,
+            "kyc": {
+                "documents": {
+                    "updated": null,
+                    "status": null
+                },
+                "updated": 1509539801040,
+                "status": "pending",
+                "bank_accounts": {
+                    "updated": null,
+                    "status": null
+                },
+                "addresses": {
+                    "updated": null,
+                    "status": null
+                }
+            },
+            "status": "pending",
+            "permission_groups": [
+                {
+                    "name": "admin"
+                }
+            ],
+            "permissions": [],
+            "date_joined": 1509539800952,
+            "switches": []
+        }
+    }
+}
+```
+
+Register a company owner with the details specified. A successful registration 
+will create a company, return the user's details and a token that can be used 
+for subsequent requests.
+
+#### Endpoint
+
+`https://rehive.com/api/3/auth/company/register/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`first_name` | first name | null | true
+`last_name` | last name | null | true
+`email` | email address | null | true
+`mobile_number` | mobile number | null | false
+`nationality` | country code | null | false
+`company` | company identifier | null | true
+`password1` | password | null | true
+`password2` | repeat password | null | true
+`terms_and_conditions` | agreed to terms | false | true
+`session_duration` | session duration | 36000000 | false
+
+
 ## Register
 
 > User registration request
@@ -200,43 +297,109 @@ rehive.auth.login({
 
 ```python
 rehive.auth.login(
-  user="joe@rehive.com",
-  company="rehive",
-  password="joe1234"
+    user="joe@rehive.com",
+    company="rehive",
+    password="joe1234"
 )
 ```
 
 > User login response
 
 ```shell
-  {
+{
     "status": "success"
     "data": {
-      "token": "{token}",
-      "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "email": "joe@rehive.com",
-        "mobile_number": "+00000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "company": "rehive",
-        "profile": null,
-        "language": "en"
-      }
+        "token": "{token}",
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "id_number": null,
+            "birth_date": null,
+            "profile": null,
+            "currency": null,
+            "company": "rehive",
+            "language": "en",
+            "nationality": "ZA",
+            "metadata": {},
+            "mobile_number": "+00000000000",
+            "timezone": null,
+            "verified": false,
+            "kyc": {
+                "documents": {
+                    "updated": null,
+                    "status": null
+                },
+                "updated": 1509539801040,
+                "status": "pending",
+                "bank_accounts": {
+                    "updated": null,
+                    "status": null
+                },
+                "addresses": {
+                    "updated": null,
+                    "status": null
+                }
+            },
+            "status": "pending",
+            "permission_groups": [
+                {
+                    "name": "admin"
+                }
+            ],
+            "permissions": [],
+            "date_joined": 1509539800952,
+            "switches": []
+        }
     }
-  }
+}
 ```
 
 ```javascript
 {
-  "identifier": "00000000-0000-0000-0000-000000000000",
-  "email": "joe@rehive.com",
-  "mobile_number": "+00000000000",
-  "first_name": "Joe",
-  "last_name": "Soap",
-  "company": "rehive",
-  "profile": null,
-  "language": "en"
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": null,
+    "birth_date": null,
+    "profile": null,
+    "currency": null,
+    "company": "rehive",
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": {},
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -246,14 +409,47 @@ rehive.auth.login(
   "data": {
     "token": "{token}",
     "user": {
-      "identifier": "00000000-0000-0000-0000-000000000000",
-      "email": "joe@rehive.com",
-      "mobile_number": "+00000000000",
-      "first_name": "Joe",
-      "last_name": "Soap",
-      "company": "rehive",
-      "profile": null,
-      "language": "en"
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
     }
   }
 }
@@ -275,9 +471,10 @@ user's details and a token that can be used for subsequent requests.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
+`user` | email, mobile number, or unique identifier | null | true
 `company` | company identifier | null | true
 `password` | password | null | true
+`session_duration` | session duration | 36000000 | false
 
 ## Logout
 
@@ -508,12 +705,12 @@ Send a password reset email.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
+`user` | email, mobile number, or unique identifier | null | true
 `company` | company identifier | null | true
 
-## Reset Confirm Password
+## Reset Password Confirm
 
-> User reset confirm password request
+> User reset password confirm request
 
 ```shell
 curl https://www.rehive.com/api/3/auth/password/reset/confirm/
@@ -548,7 +745,7 @@ rehive.auth.password.reset_confirm_password(
 )
 ```
 
-> User reset confirm password response
+> User reset password confirm response
 
 ```shell
 {
@@ -588,8 +785,8 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `new_password1` | password | null | true
 `new_password2` | password confirm | null | true
-`uid` | uniqie identifer for reset | null | true
-`token` | uniqie token for reset | null | true
+`uid` | unique identifer for reset | null | true
+`token` | unique token for reset | null | true
 
 ## Resend Email Verification
 
@@ -715,6 +912,39 @@ Field | Description | Default | Required
 `mobile` | mobile number | null | true
 `company` | company identifier | null | true
 
+
+## Verify Email
+
+> User verify email request
+
+```shell
+curl https://rehive.com/api/3/auth/email/verify/
+  -X POST
+  -H "Content-Type: application/json"
+  -d '{"key": "{key}"}'
+```
+
+> User verify email response
+
+```shell
+{
+  "status": "success"
+}
+```
+
+Verify an email number with a key. The key is sent in an email by Rehive.
+
+#### Endpoint
+
+`https://rehive.com/api/3/auth/email/verify/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`key` | verification key | null | true
+
+
 ## Verify Mobile
 
 > User verify mobile request
@@ -723,6 +953,7 @@ Field | Description | Default | Required
 curl https://rehive.com/api/3/auth/mobile/verify/
   -X POST
   -H "Content-Type: application/json"
+  -H "Authorization: Token {token}"
   -d '{"otp": "{otp}"}'
 ```
 
@@ -761,7 +992,8 @@ rehive.auth.verify(
 }
 ```
 
-Verify a mobile number with an OTP.
+Verify a mobile number with an OTP. Unlike the "Verify Email", the user needs to 
+be logged in for this functionality to work.
 
 #### Endpoint
 

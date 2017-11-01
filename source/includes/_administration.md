@@ -2762,7 +2762,7 @@ Create a credit transaction on behalf of a user.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
+`user` | email, mobile number, or unique identifier | null | true
 `amount` | amount | 0 | true
 `reference` | optional credit reference | blank | false
 `subtype` | a custom defined subtype | null | false
@@ -2829,7 +2829,7 @@ Create a debit transaction on behalf of a user.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
+`user` | email, mobile number, or unique identifier | null | true
 `amount` | amount | 0 | true
 `reference` | optional debit reference | blank | false
 `subtype` | a custom defined subtype | null | false
@@ -2890,9 +2890,9 @@ Create a transfer transaction on behalf of a user. This will transfer currency f
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`user` | email, mobile number, unique identifier | null | true
+`user` | email, mobile number, or unique identifier | null | true
 `amount` | amount | 0 | true
-`recipient` | email, mobile number, unique identifier | null | true
+`recipient` | email, mobile number, or unique identifier | null | true
 `currency` | currency code | blank | false
 `debit_subtype` | a custom defined subtype | null | false
 `debit_account` | account reference code | null | false
