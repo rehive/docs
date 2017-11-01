@@ -192,22 +192,55 @@ rehive.auth.register(
 > User registration response
 
 ```shell
-  {
+{
     "status": "success"
     "data": {
-      "token": "{token}",
-      "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "email": "joe@rehive.com",
-        "mobile_number": "+00000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "company": "rehive",
-        "profile": null,
-        "language": "en"
-      }
+        "token": "{token}",
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "id_number": null,
+            "birth_date": null,
+            "profile": null,
+            "currency": null,
+            "company": "rehive",
+            "language": "en",
+            "nationality": "ZA",
+            "metadata": {},
+            "mobile_number": "+00000000000",
+            "timezone": null,
+            "verified": false,
+            "kyc": {
+                "documents": {
+                    "updated": null,
+                    "status": null
+                },
+                "updated": 1509539801040,
+                "status": "pending",
+                "bank_accounts": {
+                    "updated": null,
+                    "status": null
+                },
+                "addresses": {
+                    "updated": null,
+                    "status": null
+                }
+            },
+            "status": "pending",
+            "permission_groups": [
+                {
+                    "name": "admin"
+                }
+            ],
+            "permissions": [],
+            "date_joined": 1509539800952,
+            "switches": []
+        }
     }
-  }
+}
 ```
 
 ```javascript
@@ -267,8 +300,25 @@ Field | Description | Default | Required
 `email` | email address | null | true
 `mobile_number` | mobile number | null | false
 `company` | company identifier | null | true
+`nationality` | nationality code | null | false
+`terms_and_conditions` | agreed to terms | null | false
+`session_duration` | session duration | 36000000 | false
 `password1` | password | null | true
 `password2` | repeat password | null | true
+
+<aside class="notice">
+<code>terms_and_conditions</code> can be set as a required by enabling the 
+<code>terms_and_conditions</code> global switch. See <a href="/#switches">switches</a> 
+for more information.
+</aside>
+
+<aside class="notice">
+<code>session_duration</code> is an optional field that can be set to specify the 
+duration (in milliseconds) of the authentication token that is created when 
+loggin in. If the field is not set, the duration defaults to 10 hours. 
+NOTE: This field only becomes available after the global switch <code>session_duration</code> 
+has been enabled. See <a href="/#switches">switches</a> for more information.
+</aside>
 
 ## Login
 
