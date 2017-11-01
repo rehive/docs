@@ -35,22 +35,41 @@ rehive.user.get()
         "email": "joe@rehive.com",
         "username": "",
         "id_number": null,
+        "birth_date": null,
         "profile": null,
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
+        "currency": null,
         "company": "rehive",
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+27840000000",
-        "verified": true,
-        "timezone": "Asia/Dhaka",
-        "date_joined": 1464912953000
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
     }
 }
 ```
@@ -63,22 +82,41 @@ rehive.user.get()
     "email": "joe@rehive.com",
     "username": "",
     "id_number": null,
+    "birth_date": null,
     "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
+    "currency": null,
     "company": "rehive",
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+27840000000",
-    "verified": true,
-    "timezone": "Asia/Dhaka",
-    "date_joined": 1464912953000
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -90,22 +128,41 @@ rehive.user.get()
     "email": "joe@rehive.com",
     "username": "",
     "id_number": null,
+    "birth_date": null,
     "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
+    "currency": null,
     "company": "rehive",
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+27840000000",
-    "verified": true,
-    "timezone": "Asia/Dhaka",
-    "date_joined": 1464912953000
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -156,22 +213,41 @@ rehive.user.update(
         "email": "joe@rehive.com",
         "username": "",
         "id_number": null,
+        "birth_date": null,
         "profile": null,
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
+        "currency": null,
         "company": "rehive",
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+27840000000",
-        "verified": true,
-        "timezone": "Asia/Dhaka",
-        "date_joined": 1464912953000
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
     }
 }
 ```
@@ -184,22 +260,41 @@ rehive.user.update(
     "email": "joe@rehive.com",
     "username": "",
     "id_number": null,
+    "birth_date": null,
     "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
+    "currency": null,
     "company": "rehive",
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+27840000000",
-    "verified": true,
-    "timezone": "Asia/Dhaka",
-    "date_joined": 1464912953000
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -211,22 +306,41 @@ rehive.user.update(
     "email": "joe@rehive.com",
     "username": "",
     "id_number": null,
+    "birth_date": null,
     "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
+    "currency": null,
     "company": "rehive",
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+27840000000",
-    "verified": true,
-    "timezone": "Asia/Dhaka",
-    "date_joined": 1464912953000
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -248,7 +362,6 @@ Field | Description | Default | Required
 `nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
 `metadata` | custom metadata | {} | false
 `mobile_number` | mobile number | blank | false
-`skype_name` | skype name | blank | false
 `timezone` | timezone | blank | false
 
 ## Retrieve Address
