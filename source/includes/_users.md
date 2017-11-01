@@ -577,12 +577,53 @@ Field | Description | Default | Required
 `iban` | IBAN number | null | false
 `bic` | BIC number | null | false
 
+
+## Retrieve Bank Account
+
+> User retrieve bank account request
+
+```shell
+curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"'
+```
+
+> User retrieve bank account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": {account_id},
+        "name": "Bank",
+        "number": "000000000000000",
+        "type": "Cheque",
+        "bank_name": "Bank Ltd.",
+        "bank_code": null,
+        "branch_code": "0000",
+        "swift": null,
+        "iban": null,
+        "bic": null,
+        "code": "bank_account_000000000000",
+        "status": "pending"
+    }
+}
+```
+
+Retrieve a user's bank account.
+
+#### Endpoint
+
+`https://rehive.com/api/3/user/bank-accounts/{account_id}/`
+
+
 ## Update Bank Account
 
 > User update bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}
+curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -644,7 +685,7 @@ Update a user's bank account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank-accounts/{account_id}`
+`https://rehive.com/api/3/user/bank-accounts/{account_id}/`
 
 #### Fields
 
@@ -659,6 +700,32 @@ Field | Description | Default | Required
 `swift` | swift number | null | false
 `iban` | IBAN number | null | false
 `bic` | BIC number | null | false
+
+
+## Delete Bank Account
+
+> User delete bank account request
+
+```shell
+curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"'
+```
+
+> User delete bank account response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+Delete a user's bank account.
+
+#### Endpoint
+
+`https://rehive.com/api/3/user/bank-accounts/{account_id}/`
 
 
 ## List Crypto Accounts
@@ -789,12 +856,47 @@ Field | Description | Default | Required
 `crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
 `metadata` | custom metadata | {} | false
 
+
+## Retrieve Crypto Account
+
+> User retrieve crypto account request
+
+```shell
+curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"'
+```
+
+> User retrieve crypto account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": {account_id},
+        "address": "0000000000000000000000000000000000",
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
+    }
+}
+```
+
+Get a user's crypto account.
+
+#### Endpoint
+
+`https://rehive.com/api/3/user/crypto-accounts/{account_id}/`
+
+
 ## Update Crypto Account
 
 > User update crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}
+curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -844,7 +946,7 @@ Update a user's crypto account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/crypto-accounts/{account_id}`
+`https://rehive.com/api/3/user/crypto-accounts/{account_id}/`
 
 #### Fields
 
@@ -854,6 +956,32 @@ Field | Description | Default | Required
 `crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
 `metadata` | custom metadata | {} | false
 `status` | string status | 'pending' | false
+
+
+## Delete Crypto Account
+
+> User delete crypto account request
+
+```shell
+curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"'
+```
+
+> User delete crypto account response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+Delete a user's crypto account.
+
+#### Endpoint
+
+`https://rehive.com/api/3/user/crypto-accounts/{account_id}/`
 
 
 ## List Documents
@@ -881,11 +1009,12 @@ curl https://www.rehive.com/api/3/user/documents/
 {
     "status": "success",
     "data": {
-        "count": 0,
+        "count": 1,
         "next": null,
         "previous": null,
         "results": [
             {
+                "id": 0,
                 "file": "https://url.to/file.pdf",
                 "document_category": "other",
                 "document_type": "other",
@@ -903,6 +1032,48 @@ Get a list of user's documents.
 #### Endpoint
 
 `https://www.rehive.com/api/3/user/documents/`
+
+
+## Retrieve Document
+
+> User retrieve document request
+
+```shell
+curl https://www.rehive.com/api/3/user/documents/{document_id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> User retrieve document response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 0,
+                "file": "https://url.to/file.pdf",
+                "document_category": "other",
+                "document_type": "other",
+                "metadata": {},
+                "status": "pending",
+                "note": null
+            }
+        ]
+    }
+}
+```
+
+Get a user's document.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/documents/{document_id}/`
 
 
 ## Create Document
@@ -942,6 +1113,7 @@ curl https://www.rehive.com/api/3/user/document/
 {
     "status": "success",
     "data": {
+        "id": 0,
         "file": "https://url.to/file.pdf",
         "document_category": "other",
         "document_type": "other",
@@ -954,6 +1126,7 @@ curl https://www.rehive.com/api/3/user/document/
 
 ```javascript
 {
+    "id": 0,
     "file": "https://url.to/file.pdf",
     "document_category": "other",
     "document_type": "other",
@@ -963,7 +1136,7 @@ curl https://www.rehive.com/api/3/user/document/
 }
 ```
 
-Upload user document.
+Upload a user document.
 
 #### Endpoint
 
