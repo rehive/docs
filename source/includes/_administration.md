@@ -5006,7 +5006,8 @@ rehive.admin.currencies.get()
                 "description": "bitcoin",
                 "symbol": "฿",
                 "unit": "bitcoin",
-                "divisibility": 8
+                "divisibility": 8,
+                "enabled": true
             }
         ]
     }
@@ -5020,7 +5021,8 @@ rehive.admin.currencies.get()
         "description": "bitcoin",
         "symbol": "฿",
         "unit": "bitcoin",
-        "divisibility": 8
+        "divisibility": 8,
+        "enabled": true
     }
 ]
 ```
@@ -5195,7 +5197,11 @@ rehive.admin.currencies.update(
 }
 ```
 
-Update a currency. this endpoint can be used to enable an existing currency or if it is a custom currency, edit its details.
+This endpoint can be used to enable an existing currency or if it is a custom currency, edit its details.
+
+<aside class="notice">
+Note that default currencies can not be updated, and only custom currencies can be updated.
+</aside>
 
 #### Endpoint
 
@@ -5211,6 +5217,75 @@ Field | Description | Default | Required
 `unit` | unit, like `dollar` | null | true
 `divisibility` | number of decimal places | 0 | true
 `enabled` | whether active for a company | false | true
+
+### Delete Currency
+
+> Admin delete currency request
+
+```shell
+curl https://www.rehive.com/api/3/admin/currencies/{code}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin delete currency response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+This endpoint can be used to delete custom currencies that was created.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/{code}/`
+
+### Currency Overview
+
+> Admin currency overview request
+
+```shell
+curl https://www.rehive.com/api/3/admin/currencies/{code}/overview/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin currency overview response
+
+```shell
+{
+    "data": {
+        "balance_total": 0,
+        "available_balance_total": 0,
+        "balance_24h": 0,
+        "count_total": 0,
+        "count_24h": 0,
+        "count_debits_pending": 0,
+        "count_debits_complete": 0,
+        "count_credits_pending": 0,
+        "count_credits_complete": 0,
+        "sum_debits_pending": 0,
+        "sum_debits_complete": 0,
+        "sum_credits_pending": 0,
+        "sum_credits_complete": 0,
+        "sum_24h_debits_pending": 0,
+        "sum_24h_debits_complete": 0,
+        "sum_24h_credits_pending": 0,
+        "sum_24h_credits_complete": 0
+    },
+    "status": "success"
+}
+```
+
+Get an overview of the selected currency's transactions.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/{code}/overview/`
 
 ## Company
 
