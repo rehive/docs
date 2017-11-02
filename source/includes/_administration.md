@@ -5317,7 +5317,12 @@ rehive.admin.company.get()
         "logo": "https://www.test_company.com/logo.jpg",
         "password_reset_url": null,
         "email_confirmation_url": null,
-        "default_currency": "XBT"
+        "default_currency": "XBT",
+        "nationalities": [],
+        "address": {
+            // ...
+        },
+        "switches": []
     }
 }
 ```
@@ -5332,6 +5337,11 @@ rehive.admin.company.get()
     "password_reset_url": null,
     "email_confirmation_url": null,
     "default_currency": "XBT"
+    "nationalities": [],
+    "address": {
+        # ...
+    },
+    "switches": []
 }
 ```
 
@@ -5372,7 +5382,12 @@ rehive.admin.company.update(
         "logo": "https://www.test_company.com/logo.jpg",
         "password_reset_url": null,
         "email_confirmation_url": null,
-        "default_currency": "XBT"
+        "default_currency": "XBT",
+        "nationalities": [],
+        "address": {
+            // ...
+        },
+        "switches": []
     }
 }
 ```
@@ -5386,7 +5401,12 @@ rehive.admin.company.update(
     "logo": "https://www.test_company.com/logo.jpg",
     "password_reset_url": null,
     "email_confirmation_url": null,
-    "default_currency": "XBT"
+    "default_currency": "XBT",
+    "nationalities": [],
+    "address": {
+        // ...
+    },
+    "switches": []
 }
 ```
 
@@ -5404,9 +5424,14 @@ Field | Description | Default | Required
 `description` | Company Description | blank | false
 `website` | Company website URL | blank | false
 `logo` | Company logo URL | blank | false
+`nationalities` | List of accepted nationalities | blank | false
 `password_reset_url` | Custom company password reset URL | blank | false
 `email_confirmation_url` | Custom company email confirmation URL | blank | false
 `default_currency` | Default company currency | null | false
+
+<aside class="notice">
+When adding a logo image, the Content-type header needs to be set to multipart/form-data.
+</aside>
 
 
 ### List Bank Accounts
