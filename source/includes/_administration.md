@@ -1803,7 +1803,8 @@ curl https://www.rehive.com/api/3/admin/users/documents/
                 "document_category": "other",
                 "document_type": "other",
                 "metadata": {},
-                "status": "pending"
+                "status": "pending",
+                "note": null
             }
         ]
     }
@@ -1825,7 +1826,7 @@ Get a list of users' documents.
 curl https://www.rehive.com/api/3/admin/document/
   -X POST
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
+  -H "Content-Type: multipart/form-data"
   -F file=@localfilename
 ```
 
@@ -1857,7 +1858,8 @@ curl https://www.rehive.com/api/3/admin/document/
         "document_category": "other",
         "document_type": "other",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "note": null
     }
 }
 ```
@@ -1924,7 +1926,8 @@ curl https://rehive.com/api/3/admin/users/documents/{document_id}/
         "document_category": "other",
         "document_type": "other",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "note": null
     }
 }
 ```
@@ -1941,8 +1944,8 @@ curl https://rehive.com/api/3/admin/users/documents/{document_id}/
 curl https://www.rehive.com/api/3/admin/users/documents/{document_id}/
   -X PATCH
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"status": "verified"}'
+  -H "Content-Type: multipart/form-data"
+  -F file=@localfilename
 ```
 
 ```javascript
@@ -1973,7 +1976,8 @@ curl https://www.rehive.com/api/3/admin/users/documents/{document_id}/
         "document_category": "other",
         "document_type": "other",
         "metadata": {},
-        "status": "verified"
+        "status": "verified",
+        "note": null
     }
 }
 ```
