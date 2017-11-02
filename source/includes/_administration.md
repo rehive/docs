@@ -2,7 +2,7 @@
 
 Rehive includes a set of admin-only endpoints that can make working with users and their transactions extremely easy.
 
-## User
+## Users
 
 ### List Users
 
@@ -36,6 +36,7 @@ rehive.admin.users.get()
                 "email": "joe@rehive.com",
                 "username": "",
                 "id_number": "",
+                "birth_date": "2000-01-01",
                 "profile": null,
                 "currency": {
                     "description": "Rand",
@@ -49,9 +50,31 @@ rehive.admin.users.get()
                 "nationality": "ZA",
                 "metadata": null,
                 "mobile_number": "+27840000000",
-                "skype_name": "@skype",
-                "timezone": "Asia/Dhaka"
-                "date_joined": 1464912953000
+                "timezone": "Asia/Dhaka",
+                "verified": true,
+                "kyc": {
+                    "bank_accounts": {
+                        "status": null,
+                        "updated": null
+                    },
+                    "status": "pending",
+                    "addresses": {
+                        "status": null,
+                        "updated": null
+                    },
+                    "documents": {
+                        "status": null,
+                        "updated": null
+                    },
+                    "updated": 1509619797959
+                },
+                "status": "pending",
+                "permission_groups": [],
+                "permissions": [],
+                "date_joined": 1464912953000,
+                "switches": [],
+                "last_login": null,
+                "password": "*********************************00000000"
             }
         ]
     }
@@ -67,6 +90,7 @@ rehive.admin.users.get()
         "email": "joe@rehive.com",
         "username": "",
         "id_number": "",
+        "birth_date": "2000-01-01",
         "profile": null,
         "currency": {
             "description": "Rand",
@@ -80,9 +104,31 @@ rehive.admin.users.get()
         "nationality": "ZA",
         "metadata": null,
         "mobile_number": "+27840000000",
-        "skype_name": "@skype",
-        "timezone": "Asia/Dhaka"
-        "date_joined": 1464912953000
+        "timezone": "Asia/Dhaka",
+        "verified": true,
+        "kyc": {
+            "bank_accounts": {
+                "status": null,
+                "updated": null
+            },
+            "status": "pending",
+            "addresses": {
+                "status": null,
+                "updated": null
+            },
+            "documents": {
+                "status": null,
+                "updated": null
+            },
+            "updated": 1509619797959
+        },
+        "status": "pending",
+        "permission_groups": [],
+        "permissions": [],
+        "date_joined": 1464912953000,
+        "switches": [],
+        "last_login": null,
+        "password": "*********************************00000000"
     }
 ]
 ```
@@ -139,6 +185,7 @@ rehive.admin.users.create(
         "email": "joe@rehive.com",
         "username": "",
         "id_number": "",
+        "birth_date": "2000-01-01",
         "profile": null,
         "currency": {
             "description": "Rand",
@@ -152,9 +199,31 @@ rehive.admin.users.create(
         "nationality": "ZA",
         "metadata": null,
         "mobile_number": "+27840000000",
-        "skype_name": "@skype",
-        "timezone": "Asia/Dhaka"
-        "date_joined": 1464912953000
+        "timezone": "Asia/Dhaka",
+        "verified": true,
+        "kyc": {
+            "bank_accounts": {
+                "status": null,
+                "updated": null
+            },
+            "status": "pending",
+            "addresses": {
+                "status": null,
+                "updated": null
+            },
+            "documents": {
+                "status": null,
+                "updated": null
+            },
+            "updated": 1509619797959
+        },
+        "status": "pending",
+        "permission_groups": [],
+        "permissions": [],
+        "date_joined": 1464912953000,
+        "switches": [],
+        "last_login": null,
+        "password": "*********************************00000000"
     }
 }
 ```
@@ -167,6 +236,7 @@ rehive.admin.users.create(
     "email": "joe@rehive.com",
     "username": "",
     "id_number": "",
+    "birth_date": "2000-01-01",
     "profile": null,
     "currency": {
         "description": "Rand",
@@ -180,9 +250,31 @@ rehive.admin.users.create(
     "nationality": "ZA",
     "metadata": null,
     "mobile_number": "+27840000000",
-    "skype_name": "@skype",
-    "timezone": "Asia/Dhaka"
-    "date_joined": 1464912953000
+    "timezone": "Asia/Dhaka",
+    "verified": true,
+    "kyc": {
+        "bank_accounts": {
+            "status": null,
+            "updated": null
+        },
+        "status": "pending",
+        "addresses": {
+            "status": null,
+            "updated": null
+        },
+        "documents": {
+            "status": null,
+            "updated": null
+        },
+        "updated": 1509619797959
+    },
+    "status": "pending",
+    "permission_groups": [],
+    "permissions": [],
+    "date_joined": 1464912953000,
+    "switches": [],
+    "last_login": null,
+    "password": "*********************************00000000"
 }
 ```
 
@@ -196,10 +288,18 @@ Update a user's details.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`first_name` | first name | "" | false
-`last_name` | last name | "" | false
+`first_name` | first name | blank | false
+`last_name` | last name | blank | false
 `email` | email address | null| false
 `mobile_number` | mobile number | null | false
+`id_number` | ID number | blank | false
+`profile` | profile image | blank | false
+`language` | language code (`af`, `en` etc.) | blank | false
+`nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
+`metadata` | custom metadata | {} | false
+`mobile_number` | mobile number | blank | false
+`timezone` | timezone | blank | false
+`birth_date` | birth date | blank | false
 
 <aside class="warning">
     A `mobile_number` or `email` is required.
@@ -234,6 +334,7 @@ rehive.admin.users.get(
         "email": "joe@rehive.com",
         "username": "",
         "id_number": "",
+        "birth_date": "2000-01-01",
         "profile": null,
         "currency": {
             "description": "Rand",
@@ -247,9 +348,31 @@ rehive.admin.users.get(
         "nationality": "ZA",
         "metadata": null,
         "mobile_number": "+27840000000",
-        "skype_name": "@skype",
-        "timezone": "Asia/Dhaka"
-        "date_joined": 1464912953000
+        "timezone": "Asia/Dhaka",
+        "verified": true,
+        "kyc": {
+            "bank_accounts": {
+                "status": null,
+                "updated": null
+            },
+            "status": "pending",
+            "addresses": {
+                "status": null,
+                "updated": null
+            },
+            "documents": {
+                "status": null,
+                "updated": null
+            },
+            "updated": 1509619797959
+        },
+        "status": "pending",
+        "permission_groups": [],
+        "permissions": [],
+        "date_joined": 1464912953000,
+        "switches": [],
+        "last_login": null,
+        "password": "*********************************00000000"
     }
 }
 ```
@@ -262,6 +385,7 @@ rehive.admin.users.get(
     "email": "joe@rehive.com",
     "username": "",
     "id_number": "",
+    "birth_date": "2000-01-01",
     "profile": null,
     "currency": {
         "description": "Rand",
@@ -275,9 +399,31 @@ rehive.admin.users.get(
     "nationality": "ZA",
     "metadata": null,
     "mobile_number": "+27840000000",
-    "skype_name": "@skype",
-    "timezone": "Asia/Dhaka"
-    "date_joined": 1464912953000
+    "timezone": "Asia/Dhaka",
+    "verified": true,
+    "kyc": {
+        "bank_accounts": {
+            "status": null,
+            "updated": null
+        },
+        "status": "pending",
+        "addresses": {
+            "status": null,
+            "updated": null
+        },
+        "documents": {
+            "status": null,
+            "updated": null
+        },
+        "updated": 1509619797959
+    },
+    "status": "pending",
+    "permission_groups": [],
+    "permissions": [],
+    "date_joined": 1464912953000,
+    "switches": [],
+    "last_login": null,
+    "password": "*********************************00000000"
 }
 ```
 
@@ -318,6 +464,7 @@ rehive.admin.users.update(
         "email": "joe@rehive.com",
         "username": "",
         "id_number": "",
+        "birth_date": "2000-01-01",
         "profile": null,
         "currency": {
             "description": "Rand",
@@ -331,9 +478,31 @@ rehive.admin.users.update(
         "nationality": "ZA",
         "metadata": null,
         "mobile_number": "+27840000000",
-        "skype_name": "@skype",
-        "timezone": "Asia/Dhaka"
-        "date_joined": 1464912953000
+        "timezone": "Asia/Dhaka",
+        "verified": true,
+        "kyc": {
+            "bank_accounts": {
+                "status": null,
+                "updated": null
+            },
+            "status": "pending",
+            "addresses": {
+                "status": null,
+                "updated": null
+            },
+            "documents": {
+                "status": null,
+                "updated": null
+            },
+            "updated": 1509619797959
+        },
+        "status": "pending",
+        "permission_groups": [],
+        "permissions": [],
+        "date_joined": 1464912953000,
+        "switches": [],
+        "last_login": null,
+        "password": "*********************************00000000"
     }
 }
 ```
@@ -346,6 +515,7 @@ rehive.admin.users.update(
     "email": "joe@rehive.com",
     "username": "",
     "id_number": "",
+    "birth_date": "2000-01-01",
     "profile": null,
     "currency": {
         "description": "Rand",
@@ -359,9 +529,31 @@ rehive.admin.users.update(
     "nationality": "ZA",
     "metadata": null,
     "mobile_number": "+27840000000",
-    "skype_name": "@skype",
-    "timezone": "Asia/Dhaka"
-    "date_joined": 1464912953000
+    "timezone": "Asia/Dhaka",
+    "verified": true,
+    "kyc": {
+        "bank_accounts": {
+            "status": null,
+            "updated": null
+        },
+        "status": "pending",
+        "addresses": {
+            "status": null,
+            "updated": null
+        },
+        "documents": {
+            "status": null,
+            "updated": null
+        },
+        "updated": 1509619797959
+    },
+    "status": "pending",
+    "permission_groups": [],
+    "permissions": [],
+    "date_joined": 1464912953000,
+    "switches": [],
+    "last_login": null,
+    "password": "*********************************00000000"
 }
 ```
 
@@ -375,13 +567,27 @@ Update a user's details.
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`first_name` | first name | "" | false
-`last_name` | last name | "" | false
-`id_number` | ID number | "" | false
-`language` | language code (en, af etc.) | "" | false
-`nationality` | bationality code (ZA, USA etc.) | "" | false
-`metadata` | custom user data  | {} | false
-`timezone` | timezone (Asia/Dhaka, Africa/Harare etc.) | string | false
+`first_name` | first name | blank | false
+`last_name` | last name | blank | false
+`id_number` | ID number | blank | false
+`profile` | profile image | blank | false
+`language` | language code (`af`, `en` etc.) | blank | false
+`nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
+`metadata` | custom metadata | {} | false
+`mobile_number` | mobile number | blank | false
+`timezone` | timezone | blank | false
+`birth_date` | birth date | blank | false
+`status` | status | pending | false
+
+#### Statuses
+
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
 
 ### List User Switches
 
@@ -545,14 +751,12 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 `https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
 
 
-## Addresses
-
 ### List Addresses
 
 > List Addresses request
 
 ```shell
-curl https://rehive.com/api/3/admin/addresses/
+curl https://rehive.com/api/3/admin/users/addresses/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -598,14 +802,14 @@ curl https://rehive.com/api/3/admin/addresses/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/addresses/`
+`https://rehive.com/api/3/admin/users/addresses/`
 
 ### Create Address
 
 > Create Address request
 
 ```shell
-curl https://rehive.com/api/3/admin/addresses/
+curl https://rehive.com/api/3/admin/users/addresses/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -651,7 +855,7 @@ curl https://rehive.com/api/3/admin/addresses/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/addresses/`
+`https://rehive.com/api/3/admin/users/addresses/`
 
 #### Fields
 
@@ -665,13 +869,24 @@ Field | Description | Default | Required
 `postal_code` | postal or zip code) | blank | false
 `status` | account status | "pending" | false
 `user` | user identifier | null | true
+`status` | status | pending | false
+
+#### Statuses
+
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
 
 ### Retrieve Address
 
 > Retrieve Address request
 
 ```shell
-curl https://rehive.com/api/3/admin/addresses/{id}/
+curl https://rehive.com/api/3/admin/users/addresses/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -710,14 +925,14 @@ curl https://rehive.com/api/3/admin/addresses/{id}/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/addresses/{id}`
+`https://rehive.com/api/3/admin/users/addresses/{id}/`
 
 ### Update Address
 
 > Update Address request
 
 ```shell
-curl https://rehive.com/api/3/admin/addresses/{id}
+curl https://rehive.com/api/3/admin/users/addresses/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -753,7 +968,7 @@ curl https://rehive.com/api/3/admin/addresses/{id}
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/addresses/{id}`
+`https://rehive.com/api/3/admin/users/addresses/{id}/`
 
 #### Fields
 
@@ -765,17 +980,48 @@ Field | Description | Default | Required
 `state_province` | state or province | blank | false
 `country` | country code | blank | false
 `postal_code` | postal or zip code) | blank | false
-`status` | account status | "pending" | false
+`status` | status | pending | false
 
+#### Statuses
 
-## Bank Accounts
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
+
+### Delete Address
+
+> Delete address request
+
+```shell
+curl https://rehive.com/api/3/admin/users/addresses/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete address response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/addresses/{id}/`
+
 
 ### List Bank Accounts
 
 > List Bank Accounts request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/
+curl https://rehive.com/api/3/admin/users/bank-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -809,7 +1055,7 @@ rehive.admin.banks_accounts.get()
                 "name": "Bank Account",
                 "number": "12341234",
                 "type": "Cheque",
-                "bank_name": "Barclays",
+                "bank_name": "Bank",
                 "bank_code": "1234",
                 "branch_code": "1234",
                 "swift": null,
@@ -839,7 +1085,7 @@ rehive.admin.banks_accounts.get()
         "name": "Bank Account",
         "number": "12341234",
         "type": "Cheque",
-        "bank_name": "Barclays",
+        "bank_name": "Bank",
         "bank_code": "1234",
         "branch_code": "1234",
         "swift": null,
@@ -853,21 +1099,21 @@ rehive.admin.banks_accounts.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/`
+`https://rehive.com/api/3/admin/users/bank-accounts/`
 
 ### Create Bank Account
 
 > Create Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/
+curl https://rehive.com/api/3/admin/users/bank-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -D '{"name": "Bank Account",
         "number": "12341234",
         "type": "Cheque",
-        "bank_name": "Barclays",
+        "bank_name": "Bank",
         "bank_code": "1234",
         "branch_code": "1234",
         "user": "joe@rehive.com"}'
@@ -878,7 +1124,7 @@ rehive.admin.bank_accounts.create(
     name="Bank Account",
     number="12341234",
     type="Cheque",
-    bank_name="Barclays",
+    bank_name="Bank",
     bank_code="1234",
     branch_code="1234",
     user=joe@rehive.com
@@ -904,7 +1150,7 @@ rehive.admin.bank_accounts.create(
         "name": "Bank Account",
         "number": "12341234",
         "type": "Cheque",
-        "bank_name": "Barclays",
+        "bank_name": "Bank",
         "bank_code": "1234",
         "branch_code": "1234",
         "swift": null,
@@ -931,7 +1177,7 @@ rehive.admin.bank_accounts.create(
     "name": "Bank Account",
     "number": "12341234",
     "type": "Cheque",
-    "bank_name": "Barclays",
+    "bank_name": "Bank",
     "bank_code": "1234",
     "branch_code": "1234",
     "swift": null,
@@ -944,7 +1190,7 @@ rehive.admin.bank_accounts.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/`
+`https://rehive.com/api/3/admin/users/bank-accounts/`
 
 #### Fields
 
@@ -957,14 +1203,27 @@ Field | Description | Default | Required
 `bank_code` | Bank Code | blank | false
 `branch_code` | Branch Code | blank | false
 `status` | account status | "pending" | false
+`swift` | swift | blank | false
+`iban` | iban | blank | false
+`bic` | bic | blank | false
 `user` | user identifier | null | true
+
+#### Statuses
+
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
 
 ### Retrieve Bank Account
 
 > Retrieve Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/{id}/
+curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -993,7 +1252,7 @@ rehive.admin.bank_accounts.get("{id}")
         "name": "Bank Account",
         "number": "12341234",
         "type": "Cheque",
-        "bank_name": "Barclays",
+        "bank_name": "Bank",
         "bank_code": "1234",
         "branch_code": "1234",
         "swift": null,
@@ -1020,7 +1279,7 @@ rehive.admin.bank_accounts.get("{id}")
     "name": "Bank Account",
     "number": "12341234",
     "type": "Cheque",
-    "bank_name": "Barclays",
+    "bank_name": "Bank",
     "bank_code": "1234",
     "branch_code": "1234",
     "swift": null,
@@ -1033,14 +1292,14 @@ rehive.admin.bank_accounts.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/{id}`
+`https://rehive.com/api/3/admin/users/bank-accounts/{id}/`
 
 ### Update Bank Account
 
 > Update Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/{id}
+curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1073,7 +1332,7 @@ rehive.admin.bank_accounts.update(
         "name": "New account name",
         "number": "12341234",
         "type": "Cheque",
-        "bank_name": "Barclays",
+        "bank_name": "Bank",
         "bank_code": "1234",
         "branch_code": "1234",
         "swift": null,
@@ -1100,7 +1359,7 @@ rehive.admin.bank_accounts.update(
     "name": "New account name",
     "number": "12341234",
     "type": "Cheque",
-    "bank_name": "Barclays",
+    "bank_name": "Bank",
     "bank_code": "1234",
     "branch_code": "1234",
     "swift": null,
@@ -1113,7 +1372,7 @@ rehive.admin.bank_accounts.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/{id}`
+`https://rehive.com/api/3/admin/users/bank-accounts/{id}/`
 
 #### Fields
 
@@ -1125,17 +1384,51 @@ Field | Description | Default | Required
 `bank_name` | Bank Name | blank | false
 `bank_code` | Bank Code | blank | false
 `branch_code` | Branch Code | blank | false
+`swift` | swift | blank | false
+`iban` | iban | blank | false
+`bic` | bic | blank | false
 `status` | account status | "pending" | false
 
+#### Statuses
 
-## Crypto Accounts
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
+
+### Delete Bank Account
+
+> Delete Bank Account request
+
+```shell
+curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Bank Account response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/bank-accounts/{id}/`
+
 
 ### List Crypto Accounts
 
 > Admin list crypto accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/crypto-accounts/
+curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1186,14 +1479,14 @@ List a user's cryptocurrency addresses.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/crypto-accounts/`
+`https://rehive.com/api/3/admin/users/crypto-accounts/`
 
 ### Create Crypto Account
 
 > Admin create crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/crypto-accounts/
+curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1238,7 +1531,7 @@ Create a crypto account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/crypto-accounts/`
+`https://rehive.com/api/3/admin/users/crypto-accounts/`
 
 #### Fields
 
@@ -1250,12 +1543,22 @@ Field | Description | Default | Required
 `status` | string status | 'pending' | false
 `user` | user identifier | null | true
 
+#### Statuses
+
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
+
 ### Retrieve Crypto Account
 
 > Retrieve Crypto Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/crypto-accounts/{id}/
+curl https://rehive.com/api/3/admin/users/crypto-accounts/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1292,14 +1595,14 @@ curl https://rehive.com/api/3/admin/crypto-accounts/{id}/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/crypto-accounts/{id}`
+`https://rehive.com/api/3/admin/users/crypto-accounts/{id}/`
 
 ### Update Crypto Account
 
 > Admin update crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/crypto-accounts/{account_id}
+curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1343,7 +1646,7 @@ Update a user's crypto account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/crypto-accounts/{account_id}`
+`https://rehive.com/api/3/admin/users/crypto-accounts/{account_id}/`
 
 #### Fields
 
@@ -1354,15 +1657,48 @@ Field | Description | Default | Required
 `metadata` | custom metadata | {} | false
 `status` | string status | 'pending' | false
 
+#### Statuses
 
-## Documents
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
+
+### Delete Crypto Account
+
+> Admin delete crypto account request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin delete crypto account response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+Delete a user's crypto account.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/crypto-accounts/{account_id}/`
+
 
 ### List Documents
 
 > Admin list documents request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/documents/
+curl https://www.rehive.com/api/3/admin/users/documents/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1412,7 +1748,7 @@ Get a list of users' documents.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/admin/documents/`
+`https://www.rehive.com/api/3/admin/users/documents/`
 
 
 ### Create Document
@@ -1477,12 +1813,22 @@ Field | Description | Default | Required
 `status` | document status | pending | false
 `user` | user identifier | null | true
 
+#### Statuses
+
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
+
 ### Retrieve Document
 
 > Retrieve Document request
 
 ```shell
-curl https://rehive.com/api/3/admin/documents/{document_id}/
+curl https://rehive.com/api/3/admin/users/documents/{document_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1519,14 +1865,14 @@ curl https://rehive.com/api/3/admin/documents/{document_id}/
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/documents/{document_id}`
+`https://rehive.com/api/3/admin/users/documents/{document_id}/`
 
 ### Update Document
 
 > Update document request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/documents/{document_id}
+curl https://www.rehive.com/api/3/admin/users/documents/{document_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1570,7 +1916,7 @@ Update a user's document.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/documents/{document_id}`
+`https://rehive.com/api/3/admin/users/documents/{document_id}/`
 
 #### Fields
 
@@ -1582,8 +1928,16 @@ Field | Description | Default | Required
 `metadata` | custom metadata | {} | false
 `status` | document status | pending | false
 
+#### Statuses
 
-## Emails
+Value | Description 
+--- | --- 
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
+
 
 ### List Emails
 
@@ -1731,7 +2085,6 @@ rehive.admin.users.emails.create(
 }
 ```
 
-
 Create an email address for a user.
 
 #### Endpoint
@@ -1816,7 +2169,7 @@ Retrieve a company's email.
 > Admin update email request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/emails/{id}/`
+curl https://www.rehive.com/api/3/admin/users/emails/{id}/`
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1884,7 +2237,31 @@ Field | Description | Default | Required
 `verified` | verified status | false | false
 `primary` | primary status | false | false
 
-## Mobiles
+### Delete Email
+
+> Admin delete email request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/emails/{id}/`
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin delete email response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+Delete a user's email.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/emails/{id}/`
+
 
 ### List Mobiles
 
@@ -2116,7 +2493,7 @@ Retrieve a company's mobile.
 > Admin update mobile request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/mobiles/{id}/`
+curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/`
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2185,6 +2562,39 @@ Field | Description | Default | Required
 `primary` | primary status | false | false
 
 
+### Delete Mobile
+
+> Admin delete mobile request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/`
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+rehive.admin.users.mobiles.update(
+    "{id}",
+    verified=True
+)
+```
+
+> Admin delete mobile response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+Delete a user's mobile.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/mobiles/{id}/`
+
+
 ## Transactions
 
 ### List Transactions
@@ -2220,51 +2630,15 @@ rehive.admin.transactions.get_previous()
                 "id": "000000000000000000000",
                 "tx_type": "credit",
                 "subtype": null,
-                "external": false,
                 "note": "",
                 "metadata": {},
                 "status": "Complete",
                 "reference": "",
                 "amount": 500,
                 "fee": 0,
-                "balance": 1000,
-                "account": "akC49YT8x4",
-                "label": "Credit",
-                "company": "rehive",
-                "currency": {
-                    "description": "Rand",
-                    "code": "ZAR",
-                    "symbol": "R",
-                    "unit": "rand",
-                    "divisibility": 2
-                },
-                "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
-                    "first_name": "Joe",
-                    "last_name": "Soap",
-                    "email": "joe@rehive.com",
-                    "username": "",
-                    "mobile_number": "+27840000000",
-                    "profile": null
-                },
-                "source_transaction": null,
-                "destination_transaction": null,
-                "created": 1496135465218,
-                "updated": 1496135465287
-            },
-            {
-                "id": "000000000000000000000",
-                "tx_type": "credit",
-                "subtype": null,
-                "external": false,
-                "note": "",
-                "metadata": {},
-                "status": "Complete",
-                "reference": "",
-                "amount": 500,
-                "fee": 0,
+                "total_amount": 500,
                 "balance": 500,
-                "account": "akC49YT8x4",
+                "account": "0000000000",
                 "label": "Credit",
                 "company": "rehive",
                 "currency": {
@@ -2285,8 +2659,8 @@ rehive.admin.transactions.get_previous()
                 },
                 "source_transaction": null,
                 "destination_transaction": null,
-                "created": 1496135465218,
-                "updated": 1496135465287
+                "created": 1509618707485,
+                "updated": 1509618708277
             }
         ]
     }
@@ -2299,51 +2673,15 @@ rehive.admin.transactions.get_previous()
         "id": "000000000000000000000",
         "tx_type": "credit",
         "subtype": null,
-        "external": false,
         "note": "",
         "metadata": {},
         "status": "Complete",
         "reference": "",
         "amount": 500,
         "fee": 0,
-        "balance": 1000,
-        "account": "akC49YT8x4",
-        "label": "Credit",
-        "company": "rehive",
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
-        "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Joe",
-            "last_name": "Soap",
-            "email": "joe@rehive.com",
-            "username": "",
-            "mobile_number": "+27840000000",
-            "profile": null
-        },
-        "source_transaction": null,
-        "destination_transaction": null,
-        "created": 1496135465218,
-        "updated": 1496135465287
-    },
-    {
-        "id": "000000000000000000000",
-        "tx_type": "credit",
-        "subtype": null,
-        "external": false,
-        "note": "",
-        "metadata": {},
-        "status": "Complete",
-        "reference": "",
-        "amount": 500,
-        "fee": 0,
+        "total_amount": 500,
         "balance": 500,
-        "account": "akC49YT8x4",
+        "account": "0000000000",
         "label": "Credit",
         "company": "rehive",
         "currency": {
@@ -2364,8 +2702,8 @@ rehive.admin.transactions.get_previous()
         },
         "source_transaction": null,
         "destination_transaction": null,
-        "created": 1496135465218,
-        "updated": 1496135465287
+        "created": 1509618707485,
+        "updated": 1509618708277
     }
 ]
 ```
@@ -2474,15 +2812,15 @@ rehive.admin.transactions.get(
         "id": "000000000000000000000",
         "tx_type": "credit",
         "subtype": null,
-        "external": false,
         "note": "",
         "metadata": {},
         "status": "Complete",
         "reference": "",
         "amount": 500,
         "fee": 0,
+        "total_amount": 500,
         "balance": 500,
-        "account": "akC49YT8x4",
+        "account": "0000000000",
         "label": "Credit",
         "company": "rehive",
         "currency": {
@@ -2510,8 +2848,8 @@ rehive.admin.transactions.get(
                 "created": 1496144568989
             }
         ],
-        "created": 1496135465218,
-        "updated": 1496135465287
+        "created": 1509618707485,
+        "updated": 1509618708277
     }
 }
 ```
@@ -2521,15 +2859,15 @@ rehive.admin.transactions.get(
     "id": "000000000000000000000",
     "tx_type": "credit",
     "subtype": null,
-    "external": false,
     "note": "",
     "metadata": {},
     "status": "Complete",
     "reference": "",
     "amount": 500,
     "fee": 0,
+    "total_amount": 500,
     "balance": 500,
-    "account": "akC49YT8x4",
+    "account": "0000000000",
     "label": "Credit",
     "company": "rehive",
     "currency": {
@@ -2557,8 +2895,8 @@ rehive.admin.transactions.get(
             "created": 1496144568989
         }
     ],
-    "created": 1496135465218,
-    "updated": 1496135465287
+    "created": 1509618707485,
+    "updated": 1509618708277
 }
 ```
 
@@ -2601,15 +2939,15 @@ rehive.admin.transactions.delete("{id}")
         "id": "000000000000000000000",
         "tx_type": "credit",
         "subtype": null,
-        "external": false,
         "note": "",
         "metadata": {},
         "status": "Complete",
         "reference": "",
         "amount": 500,
         "fee": 0,
+        "total_amount": 500,
         "balance": 500,
-        "account": "akC49YT8x4",
+        "account": "0000000000",
         "label": "Credit",
         "company": "rehive",
         "currency": {
@@ -2637,8 +2975,8 @@ rehive.admin.transactions.delete("{id}")
                 "created": 1496144568989
             }
         ],
-        "created": 1496135465218,
-        "updated": 1496135465287
+        "created": 1509618707485,
+        "updated": 1509618708277
     }
 }
 ```
@@ -2648,15 +2986,15 @@ rehive.admin.transactions.delete("{id}")
     "id": "000000000000000000000",
     "tx_type": "credit",
     "subtype": null,
-    "external": false,
     "note": "",
     "metadata": {},
     "status": "Complete",
     "reference": "",
     "amount": 500,
     "fee": 0,
+    "total_amount": 500,
     "balance": 500,
-    "account": "akC49YT8x4",
+    "account": "0000000000",
     "label": "Credit",
     "company": "rehive",
     "currency": {
@@ -2684,22 +3022,24 @@ rehive.admin.transactions.delete("{id}")
             "created": 1496144568989
         }
     ],
-    "created": 1496135465218,
-    "updated": 1496135465287
+    "created": 1509618707485,
+    "updated": 1509618708277
 }
 ```
 
-Update a transaction's status and metadata. This endpoint can be used to move transactions from pending to complete/failed/deleted and updated the corresponding user's balance accordingly. In addition, you can add metadata and messages to the transaction.
+Update a transaction. This endpoint can be used to transition a transaction to any state. The following states transitions are permitted: `Pending`, `Complete`, `Failed`, `Deleted`. 
+
+In addition, you can update the transaction metadata and add messages to the transaction message logs.
 
 #### Messsages
 
 Custom messages can be attached to transactions by including a `message` attribute in an update request. The `message`
 attribute should be a JSON object with 2 attributes `level` and `message`.
 
-1. `level` : message log level, can be `info`, `warning`, `error`.
-2. `message`: A text message.
+1. `level` : The message log level, this can be `info`, `warning`, or `error`.
+2. `message`: The message text detail.
 
-Each message added to a transaction will be stored in a list. Rehive itself will also add messages to this attribute when erorrs occur during processing. 
+Each message added to a transaction will be stored in a list. Rehive will also add messages to this list when erorrs occur during processing. 
 
 #### Endpoint
 
@@ -2709,7 +3049,7 @@ Each message added to a transaction will be stored in a list. Rehive itself will
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`status` | update action/status (`Complete`, `Failed`, `Deleted`) | null | true
+`status` | update action/status (`Pending`, `Complete`, `Failed`, `Deleted`) | null | true
 `metadata` | custom metadata | {} | false
 `message` | message object | {} | false
 
@@ -2763,21 +3103,24 @@ Create a credit transaction on behalf of a user.
 Field | Description | Default | Required
 --- | --- | --- | ---
 `user` | email, mobile number, or unique identifier | null | true
-`amount` | amount | 0 | true
+`amount` | amount | null | true
 `reference` | optional credit reference | blank | false
 `subtype` | a custom defined subtype | null | false
 `account` | account reference code | null | false
 `note` | user's note or message | blank | false
 `currency` | currency code | blank | false
 `metadata` | custom metadata | {} | false
-`confirm_on_create` | complete immediately after creation | false | false
+`status` | status to transition to | Pending | false
 
 <aside class="notice">
-Admin credits (and debit) have an additional <code>confirm_on_create</code> boolean that can be used when the credit/debit  should be processed and completed at the same time. This will override the normal behaviour of requiring an update or manual "completion" via the dashboard.
+When creating transaction admin users have an additional <code>status</code> field. This field
+will force a transaction to transition to the specified status immediately after creation. By default, a transaction will
+transition to `Pending` when created but if you wish to complete it immediately after creation you can specify a status
+of `Complete`.
 </aside>
 
 <aside class="notice">
-For all admin "create transaction" endpoints a <code>user</code> should always be specified in the request.
+When creating a transaction as an admin user, a <code>user</code> attribute should always be included in the request.
 </aside>
 
 ### Create Debit
@@ -2830,14 +3173,14 @@ Create a debit transaction on behalf of a user.
 Field | Description | Default | Required
 --- | --- | --- | ---
 `user` | email, mobile number, or unique identifier | null | true
-`amount` | amount | 0 | true
+`amount` | amount | null | true
 `reference` | optional debit reference | blank | false
 `subtype` | a custom defined subtype | null | false
 `account` | account reference code | null | false
 `note` | user's note or message | blank | false
 `currency` | currency code | blank | false
 `metadata` | custom metadata | {} | false
-`confirm_on_create` | complete immediately after creation | false | false
+`status` | status to transition to | Pending | false
 
 ### Create Transfer
 
@@ -2850,14 +3193,14 @@ curl https://www.rehive.com/api/3/admin/transactions/transfer/
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
        "amount": 500,
-       "reference": "sally@rehive.com"}'
+       "recipient": "sally@rehive.com"}'
 ```
 
 ```python
 rehive.admin.transactions.create_transfer(
     user="joe@rehive.com",
     amount=500,
-    reference="sally@rehive.com"
+    recipient="sally@rehive.com"
 )
 ```
 
@@ -2891,7 +3234,7 @@ Create a transfer transaction on behalf of a user. This will transfer currency f
 Field | Description | Default | Required
 --- | --- | --- | ---
 `user` | email, mobile number, or unique identifier | null | true
-`amount` | amount | 0 | true
+`amount` | amount | null | true
 `recipient` | email, mobile number, or unique identifier | null | true
 `currency` | currency code | blank | false
 `debit_subtype` | a custom defined subtype | null | false
@@ -2900,9 +3243,339 @@ Field | Description | Default | Required
 `debit_metadata` | custom metadata | {} | false
 `debit_reference` | optional debit reference | string | false
 `credit_subtype` | a custom defined subtype | null | false
+`credit_account` | account reference code | null | false
 `credit_note` | user's note or message | blank | false
 `credit_metadata` | custom metadata | {} | false
 `credit_reference` | optional credit reference | string | false
+
+
+### List Transaction Webhooks
+
+> List transaction webhooks request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/webhooks/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List transaction webhooks response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "event": "transaction.create",
+            "tx_type": "debit",
+            "secret": "supersecret"
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/webhooks/`
+
+### Create Transaction Webhooks
+
+> Create transaction webhooks request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/webhooks/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"url": "http://mysite.com/webhook_endpoint",
+       "event": "transaction.create",
+       "tx_type": "debit",
+       "secret": "secret"}'
+```
+
+> List transaction webhooks response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "event": "transaction.create",
+            "tx_type": "debit",
+            "secret": "secret"
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/webhooks/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`url` | Webhook URL | blank | true
+`event` | Webhook event | null | true
+`tx_type` | Transaction type | null | false
+`secret` | Webhook secret | "secret" | false
+
+### Retrieve Transaction Webhook
+
+> Retrieve transaction webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve transaction webhook response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "url": "http://mysite.com/webhook_endpoint",
+        "event": "transaction.create",
+        "tx_type": "debit",
+        "secret": "secret"
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
+
+### Update Transaction Webhook
+
+> Update transaction webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"url": "http://mysite.com/webhook_endpoint"}'
+```
+
+> Update transaction webhook response
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "event": "transaction.create",
+            "tx_type": "debit",
+            "secret": "secret"
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`url` | Webhook URL | blank | true
+`event` | Webhook event | null | true
+`tx_type` | Transaction type | null | false
+`secret` | Webhook secret | "secret" | false
+
+
+### Delete Transaction Webhook
+
+> Delete transaction webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete transaction webhook response
+
+```json
+{
+    "status": "success",
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
+
+
+### List Company Switches
+
+List all switches related to transactions.
+
+> List transaction switches request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/switches/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List transaction switches response
+
+```shell
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "tx_type": "credit",
+            "subtype": null,
+            "enabled": true,
+            "created": 1497362397968,
+            "updated": 1497362397968
+        }
+    ]
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/switches/`
+
+### Create Transaction Switches
+
+Create switches related to transactions.
+
+> Create transaction switches request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/switches/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"tx_type": "credit",
+       "enabled": true}'
+```
+
+> Create transaction switches response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/switches/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_type` | Transaction Type | | true
+`subtype` | Subtype name | null | false
+`enabled` | Enabled | false | true
+
+### Retrieve Company Switches
+
+Retrieve a specific switch related to transactions.
+
+> Retrieve transaction switches request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/switches/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve transaction switches response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/switches/{id}/`
+
+### Update Transaction Switches
+
+Update a specific switch related to transactions.
+
+> Update transaction switches request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/switches/{id}/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"enabled": false}'
+```
+
+> Update transaction switches response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": false,
+        "created": 1497362397968,
+        "updated": 1497362931403
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/switches/{id}/`
+
+
+
+
+
+
+
+
+
 
 ## Accounts
 
@@ -3001,6 +3674,7 @@ rehive.admin.accounts.get()
                 "currencies": [
                     {
                         "balance": 10000,
+                        "available_balance": 10000,
                         "currency": {
                             "code": "XBT",
                             "description": "bitcoin",
@@ -3008,6 +3682,9 @@ rehive.admin.accounts.get()
                             "unit": "bitcoin",
                             "divisibility": 8
                         },
+                        "limits": [],
+                        "fees": [],
+                        "switches": [],
                         "active": true
                     }
                 ],
@@ -3028,6 +3705,7 @@ rehive.admin.accounts.get()
         "currencies": [
             {
                 "balance": 10000,
+                "available_balance": 10000,
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
@@ -3035,6 +3713,9 @@ rehive.admin.accounts.get()
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
+                "limits": [],
+                "fees": [],
+                "switches": [],
                 "active": true
             }
         ],
@@ -3089,6 +3770,7 @@ rehive.admin.accounts.get(
         "currencies": [
             {
                 "balance": 10000,
+                "available_balance": 10000,
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
@@ -3096,6 +3778,9 @@ rehive.admin.accounts.get(
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
+                "limits": [],
+                "fees": [],
+                "switches": [],
                 "active": true
             }
         ],
@@ -3113,6 +3798,7 @@ rehive.admin.accounts.get(
     "currencies": [
         {
             "balance": 10000,
+            "available_balance": 10000,
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
@@ -3120,6 +3806,9 @@ rehive.admin.accounts.get(
                 "unit": "bitcoin",
                 "divisibility": 8
             },
+            "limits": [],
+            "fees": [],
+            "switches": [],
             "active": true
         }
     ],
@@ -3141,7 +3830,7 @@ The account view offers filtering of currencies based on the `active` attribute.
 `https://rehive.com/api/3/admin/accounts/{reference}/`
 
 
-## Update Account
+### Update Account
 
 > Admin update account request
 
@@ -3337,7 +4026,7 @@ Retrieve an account's currency belonging to a company.
 > Admin retrieve account currency request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}
+curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3388,7 +4077,7 @@ Update the active status of an account currency. Activating an account's currenc
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}`
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/`
 
 #### Fields
 
@@ -3540,7 +4229,7 @@ Retrieve a specific requirement related to an account currency.
 > Retrieve Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3583,7 +4272,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}`
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
 
 ### Update Account Currency Limit
 
@@ -3592,7 +4281,7 @@ Update a specific limits related to an account currency.
 > Update Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3639,7 +4328,59 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}`
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`value` | Limit value | 0 | true
+`type` | Limit Type |  | true
+`tx_type` | Transaction type limits are applied | | true
+`subtype` | Transaction subtype name | null | false
+
+#### Limit Types
+
+Value | Description 
+--- | --- 
+`max` | Maximum 
+`day_max` | Maximum per day 
+`month_max` | Maximum per month 
+`min` | Minimum 
+`overdraft` | Overdraft 
+
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
+### Delete Account Currency Limit
+
+Delete a specific limits related to an account currency.
+
+> Delete Account Currency request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Account Currency response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
+
 
 ### List Account Currency Fees
 
@@ -3717,7 +4458,6 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.create(
 )
 ```
 
-
 > Create Account Currency Fee response
 
 ```shell
@@ -3774,7 +4514,7 @@ Retrieve a specific requirement related to an account currency.
 > Retrieve Account Currency Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3817,7 +4557,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}`
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
 
 ### Update Account Currency Fee
 
@@ -3826,7 +4566,7 @@ Update a specific fees related to an account currency.
 > Update Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3871,7 +4611,48 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}`
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`value` | Fee amount | 0 | false
+`percentage` | Percentage amount |  | false
+`tx_type` | Transaction type fees are applied | | true
+`subtype` | Transaction subtype name | null | false
+
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
+### Delete Account Currency Fee
+
+Delete a specific fees related to an account currency.
+
+> Delete Account Currency request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Account Currency response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
 
 ### List Account Currency Switches
 
@@ -3947,7 +4728,6 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.creat
 )
 ```
 
-
 > Create Account Currency Switches response
 
 ```shell
@@ -3994,7 +4774,7 @@ Retrieve a specific switch related to the currency
 > Retrieve Account Currency Switches request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4036,7 +4816,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}`
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/`
 
 ### Update Account Currency Switches
 
@@ -4045,7 +4825,7 @@ Update a specific switch related to the currency
 > Update Account Currency Switches request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4088,7 +4868,41 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.updat
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}`
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_type` | Transaction Type | | true
+`subtype` | Subtype name | null | false
+`enabled` | Enabled | false | true
+
+### Delete Account Currency Switches
+
+Delete a specific switch related to the currency.
+
+> Delete Account Currency Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Account Currency Switches response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/`
+
 
 ## Currencies
 
@@ -4449,401 +5263,219 @@ Field | Description | Default | Required
 `email_confirmation_url` | Custom company email confirmation URL | blank | false
 `default_currency` | Default company currency | null | false
 
-### List Company Switches
 
-List all switches related to a company.
+### List Bank Accounts
 
-> List Company Switches request
+> List Bank Accounts request
 
 ```shell
-curl https://rehive.com/api/3/admin/company/switches/
+curl https://rehive.com/api/3/admin/bank-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
-```python
-rehive.admin.company.switches.get()
-```
-
-> List Company Switches response
+> List Bank Accounts response
 
 ```shell
 {
     "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "tx_type": "credit",
-            "subtype": null,
-            "enabled": true,
-            "created": 1497362397968,
-            "updated": 1497362397968
-        }
-    ]
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "name": "New account name",
+                "number": "12341234",
+                "type": "Cheque",
+                "bank_name": "Bank",
+                "bank_code": "1234",
+                "branch_code": "1234",
+                "swift": null,
+                "iban": null,
+                "bic": null,
+            }
+        ]
+    }
 }
 ```
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/company/switches/`
+`https://rehive.com/api/3/admin/bank-accounts/`
 
-### Create Company Switches
+### Create Bank Account
 
-Create switches related to a company.
-
-> Create Company Switches request
+> Create Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/company/switches/
+curl https://rehive.com/api/3/admin/bank-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -D '{"tx_type": "credit",
-       "enabled": true}'
+  -D '{"name": "Bank Account",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Bank",
+        "bank_code": "1234",
+        "branch_code": "1234"}'
 ```
 
-```python
-rehive.admin.company.switches.create(
-    tx_type="credit",
-    enabled=True
-)
-```
-
-> Create Company Switches response
+> Create Bank Account response
 
 ```shell
 {
     "status": "success",
     "data": {
         "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
+        "name": "New account name",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Bank",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null,
     }
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
 }
 ```
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/company/switches/`
+`https://rehive.com/api/3/admin/bank-accounts/`
 
 #### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`tx_type` | Transaction Type | | true
-`subtype` | Subtype name | null | false
-`enabled` | Enabled | false | true
+`name` | Account Name | blank | false
+`number` | Account Number | blank | false
+`type` | Account Type | blank | false
+`bank_name` | Bank Name | blank | false
+`bank_code` | Bank Code | blank | false
+`branch_code` | Branch Code | blank | false
+`swift` | swift | blank | false
+`iban` | iban | blank | false
+`bic` | bic | blank | false
 
-### Retrieve Company Switches
+### Retrieve Bank Account
 
-Retrieve a specific switch related to a company.
-
-> Retrieve Company Switches request
+> Retrieve Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/company/switches/{id}
+curl https://rehive.com/api/3/admin/bank-accounts/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
-```python
-rehive.admin.company.switches.get("{id}")
-```
-
-> Retrieve Company Switches response
+> Retrieve Bank Account response
 
 ```shell
 {
     "status": "success",
     "data": {
         "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
+        "name": "New account name",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Bank",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null,
     }
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
 }
 ```
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/company/switches/{id}`
+`https://rehive.com/api/3/admin/bank-accounts/{id}/`
 
-### Update Company Switches
+### Update Bank Account
 
-Update a specific switch related to a company.
-
-> Update Company Switches request
+> Update Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/company/switches/{id}
+curl https://rehive.com/api/3/admin/bank-accounts/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -D '{"enabled": false}'
+  -D '{"name": "New account name"}'
 ```
 
-```python
-rehive.admin.company.swtiches.update(
-    "{id}",
-    enabled=False
-)
-```
-
-> Update Company Switches response
+> Update Bank Account response
 
 ```shell
 {
     "status": "success",
     "data": {
         "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": false,
-        "created": 1497362397968,
-        "updated": 1497362931403
-    }
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": false,
-    "created": 1497362397968,
-    "updated": 1497362931403
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/company/switches/{id}`
-
-## Transaction Webhooks
-
-<aside class="warning">
-    The Rehive events that trigger webhooks are an experimental feature. Take a 
-    look at the <a href="/#beta-features">Beta</a> section for details regarding how 
-    events work and what events are currently offered.
-</aside>
-
-### List Transaction Webhooks
-
-> List transaction webhooks request
-
-```shell
-curl https://rehive.com/api/3/admin/webhooks/transactions/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```python
-"To be implemented"
-```
-
-> List transaction webhooks response
-
-```json
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "transaction.create",
-            "tx_type": "debit",
-            "secret": "supersecret"
-        }
-    ]
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/webhooks/transactions/`
-
-### Create Transaction Webhooks
-
-> Create transaction webhooks request
-
-```shell
-curl https://rehive.com/api/3/admin/webhooks/transactions/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"url": "http://mysite.com/webhook_endpoint",
-       "event": "transaction.create",
-       "tx_type": "debit",
-       "secret": "secret"}'
-```
-
-```python
-"To be implemented"
-```
-
-> List transaction webhooks response
-
-```json
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "transaction.create",
-            "tx_type": "debit",
-            "secret": "secret"
-        }
-    ]
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/webhooks/transactions/`
-
-#### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`url` | Webhook URL | blank | true
-`event` | Webhook event | null | true
-`tx_type` | Transaction type | null | false
-`secret` | Webhook secret | "secret" | false
-
-### Retrieve Transaction Webhook
-
-> Retrieve transaction webhook request
-
-```shell
-curl https://rehive.com/api/3/admin/webhooks/transactions/{id}/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```python
-"To be implemented"
-```
-
-> Retrieve transaction webhook response
-
-```json
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "transaction.create",
-        "tx_type": "debit",
-        "secret": "secret"
+        "name": "New account name",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Bank",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null,
     }
 }
 ```
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/transactions/{id}/`
-
-### Update Transaction Webhook
-
-> Update transaction webhook request
-
-```shell
-curl https://rehive.com/api/3/admin/webhooks/transactions/{id}/
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"url": "http://mysite.com/webhook_endpoint"}'
-```
-
-```python
-"To be implemented"
-```
-
-> Update transaction webhook response
-
-```json
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "transaction.create",
-            "tx_type": "debit",
-            "secret": "secret"
-        }
-    ]
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/webhooks/transactions/{id}/`
+`https://rehive.com/api/3/admin/bank-accounts/{id}/`
 
 #### Fields
 
 Field | Description | Default | Required
 --- | --- | --- | ---
-`url` | Webhook URL | blank | true
-`event` | Webhook event | null | true
-`tx_type` | Transaction type | null | false
-`secret` | Webhook secret | "secret" | false
+`name` | Account Name | blank | false
+`number` | Account Number | blank | false
+`type` | Account Type | blank | false
+`bank_name` | Bank Name | blank | false
+`bank_code` | Bank Code | blank | false
+`branch_code` | Branch Code | blank | false
+`swift` | swift | blank | false
+`iban` | iban | blank | false
+`bic` | bic | blank | false
 
-## General Webhooks
 
-<aside class="warning">
-    The Rehive events that trigger webhooks are an experimental feature. Take a 
-    look at the <a href="/#beta-features">Beta</a> section for details regarding how 
-    events work and what events are currently offered.
-</aside>
+### Delete Bank Account
 
-### List General Webhooks
+> Delete Bank Account request
 
-> List general webhooks request
+```shell
+curl https://rehive.com/api/3/admin/bank-accounts/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Bank Account response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/bank-accounts/{id}/`
+
+
+## Webhooks
+
+### List Webhooks
+
+> List webhooks request
 
 ```shell
 curl https://rehive.com/api/3/admin/webhooks/
@@ -4852,11 +5484,7 @@ curl https://rehive.com/api/3/admin/webhooks/
   -H "Content-Type: application/json"
 ```
 
-```python
-"To be implemented"
-```
-
-> List general webhooks response
+> List webhooks response
 
 ```json
 {
@@ -4876,9 +5504,9 @@ curl https://rehive.com/api/3/admin/webhooks/
 
 `https://rehive.com/api/3/admin/webhooks/`
 
-### Create User Webhooks
+### Create Webhook
 
-> Create user webhooks request
+> Create webhooks request
 
 ```shell
 curl https://rehive.com/api/3/admin/webhooks/
@@ -4894,7 +5522,7 @@ curl https://rehive.com/api/3/admin/webhooks/
 "To be implemented"
 ```
 
-> List user webhooks response
+> List webhooks response
 
 ```json
 {
@@ -4922,9 +5550,9 @@ Field | Description | Default | Required
 `event` | Webhook event | null | true
 `secret` | Webhook secret | "secret" | false
 
-### Retrieve General Webhook
+### Retrieve Webhook
 
-> Retrieve general webhook request
+> Retrieve webhook request
 
 ```shell
 curl https://rehive.com/api/3/admin/webhooks/{id}/
@@ -4933,11 +5561,7 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
   -H "Content-Type: application/json"
 ```
 
-```python
-"To be implemented"
-```
-
-> Retrieve general webhook response
+> Retrieve webhook response
 
 ```json
 {
@@ -4955,9 +5579,9 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
 
 `https://rehive.com/api/3/admin/webhooks/{id}/`
 
-### Update General Webhook
+### Update Webhook
 
-> Update general webhook request
+> Update webhook request
 
 ```shell
 curl https://rehive.com/api/3/admin/webhooks/{id}/
@@ -4967,11 +5591,7 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
   -D '{"url": "http://mysite.com/webhook_endpoint"}'
 ```
 
-```python
-"To be implemented"
-```
-
-> Update general webhook response
+> Update webhook response
 
 ```json
 {
@@ -4998,6 +5618,29 @@ Field | Description | Default | Required
 `url` | Webhook URL | blank | true
 `event` | Webhook event | null | true
 `secret` | Webhook secret | "secret" | false
+
+### Delete Webhook
+
+> Delete webhook request
+
+```shell
+curl https://rehive.com/api/3/admin/webhooks/{id}/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete webhook response
+
+```json
+{
+    "status": "success",
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhooks/{id}/`
 
 
 ## Subtypes
@@ -5029,8 +5672,9 @@ rehive.admin.subtypes.get()
             "label": "Our credit",
             "description": "Description for our credit",
             "tx_type": "credit",
-            "created": "2017-04-28T11:36:57.396723Z",
-            "updated": "2017-04-28T11:36:57.396743Z"
+            "enabled": true,
+            "created": 1509529290352,
+            "updated": 1509529290352
         }
     ]
 }
@@ -5044,8 +5688,9 @@ rehive.admin.subtypes.get()
         "label": "Our credit",
         "description": "Description for our credit",
         "tx_type": "credit",
-        "created": "2017-04-28T11:36:57.396723Z",
-        "updated": "2017-04-28T11:36:57.396743Z"
+        "enabled": true,
+        "created": 1509529290352,
+        "updated": 1509529290352
     }
 ]
 ```
@@ -5086,8 +5731,8 @@ rehive.admin.subtypes.create(
         "label": "Our credit",
         "description": "Description for our credit",
         "tx_type": "credit",
-        "created": "2017-04-28T11:36:57.396723Z",
-        "updated": "2017-04-28T11:36:57.396743Z"
+        "created": 1509529290352,
+        "updated": 1509529290352
     }
 }
 ```
@@ -5099,8 +5744,8 @@ rehive.admin.subtypes.create(
     "label": "Our credit",
     "description": "Description for our credit",
     "tx_type": "credit",
-    "created": "2017-04-28T11:36:57.396723Z",
-    "updated": "2017-04-28T11:36:57.396743Z"
+    "created": 1509529290352,
+    "updated": 1509529290352
 }
 ```
 
@@ -5116,6 +5761,7 @@ Field | Description | Default | Required
 `label` | label | blank | false
 `description` | description | blank | false
 `tx_type` | Transaction type | blank | true
+`enabled` | enabled status | true | false
 
 ### Retrieve Subtypes
 
@@ -5143,8 +5789,8 @@ rehive.admin.subtypes.get("{id}")
         "label": "Our credit",
         "description": "Description for our credit",
         "tx_type": "credit",
-        "created": "2017-04-28T11:36:57.396723Z",
-        "updated": "2017-04-28T11:36:57.396743Z"
+        "created": 1509529290352,
+        "updated": 1509529290352
     }
 }
 ```
@@ -5156,21 +5802,21 @@ rehive.admin.subtypes.get("{id}")
     "label": "Our credit",
     "description": "Description for our credit",
     "tx_type": "credit",
-    "created": "2017-04-28T11:36:57.396723Z",
-    "updated": "2017-04-28T11:36:57.396743Z"
+    "created": 1509529290352,
+    "updated": 1509529290352
 }
 ```
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/subtypes/{id}`
+`https://rehive.com/api/3/admin/subtypes/{id}/`
 
-### Update subtypes
+### Update subtype
 
-> Update subtypes request
+> Update subtype request
 
 ```shell
-curl https://rehive.com/api/3/admin/subtypes/
+curl https://rehive.com/api/3/admin/subtypes/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5184,7 +5830,7 @@ rehive.admin.subtypes.update(
 )
 ```
 
-> Update subtypes response
+> Update subtype response
 
 ```shell
 {
@@ -5195,8 +5841,8 @@ rehive.admin.subtypes.update(
         "label": "Our credit",
         "description": "New description",
         "tx_type": "credit",
-        "created": "2017-04-28T11:36:57.396723Z",
-        "updated": "2017-04-28T11:36:57.396743Z"
+        "created": 1509529290352,
+        "updated": 1509529290352
     }
 }
 ```
@@ -5208,14 +5854,14 @@ rehive.admin.subtypes.update(
     "label": "Our credit",
     "description": "New description",
     "tx_type": "credit",
-    "created": "2017-04-28T11:36:57.396723Z",
-    "updated": "2017-04-28T11:36:57.396743Z"
+    "created": 1509529290352,
+    "updated": 1509529290352
 }
 ```
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/subtypes/{id}`
+`https://rehive.com/api/3/admin/subtypes/{id}/`
 
 #### Fields
 
@@ -5225,6 +5871,35 @@ Field | Description | Default | Required
 `label` | label | blank | false
 `description` | description | blank | false
 `tx_type` | Transaction type | blank | true
+`enabled` | enabled status | true | false
+
+### Delete Subtype
+
+> Delete subtype request
+
+```shell
+curl https://rehive.com/api/3/admin/subtypes/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete subtype response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+<aside class="notice">
+You cannot delete a subtype that has already been used in a transaction. If you want to make an already used subtype
+inaccessible you can "disable" it instead using the `enabled` attribute.
+</aside>
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/subtypes/{id}/`
 
 
 ## Notifications

@@ -704,7 +704,7 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
   -X GET
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"'
+  -H "Content-Type: application/json"
 ```
 
 > User retrieve bank account response
@@ -828,7 +828,7 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
   -X DELETE
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"'
+  -H "Content-Type: application/json"
 ```
 
 > User delete bank account response
@@ -983,7 +983,7 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
   -X GET
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"'
+  -H "Content-Type: application/json"
 ```
 
 > User retrieve crypto account response
@@ -1084,7 +1084,7 @@ Field | Description | Default | Required
 curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
   -X DELETE
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"'
+  -H "Content-Type: application/json"
 ```
 
 > User delete crypto account response

@@ -63,7 +63,7 @@ rehive.transactions.get(
                 "fee": 0,
                 "total_amount": 500,
                 "balance": 500,
-                "account": "0000000000 ",
+                "account": "0000000000",
                 "label": "Credit",
                 "company": "rehive",
                 "currency": {
@@ -110,7 +110,7 @@ rehive.transactions.get(
             "fee": 0,
             "total_amount": 500,
             "balance": 500,
-            "account": "0000000000 ",
+            "account": "0000000000",
             "label": "Credit",
             "company": "rehive",
             "currency": {
@@ -152,7 +152,7 @@ rehive.transactions.get(
         "fee": 0,
         "total_amount": 500,
         "balance": 500,
-        "account": "0000000000 ",
+        "account": "0000000000",
         "label": "Credit",
         "company": "rehive",
         "currency": {
@@ -318,7 +318,7 @@ rehive.transactions.get(
         "fee": 0,
         "total_amount": 500,
         "balance": 500,
-        "account": "0000000000 ",
+        "account": "0000000000",
         "label": "Credit",
         "company": "rehive",
         "currency": {
@@ -365,7 +365,7 @@ rehive.transactions.get(
     "fee": 0,
     "total_amount": 500,
     "balance": 500,
-    "account": "0000000000 ",
+    "account": "0000000000",
     "label": "Credit",
     "company": "rehive",
     "currency": {
@@ -411,7 +411,7 @@ rehive.transactions.get(
     "fee": 0,
     "total_amount": 500,
     "balance": 500,
-    "account": "0000000000 ",
+    "account": "0000000000",
     "label": "Credit",
     "company": "rehive",
     "currency": {
@@ -665,7 +665,7 @@ rehive.transactions.create_transfer(
 Create a transfer transaction. This will transfer currency from one user/account to another. If the recipient reference does not exist as a user in Rehive and the reference is an email address or mobile number then an invitation message will be sent to the recipient informing them thay have an unclaimed transaction.
 
 <aside class="notice">
-The transfer transaction endpoint is essentially a wrapper for standard debit/credit transactions. If a transfer is completed successfuly it will create 2 transactions: one to debit from the sender and one to credit the receiver. The transactions are otherwise indentical to normal debit/credit transactions. You can view sender/receiver details by accessing the attributes `source_transaction` (indicates who the transfer came from) and `destination_transaction` (indicates who the transfer was sent to).
+The transfer transaction endpoint is a wrapper for standard debit/credit transactions. If a transfer is completed successfuly it will create 2 transactions: one to debit from the sender and one to credit the receiver. The transactions are otherwise indentical to normal debit/credit transactions. You can view sender/receiver details by accessing the attributes `source_transaction` (indicates who the transfer came from) and `destination_transaction` (indicates who the transfer was sent to).
 </aside>
 
 #### Endpoint
