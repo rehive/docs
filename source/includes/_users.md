@@ -35,22 +35,41 @@ rehive.user.get()
         "email": "joe@rehive.com",
         "username": "",
         "id_number": null,
+        "birth_date": null,
         "profile": null,
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
+        "currency": null,
         "company": "rehive",
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+27840000000",
-        "verified": true,
-        "timezone": "Asia/Dhaka",
-        "date_joined": 1464912953000
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
     }
 }
 ```
@@ -63,22 +82,41 @@ rehive.user.get()
     "email": "joe@rehive.com",
     "username": "",
     "id_number": null,
+    "birth_date": null,
     "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
+    "currency": null,
     "company": "rehive",
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+27840000000",
-    "verified": true,
-    "timezone": "Asia/Dhaka",
-    "date_joined": 1464912953000
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -90,22 +128,41 @@ rehive.user.get()
     "email": "joe@rehive.com",
     "username": "",
     "id_number": null,
+    "birth_date": null,
     "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
+    "currency": null,
     "company": "rehive",
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+27840000000",
-    "verified": true,
-    "timezone": "Asia/Dhaka",
-    "date_joined": 1464912953000
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -156,22 +213,41 @@ rehive.user.update(
         "email": "joe@rehive.com",
         "username": "",
         "id_number": null,
+        "birth_date": null,
         "profile": null,
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
+        "currency": null,
         "company": "rehive",
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+27840000000",
-        "verified": true,
-        "timezone": "Asia/Dhaka",
-        "date_joined": 1464912953000
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
     }
 }
 ```
@@ -184,22 +260,41 @@ rehive.user.update(
     "email": "joe@rehive.com",
     "username": "",
     "id_number": null,
+    "birth_date": null,
     "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
+    "currency": null,
     "company": "rehive",
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+27840000000",
-    "verified": true,
-    "timezone": "Asia/Dhaka",
-    "date_joined": 1464912953000
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -211,22 +306,41 @@ rehive.user.update(
     "email": "joe@rehive.com",
     "username": "",
     "id_number": null,
+    "birth_date": null,
     "profile": null,
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
+    "currency": null,
     "company": "rehive",
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+27840000000",
-    "verified": true,
-    "timezone": "Asia/Dhaka",
-    "date_joined": 1464912953000
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
+        },
+        "updated": 1509539801040,
+        "status": "pending",
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 
@@ -248,8 +362,12 @@ Field | Description | Default | Required
 `nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
 `metadata` | custom metadata | {} | false
 `mobile_number` | mobile number | blank | false
-`skype_name` | skype name | blank | false
 `timezone` | timezone | blank | false
+`birth_date` | birth date | blank | false
+
+<aside class="notice">
+    <code>birth_date</code> should be added in the formal yyyy-mm-dd
+</aside>
 
 ## Retrieve Address
 
@@ -1295,6 +1413,66 @@ Field | Description | Default | Required
 `email` | email address | null | true
 `primary` | is a primary user email | false | false
 
+
+## Retrieve Email Address
+
+> User retrieve email address request
+
+```shell
+curl https://www.rehive.com/api/3/user/emails/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> User retrieve email address response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "email": "joe@rehive.com",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+```javascript
+rehive.user.getUserEmailAddresses(emailId).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
+```python
+rehive.user.emails.get("{email_id}")
+```
+
+```javascript
+{
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
+}
+```
+
+```python
+{
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
+}
+```
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/emails/{id}/`
+
 ## Update Email Address
 
 > User update email address request
@@ -1370,6 +1548,29 @@ Update a user's email adress. The email adress can be changed to be the user's p
 Field | Description | Default | Required
 --- | --- | --- | ---
 `primary` | is a primary user email | false | false
+
+## Delete Email Address
+
+> User delete email address request
+
+```shell
+curl https://www.rehive.com/api/3/user/emails/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> User delete email address response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/emails/{id}/`
 
 ## List Mobile Numbers
 
@@ -1514,6 +1715,67 @@ Field | Description | Default | Required
 `number` | mobile number address (including area code)| null | true
 `primary` | is a primary user number | false | false
 
+## Retrieve Mobile Numbers
+
+> User retrieve mobile number request
+
+```shell
+curl https://www.rehive.com/api/3/user/mobiles/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.user.getUserMobileNumbers(numberId).then(function(res){
+        // ...
+    },function(err){
+        // ...
+    })
+```
+
+```python
+rehive.user.mobiles.get("{number_id}")
+```
+
+> User mobile numbers response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "number": "+00000000000",
+        "primary": true,
+        "verified": true
+    }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
+}
+```
+
+```python
+{
+    "id": 1,
+    "number": "+00000000000",
+    "primary": true,
+    "verified": true
+}
+```
+
+Retrieve a user's mobile number.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/mobiles/`
+
 ## Update Mobile Number
 
 > User update mobile number request
@@ -1589,3 +1851,26 @@ Update a user's mobile number. The number can be changed to be the user's primar
 Field | Description | Default | Required
 --- | --- | --- | ---
 `primary` | is a primary user email | false | false
+
+## Delete Mobile Number
+
+> User delete mobile number request
+
+```shell
+curl https://www.rehive.com/api/3/user/mobiles/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> User delete mobile number response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/user/mobiles/{id}/`

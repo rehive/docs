@@ -32,6 +32,7 @@ rehive.company.get()
         "name": "Rehive",
         "description": "Wallets for everyone.",
         "website": "http://www.rehive.com",
+        "nationalities": ["US", "ZA"]
         "logo": null
     },
     "status": "success"
@@ -44,6 +45,7 @@ rehive.company.get()
     "name": "Rehive",
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
+    "nationalities": ["US", "ZA"]
     "logo": null
 }
 ```
@@ -54,6 +56,7 @@ rehive.company.get()
     "name": "Rehive",
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
+    "nationalities": ["US", "ZA"]
     "logo": null
 }
 ```
@@ -154,7 +157,7 @@ Get a list of available currencies for the current user's company.
 > User list company banks request
 
 ```shell
-curl https://www.rehive.com/api/3/accounts/deposits/bank/
+curl https://www.rehive.com/api/3/company/bank-account/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -169,7 +172,6 @@ rehive.company.getCompanyBanks().then(function(res){
 ```
 
 ```python
-"To be implemented"
 ```
 
 > User list company banks response
@@ -225,4 +227,4 @@ List company banks for the current user's company.
 
 #### Endpoint
 
-`https://rehive.com/api/3/company/banks/`
+`https://rehive.com/api/3/company/bank-account/`
