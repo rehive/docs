@@ -4,6 +4,35 @@ Rehive includes a set of admin-only endpoints that can make working with users a
 
 ## Users
 
+### Users Overview
+
+> Admin users overview request
+
+```shell
+curl https://www.rehive.com/admin/api/3/admin/users/overview/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list users overview response
+
+```shell
+{
+    "data": {
+        "total": 1,
+        "active": 1
+    },
+    "status": "success"
+}
+```
+
+Get an overview of users belonging to a company.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/overview/`
+
 ### List Users
 
 > Admin list users request
@@ -743,6 +772,43 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
         "created": 1497362397968,
         "updated": 1497362931403
     }
+}
+```
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_type` | Transaction type | | true
+`subtype` | Transaction subtype | None | false
+`enabled` | Enabled | false | false
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
+
+### Delete User Switches
+
+Delete a specific switch related to a user
+
+> Delete User Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+"To be implemented"
+```
+
+> Delete User Switches response
+
+```json
+{
+    "status": "success"
 }
 ```
 
