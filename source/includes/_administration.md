@@ -7641,13 +7641,6 @@ rehive.admin.swtiches.create(
     "status": "success",
     "data": {
         "id": 1,
-        "company": {
-            "identifier": "test_company_1",
-            "name": "Test Company 1",
-            "description": "Wallets for everyone.",
-            "website": "http://wwww.rehive.io",
-            "logo": null
-        },
         "switch_type": "Allow transactions",
         "enabled": false,
         "created": 1497348308625,
@@ -7659,31 +7652,12 @@ rehive.admin.swtiches.create(
 ```python
 {
     "id": 1,
-    "company": {
-        "identifier": "test_company_1",
-        "name": "Test Company 1",
-        "description": "Wallets for everyone.",
-        "website": "http://wwww.rehive.io",
-        "logo": null
-    },
     "switch_type": "Allow transactions",
     "enabled": false,
     "created": 1497348308625,
     "updated": 1497348318654
 }
 ```
-
-#### Types
-Global switches can be one of the following 2 types.
-
-Value | Description
---- | ---
-`transactions` | Allow transactions
-`verification` | Allow transactions for unverified users
-`overdraft` | Allow unlimited overdrafts
-`auto_confirm | Automatically complete transactions on creation
-`manage_accounts` | Allow users to manage their accounts
-`session_duration` | Allow users to set their own session duration
 
 #### Endpoint
 
@@ -7695,6 +7669,18 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `switch_type` | Global Switch Type Label | | true
 `enabled` | Account Name | false | true
+
+#### Types
+Global switches can be one of the following types.
+
+Value | Description
+--- | ---
+`transactions` | Allow transactions
+`verification` | Allow transactions for unverified users
+`overdraft` | Allow unlimited overdrafts
+`auto_confirm` | Automatically complete transactions on creation
+`manage_accounts` | Allow users to manage their accounts
+`session_duration` | Allow users to set their own session duration
 
 ### List Global Switches
 
@@ -7721,13 +7707,6 @@ rehive.admin.switches.get()
     "data": [
         {
             "id": 1,
-            "company": {
-                "identifier": "test_company_1",
-                "name": "Test Company 1",
-                "description": "Wallets for everyone.",
-                "website": "http://wwww.rehive.io",
-                "logo": null
-            },
             "switch_type": "Allow transactions",
             "enabled": true,
             "created": 1497347723605,
@@ -7741,13 +7720,6 @@ rehive.admin.switches.get()
 [
     {
         "id": 1,
-        "company": {
-            "identifier": "test_company_1",
-            "name": "Test Company 1",
-            "description": "Wallets for everyone.",
-            "website": "http://wwww.rehive.io",
-            "logo": null
-        },
         "switch_type": "Allow transactions",
         "enabled": true,
         "created": 1497347723605,
@@ -7784,13 +7756,6 @@ rehive.admin.switches.get("{id}")
     "status": "success",
     "data": {
         "id": 1,
-        "company": {
-            "identifier": "test_company_1",
-            "name": "Test Company 1",
-            "description": "Wallets for everyone.",
-            "website": "http://wwww.rehive.io",
-            "logo": null
-        },
         "switch_type": "Allow transactions",
         "enabled": true,
         "created": 1497347723605,
@@ -7802,13 +7767,6 @@ rehive.admin.switches.get("{id}")
 ```python
 {
     "id": 1,
-    "company": {
-        "identifier": "test_company_1",
-        "name": "Test Company 1",
-        "description": "Wallets for everyone.",
-        "website": "http://wwww.rehive.io",
-        "logo": null
-    },
     "switch_type": "Allow transactions",
     "enabled": true,
     "created": 1497347723605,
@@ -7818,7 +7776,7 @@ rehive.admin.switches.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/switches/{id}`
+`https://rehive.com/api/3/admin/switches/{id}/`
 
 ### Update Global Switches
 
@@ -7827,7 +7785,7 @@ Update a specific global switch.
 > Update Global Switches request
 
 ```shell
-curl https://rehive.com/api/3/admin/switches/{id}
+curl https://rehive.com/api/3/admin/switches/{id}/
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7848,13 +7806,6 @@ rehive.admin.switches.update(
     "status": "success",
     "data": {
         "id": 1,
-        "company": {
-            "identifier": "test_company_1",
-            "name": "Test Company 1",
-            "description": "Wallets for everyone.",
-            "website": "http://wwww.rehive.io",
-            "logo": null
-        },
         "switch_type": "Allow transactions",
         "enabled": false,
         "created": 1497348308625,
@@ -7866,13 +7817,6 @@ rehive.admin.switches.update(
 ```python
 {
     "id": 1,
-    "company": {
-        "identifier": "test_company_1",
-        "name": "Test Company 1",
-        "description": "Wallets for everyone.",
-        "website": "http://wwww.rehive.io",
-        "logo": null
-    },
     "switch_type": "Allow transactions",
     "enabled": false,
     "created": 1497348308625,
@@ -7882,7 +7826,7 @@ rehive.admin.switches.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/switches/{id}`
+`https://rehive.com/api/3/admin/switches/{id}/`
 
 #### Fields
 
@@ -7890,3 +7834,40 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `switch_type` | Global Switch Type | | false
 `enabled` | Account Name | false | false
+
+#### Types
+Global switches can be one of the following types.
+
+Value | Description
+--- | ---
+`transactions` | Allow transactions
+`verification` | Allow transactions for unverified users
+`overdraft` | Allow unlimited overdrafts
+`auto_confirm` | Automatically complete transactions on creation
+`manage_accounts` | Allow users to manage their accounts
+`session_duration` | Allow users to set their own session duration
+
+### Delete Global Switches
+
+Delete a specific global switch.
+
+> Delete Global Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/switches/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Global Switches response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/switches/{id}/`
