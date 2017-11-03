@@ -53,11 +53,6 @@ authentication. See <a href="/#authorization">Authentication</a> for 3rd party a
 
 ## Pagination
 
-Almost all listing endpoints include a way to perform pagination. The default pagination method
-offered by Rehive is offset pagination, which allows navigation to an arbitrary point in 
-a list of results as well as via `next` and `prev` attributes. The default page size is 15 but
-can be changed by adding a `page_size` query parameter to the request URL.
-
 > Pagination Response
 
 ```shell
@@ -67,8 +62,16 @@ can be changed by adding a `page_size` query parameter to the request URL.
         "count": 1,
         "next": null,
         "previous": null,
+        "results": []
+    }
+}
 
 ```
+
+Almost all listing endpoints include a way to perform pagination. The default pagination method
+offered by Rehive is offset pagination, which allows navigation to an arbitrary point in 
+a list of results as well as via `next` and `prev` attributes. The default page size is 15 but
+can be changed by adding a `page_size` query parameter to the request URL.
 
 ### Options
 
@@ -78,6 +81,14 @@ Value | Descrition
 
 
 ## Filters
+
+> Filtered Request
+
+```shell
+curl https://www.rehive.com/an/api/endpoint/?field_1=abc&field_2=123&orderby=field_1
+  -X GET
+  -H "Content-Type: application/json"
+```
 
 Most listing pages also include a way to filter and/or sort the returned list of objects. All filtering
 and sorting is done via query parameters in the GET request. 
@@ -89,22 +100,18 @@ the start of the query parameters and a `&` between each filtered field.
 To sort a result set, an endpoint will often inlcude an `orderby` attribute. Check the specific endpoints
 documentation on what fields can be used for sorting.
 
-> Filtered Request
-
-```shell
-curl https://www.rehive.com/an/api/endpoint/?field_1=abc&field_2=123&orderby=field_1
-  -X GET
-  -H "Content-Type: application/json"
-```
-
 ### Complex Filter Fields
 
 There are several filter field types in the API that offer more complex interactions:
 
-**Date Fields**: date fields can be further narrowed down by filtering on ranges using the greater 
+#### Date Fields
+
+Date fields can be further narrowed down by filtering on ranges using the greater 
 than (`__gt`) and less than (`__lt`) suffixes (eg. `created__gt`).
 
-**Metadata Fields**: custom metadata fields can be filtered on their first level children by adding the child
+#### Metadata Fields 
+
+Ccustom metadata fields can be filtered on their first level children by adding the child
 attribute as a suffix (`__child_attribute`). So if metadata contains a JSON object with an attribute `name` it can 
 be filtered using `metadata__name`.
 
