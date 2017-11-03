@@ -4,6 +4,35 @@ Rehive includes a set of admin-only endpoints that can make working with users a
 
 ## Users
 
+### Users Overview
+
+> Admin users overview request
+
+```shell
+curl https://www.rehive.com/admin/api/3/admin/users/overview/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list users overview response
+
+```shell
+{
+    "data": {
+        "total": 1,
+        "active": 1
+    },
+    "status": "success"
+}
+```
+
+Get an overview of users belonging to a company.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/overview/`
+
 ### List Users
 
 > Admin list users request
@@ -751,6 +780,43 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
         "created": 1497362397968,
         "updated": 1497362931403
     }
+}
+```
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`tx_type` | Transaction type | | true
+`subtype` | Transaction subtype | None | false
+`enabled` | Enabled | false | false
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
+
+### Delete User Switches
+
+Delete a specific switch related to a user
+
+> Delete User Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+"To be implemented"
+```
+
+> Delete User Switches response
+
+```json
+{
+    "status": "success"
 }
 ```
 
@@ -1759,7 +1825,8 @@ curl https://www.rehive.com/api/3/admin/users/documents/
                 "document_category": "other",
                 "document_type": "other",
                 "metadata": {},
-                "status": "pending"
+                "status": "pending",
+                "note": null
             }
         ]
     }
@@ -1788,7 +1855,7 @@ Field | Type
 curl https://www.rehive.com/api/3/admin/document/
   -X POST
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
+  -H "Content-Type: multipart/form-data"
   -F file=@localfilename
 ```
 
@@ -1820,7 +1887,8 @@ curl https://www.rehive.com/api/3/admin/document/
         "document_category": "other",
         "document_type": "other",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "note": null
     }
 }
 ```
@@ -1887,7 +1955,8 @@ curl https://rehive.com/api/3/admin/users/documents/{document_id}/
         "document_category": "other",
         "document_type": "other",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "note": null
     }
 }
 ```
@@ -1904,8 +1973,8 @@ curl https://rehive.com/api/3/admin/users/documents/{document_id}/
 curl https://www.rehive.com/api/3/admin/users/documents/{document_id}/
   -X PATCH
   -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"status": "verified"}'
+  -H "Content-Type: multipart/form-data"
+  -F file=@localfilename
 ```
 
 ```javascript
@@ -1936,7 +2005,8 @@ curl https://www.rehive.com/api/3/admin/users/documents/{document_id}/
         "document_category": "other",
         "document_type": "other",
         "metadata": {},
-        "status": "verified"
+        "status": "verified",
+        "note": null
     }
 }
 ```
@@ -4944,7 +5014,8 @@ rehive.admin.currencies.get()
                 "description": "bitcoin",
                 "symbol": "฿",
                 "unit": "bitcoin",
-                "divisibility": 8
+                "divisibility": 8,
+                "enabled": true
             }
         ]
     }
@@ -4958,7 +5029,8 @@ rehive.admin.currencies.get()
         "description": "bitcoin",
         "symbol": "฿",
         "unit": "bitcoin",
-        "divisibility": 8
+        "divisibility": 8,
+        "enabled": true
     }
 ]
 ```
@@ -5133,7 +5205,11 @@ rehive.admin.currencies.update(
 }
 ```
 
-Update a currency. this endpoint can be used to enable an existing currency or if it is a custom currency, edit its details.
+This endpoint can be used to enable an existing currency or if it is a custom currency, edit its details.
+
+<aside class="notice">
+Note that default currencies can not be updated, and only custom currencies can be updated.
+</aside>
 
 #### Endpoint
 
@@ -5149,6 +5225,75 @@ Field | Description | Default | Required
 `unit` | unit, like `dollar` | null | true
 `divisibility` | number of decimal places | 0 | true
 `enabled` | whether active for a company | false | true
+
+### Delete Currency
+
+> Admin delete currency request
+
+```shell
+curl https://www.rehive.com/api/3/admin/currencies/{code}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin delete currency response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+This endpoint can be used to delete custom currencies that was created.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/{code}/`
+
+### Currency Overview
+
+> Admin currency overview request
+
+```shell
+curl https://www.rehive.com/api/3/admin/currencies/{code}/overview/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin currency overview response
+
+```shell
+{
+    "data": {
+        "balance_total": 0,
+        "available_balance_total": 0,
+        "balance_24h": 0,
+        "count_total": 0,
+        "count_24h": 0,
+        "count_debits_pending": 0,
+        "count_debits_complete": 0,
+        "count_credits_pending": 0,
+        "count_credits_complete": 0,
+        "sum_debits_pending": 0,
+        "sum_debits_complete": 0,
+        "sum_credits_pending": 0,
+        "sum_credits_complete": 0,
+        "sum_24h_debits_pending": 0,
+        "sum_24h_debits_complete": 0,
+        "sum_24h_credits_pending": 0,
+        "sum_24h_credits_complete": 0
+    },
+    "status": "success"
+}
+```
+
+Get an overview of the selected currency's transactions.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/currencies/{code}/overview/`
 
 ## Company
 
@@ -5180,7 +5325,12 @@ rehive.admin.company.get()
         "logo": "https://www.test_company.com/logo.jpg",
         "password_reset_url": null,
         "email_confirmation_url": null,
-        "default_currency": "XBT"
+        "default_currency": "XBT",
+        "nationalities": [],
+        "address": {
+            // ...
+        },
+        "switches": []
     }
 }
 ```
@@ -5195,6 +5345,11 @@ rehive.admin.company.get()
     "password_reset_url": null,
     "email_confirmation_url": null,
     "default_currency": "XBT"
+    "nationalities": [],
+    "address": {
+        # ...
+    },
+    "switches": []
 }
 ```
 
@@ -5235,7 +5390,12 @@ rehive.admin.company.update(
         "logo": "https://www.test_company.com/logo.jpg",
         "password_reset_url": null,
         "email_confirmation_url": null,
-        "default_currency": "XBT"
+        "default_currency": "XBT",
+        "nationalities": [],
+        "address": {
+            // ...
+        },
+        "switches": []
     }
 }
 ```
@@ -5249,7 +5409,12 @@ rehive.admin.company.update(
     "logo": "https://www.test_company.com/logo.jpg",
     "password_reset_url": null,
     "email_confirmation_url": null,
-    "default_currency": "XBT"
+    "default_currency": "XBT",
+    "nationalities": [],
+    "address": {
+        // ...
+    },
+    "switches": []
 }
 ```
 
@@ -5267,9 +5432,14 @@ Field | Description | Default | Required
 `description` | Company Description | blank | false
 `website` | Company website URL | blank | false
 `logo` | Company logo URL | blank | false
+`nationalities` | List of accepted nationalities | blank | false
 `password_reset_url` | Custom company password reset URL | blank | false
 `email_confirmation_url` | Custom company email confirmation URL | blank | false
 `default_currency` | Default company currency | null | false
+
+<aside class="notice">
+When adding a logo image, the Content-type header needs to be set to multipart/form-data.
+</aside>
 
 
 ### List Bank Accounts
@@ -6135,6 +6305,7 @@ rehive.admin.tiers.create(
 Field | Description | Default | Required
 --- | --- | --- | ---
 `currency` | Currency code related to this tier | | true
+`level` | Tier Level | null | false
 `name` | Name of the tier | blank | false
 `description` | Description of the tier | blank | false
 
@@ -6214,7 +6385,7 @@ Retrieve a specific tier.
 > Retrieve Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{id}
+curl https://rehive.com/api/3/admin/tiers/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6263,7 +6434,7 @@ rehive.admin.tiers.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{id`
+`https://rehive.com/api/3/admin/tiers/{id}/`
 
 ### Update Tier
 
@@ -6272,7 +6443,7 @@ Update the name of description of a tier.
 > Update Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{id}
+curl https://rehive.com/api/3/admin/tiers/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6327,13 +6498,40 @@ rehive.admin.tiers.update(
 
 Field | Description | Default | Required
 --- | --- | --- | ---
+`currency` | Currency code related to this tier | | true
+`level` | Tier Level | null | false
 `name` | Name of the tier | blank | false
 `description` | Description of the tier | blank | false
 
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/`
+
+### Delete Tier
+
+Delete a specific tier.
+
+> Delete Tier request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Tier response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{id}/`
 
 ### List Tier Requirements
 
@@ -6360,11 +6558,13 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
     "data": [
         {
             "id": 1,
+            "token_tier_id": 1,
             "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
             "requirement": "First Name"
         },
         {
             "id": 2,
+            "token_tier_id": 1,
             "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
             "requirement": "Last Name"
         }
@@ -6376,11 +6576,13 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
 [
     {
         "id": 1,
+        "token_tier_id": 1,
         "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
         "requirement": "First Name"
     },
     {
         "id": 2,
+        "token_tier_id": 1,
         "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
         "requirement": "Last Name"
     }
@@ -6418,6 +6620,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.create(
     "status": "success",
     "data": {
         "id": 3,
+        "token_tier_id": 1,
         "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
         "requirement": "Birth Date"
     }
@@ -6427,10 +6630,21 @@ rehive.admin.tiers.obj("{tier_id}").requirements.create(
 ```python
 {
     "id": 3,
+    "token_tier_id": 1,
     "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
     "requirement": "Birth Date"
 }
 ```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`requirement` | Requirement Type | | true
 
 #### Requirement Types
 
@@ -6450,16 +6664,6 @@ Value | Description
 `proof_of_address` | Proof of address
 `advanced_proof_of_identity` | Advanced proof of identity
 
-#### Endpoint
-
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
-
-#### Fields
-
-Field | Description | Default | Required
---- | --- | --- | ---
-`requirement` | Requirement Type | | true
-
 ### Retrieve Tier Requirements
 
 Retrieve a specific requirement related to a Tier
@@ -6467,7 +6671,7 @@ Retrieve a specific requirement related to a Tier
 > Retrieve Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6486,6 +6690,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get(
     "status": "success",
     "data": {
         "id": 3,
+        "token_tier_id": 1,
         "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
         "requirement": "Birth Date"
     }
@@ -6495,6 +6700,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get(
 ```python
 {
     "id": 3,
+    "token_tier_id": 1,
     "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
     "requirement": "Birth Date"
 }
@@ -6502,7 +6708,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/`
 
 ### Update Tier Requirements
 
@@ -6511,11 +6717,11 @@ Update a specific requirement related to a Tier
 > Update Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{switch_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -D '{"enabled": "proof_of_identity"}'
+  -D '{"requirement": "proof_of_identity"}'
 ```
 
 ```python
@@ -6532,6 +6738,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
     "status": "success",
     "data": {
         "id": 3,
+        "token_tier_id": 1,
         "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
         "requirement": "Proof Of Identity"
     }
@@ -6541,6 +6748,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
 ```python
 {
     "id": 3,
+    "token_tier_id": 1,
     "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
     "requirement": "Proof Of Identity"
 }
@@ -6548,7 +6756,56 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`requirement` | Requirement Type | | true
+
+#### Requirement Types
+
+Value | Description 
+--- | --- 
+`first_name` | First Name
+`last_name` | Last Name
+`nationality` | Nationality
+`birth_date` | Birth Date
+`id_number` | ID Number
+`language` | Language
+`address` | Address
+`bank_account` | Bank Account
+`email_address` | Email Address
+`mobile_number` | Mobile Number
+`proof_of_identity` | Proof of identity
+`proof_of_address` | Proof of address
+`advanced_proof_of_identity` | Advanced proof of identity
+
+### Delete Tier Requirements
+
+Delete a specific requirement related to a Tier
+
+> Delete Tier Requirements request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Tier Requirements response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/`
 
 ### List Tier Limits
 
@@ -6692,7 +6949,7 @@ Retrieve a specific requirement related to a Tier
 > Retrieve Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6735,7 +6992,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limits_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/`
 
 ### Update Tier Limits
 
@@ -6744,7 +7001,7 @@ Update a specific limits related to a Tier
 > Update Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limits_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6791,7 +7048,58 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limits_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`value` | Limit value | 0 | true
+`type` | Limit Type |  | true
+`tx_type` | Transaction type limits are applied | | true
+`subtype` | Transaction subtype name | null | false
+
+#### Limit Types
+
+Value | Description 
+--- | --- 
+`max` | Maximum 
+`day_max` | Maximum per day 
+`month_max` | Maximum per month 
+`min` | Minimum 
+`overdraft` | Overdraft 
+
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
+### Delete Tier Limits
+
+Delete a specific requirement related to a Tier
+
+> Delete Tier Limits request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Tier Limits response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/`
 
 ### List Tier Fees
 
@@ -6925,7 +7233,7 @@ Retrieve a specific requirement related to a Tier.
 > Retrieve Tier Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6968,7 +7276,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
 
 ### Update Tier Fee
 
@@ -6977,7 +7285,7 @@ Update a specific fees related to a Tier.
 > Update Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7022,7 +7330,48 @@ rehive.admin.tiers.obj("{tier_id}").fees.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`value` | Fee amount | 0 | false
+`percentage` | Percentage amount |  | false
+`tx_type` | Transaction type fees are applied | | true
+`subtype` | Transaction subtype name | null | false
+
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
+### Delete Tier fee
+
+Delete a specific requirement related to a Tier.
+
+> Delete Tier Fee request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Tier Fee response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
 
 ### List Tier Switches
 
@@ -7137,6 +7486,13 @@ Field | Description | Default | Required
 `subtype` | Subtype name | null | false
 `enabled` | Enabled | false | true
 
+#### Transaction Types
+
+Value | Description 
+--- | --- 
+`credit` | Credit 
+`debit` | Debit
+
 ### Retrieve Tier Switches
 
 Retrieve a specific switch related to a Tier
@@ -7144,7 +7500,7 @@ Retrieve a specific switch related to a Tier
 > Retrieve Tier Switches request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7183,7 +7539,7 @@ rehive.admin.tiers.obj("{tier_id}").switches.get("{switch_id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/`
 
 ### Update Tier Switches
 
@@ -7192,7 +7548,7 @@ Update a specific switch related to a Tier
 > Update Tier Switches request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7235,7 +7591,32 @@ rehive.admin.tiers.obj("{tier_id}").switches.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}`
+`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/`
+
+### Delete Tier Switches
+
+Delete a specific switch related to a Tier
+
+> Delete Tier Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Tier Switches response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/`
 
 ## Switches
 
@@ -7273,13 +7654,6 @@ rehive.admin.swtiches.create(
     "status": "success",
     "data": {
         "id": 1,
-        "company": {
-            "identifier": "test_company_1",
-            "name": "Test Company 1",
-            "description": "Wallets for everyone.",
-            "website": "http://wwww.rehive.io",
-            "logo": null
-        },
         "switch_type": "Allow transactions",
         "enabled": false,
         "created": 1497348308625,
@@ -7291,31 +7665,12 @@ rehive.admin.swtiches.create(
 ```python
 {
     "id": 1,
-    "company": {
-        "identifier": "test_company_1",
-        "name": "Test Company 1",
-        "description": "Wallets for everyone.",
-        "website": "http://wwww.rehive.io",
-        "logo": null
-    },
     "switch_type": "Allow transactions",
     "enabled": false,
     "created": 1497348308625,
     "updated": 1497348318654
 }
 ```
-
-#### Types
-Global switches can be one of the following 2 types.
-
-Value | Description
---- | ---
-`transactions` | Allow transactions
-`verification` | Allow transactions for unverified users
-`overdraft` | Allow unlimited overdrafts
-`auto_confirm | Automatically complete transactions on creation
-`manage_accounts` | Allow users to manage their accounts
-`session_duration` | Allow users to set their own session duration
 
 #### Endpoint
 
@@ -7327,6 +7682,18 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `switch_type` | Global Switch Type Label | | true
 `enabled` | Account Name | false | true
+
+#### Types
+Global switches can be one of the following types.
+
+Value | Description
+--- | ---
+`transactions` | Allow transactions
+`verification` | Allow transactions for unverified users
+`overdraft` | Allow unlimited overdrafts
+`auto_confirm` | Automatically complete transactions on creation
+`manage_accounts` | Allow users to manage their accounts
+`session_duration` | Allow users to set their own session duration
 
 ### List Global Switches
 
@@ -7353,13 +7720,6 @@ rehive.admin.switches.get()
     "data": [
         {
             "id": 1,
-            "company": {
-                "identifier": "test_company_1",
-                "name": "Test Company 1",
-                "description": "Wallets for everyone.",
-                "website": "http://wwww.rehive.io",
-                "logo": null
-            },
             "switch_type": "Allow transactions",
             "enabled": true,
             "created": 1497347723605,
@@ -7373,13 +7733,6 @@ rehive.admin.switches.get()
 [
     {
         "id": 1,
-        "company": {
-            "identifier": "test_company_1",
-            "name": "Test Company 1",
-            "description": "Wallets for everyone.",
-            "website": "http://wwww.rehive.io",
-            "logo": null
-        },
         "switch_type": "Allow transactions",
         "enabled": true,
         "created": 1497347723605,
@@ -7416,13 +7769,6 @@ rehive.admin.switches.get("{id}")
     "status": "success",
     "data": {
         "id": 1,
-        "company": {
-            "identifier": "test_company_1",
-            "name": "Test Company 1",
-            "description": "Wallets for everyone.",
-            "website": "http://wwww.rehive.io",
-            "logo": null
-        },
         "switch_type": "Allow transactions",
         "enabled": true,
         "created": 1497347723605,
@@ -7434,13 +7780,6 @@ rehive.admin.switches.get("{id}")
 ```python
 {
     "id": 1,
-    "company": {
-        "identifier": "test_company_1",
-        "name": "Test Company 1",
-        "description": "Wallets for everyone.",
-        "website": "http://wwww.rehive.io",
-        "logo": null
-    },
     "switch_type": "Allow transactions",
     "enabled": true,
     "created": 1497347723605,
@@ -7450,7 +7789,7 @@ rehive.admin.switches.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/switches/{id}`
+`https://rehive.com/api/3/admin/switches/{id}/`
 
 ### Update Global Switches
 
@@ -7459,7 +7798,7 @@ Update a specific global switch.
 > Update Global Switches request
 
 ```shell
-curl https://rehive.com/api/3/admin/switches/{id}
+curl https://rehive.com/api/3/admin/switches/{id}/
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7480,13 +7819,6 @@ rehive.admin.switches.update(
     "status": "success",
     "data": {
         "id": 1,
-        "company": {
-            "identifier": "test_company_1",
-            "name": "Test Company 1",
-            "description": "Wallets for everyone.",
-            "website": "http://wwww.rehive.io",
-            "logo": null
-        },
         "switch_type": "Allow transactions",
         "enabled": false,
         "created": 1497348308625,
@@ -7498,13 +7830,6 @@ rehive.admin.switches.update(
 ```python
 {
     "id": 1,
-    "company": {
-        "identifier": "test_company_1",
-        "name": "Test Company 1",
-        "description": "Wallets for everyone.",
-        "website": "http://wwww.rehive.io",
-        "logo": null
-    },
     "switch_type": "Allow transactions",
     "enabled": false,
     "created": 1497348308625,
@@ -7514,7 +7839,7 @@ rehive.admin.switches.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/switches/{id}`
+`https://rehive.com/api/3/admin/switches/{id}/`
 
 #### Fields
 
@@ -7522,3 +7847,425 @@ Field | Description | Default | Required
 --- | --- | --- | ---
 `switch_type` | Global Switch Type | | false
 `enabled` | Account Name | false | false
+
+#### Types
+Global switches can be one of the following types.
+
+Value | Description
+--- | ---
+`transactions` | Allow transactions
+`verification` | Allow transactions for unverified users
+`overdraft` | Allow unlimited overdrafts
+`auto_confirm` | Automatically complete transactions on creation
+`manage_accounts` | Allow users to manage their accounts
+`session_duration` | Allow users to set their own session duration
+
+### Delete Global Switches
+
+Delete a specific global switch.
+
+> Delete Global Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/switches/{id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Delete Global Switches response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/switches/{id}/`
+
+## Permissions
+
+#### Permission Groups
+Rehive inclused fine-grained permission management system, that allows admin users to create permission groups as well as individually manage users' permissions to view, add, edit or delete data from the system via admin endpoints.
+
+#### Users and Permissions
+Users can either be assigned permission groups, or permissions directly. When assigning permission groups to a user, the user will have the access specified in the permission assigned to the permission group. Individual permissions can be assigned to user if some additional permission only need to be provided to a specific user.
+
+### List permission groups
+
+> Admin list permission groups request
+
+```shell
+curl https://www.rehive.com/api/3/admin/permission-groups/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list permission groups response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "name": "test_group",
+                "permissions": []
+            }
+        ]
+    }
+}
+```
+
+Get a list of permission groups that have been created with the associated permissions.
+
+#### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/permission-groups/`
+
+### Create permission groups
+
+> Admin create permission groups request
+
+```shell
+curl https://www.rehive.com/api/3/admin/permission-groups/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "test_group"}'
+```
+
+> Admin create permission groups response
+
+```json
+{
+    "data": {
+        "name": "test_group",
+        "permissions": []
+    },
+    "status": "success"
+}
+```
+
+Create a new permission group with no permission associated to it.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/permission-groups/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Permission group name | "" | true
+
+### Update permission groups
+
+> Admin update permission groups request
+
+```shell
+curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "new_name"}'
+```
+
+> Admin update permission groups response
+
+```json
+{
+    "data": {
+        "name": "new_name",
+        "permissions": []
+    },
+    "status": "success"
+}
+```
+
+Update the permission group's name.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/permission-groups/{group_name}/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`name` | Permission group name | "" | true
+
+### Delete permission groups
+
+> Admin delete permission groups request
+
+```shell
+curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin delete permission groups response
+
+```json
+{
+    "status": "success"
+}
+```
+
+Delete the permission group and all associated permissions assigned to it.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/permission-groups/{group_name}/`
+
+### List permissions
+
+> Admin list permissions request
+
+```shell
+curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/permissions/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin list permissions response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "count": 2,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 55,
+                "type": "account",
+                "level": "add"
+            },
+            {
+                "id": 367,
+                "type": "account",
+                "level": "view"
+            }
+        ]
+    }
+}
+```
+
+List all the permissions associated to a permission group.
+
+#### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/permission-groups/{group_name}/permissions/`
+
+### Add permissions
+
+> Admin add permissions request
+
+```shell
+curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/permissions/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"type": "account",
+       "level": "view"}'
+```
+
+> Admin add permissions response
+
+```json
+{
+    "data": {
+        "id": 367,
+        "type": "account",
+        "level": "view"
+    },
+    "status": "success"
+}
+```
+
+Add the given permission to the permission group.
+
+#### Pagination
+
+The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/permission-groups/{group_name}/permissions/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`type` | Permission type | "" | true
+`level` | Level of permission | "" | true
+
+### Remove permissions
+
+> Admin remove permissions request
+
+```shell
+curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/permissions/{permission_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin remove permissions response
+
+```json
+{
+    "status": "success"
+}
+```
+
+Remove the permission from the permission group.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/permission-groups/{group_name}/permissions/{permission_id}/`
+
+
+### Assign permission group
+
+> Admin assign permission group request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"group": "test_group"}'
+```
+
+> Admin assign permission group response
+
+```json
+{
+    "data": {
+        "name": "test_group"
+    },
+    "status": "success"
+}
+```
+
+Assign a permission group to a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`group` | Group name | "" | true
+
+### Unassign permission group
+
+> Admin unassign permission group request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/{group_name}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin unassign permission group response
+
+```json
+{
+    "status": "success"
+}
+```
+
+Unassign a permission group for a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/{group_name}/`
+
+### Assign permissions
+
+> Admin assign permissions request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"type": "account",
+       "level": "view"}'
+```
+
+> Admin assign permissions response
+
+```json
+{
+    "status": "success",
+    "data": {
+        "id": 269,
+        "type": "account",
+        "level": "view"
+    }
+}
+```
+
+Assign a permission to a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/permissions/`
+
+#### Fields
+
+Field | Description | Default | Required
+--- | --- | --- | ---
+`type` | Permission type | "" | true
+`level` | Level of permission | "" | true
+
+### Unassign permissions
+
+> Admin unassign permissions request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Admin unassign permissions response
+
+```json
+{
+    "status": "success"
+}
+```
+
+Unassign a permissions for a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}/`
+

@@ -14,7 +14,6 @@ includes:
   - transactions
   - accounts
   - company
-  - permissions
   - administration
   - beta
 
