@@ -499,17 +499,22 @@ Create a credit transaction.
 
 `https://rehive.com/api/3/transactions/credit/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`amount` | amount | null | true
-`currency` | currency code | blank | false
-`reference` | optional credit reference | blank | false
-`subtype` | a custom defined subtype | null | false
-`account` | account reference code | null | false
-`note` | user's note or message | blank | false
-`metadata` | custom metadata | {} | false
+Field | Description | Default
+--- | --- | --- 
+`amount` | amount | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`currency` | currency code | blank
+`reference` | optional credit reference | blank
+`subtype` | a custom defined subtype | null
+`account` | account reference code | null
+`note` | user's note or message | blank
+`metadata` | custom metadata | {}
 
 <aside class="notice">
 Bear in mind that the <code>amount</code> should always be in the lowest currency unit available (ie, cents).
@@ -580,17 +585,22 @@ Create a debit transaction.
 
 `https://rehive.com/api/3/transactions/debit/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`amount` | amount | null | true
-`currency` | currency code | blank | false
-`reference` | optional debit reference | blank | false
-`subtype` | a custom defined subtype | null | false
-`account` | account reference code | null | false
-`note` | user's note or message | blank | false
-`metadata` | custom metadata | {} | false
+Field | Description | Default
+--- | --- | --- 
+`amount` | amount | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`currency` | currency code | blank
+`reference` | optional debit reference | blank
+`subtype` | a custom defined subtype | null
+`account` | account reference code | null
+`note` | user's note or message | blank
+`metadata` | custom metadata | {}
 
 ## Create Transfer
 
@@ -660,20 +670,25 @@ The transfer transaction endpoint is a wrapper for standard debit/credit transac
 
 `https://rehive.com/api/3/transactions/transfer/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`amount` | amount | null | true
-`recipient` | email, mobile number, or unique identifier | null | true
-`currency` | currency code | blank | false
-`debit_subtype` | a custom defined subtype | null | false
-`debit_account` | account reference code | null | false
-`debit_note` | user's note or message | blank | false
-`debit_metadata` | custom metadata | {} | false
-`debit_reference` | optional debit reference | string | false
-`credit_subtype` | a custom defined subtype | null | false
-`credit_account` | account reference code | null | false
-`credit_note` | user's note or message | blank | false
-`credit_metadata` | custom metadata | {} | false
-`credit_reference` | optional credit reference | string | false
+Field | Description | Default
+--- | --- | --- 
+`amount` | amount | null
+`recipient` | email, mobile number, or unique identifier | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`currency` | currency code | blank
+`debit_subtype` | a custom defined subtype | null
+`debit_account` | account reference code | null
+`debit_note` | user's note or message | blank
+`debit_metadata` | custom metadata | {}
+`debit_reference` | optional debit reference | string
+`credit_subtype` | a custom defined subtype | null
+`credit_account` | account reference code | null
+`credit_note` | user's note or message | blank
+`credit_metadata` | custom metadata | {}
+`credit_reference` | optional credit reference | string

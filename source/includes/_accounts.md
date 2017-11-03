@@ -58,12 +58,17 @@ switch.
 
 `https://rehive.com/api/3/accounts/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | account name | null | true
-`primary` | account primary status | false | false
+Field | Description | Default 
+--- | --- | --- 
+`name` | account name | null 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | --- 
+`primary` | account primary status | false 
 
 
 ## List Accounts
@@ -398,12 +403,16 @@ switch.
 
 `https://rehive.com/api/3/accounts/{reference}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | account name | null | true
-`primary` | account primary status | false | false
+Field | Description | Default 
+--- | --- | --- 
+`name` | account name | null 
+
+#### Optional Fields
+Field | Description | Default 
+--- | --- | --- 
+`primary` | account primary status | false 
 
 
 ## List Account Currencies
@@ -706,8 +715,8 @@ Update the active status of an account currency. Activating an account's currenc
 
 `https://rehive.com/api/3/accounts/{reference}/currencies/{code}`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`active` | is active currency | false | false
+Field | Description | Default 
+--- | --- | --- |
+`active` | is active currency | false 

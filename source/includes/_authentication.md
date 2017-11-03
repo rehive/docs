@@ -130,20 +130,25 @@ for subsequent requests.
 
 `https://rehive.com/api/3/auth/company/register/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`first_name` | first name | null | true
-`last_name` | last name | null | true
-`email` | email address | null | true
-`mobile_number` | mobile number | null | false
-`nationality` | country code | null | false
-`company` | company identifier | null | true
-`password1` | password | null | true
-`password2` | repeat password | null | true
-`terms_and_conditions` | agreed to terms | false | true
-`session_duration` | session duration | 36000000 | false
+Field | Description | Default 
+--- | --- | --- 
+`first_name` | first name | null
+`last_name` | last name | null
+`email` | email address | null
+`company` | company identifier | null
+`password1` | password | null
+`password2` | repeat password | null
+`terms_and_conditions` | agreed to terms | false
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | --- 
+`mobile_number` | mobile number | null
+`nationality` | country code | null
+`session_duration` | session duration | 36000000
 
 
 ## Register
@@ -291,20 +296,25 @@ return the user's details and a token that can be used for subsequent requests.
 
 `https://rehive.com/api/3/auth/register/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`first_name` | first name | null | true
-`last_name` | last name | null | true
-`email` | email address | null | true
-`mobile_number` | mobile number | null | false
-`company` | company identifier | null | true
-`nationality` | nationality code | null | false
-`terms_and_conditions` | agreed to terms | null | false
-`session_duration` | session duration | 36000000 | false
-`password1` | password | null | true
-`password2` | repeat password | null | true
+Field | Description | Default 
+--- | --- | --- 
+`first_name` | first name | null
+`last_name` | last name | null
+`email` | email address | null
+`company` | company identifier | null
+`password1` | password | null
+`password2` | repeat password | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | --- 
+`terms_and_conditions` | agreed to terms | false
+`mobile_number` | mobile number | null
+`nationality` | country code | null
+`session_duration` | session duration | 36000000
 
 <aside class="notice">
 <code>terms_and_conditions</code> can be set as a required by enabling the 
@@ -517,14 +527,19 @@ user's details and a token that can be used for subsequent requests.
 
 `https://rehive.com/api/3/auth/login/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | email, mobile number, or unique identifier | null | true
-`company` | company identifier | null | true
-`password` | password | null | true
-`session_duration` | session duration | 36000000 | false
+Field | Description | Default
+--- | --- | --- 
+`user` | email, mobile number, or unique identifier | null
+`company` | company identifier | null
+`password` | password | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`session_duration` | session duration | 36000000
 
 ## Logout
 
@@ -684,13 +699,13 @@ Take note of the <code>Authorization</code> header required for authentication.
 
 `https://rehive.com/api/3/auth/password/change/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`old_password` | old password | null | true
-`new_password1` | new password | null | true
-`new_password2` | confirm new password | null | true
+Field | Description | Default
+--- | --- | ---
+`old_password` | old password | null
+`new_password1` | new password | null
+`new_password2` | confirm new password | null
 
 ## Reset Password
 
@@ -751,12 +766,12 @@ Send a password reset email.
 
 `https://rehive.com/api/3/auth/password/reset/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | email, mobile number, or unique identifier | null | true
-`company` | company identifier | null | true
+Field | Description | Default
+--- | --- | ---
+`user` | email, mobile number, or unique identifier | null
+`company` | company identifier | null
 
 ## Reset Password Confirm
 
@@ -829,14 +844,14 @@ use of your own client side UI for resetting emails.
 
 `https://rehive.com/api/3/auth/password/reset/confirm/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`new_password1` | password | null | true
-`new_password2` | password confirm | null | true
-`uid` | unique identifer for reset | null | true
-`token` | unique token for reset | null | true
+Field | Description | Default
+--- | --- | ---
+`new_password1` | password | null
+`new_password2` | password confirm | null
+`uid` | unique identifer for reset | null
+`token` | unique token for reset | null
 
 ## Resend Email Verification
 
@@ -893,12 +908,12 @@ Resend email verifications for an email.
 
 `https://rehive.com/api/3/auth/email/verify/resend/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`email` | email address | null | true
-`company` | company identifier | null | true
+Field | Description | Default
+--- | --- | ---
+`email` | email address | null
+`company` | company identifier | null
 
 ## Resend Mobile Verification
 
@@ -955,12 +970,12 @@ Resends mobile verifications for a mobile number.
 
 `https://www.rehive.com/api/3/auth/mobile/verify/resend/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`mobile` | mobile number | null | true
-`company` | company identifier | null | true
+Field | Description | Default
+--- | --- | --- 
+`mobile` | mobile number | null
+`company` | company identifier | null
 
 
 ## Verify Email
@@ -988,11 +1003,11 @@ Verify an email number with a key. The key is sent in an email by Rehive.
 
 `https://rehive.com/api/3/auth/email/verify/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`key` | verification key | null | true
+Field | Description | Default
+--- | --- | ---
+`key` | verification key | null
 
 
 ## Verify Mobile
@@ -1049,11 +1064,11 @@ be logged in for this functionality to work.
 
 `https://rehive.com/api/3/auth/mobile/verify/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`otp` | one time password | null | true
+Field | Description | Default
+--- | --- | ---
+`otp` | one time password | null
 
 
 ## Tokens
@@ -1338,11 +1353,11 @@ Creating a token here will remove the expiration time on the token, thus giving 
 
 `https://rehive.com/api/3/auth/tokens/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`password` | password | null | true
+Field | Description | Default
+--- | --- | ---
+`password` | password | null
 
 ### Delete Token
 

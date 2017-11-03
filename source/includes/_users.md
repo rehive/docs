@@ -362,20 +362,20 @@ Update a user's profile information.
 
 `https://rehive.com/api/3/user/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`first_name` | first name | blank | false
-`last_name` | last name | blank | false
-`id_number` | ID number | blank | false
-`profile` | profile image | blank | false
-`language` | language code (`af`, `en` etc.) | blank | false
-`nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
-`metadata` | custom metadata | {} | false
-`mobile_number` | mobile number | blank | false
-`timezone` | timezone | blank | false
-`birth_date` | birth date | blank | false
+Field | Description | Default
+--- | --- | ---
+`first_name` | first name | blank
+`last_name` | last name | blank
+`id_number` | ID number | blank
+`profile` | profile image | blank
+`language` | language code (`af`, `en` etc.) | blank
+`nationality` | nationality code (`ZA`, `UK` etc.) | blank
+`metadata` | custom metadata | {}
+`mobile_number` | mobile number | blank
+`timezone` | timezone | blank
+`birth_date` | birth date | blank
 
 <aside class="notice">
     <code>birth_date</code> should be added in the formal yyyy-mm-dd
@@ -527,16 +527,16 @@ Update a user's address.
 
 `https://rehive.com/api/3/user/address/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`line_1` | address line one | blank | false
-`line_2` | address line 2 | blank | false
-`city` | city | blank | false
-`state_province` | state or province | blank | false
-`country` | country code | blank | false
-`postal_code` | postal or zip code) | blank | false
+Field | Description | Default
+--- | --- | ---
+`line_1` | address line one | blank
+`line_2` | address line 2 | blank
+`city` | city | blank
+`state_province` | state or province | blank
+`country` | country code | blank
+`postal_code` | postal or zip code) | blank
 
 
 ## List Bank Accounts
@@ -693,19 +693,19 @@ Create a bank account for a user.
 
 `https://rehive.com/api/3/user/bank-accounts/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | account name | null | false
-`number` | account number | null | false
-`type` | account type | null | false
-`bank_name` | bank name | null | false
-`bank_code` | bank code | null | false
-`branch_code` | branch code | null | false
-`swift` | swift number | null | false
-`iban` | IBAN number | null | false
-`bic` | BIC number | null | false
+Field | Description | Default
+--- | --- | ---
+`name` | account name | null
+`number` | account number | null
+`type` | account type | null
+`bank_name` | bank name | null
+`bank_code` | bank code | null
+`branch_code` | branch code | null
+`swift` | swift number | null
+`iban` | IBAN number | null
+`bic` | BIC number | null
 
 
 ## Retrieve Bank Account
@@ -817,19 +817,19 @@ Update a user's bank account.
 
 `https://rehive.com/api/3/user/bank-accounts/{account_id}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | account name | null | false
-`number` | account number | null | false
-`type` | account type | null | false
-`bank_name` | bank name | null | false
-`bank_code` | bank code | null | false
-`branch_code` | branch code | null | false
-`swift` | swift number | null | false
-`iban` | IBAN number | null | false
-`bic` | BIC number | null | false
+Field | Description | Default
+--- | --- | ---
+`name` | account name | null
+`number` | account number | null
+`type` | account type | null
+`bank_name` | bank name | null
+`bank_code` | bank code | null
+`branch_code` | branch code | null
+`swift` | swift number | null
+`iban` | IBAN number | null
+`bic` | BIC number | null
 
 
 ## Delete Bank Account
@@ -978,13 +978,18 @@ Create a crypto account for a user.
 
 `https://rehive.com/api/3/user/crypto-accounts/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`address` | full bitcoin address | null | true
-`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
-`metadata` | custom metadata | {} | false
+Field | Description | Default
+--- | --- | --- 
+`address` | full bitcoin address | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
+`metadata` | custom metadata | {}
 
 
 ## Retrieve Crypto Account
@@ -1078,14 +1083,19 @@ Update a user's crypto account.
 
 `https://rehive.com/api/3/user/crypto-accounts/{account_id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`address` | full bitcoin address | null | true
-`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
-`metadata` | custom metadata | {} | false
-`status` | string status | 'pending' | false
+Field | Description | Default
+--- | --- | --- 
+`address` | full bitcoin address | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
+`metadata` | custom metadata | {}
+`status` | string status | 'pending'
 
 
 ## Delete Crypto Account
@@ -1272,14 +1282,19 @@ Upload a user document.
 
 `https://rehive.com/api/3/user/document/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`file` | a document file | null | true
-`document_category` | The document category | other | false
-`document_type` | The type of docuemnt | other | false
-`metadata` | custom metadata | {} | false
+Field | Description | Default
+--- | --- | --- 
+`file` | a document file | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`document_category` | The document category | other 
+`document_type` | The type of docuemnt | other 
+`metadata` | custom metadata | {} 
 
 
 ## List Email Addresses
@@ -1418,12 +1433,17 @@ Create an email address for a user.
 
 `https://rehive.com/api/3/user/emails/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`email` | email address | null | true
-`primary` | is a primary user email | false | false
+Field | Description | Default
+--- | --- | --- 
+`email` | email address | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`primary` | is a primary user email | false
 
 
 ## Retrieve Email Address
@@ -1555,11 +1575,11 @@ Update a user's email adress. The email adress can be changed to be the user's p
 
 `https://rehive.com/api/3/user/emails/{email_id}`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`primary` | is a primary user email | false | false
+Field | Description | Default
+--- | --- | ---
+`primary` | is a primary user email | false
 
 ## Delete Email Address
 
@@ -1720,12 +1740,17 @@ Create a mobile number for a user.
 
 `https://rehive.com/api/3/user/mobiles/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`number` | mobile number address (including area code)| null | true
-`primary` | is a primary user number | false | false
+Field | Description | Default
+--- | --- | --- 
+`number` | mobile number address (including area code)| null
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | --- 
+`primary` | is a primary user number | false 
 
 ## Retrieve Mobile Numbers
 
@@ -1858,11 +1883,11 @@ Update a user's mobile number. The number can be changed to be the user's primar
 
 `https://rehive.com/api/3/user/mobiles/{number_id}`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`primary` | is a primary user email | false | false
+Field | Description | Default
+--- | --- | ---
+`primary` | is a primary user email | false
 
 ## Delete Mobile Number
 

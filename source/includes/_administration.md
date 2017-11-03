@@ -321,22 +321,22 @@ Update a user's details.
 
 `https://rehive.com/api/3/admin/users/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`first_name` | first name | blank | false
-`last_name` | last name | blank | false
-`email` | email address | null| false
-`mobile_number` | mobile number | null | false
-`id_number` | ID number | blank | false
-`profile` | profile image | blank | false
-`language` | language code (`af`, `en` etc.) | blank | false
-`nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
-`metadata` | custom metadata | {} | false
-`mobile_number` | mobile number | blank | false
-`timezone` | timezone | blank | false
-`birth_date` | birth date | blank | false
+Field | Description | Default
+--- | --- | ---
+`first_name` | first name | blank
+`last_name` | last name | blank
+`email` | email address | null
+`mobile_number` | mobile number | null
+`id_number` | ID number | blank
+`profile` | profile image | blank
+`language` | language code (`af`, `en` etc.) | blank
+`nationality` | nationality code (`ZA`, `UK` etc.) | blank
+`metadata` | custom metadata | {}
+`mobile_number` | mobile number | blank
+`timezone` | timezone | blank
+`birth_date` | birth date | blank
 
 <aside class="warning">
     A `mobile_number` or `email` is required.
@@ -600,21 +600,21 @@ Update a user's details.
 
 `https://rehive.com/api/3/admin/users/{identifier}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`first_name` | first name | blank | false
-`last_name` | last name | blank | false
-`id_number` | ID number | blank | false
-`profile` | profile image | blank | false
-`language` | language code (`af`, `en` etc.) | blank | false
-`nationality` | nationality code (`ZA`, `UK` etc.) | blank | false
-`metadata` | custom metadata | {} | false
-`mobile_number` | mobile number | blank | false
-`timezone` | timezone | blank | false
-`birth_date` | birth date | blank | false
-`status` | status | pending | false
+Field | Description | Default
+--- | --- | --- 
+`first_name` | first name | blank
+`last_name` | last name | blank
+`id_number` | ID number | blank
+`profile` | profile image | blank
+`language` | language code (`af`, `en` etc.) | blank
+`nationality` | nationality code (`ZA`, `UK` etc.) | blank
+`metadata` | custom metadata | {}
+`mobile_number` | mobile number | blank
+`timezone` | timezone | blank
+`birth_date` | birth date | blank
+`status` | status | pending
 
 #### Statuses
 
@@ -704,13 +704,18 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/
 
 `https://rehive.com/api/3/admin/users/{identifier}/switches/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`tx_type` | Transaction Type | | true
-`subtype` | Subtype name | null | false
-`enabled` | Enabled | false | true
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction Type | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Subtype name | null
+`enabled` | Enabled | false
 
 ### Retrieve User Switches
 
@@ -783,13 +788,18 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 }
 ```
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`tx_type` | Transaction type | | true
-`subtype` | Transaction subtype | None | false
-`enabled` | Enabled | false | false
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction Type | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Subtype name | null
+`enabled` | Enabled | false
 
 #### Endpoint
 
@@ -938,10 +948,16 @@ curl https://rehive.com/api/3/admin/users/addresses/
 
 `https://rehive.com/api/3/admin/users/addresses/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
+Field | Description | Default
+--- | --- | --- 
+`user` | user identifier | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
 `line_1` | address line one | blank | false
 `line_2` | address line 2 | blank | false
 `city` | city | blank | false
@@ -949,8 +965,6 @@ Field | Description | Default | Required
 `country` | country code | blank | false
 `postal_code` | postal or zip code) | blank | false
 `status` | account status | "pending" | false
-`user` | user identifier | null | true
-`status` | status | pending | false
 
 #### Statuses
 
@@ -1051,17 +1065,17 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
 
 `https://rehive.com/api/3/admin/users/addresses/{id}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
+Field | Description | Default 
+--- | --- | ---
 `line_1` | address line one | blank | false
 `line_2` | address line 2 | blank | false
 `city` | city | blank | false
 `state_province` | state or province | blank | false
 `country` | country code | blank | false
 `postal_code` | postal or zip code) | blank | false
-`status` | status | pending | false
+`status` | account status | "pending" | false
 
 #### Statuses
 
@@ -1273,21 +1287,26 @@ rehive.admin.bank_accounts.create(
 
 `https://rehive.com/api/3/admin/users/bank-accounts/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Account Name | blank | false
-`number` | Account Number | blank | false
-`type` | Account Type | blank | false
-`bank_name` | Bank Name | blank | false
-`bank_code` | Bank Code | blank | false
-`branch_code` | Branch Code | blank | false
-`status` | account status | "pending" | false
-`swift` | swift | blank | false
-`iban` | iban | blank | false
-`bic` | bic | blank | false
-`user` | user identifier | null | true
+Field | Description | Default
+--- | --- | --- 
+`user` | user identifier | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`name` | Account Name | blank
+`number` | Account Number | blank
+`type` | Account Type | blank
+`bank_name` | Bank Name | blank
+`bank_code` | Bank Code | blank
+`branch_code` | Branch Code | blank
+`status` | account status | "pending"
+`swift` | swift | blank
+`iban` | iban | blank
+`bic` | bic | blank
 
 #### Statuses
 
@@ -1455,20 +1474,20 @@ rehive.admin.bank_accounts.update(
 
 `https://rehive.com/api/3/admin/users/bank-accounts/{id}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Account Name | blank | false
-`number` | Account Number | blank | false
-`type` | Account Type | blank | false
-`bank_name` | Bank Name | blank | false
-`bank_code` | Bank Code | blank | false
-`branch_code` | Branch Code | blank | false
-`swift` | swift | blank | false
-`iban` | iban | blank | false
-`bic` | bic | blank | false
-`status` | account status | "pending" | false
+Field | Description | Default 
+--- | --- | ---
+`name` | Account Name | blank
+`number` | Account Number | blank
+`type` | Account Type | blank
+`bank_name` | Bank Name | blank
+`bank_code` | Bank Code | blank
+`branch_code` | Branch Code | blank
+`status` | account status | "pending"
+`swift` | swift | blank
+`iban` | iban | blank
+`bic` | bic | blank
 
 #### Statuses
 
@@ -1621,15 +1640,20 @@ Create a crypto account for a user.
 
 `https://rehive.com/api/3/admin/users/crypto-accounts/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`address` | full bitcoin address | null | true
-`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
-`metadata` | custom metadata | {} | false
-`status` | string status | 'pending' | false
-`user` | user identifier | null | true
+Field | Description | Default
+--- | --- | --- 
+`user` | user identifier | null
+`address` | full bitcoin address | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
+`metadata` | custom metadata | {}
+`status` | string status | 'pending'
 
 #### Statuses
 
@@ -1736,14 +1760,20 @@ Update a user's crypto account.
 
 `https://rehive.com/api/3/admin/users/crypto-accounts/{account_id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`address` | full bitcoin address | null | true
-`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin |  false
-`metadata` | custom metadata | {} | false
-`status` | string status | 'pending' | false
+Field | Description | Default
+--- | --- | --- 
+`user` | user identifier | null
+`address` | full bitcoin address | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
+`metadata` | custom metadata | {}
+`status` | string status | 'pending'
 
 #### Statuses
 
@@ -1899,16 +1929,21 @@ Upload user document.
 
 `https://rehive.com/api/3/admin/document/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`file` | a document file | null | true
-`document_category` | The document category | other | false
-`document_type` | The type of docuemnt | other | false
-`metadata` | custom metadata | {} | false
-`status` | document status | pending | false
-`user` | user identifier | null | true
+Field | Description | Default
+--- | --- | --- 
+`user` | user identifier | null
+`file` | a document file | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`document_category` | The document category | other
+`document_type` | The type of docuemnt | other
+`metadata` | custom metadata | {}
+`status` | document status | pending
 
 #### Statuses
 
@@ -2017,15 +2052,20 @@ Update a user's document.
 
 `https://rehive.com/api/3/admin/users/documents/{document_id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`file` | a document file | null | true
-`document_category` | The document category | other | false
-`document_type` | The type of docuemnt | other | false
-`metadata` | custom metadata | {} | false
-`status` | document status | pending | false
+Field | Description | Default
+--- | --- | --- 
+`file` | a document file | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`document_category` | The document category | other
+`document_type` | The type of docuemnt | other
+`metadata` | custom metadata | {}
+`status` | document status | pending
 
 #### Statuses
 
@@ -2186,14 +2226,19 @@ Create an email address for a user.
 
 `https://rehive.com/api/3/admin/users/emails/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | user identifier | null | true
-`verified` | verified status | false | false
-`primary` | primary status | false | false
-`email` | email address | null | true
+Field | Description | Default
+--- | --- | --- 
+`user` | user identifier | null
+`email` | email address | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`verified` | verified status | false
+`primary` | primary status | false
 
 ### Retrieve Email
 
@@ -2325,12 +2370,12 @@ Update a user's email.
 
 `https://rehive.com/api/3/admin/users/emails/{id}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`verified` | verified status | false | false
-`primary` | primary status | false | false
+Field | Description | Default 
+--- | --- | ---
+`verified` | verified status | false
+`primary` | primary status | false
 
 ### Delete Email
 
@@ -2506,14 +2551,19 @@ Create a mobile number for a user.
 
 `https://rehive.com/api/3/admin/users/mobiles/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | user identifier | null | true
-`verified` | verified status | false | false
-`primary` | primary status | false | false
-`mobile` | mobile number | null | true
+Field | Description | Default
+--- | --- | --- 
+`user` | user identifier | null
+`mobile` | mobile number | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`verified` | verified status | false
+`primary` | primary status | false
 
 ### Retrieve Mobile
 
@@ -2645,12 +2695,12 @@ Update a user's mobile.
 
 `https://rehive.com/api/3/admin/users/mobiles/{id}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`verified` | verified status | false | false
-`primary` | primary status | false | false
+Field | Description | Default 
+--- | --- | ---
+`verified` | verified status | false
+`primary` | primary status | false
 
 
 ### Delete Mobile
@@ -3127,13 +3177,18 @@ Each message added to a transaction will be stored in a list. Rehive will also a
 
 `https://rehive.com/api/3/admin/transactions/{id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
+Field | Description | Default
+--- | --- | --- 
 `status` | update action/status (`Pending`, `Complete`, `Failed`, `Deleted`) | null | true
-`metadata` | custom metadata | {} | false
-`message` | message object | {} | false
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`metadata` | custom metadata | {}
+`message` | message object | {}
 
 ### Create Credit
 
@@ -3180,19 +3235,24 @@ Create a credit transaction on behalf of a user.
 
 `https://rehive.com/api/3/admin/transactions/credit/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | email, mobile number, or unique identifier | null | true
-`amount` | amount | null | true
-`reference` | optional credit reference | blank | false
-`subtype` | a custom defined subtype | null | false
-`account` | account reference code | null | false
-`note` | user's note or message | blank | false
-`currency` | currency code | blank | false
-`metadata` | custom metadata | {} | false
-`status` | status to transition to | Pending | false
+Field | Description | Default
+--- | --- | --- 
+`user` | email, mobile number, or unique identifier | null
+`amount` | amount | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`reference` | optional credit reference | blank
+`subtype` | a custom defined subtype | null
+`account` | account reference code | null
+`note` | user's note or message | blank
+`currency` | currency code | blank
+`metadata` | custom metadata | {}
+`status` | status to transition to | Pending
 
 <aside class="notice">
 When creating transaction admin users have an additional <code>status</code> field. This field
@@ -3250,19 +3310,24 @@ Create a debit transaction on behalf of a user.
 
 `https://rehive.com/api/3/admin/transactions/debit/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | email, mobile number, or unique identifier | null | true
-`amount` | amount | null | true
-`reference` | optional debit reference | blank | false
-`subtype` | a custom defined subtype | null | false
-`account` | account reference code | null | false
-`note` | user's note or message | blank | false
-`currency` | currency code | blank | false
-`metadata` | custom metadata | {} | false
-`status` | status to transition to | Pending | false
+Field | Description | Default
+--- | --- | --- 
+`user` | email, mobile number, or unique identifier | null
+`amount` | amount | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`reference` | optional debit reference | blank
+`subtype` | a custom defined subtype | null
+`account` | account reference code | null
+`note` | user's note or message | blank
+`currency` | currency code | blank
+`metadata` | custom metadata | {}
+`status` | status to transition to | Pending
 
 ### Create Transfer
 
@@ -3311,24 +3376,29 @@ Create a transfer transaction on behalf of a user. This will transfer currency f
 
 `https://rehive.com/api/3/admin/transactions/transfer/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`user` | email, mobile number, or unique identifier | null | true
-`amount` | amount | null | true
-`recipient` | email, mobile number, or unique identifier | null | true
-`currency` | currency code | blank | false
-`debit_subtype` | a custom defined subtype | null | false
-`debit_account` | account reference code | null | false
-`debit_note` | user's note or message | blank | false
-`debit_metadata` | custom metadata | {} | false
-`debit_reference` | optional debit reference | string | false
-`credit_subtype` | a custom defined subtype | null | false
-`credit_account` | account reference code | null | false
-`credit_note` | user's note or message | blank | false
-`credit_metadata` | custom metadata | {} | false
-`credit_reference` | optional credit reference | string | false
+Field | Description | Default
+--- | --- | --- 
+`user` | email, mobile number, or unique identifier | null
+`amount` | amount | null
+`recipient` | email, mobile number, or unique identifier | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`currency` | currency code | blank
+`debit_subtype` | a custom defined subtype | null
+`debit_account` | account reference code | null
+`debit_note` | user's note or message | blank
+`debit_metadata` | custom metadata | {}
+`debit_reference` | optional debit reference | string
+`credit_subtype` | a custom defined subtype | null
+`credit_account` | account reference code | null
+`credit_note` | user's note or message | blank
+`credit_metadata` | custom metadata | {}
+`credit_reference` | optional credit reference | string
 
 
 ### List Transaction Webhooks
@@ -3399,14 +3469,19 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/
 
 `https://rehive.com/api/3/admin/transactions/webhooks/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`url` | Webhook URL | blank | true
-`event` | Webhook event | null | true
-`tx_type` | Transaction type | null | false
-`secret` | Webhook secret | "secret" | false
+Field | Description | Default
+--- | --- | --- 
+`url` | Webhook URL | blank
+`event` | Webhook event | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`tx_type` | Transaction type | null
+`secret` | Webhook secret | "secret"
 
 ### Retrieve Transaction Webhook
 
@@ -3471,14 +3546,19 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
 
 `https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`url` | Webhook URL | blank | true
-`event` | Webhook event | null | true
-`tx_type` | Transaction type | null | false
-`secret` | Webhook secret | "secret" | false
+Field | Description | Default
+--- | --- | --- 
+`url` | Webhook URL | blank
+`event` | Webhook event | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`tx_type` | Transaction type | null
+`secret` | Webhook secret | "secret"
 
 
 ### Delete Transaction Webhook
@@ -3575,13 +3655,18 @@ curl https://rehive.com/api/3/admin/transactions/switches/
 
 `https://rehive.com/api/3/admin/transactions/switches/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`tx_type` | Transaction Type | | true
-`subtype` | Subtype name | null | false
-`enabled` | Enabled | false | true
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction Type | 
+`enabled` | Enabled | false 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Subtype name | null
 
 ### Retrieve Company Switches
 
@@ -3714,14 +3799,19 @@ Create a account for a user.
 
 `https://rehive.com/api/3/admin/accounts/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | account name | null | true
-`user` | account user | null | true
-`reference` | account reference | 10 random chars | false
-`primary` | account primary status | false | false
+Field | Description | Default
+--- | --- | --- 
+`name` | account name | null
+`user` | account user | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`reference` | account reference | 10 random chars
+`primary` | account primary status | false
 
 
 ### List Accounts
@@ -3964,14 +4054,19 @@ Update an account for a user.
 
 `https://rehive.com/api/3/admin/accounts/{reference}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | account name | null | true
-`user` | account user | null | true
-`reference` | account reference | 10 random chars | false
-`primary` | account primary status | false | false
+Field | Description | Default
+--- | --- | --- 
+`name` | account name | null
+`user` | account user | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`reference` | account reference | 10 random chars
+`primary` | account primary status | false
 
 
 ### List Account Currencies
@@ -4157,11 +4252,11 @@ Update the active status of an account currency. Activating an account's currenc
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`active` | is active currency | false | false
+Field | Description | Default
+--- | --- | --- 
+`active` | is active currency | false
 
 ### List Account Currency Limits
 
@@ -4274,14 +4369,19 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.create(
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`value` | Limit value | 0 | true
-`type` | Limit Type |  | true
-`tx_type` | Transaction type limits are applied | | true
-`subtype` | Transaction subtype name | null | false
+Field | Description | Default
+--- | --- | --- 
+`value` | Limit value | 0
+`type` | Limit Type | 
+`tx_type` | Transaction type limits are applied |
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Transaction subtype name | null
 
 #### Limit Types
 
@@ -4408,14 +4508,19 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.update(
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`value` | Limit value | 0 | true
-`type` | Limit Type |  | true
-`tx_type` | Transaction type limits are applied | | true
-`subtype` | Transaction subtype name | null | false
+Field | Description | Default
+--- | --- | --- 
+`value` | Limit value | 0
+`type` | Limit Type | 
+`tx_type` | Transaction type limits are applied |
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Transaction subtype name | null
 
 #### Limit Types
 
@@ -4569,14 +4674,19 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.create(
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`value` | Fee amount | 0 | false
-`percentage` | Percentage amount |  | false
-`tx_type` | Transaction type fees are applied | | true
-`subtype` | Transaction subtype name | null | false
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction type fees are applied | 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`value` | Fee amount | 0 
+`percentage` | Percentage amount | 
+`subtype` | Transaction subtype name | null 
 
 #### Transaction Types
 
@@ -4691,14 +4801,19 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.update(
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`value` | Fee amount | 0 | false
-`percentage` | Percentage amount |  | false
-`tx_type` | Transaction type fees are applied | | true
-`subtype` | Transaction subtype name | null | false
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction type fees are applied | 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`value` | Fee amount | 0 
+`percentage` | Percentage amount | 
+`subtype` | Transaction subtype name | null 
 
 #### Transaction Types
 
@@ -4837,13 +4952,18 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.creat
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`tx_type` | Transaction Type | | true
-`subtype` | Subtype name | null | false
-`enabled` | Enabled | false | true
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction Type | 
+`enabled` | Enabled | false
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Subtype name | null
 
 ### Retrieve Account Currency Switches
 
@@ -4948,13 +5068,18 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.updat
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`tx_type` | Transaction Type | | true
-`subtype` | Subtype name | null | false
-`enabled` | Enabled | false | true
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction Type | 
+`enabled` | Enabled | false
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Subtype name | null
 
 ### Delete Account Currency Switches
 
@@ -5100,15 +5225,15 @@ Create a custom currency. This currency will be unique to the company that creat
 
 `https://rehive.com/api/3/admin/currencies/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`code` | currency code | null | true
-`description` | name of currency | null | true
-`symbol` | currency symbol | null | true
-`unit` | unit, like `dollar` | null | true
-`divisibility` | number of decimal places | 0 | true
+Field | Description | Default
+--- | --- | --- 
+`code` | currency code | null
+`description` | name of currency | null
+`symbol` | currency symbol | null
+`unit` | unit, like `dollar` | null
+`divisibility` | number of decimal places | 0
 
 
 ### Retrieve Currency
@@ -5215,16 +5340,16 @@ Note that default currencies can not be updated, and only custom currencies can 
 
 `https://rehive.com/api/3/admin/currencies/{code}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`code` | currency code | null | true
-`description` | name of currency | null | true
-`symbol` | currency symbol | null | true
-`unit` | unit, like `dollar` | null | true
-`divisibility` | number of decimal places | 0 | true
-`enabled` | whether active for a company | false | true
+Field | Description | Default
+--- | --- | --- 
+`code` | currency code | null
+`description` | name of currency | null
+`symbol` | currency symbol | null
+`unit` | unit, like `dollar` | null
+`divisibility` | number of decimal places | 0
+`enabled` | whether active for a company | false
 
 ### Delete Currency
 
@@ -5424,18 +5549,18 @@ Retrieve the company info.
 
 `https://rehive.com/api/3/admin/company/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Company Name | blank | false
-`description` | Company Description | blank | false
-`website` | Company website URL | blank | false
-`logo` | Company logo URL | blank | false
-`nationalities` | List of accepted nationalities | blank | false
-`password_reset_url` | Custom company password reset URL | blank | false
-`email_confirmation_url` | Custom company email confirmation URL | blank | false
-`default_currency` | Default company currency | null | false
+Field | Description | Default 
+--- | --- | ---
+`name` | Company Name | blank
+`description` | Company Description | blank
+`website` | Company website URL | blank
+`logo` | Company logo URL | blank
+`nationalities` | List of accepted nationalities | blank
+`password_reset_url` | Custom company password reset URL | blank
+`email_confirmation_url` | Custom company email confirmation URL | blank
+`default_currency` | Default company currency | null
 
 <aside class="notice">
 When adding a logo image, the Content-type header needs to be set to multipart/form-data.
@@ -5532,19 +5657,19 @@ curl https://rehive.com/api/3/admin/bank-accounts/
 
 `https://rehive.com/api/3/admin/bank-accounts/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Account Name | blank | false
-`number` | Account Number | blank | false
-`type` | Account Type | blank | false
-`bank_name` | Bank Name | blank | false
-`bank_code` | Bank Code | blank | false
-`branch_code` | Branch Code | blank | false
-`swift` | swift | blank | false
-`iban` | iban | blank | false
-`bic` | bic | blank | false
+Field | Description | Default
+--- | --- | ---
+`name` | Account Name | blank
+`number` | Account Number | blank
+`type` | Account Type | blank
+`bank_name` | Bank Name | blank
+`bank_code` | Bank Code | blank
+`branch_code` | Branch Code | blank
+`swift` | swift | blank
+`iban` | iban | blank
+`bic` | bic | blank
 
 ### Retrieve Bank Account
 
@@ -5617,19 +5742,19 @@ curl https://rehive.com/api/3/admin/bank-accounts/{id}/
 
 `https://rehive.com/api/3/admin/bank-accounts/{id}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Account Name | blank | false
-`number` | Account Number | blank | false
-`type` | Account Type | blank | false
-`bank_name` | Bank Name | blank | false
-`bank_code` | Bank Code | blank | false
-`branch_code` | Branch Code | blank | false
-`swift` | swift | blank | false
-`iban` | iban | blank | false
-`bic` | bic | blank | false
+Field | Description | Default
+--- | --- | ---
+`name` | Account Name | blank
+`number` | Account Number | blank
+`type` | Account Type | blank
+`bank_name` | Bank Name | blank
+`bank_code` | Bank Code | blank
+`branch_code` | Branch Code | blank
+`swift` | swift | blank
+`iban` | iban | blank
+`bic` | bic | blank
 
 
 ### Delete Bank Account
@@ -5727,13 +5852,18 @@ curl https://rehive.com/api/3/admin/webhooks/
 
 `https://rehive.com/api/3/admin/webhooks/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`url` | Webhook URL | blank | true
-`event` | Webhook event | null | true
-`secret` | Webhook secret | "secret" | false
+Field | Description | Default
+--- | --- | --- 
+`url` | Webhook URL | blank
+`event` | Webhook event | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`secret` | Webhook secret | "secret"
 
 ### Retrieve Webhook
 
@@ -5796,13 +5926,18 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
 
 `https://rehive.com/api/3/admin/webhooks/{id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`url` | Webhook URL | blank | true
-`event` | Webhook event | null | true
-`secret` | Webhook secret | "secret" | false
+Field | Description | Default
+--- | --- | --- 
+`url` | Webhook URL | blank
+`event` | Webhook event | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`secret` | Webhook secret | "secret"
 
 ### Delete Webhook
 
@@ -5938,15 +6073,20 @@ rehive.admin.subtypes.create(
 
 `https://rehive.com/api/3/admin/subtypes/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | name | blank | true
-`label` | label | blank | false
-`description` | description | blank | false
-`tx_type` | Transaction type | blank | true
-`enabled` | enabled status | true | false
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction type | blank
+`name` | name | blank
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`label` | label | blank
+`description` | description | blank
+`enabled` | enabled status | true
 
 ### Retrieve Subtypes
 
@@ -6048,15 +6188,20 @@ rehive.admin.subtypes.update(
 
 `https://rehive.com/api/3/admin/subtypes/{id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | name | blank | true
-`label` | label | blank | false
-`description` | description | blank | false
-`tx_type` | Transaction type | blank | true
-`enabled` | enabled status | true | false
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction type | blank
+`name` | name | blank
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`label` | label | blank
+`description` | description | blank
+`enabled` | enabled status | true
 
 ### Delete Subtype
 
@@ -6223,11 +6368,11 @@ rehive.admin.notifications.update(
 
 `https://rehive.com/api/3/admin/notifications/{id}`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`enabled` | Account Name | false | true
+Field | Description | Default
+--- | --- | ---
+`enabled` | Account Name | false
 
 ## Tiers
 
@@ -6300,14 +6445,19 @@ rehive.admin.tiers.create(
 
 `https://rehive.com/api/3/admin/tiers/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`currency` | Currency code related to this tier | | true
-`level` | Tier Level | null | false
-`name` | Name of the tier | blank | false
-`description` | Description of the tier | blank | false
+Field | Description | Default
+--- | --- | --- 
+`currency` | Currency code related to this tier | 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`level` | Tier Level | null
+`name` | Name of the tier | blank
+`description` | Description of the tier | blank
 
 ### List Tier
 
@@ -6494,14 +6644,19 @@ rehive.admin.tiers.update(
 }
 ```
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`currency` | Currency code related to this tier | | true
-`level` | Tier Level | null | false
-`name` | Name of the tier | blank | false
-`description` | Description of the tier | blank | false
+Field | Description | Default
+--- | --- | --- 
+`currency` | Currency code related to this tier | 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`level` | Tier Level | null
+`name` | Name of the tier | blank
+`description` | Description of the tier | blank
 
 
 #### Endpoint
@@ -6640,11 +6795,11 @@ rehive.admin.tiers.obj("{tier_id}").requirements.create(
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`requirement` | Requirement Type | | true
+Field | Description | Default 
+--- | --- | --- 
+`requirement` | Requirement Type | 
 
 #### Requirement Types
 
@@ -6758,11 +6913,11 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`requirement` | Requirement Type | | true
+Field | Description | Default 
+--- | --- | --- 
+`requirement` | Requirement Type | 
 
 #### Requirement Types
 
@@ -6916,14 +7071,19 @@ rehive.admin.tiers.obj("{tier_id}").limits.create(
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/limits/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`value` | Limit value | 0 | true
-`type` | Limit Type |  | true
-`tx_type` | Transaction type limits are applied | | true
-`subtype` | Transaction subtype name | null | false
+Field | Description | Default
+--- | --- | --- 
+`value` | Limit value | 0
+`type` | Limit Type | 
+`tx_type` | Transaction type limits are applied | 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Transaction subtype name | null
 
 #### Limit Types
 
@@ -7050,14 +7210,19 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`value` | Limit value | 0 | true
-`type` | Limit Type |  | true
-`tx_type` | Transaction type limits are applied | | true
-`subtype` | Transaction subtype name | null | false
+Field | Description | Default
+--- | --- | --- 
+`value` | Limit value | 0
+`type` | Limit Type | 
+`tx_type` | Transaction type limits are applied | 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Transaction subtype name | null
 
 #### Limit Types
 
@@ -7210,14 +7375,19 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/fees/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`value` | Fee amount | 0 | false
-`percentage` | Percentage amount |  | false
-`tx_type` | Transaction type fees are applied | | true
-`subtype` | Transaction subtype name | null | false
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction type fees are applied | 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`value` | Fee amount | 0
+`percentage` | Percentage amount | 
+`subtype` | Transaction subtype name | null
 
 #### Transaction Types
 
@@ -7332,14 +7502,19 @@ rehive.admin.tiers.obj("{tier_id}").fees.update(
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`value` | Fee amount | 0 | false
-`percentage` | Percentage amount |  | false
-`tx_type` | Transaction type fees are applied | | true
-`subtype` | Transaction subtype name | null | false
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction type fees are applied | 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`value` | Fee amount | 0
+`percentage` | Percentage amount | 
+`subtype` | Transaction subtype name | null
 
 #### Transaction Types
 
@@ -7478,13 +7653,18 @@ rehive.admin.tiers.obj("{tier_id}").switches.create(
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/switches/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`tx_type` | Transaction Type | | true
-`subtype` | Subtype name | null | false
-`enabled` | Enabled | false | true
+Field | Description | Default
+--- | --- | --- 
+`tx_type` | Transaction Type | 
+`enabled` | Enabled | false
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`subtype` | Subtype name | null
 
 #### Transaction Types
 
@@ -7676,12 +7856,12 @@ rehive.admin.swtiches.create(
 
 `https://rehive.com/api/3/admin/switches/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`switch_type` | Global Switch Type Label | | true
-`enabled` | Account Name | false | true
+Field | Description | Default
+--- | --- | --- 
+`enabled` | Account Name | false
+`switch_type` | Global Switch Type Label | 
 
 #### Types
 Global switches can be one of the following types.
@@ -7841,12 +8021,12 @@ rehive.admin.switches.update(
 
 `https://rehive.com/api/3/admin/switches/{id}/`
 
-#### Fields
+#### Optional Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`switch_type` | Global Switch Type | | false
-`enabled` | Account Name | false | false
+Field | Description | Default
+--- | --- | ---
+`switch_type` | Global Switch Type | 
+`enabled` | Account Name | false
 
 #### Types
 Global switches can be one of the following types.
@@ -7963,11 +8143,11 @@ Create a new permission group with no permission associated to it.
 
 `https://rehive.com/api/3/admin/permission-groups/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Permission group name | "" | true
+Field | Description | Default
+--- | --- | --- 
+`name` | Permission group name | ""
 
 ### Update permission groups
 
@@ -7999,11 +8179,11 @@ Update the permission group's name.
 
 `https://rehive.com/api/3/admin/permission-groups/{group_name}/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`name` | Permission group name | "" | true
+Field | Description | Default
+--- | --- | ---
+`name` | Permission group name | ""
 
 ### Delete permission groups
 
@@ -8112,12 +8292,12 @@ The list is paginated and can be navigated via the `next` and `previous` fields 
 
 `https://rehive.com/api/3/admin/permission-groups/{group_name}/permissions/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`type` | Permission type | "" | true
-`level` | Level of permission | "" | true
+Field | Description | Default
+--- | --- | ---
+`type` | Permission type | ""
+`level` | Level of permission | ""
 
 ### Remove permissions
 
@@ -8174,11 +8354,11 @@ Assign a permission group to a user.
 
 `https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`group` | Group name | "" | true
+Field | Description | Default
+--- | --- | ---
+`group` | Group name | ""
 
 ### Unassign permission group
 
@@ -8237,12 +8417,12 @@ Assign a permission to a user.
 
 `https://www.rehive.com/api/3/admin/users/{uuid}/permissions/`
 
-#### Fields
+#### Required Fields
 
-Field | Description | Default | Required
---- | --- | --- | ---
-`type` | Permission type | "" | true
-`level` | Level of permission | "" | true
+Field | Description | Default
+--- | --- | ---
+`type` | Permission type | ""
+`level` | Level of permission | ""
 
 ### Unassign permissions
 
