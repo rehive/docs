@@ -135,15 +135,23 @@ rehive.admin.users.get()
 
 Get a list of users belonging to a company.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The account currency listing offers filtering on the `identifier`, `email`, `mobile_number`, `first_name`, `last_name`, `username`, `id_number`, `date_joined`, and `last_login` attribute. This is done through a URL parameter in the request URL:
-
-`/api/3/admin/users/?first_name=Joe`
+Field | Type 
+--- | --- 
+`identifier` | string
+`email` | string 
+`mobile_number` | string
+`first_name` | string
+`last_name` | string
+`username` | string
+`id_number` | string
+`language` | string
+`nationality` | string
+`status` | string
+`currency` | string
+`date_joined` | millsecond timestamp 
+`last_login` | millsecond timestamp 
 
 #### Endpoint
 
@@ -799,6 +807,13 @@ curl https://rehive.com/api/3/admin/users/addresses/
     }
 }
 ```
+
+#### Filtering
+
+Field | Type 
+--- | --- 
+`user` | string
+`status` | string
 
 #### Endpoint
 
@@ -1477,6 +1492,13 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
 
 List a user's cryptocurrency addresses.
 
+#### Filtering
+
+Field | Type 
+--- | --- 
+`user` | string
+`status` | string
+
 #### Endpoint
 
 `https://rehive.com/api/3/admin/users/crypto-accounts/`
@@ -1746,6 +1768,13 @@ curl https://www.rehive.com/api/3/admin/users/documents/
 
 Get a list of users' documents.
 
+#### Filtering
+
+Field | Type 
+--- | --- 
+`user` | string
+`status` | string
+
 #### Endpoint
 
 `https://www.rehive.com/api/3/admin/users/documents/`
@@ -2006,15 +2035,11 @@ rehive.admin.users.emails.get()
 
 Get a list of emails belonging to a company.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The account currency listing offers filtering on the `user` attribute. This is done through a URL parameter in the request URL:
-
-`/api/3/admin/users/emails/?user=00000000-0000-0000-0000-000000000000`
+Field | Type 
+--- | --- 
+`user` | string
 
 #### Endpoint
 
@@ -2330,15 +2355,11 @@ rehive.admin.users.mobiles.get()
 
 Get a list of mobile numbers belonging to a company.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The account currency listing offers filtering on the `user` attribute. This is done through a URL parameter in the request URL:
-
-`/api/3/admin/users/mobiles/?user=00000000-0000-0000-0000-000000000000`
+Field | Type 
+--- | --- 
+`user` | string
 
 #### Endpoint
 
@@ -2710,29 +2731,20 @@ rehive.admin.transactions.get_previous()
 
 Get a company's transaction list.
 
-#### Pagination
-
-The list is paginated by default and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The transactions listing offers filtering on the `id`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
-
-`/api/3/transactions/?tx_type=debit`
-
-You can also do boolean filtering on `source_transaction` and `destination_transaction` like this:
-
-`/api/3/transactions/?destination_transaction=true`
-
-There is a special format for fitering on metadata (ie. `metadata__{field_name}`):
-
-`/api/3/transactions/?metadata__type=test`
-
-#### Sorting
-
-Sorting of the transactions listing can be done on all the "filtering" fields mentioned above via an `orderby` parameter in the request URL:
-
-`/api/3/transactions/?orderby=tx_type`
+Field | Type 
+--- | --- 
+`id` | string
+`tx_type` | boolean 
+`subtype` | string
+`status` | string
+`account` | string
+`user` | string
+`source_transaction` | boolean
+`destination_transaction` | boolean
+`created` | millsecond timestamp 
+`metadata` | any
 
 #### Endpoint
 
@@ -2780,7 +2792,7 @@ Get a company's total transaction details. This is a summary of transaction deta
 
 #### Filtering
 
-The admin transaction totals endpoint has identical filtering to the admin transaction list endpoint.
+See Transaction List filtering above.
 
 #### Endpoint
 
@@ -3727,15 +3739,15 @@ rehive.admin.accounts.get()
 
 Get a list of accounts belonging to users in a company.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The account listing offers filtering on the `active` and `user` attributes. This is done through URL parameters in the request URL:
-
-`/api/3/admin/accounts/?active=true`
+Field | Type 
+--- | --- 
+`reference` | string
+`name` | string
+`active` | boolean 
+`primary` | boolean
+`user` | string
 
 #### Endpoint
 
@@ -3821,9 +3833,9 @@ Retrieve an account belonging to a company.
 
 #### Filtering
 
-The account view offers filtering of currencies based on the `active` attribute. This is done through a URL parameter in the request URL:
-
-`/api/3/admin/accounts/{reference}/?active=true`
+Field | Type 
+--- | --- 
+`active` | boolean 
 
 #### Endpoint
 
@@ -3951,15 +3963,11 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
 
 Get a list of currencies for an account belonging to a company.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The account currency listing offers filtering on the `active` attribute. This is done through a URL parameter in the request URL:
-
-`/api/3/admin/accounts/{reference}/currencies/?active=true`
+Field | Type 
+--- | --- 
+`active` | boolean 
 
 #### Endpoint
 
@@ -5302,6 +5310,13 @@ curl https://rehive.com/api/3/admin/bank-accounts/
 }
 ```
 
+#### Filtering
+
+Field | Type 
+--- | --- 
+`user` | string
+`status` | string
+
 #### Endpoint
 
 `https://rehive.com/api/3/admin/bank-accounts/`
@@ -6183,12 +6198,10 @@ rehive.admin.tiers.get()
 
 #### Filtering
 
-Tiers can be filtered by `currency` as well as `requirement`.
-This is done through URL parameters in the request URL:
-
-`/api/3/admin/tiers/?currency=ZAR` 
-
-`/api/3/admin/tiers/?requirement=nationality`
+Field | Type 
+--- | --- 
+`currency` | string
+`requirement` | string 
 
 #### Endpoint
 

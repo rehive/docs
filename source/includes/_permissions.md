@@ -36,10 +36,6 @@ curl https://www.rehive.com/api/3/admin/permission-groups/
 
 Get a list of permission groups that have been created with the associated permissions.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Endpoint
 
 `https://rehive.com/api/3/admin/permission-groups/`
@@ -179,10 +175,6 @@ curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/permissio
 
 List all the permissions associated to a permission group.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Endpoint
 
 `https://rehive.com/api/3/admin/permission-groups/{group_name}/permissions/`
@@ -214,10 +206,6 @@ curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/per
 ```
 
 Add the given permission to the permission group.
-
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
 
 #### Endpoint
 

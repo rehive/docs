@@ -1,8 +1,6 @@
 # Transactions
 
-Rehive offers 2 standard type transactions: Debit and Credit. Debit transactiosn deduct from a user's account and Credit transaction add to a user's account. There is an additional "transfer" endpoint that can be used in order to automtically trigger a debit followed by a credit on the specified accounts.
-
-Transaction currency values are always inputted/outputted in their lowest currency unit. For most currencies this will be the cents values, so a $ 1.00 transaction will output an amount of 100.
+Rehive offers 2 standard transaction types: debit and credit. Debit transactiosn deduct from a user's account and credit transaction add to a user's account. There is also an additional "transfer" endpoint that can be used in order to automtically trigger a debit followed by a credit on the specified accounts.
 
 <aside class="notice">
 Transactions are run as asynchronous processes within Rehive, so the latest state of the transaction will not necessarily be available immediately after a request has been completed. To get the latest transaction details you will have to make a follow up request using its `id`.
@@ -181,29 +179,19 @@ rehive.transactions.get(
 
 Get a a user's transaction list.
 
-#### Pagination
-
-The list is paginated by default and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The transactions listing offers filtering on the `id`, `tx_type`, `subtype`, `status`, `created` and `metadata` fields. This is done through URL parameters in the request URL:
-
-`/api/3/transactions/?tx_type=debit`
-
-You can also do boolean filtering on `source_transaction` and `destination_transaction` like this:
-
-`/api/3/transactions/?destination_transaction=true`
-
-There is a special format for fitering on metadata (ie. `metadata__{field_name}`):
-
-`/api/3/transactions/?metadata__type=test`
-
-#### Sorting
-
-Sorting of the transactions listing can be done on all the "filtering" fields mentioned above via an `orderby` parameter in the request URL:
-
-`/api/3/transactions/?orderby=tx_type`
+Field | Type 
+--- | --- 
+`id` | string
+`tx_type` | boolean 
+`subtype` | string
+`status` | string
+`account` | string
+`source_transaction` | boolean
+`destination_transaction` | boolean
+`created` | millsecond timestamp 
+`metadata` | any
 
 #### Endpoint
 
@@ -270,7 +258,7 @@ Get a user's total transaction details. This is a summary of transaction details
 
 #### Filtering
 
-The transaction totals endpoint has identical filtering to the transaction list endpoint.
+See Transaction List filtering above.
 
 #### Endpoint
 

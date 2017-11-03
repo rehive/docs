@@ -201,15 +201,14 @@ rehive.accounts.get(
 
 Get a list of accounts belonging to a user.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The account listing offers filtering on the `active` attribute. This is done through a URL parameter in the request URL:
-
-`/api/3/accounts/?active=true`
+Field | Type 
+--- | --- 
+`reference` | string
+`name` | string
+`active` | boolean 
+`primary` | boolean
 
 #### Endpoint
 
@@ -332,9 +331,9 @@ Retrieve an account belonging to a user.
 
 #### Filtering
 
-The account view offers filtering of currencies based on the `active` attribute. This is done through a URL parameter in the request URL:
-
-`/api/3/accounts/{reference}/?active=true`
+Field | Type 
+--- | --- 
+`active` | boolean 
 
 #### Endpoint
 
@@ -510,15 +509,11 @@ rehive.accounts.obj("{reference}").currencies.get()
 
 Get a list of currencies for an account belonging to a user.
 
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
-
 #### Filtering
 
-The account currency listing offers filtering on the `active` attribute. This is done through a URL parameter in the request URL:
-
-`/api/3/accounts/{reference}/currencies/?active=true`
+Field | Type 
+--- | --- 
+`active` | boolean
 
 #### Endpoint
 

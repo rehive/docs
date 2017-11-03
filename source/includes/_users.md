@@ -1,5 +1,17 @@
 # Users
 
+All non authentication access on the Rehive API is made by registered users. This is true of the orginal company owner
+as well as all subsequent users (whether granted admin permissions or not). The user endpoints provide a means to 
+add, alter and view additional user information.
+
+<aside class="notice">
+All user's are loosely intgrated with the concept of KYC. This includes several features for making it easier to see
+how far a user is in the KYC process: KYC statuses on user data (`obsolete`, `declined`, `pending`, `incomplet`, `verified`) 
+verification for email addresses and mobile numbers, KYC summaries (under the `kyc` attribute) on top level user objects. 
+The KYC summary is a useful tool to see what parts of a user's profile have been added, when the data was lasst updated 
+and whether they have an apporiate status.
+</aside>
+
 ## Retrieve Profile
 
 > User profile request
