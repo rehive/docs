@@ -1,76 +1,5 @@
 # Accounts
 
-## Create Account
-
-> User create account request
-
-```shell
-curl https://www.rehive.com/api/3/accounts/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"name": "savings"}'
-```
-
-```python
-rehive.accounts.create(
-    name="savings"
-)
-```
-
-
-> User create account response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "name": "savings",
-        "reference": "0000000000",
-        "primary": false,
-        "currencies": [],
-        "created": 1501145581365,
-        "updated": 1501145581370
-    },
-}
-```
-
-```python
-{
-    "name": "savings",
-    "reference": "0000000000",
-    "primary": false,
-    "currencies": [],
-    "created": 1501145581365,
-    "updated": 1501145581370
-}
-```
-
-Create a account for a user.
-
-<aside class="notice">
-Users cannot manage their accounts (create or update) by default. In order to 
-enable account management for users please set the corresponding global company 
-switch. 
-</aside>
-
-#### Endpoint
-
-`https://rehive.com/api/3/accounts/`
-
-#### Required Fields
-
-Field | Description | Default 
---- | --- | --- 
-`name` | account name | null 
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | --- 
-`primary` | account primary status | false 
-
-
 ## List Accounts
 
 > User list accounts request
@@ -218,6 +147,77 @@ Field | Type
 #### Endpoint
 
 `https://rehive.com/api/3/accounts/`
+
+## Create Account
+
+> User create account request
+
+```shell
+curl https://www.rehive.com/api/3/accounts/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "savings"}'
+```
+
+```python
+rehive.accounts.create(
+    name="savings"
+)
+```
+
+
+> User create account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "name": "savings",
+        "reference": "0000000000",
+        "primary": false,
+        "currencies": [],
+        "created": 1501145581365,
+        "updated": 1501145581370
+    },
+}
+```
+
+```python
+{
+    "name": "savings",
+    "reference": "0000000000",
+    "primary": false,
+    "currencies": [],
+    "created": 1501145581365,
+    "updated": 1501145581370
+}
+```
+
+Create a account for a user.
+
+<aside class="notice">
+Users cannot manage their accounts (create or update) by default. In order to 
+enable account management for users please set the corresponding global company 
+switch. 
+</aside>
+
+#### Endpoint
+
+`https://rehive.com/api/3/accounts/`
+
+#### Required Fields
+
+Field | Description | Default 
+--- | --- | --- 
+`name` | account name | null 
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | --- 
+`primary` | account primary status | false 
+
 
 ## Retrieve Account
 

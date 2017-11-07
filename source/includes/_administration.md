@@ -3038,158 +3038,6 @@ Get transaction details for a spcific transactions.
 
 `https://rehive.com/api/3/admin/transactions/{id}/`
 
-### Update Transaction
-
-> Admin update transaction request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/{id}/
-  -X PUT
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"status": "Complete"}'
-```
-
-```python
-rehive.admin.transactions.update(
-    "{id}",
-    status="Complete"
-)
-
-# Quick methods for updating
-rehive.admin.transactions.confirm("{id}")
-rehive.admin.transactions.fail("{id}")
-rehive.admin.transactions.delete("{id}")
-```
-
-> Admin update transaction response
-
-```shell
-{
-    "status": "success",
-    "data":  {
-        "id": "000000000000000000000",
-        "tx_type": "credit",
-        "subtype": null,
-        "note": "",
-        "metadata": {},
-        "status": "Complete",
-        "reference": "",
-        "amount": 500,
-        "fee": 0,
-        "total_amount": 500,
-        "balance": 500,
-        "account": "0000000000",
-        "label": "Credit",
-        "company": "rehive",
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
-        "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Joe",
-            "last_name": "Soap",
-            "email": "joe@rehive.com",
-            "username": "",
-            "mobile_number": "+27840000000",
-            "profile": null
-        },
-        "source_transaction": null,
-        "destination_transaction": null,
-        "messages": [
-            {
-                "level": "info",
-                "message": "Transaction completed.",
-                "created": 1496144568989
-            }
-        ],
-        "created": 1509618707485,
-        "updated": 1509618708277
-    }
-}
-```
-
-```python
-{
-    "id": "000000000000000000000",
-    "tx_type": "credit",
-    "subtype": null,
-    "note": "",
-    "metadata": {},
-    "status": "Complete",
-    "reference": "",
-    "amount": 500,
-    "fee": 0,
-    "total_amount": 500,
-    "balance": 500,
-    "account": "0000000000",
-    "label": "Credit",
-    "company": "rehive",
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
-    "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": "",
-        "mobile_number": "+27840000000",
-        "profile": null
-    },
-    "source_transaction": null,
-    "destination_transaction": null,
-    "messages": [
-        {
-            "level": "info",
-            "message": "Transaction completed.",
-            "created": 1496144568989
-        }
-    ],
-    "created": 1509618707485,
-    "updated": 1509618708277
-}
-```
-
-Update a transaction. This endpoint can be used to transition a transaction to any state. The following states transitions are permitted: `Pending`, `Complete`, `Failed`, `Deleted`. 
-
-In addition, you can update the transaction metadata and add messages to the transaction message logs.
-
-#### Messsages
-
-Custom messages can be attached to transactions by including a `message` attribute in an update request. The `message`
-attribute should be a JSON object with 2 attributes `level` and `message`.
-
-1. `level` : The message log level, this can be `info`, `warning`, or `error`.
-2. `message`: The message text detail.
-
-Each message added to a transaction will be stored in a list. Rehive will also add messages to this list when erorrs occur during processing. 
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/{id}/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`status` | update action/status (`Pending`, `Complete`, `Failed`, `Deleted`) | null | true
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | ---
-`metadata` | custom metadata | {}
-`message` | message object | {}
-
 ### Create Credit
 
 > Admin credit request
@@ -3401,6 +3249,158 @@ Field | Description | Default
 `credit_reference` | optional credit reference | string
 
 
+### Update Transaction
+
+> Admin update transaction request
+
+```shell
+curl https://rehive.com/api/3/admin/transactions/{id}/
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"status": "Complete"}'
+```
+
+```python
+rehive.admin.transactions.update(
+    "{id}",
+    status="Complete"
+)
+
+# Quick methods for updating
+rehive.admin.transactions.confirm("{id}")
+rehive.admin.transactions.fail("{id}")
+rehive.admin.transactions.delete("{id}")
+```
+
+> Admin update transaction response
+
+```shell
+{
+    "status": "success",
+    "data":  {
+        "id": "000000000000000000000",
+        "tx_type": "credit",
+        "subtype": null,
+        "note": "",
+        "metadata": {},
+        "status": "Complete",
+        "reference": "",
+        "amount": 500,
+        "fee": 0,
+        "total_amount": 500,
+        "balance": 500,
+        "account": "0000000000",
+        "label": "Credit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": null,
+        "messages": [
+            {
+                "level": "info",
+                "message": "Transaction completed.",
+                "created": 1496144568989
+            }
+        ],
+        "created": 1509618707485,
+        "updated": 1509618708277
+    }
+}
+```
+
+```python
+{
+    "id": "000000000000000000000",
+    "tx_type": "credit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Complete",
+    "reference": "",
+    "amount": 500,
+    "fee": 0,
+    "total_amount": 500,
+    "balance": 500,
+    "account": "0000000000",
+    "label": "Credit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [
+        {
+            "level": "info",
+            "message": "Transaction completed.",
+            "created": 1496144568989
+        }
+    ],
+    "created": 1509618707485,
+    "updated": 1509618708277
+}
+```
+
+Update a transaction. This endpoint can be used to transition a transaction to any state. The following states transitions are permitted: `Pending`, `Complete`, `Failed`, `Deleted`. 
+
+In addition, you can update the transaction metadata and add messages to the transaction message logs.
+
+#### Messsages
+
+Custom messages can be attached to transactions by including a `message` attribute in an update request. The `message`
+attribute should be a JSON object with 2 attributes `level` and `message`.
+
+1. `level` : The message log level, this can be `info`, `warning`, or `error`.
+2. `message`: The message text detail.
+
+Each message added to a transaction will be stored in a list. Rehive will also add messages to this list when erorrs occur during processing. 
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/transactions/{id}/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | --- 
+`status` | update action/status (`Pending`, `Complete`, `Failed`, `Deleted`) | null | true
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`metadata` | custom metadata | {}
+`message` | message object | {}
+
 ### List Transaction Webhooks
 
 > List transaction webhooks request
@@ -3585,7 +3585,7 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
 `https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
 
 
-### List Company Switches
+### List Transaction Switches
 
 List all switches related to transactions.
 
@@ -3668,7 +3668,7 @@ Field | Description | Default
 --- | --- | ---
 `subtype` | Subtype name | null
 
-### Retrieve Company Switches
+### Retrieve Transaction Switches
 
 Retrieve a specific switch related to transactions.
 
@@ -3745,74 +3745,6 @@ curl https://rehive.com/api/3/admin/transactions/switches/{id}/
 
 
 ## Accounts
-
-### Create Account
-
-> Admin create account request
-
-```shell
-curl https://www.rehive.com/api/3/admin/accounts/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"name": "savings",
-       "user": "joe@rehive.com",}'
-```
-
-```python
-rehive.admin.accounts.create(
-    name="savings",
-    user="joe@rehive.com"
-)
-```
-
-> Admin create account response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "name": "savings",
-        "reference": "0000000000",
-        "primary": true,
-        "currencies": [],
-        "created": 1501145581365,
-        "updated": 1501145581370
-    },
-}
-```
-
-```python
-{
-    "name": "savings",
-    "reference": "0000000000",
-    "primary": true,
-    "currencies": [],
-    "created": 1501145581365,
-    "updated": 1501145581370
-}
-```
-
-Create a account for a user.
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/accounts/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`name` | account name | null
-`user` | account user | null
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | ---
-`reference` | account reference | 10 random chars
-`primary` | account primary status | false
-
 
 ### List Accounts
 
@@ -3912,6 +3844,73 @@ Field | Type
 #### Endpoint
 
 `https://rehive.com/api/3/admin/accounts/`
+
+### Create Account
+
+> Admin create account request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "savings",
+       "user": "joe@rehive.com",}'
+```
+
+```python
+rehive.admin.accounts.create(
+    name="savings",
+    user="joe@rehive.com"
+)
+```
+
+> Admin create account response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "name": "savings",
+        "reference": "0000000000",
+        "primary": true,
+        "currencies": [],
+        "created": 1501145581365,
+        "updated": 1501145581370
+    },
+}
+```
+
+```python
+{
+    "name": "savings",
+    "reference": "0000000000",
+    "primary": true,
+    "currencies": [],
+    "created": 1501145581365,
+    "updated": 1501145581370
+}
+```
+
+Create a account for a user.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | --- 
+`name` | account name | null
+`user` | account user | null
+
+#### Optional Fields
+
+Field | Description | Default 
+--- | --- | ---
+`reference` | account reference | 10 random chars
+`primary` | account primary status | false
 
 ### Retrieve Account
 
@@ -6382,6 +6381,75 @@ Tiers are set on a currency to limit users' transactions on that currency.
 Tiers are checked in ascending order based on their level, with the user getting
 validation corresponding to the highest tier they matched. 
 
+### List Tiers
+
+List all tiers.
+
+> List Tier request
+
+```shell
+curl https://rehive.com/api/3/admin/tiers/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+rehive.admin.tiers.get()
+```
+
+> List Tier response
+
+```shell
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "currency": "ZAR",
+            "level": 1,
+            "name": "First Tier",
+            "description": "My First Tier",
+            "requirements": [],
+            "limits": [],
+            "fees": [],
+            "switches": [],
+            "created": 1497367640298,
+            "updated": 1497367640298
+        }
+    ]
+}
+```
+
+```python
+[
+    {
+        "id": 1,
+        "currency": "ZAR",
+        "level": 1,
+        "name": "First Tier",
+        "description": "My First Tier",
+        "requirements": [],
+        "limits": [],
+        "fees": [],
+        "switches": [],
+        "created": 1497367640298,
+        "updated": 1497367640298
+    }
+]
+```
+
+#### Filtering
+
+Field | Type 
+--- | --- 
+`currency` | string
+`requirement` | string 
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/tiers/`
+
 ### Create Tier
 
 Create a new tier.
@@ -6458,75 +6526,6 @@ Field | Description | Default
 `level` | Tier Level | null
 `name` | Name of the tier | blank
 `description` | Description of the tier | blank
-
-### List Tier
-
-List all tiers.
-
-> List Tier request
-
-```shell
-curl https://rehive.com/api/3/admin/tiers/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```python
-rehive.admin.tiers.get()
-```
-
-> List Tier response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "currency": "ZAR",
-            "level": 1,
-            "name": "First Tier",
-            "description": "My First Tier",
-            "requirements": [],
-            "limits": [],
-            "fees": [],
-            "switches": [],
-            "created": 1497367640298,
-            "updated": 1497367640298
-        }
-    ]
-}
-```
-
-```python
-[
-    {
-        "id": 1,
-        "currency": "ZAR",
-        "level": 1,
-        "name": "First Tier",
-        "description": "My First Tier",
-        "requirements": [],
-        "limits": [],
-        "fees": [],
-        "switches": [],
-        "created": 1497367640298,
-        "updated": 1497367640298
-    }
-]
-```
-
-#### Filtering
-
-Field | Type 
---- | --- 
-`currency` | string
-`requirement` | string 
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/tiers/`
 
 ### Retrieve Tier
 
@@ -7793,6 +7792,56 @@ Switches are a way to determine which actions are allowed to the users in terms 
 Global switches are the highest level switches by overriding any switches that are
 set on a user, company, currency or tier level.
 
+### List Global Switches
+
+List all the global switches.
+
+> List Global Switches request
+
+```shell
+curl https://rehive.com/api/3/admin/switches/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```python
+rehive.admin.switches.get()
+```
+
+> List Global Switches response
+
+```shell
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 1,
+            "switch_type": "Allow transactions",
+            "enabled": true,
+            "created": 1497347723605,
+            "updated": 1497347723605
+        }
+    ]
+}
+```
+
+```python
+[
+    {
+        "id": 1,
+        "switch_type": "Allow transactions",
+        "enabled": true,
+        "created": 1497347723605,
+        "updated": 1497347723605
+    }
+]
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/switches/`
+
 ### Create Global Switches
 
 Create a new global switch.
@@ -7862,56 +7911,6 @@ Value | Description
 `auto_confirm` | Automatically complete transactions on creation
 `manage_accounts` | Allow users to manage their accounts
 `session_duration` | Allow users to set their own session duration
-
-### List Global Switches
-
-List all the global switches.
-
-> List Global Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/switches/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```python
-rehive.admin.switches.get()
-```
-
-> List Global Switches response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "switch_type": "Allow transactions",
-            "enabled": true,
-            "created": 1497347723605,
-            "updated": 1497347723605
-        }
-    ]
-}
-```
-
-```python
-[
-    {
-        "id": 1,
-        "switch_type": "Allow transactions",
-        "enabled": true,
-        "created": 1497347723605,
-        "updated": 1497347723605
-    }
-]
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/switches/`
 
 ### Retrieve Global Switches
 
