@@ -6716,12 +6716,6 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
             "token_tier_id": 1,
             "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
             "requirement": "First Name"
-        },
-        {
-            "id": 2,
-            "token_tier_id": 1,
-            "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-            "requirement": "Last Name"
         }
     ]
 }
@@ -6734,12 +6728,6 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
         "token_tier_id": 1,
         "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
         "requirement": "First Name"
-    },
-    {
-        "id": 2,
-        "token_tier_id": 1,
-        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-        "requirement": "Last Name"
     }
 ]
 ```
@@ -8235,11 +8223,6 @@ curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/permissio
                 "id": 55,
                 "type": "account",
                 "level": "add"
-            },
-            {
-                "id": 367,
-                "type": "account",
-                "level": "view"
             }
         ]
     }

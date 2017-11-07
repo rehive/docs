@@ -1114,14 +1114,6 @@ rehive.auth.tokens.get()
     {
       "token_key": "00000000",
       "expires": null
-    },
-    {
-      "token_key": "00000000",
-      "expires": 1509539800952
-    },
-    {
-      "token_key": "00000000",
-      "expires": 1509539800952
     }
   ]
 }
@@ -1132,14 +1124,6 @@ rehive.auth.tokens.get()
   {
     "token_key": "00000000",
     "expires": null
-  },
-  {
-    "token_key": "00000000",
-    "expires": 1509539800952
-  },
-  {
-    "token_key": "00000000",
-    "expires": 1509539800952
   }
 ]
 
@@ -1150,14 +1134,6 @@ rehive.auth.tokens.get()
   {
     "token_key": "00000000",
     "expires": null
-  },
-  {
-    "token_key": "00000000",
-    "expires": 1509539800952
-  },
-  {
-    "token_key": "00000000",
-    "expires": 1509539800952
   }
 ]
 ```
