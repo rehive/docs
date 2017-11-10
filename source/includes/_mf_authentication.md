@@ -13,6 +13,10 @@ curl https://www.rehive.com/api/3/auth/mfa/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.auth.mfa.get()
+```
+
 > Status response
 
 ```shell
@@ -23,6 +27,13 @@ curl https://www.rehive.com/api/3/auth/mfa/
         "token": false
     }
   }
+```
+
+```python
+{
+    "sms": false,
+    "token": false
+}
 ```
 
 Provides the statuses for SMS and Token bases authentication. When successfully 
@@ -42,6 +53,10 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.auth.mfa.sms.get()
+```
+
 > SMS response
 
 ```shell
@@ -50,9 +65,16 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/
     "data": {
         "mobile_number": "+27000000000",
         "confirmed": true
-      },
+      }
     }
   }
+```
+
+```python
+{
+  "mobile_number": "+27000000000",
+  "confirmed": true
+}
 ```
 
 #### Endpoint
@@ -70,6 +92,12 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/
   -D '{"mobile_number": "+27000000000"}'
 ```
 
+```python
+rehive.auth.mfa.authorize_number(
+  mobile="+27000000000"
+)
+```
+
 > SMS response
 
 ```shell
@@ -81,6 +109,13 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/
       },
     }
   }
+```
+
+```python
+{
+  "mobile_number": "+27000000000",
+  "confirmed": false
+}
 ```
 
 By posting to this endpoint you are starting the verification process for enabling SMS authentication. At this point an OTP will be sent to the mobile number that was
@@ -106,6 +141,12 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/send/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.auth.mfa.send_sms(
+  mobile="+27000000000"
+)
+```
+
 > Send SMS response
 
 ```shell
@@ -117,6 +158,13 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/send/
       },
     }
   }
+```
+
+```python
+{
+  "mobile_number": "+27000000000",
+  "confirmed": false
+}
 ```
 
 Sends an OTP to the mobile number that was used to enabled SMS based multi-factor authentication.
@@ -145,6 +193,10 @@ curl https://www.rehive.com/api/3/auth/mfa/token/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.auth.mfa.token.get()
+```
+
 > Token response
 
 ```shell
@@ -157,6 +209,15 @@ curl https://www.rehive.com/api/3/auth/mfa/token/
         "key": "00000000000000000000000000000000"
     }
   }
+```
+
+```python
+{
+    "otpauth_url": "otpauth://totp/Rehive1%3A%20joe%40rehive.com?secret=00000000000000000000000000000000&digits=6&issuer=Rehive",
+    "issuer": "Rehive",
+    "account": "joe@rehive.com",
+    "key": "00000000000000000000000000000000"
+}
 ```
 
 #### Endpoint
@@ -173,6 +234,10 @@ curl https://www.rehive.com/api/3/auth/mfa/token/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.auth.mfa.authorize_token()
+```
+
 > Token response
 
 ```shell
@@ -185,6 +250,15 @@ curl https://www.rehive.com/api/3/auth/mfa/token/
         "key": "00000000000000000000000000000000"
     }
   }
+```
+
+```python
+{
+    "otpauth_url": "otpauth://totp/Rehive1%3A%20joe%40rehive.com?secret=00000000000000000000000000000000&digits=6&issuer=Rehive",
+    "issuer": "Rehive",
+    "account": "joe@rehive.com",
+    "key": "00000000000000000000000000000000"
+}
 ```
 
 By posting to this endpoint you are starting the verification process for enabling token based authentication. The response contains data that can be used with 
@@ -216,12 +290,24 @@ curl https://www.rehive.com/api/3/auth/mfa/verify/
   -D '{"token": "123456"}'
 ```
 
+```python
+rehive.auth.mfa.verify(
+  token="123456"
+)
+```
+
 > Verify response
 
 ```shell
   {
     "status": "success"
   }
+```
+
+```python
+{
+  "status": "success"
+}
 ```
 
 This endpoint finalises the verification process for multi-factor authentication.
