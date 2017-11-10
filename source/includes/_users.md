@@ -1670,6 +1670,10 @@ curl https://www.rehive.com/api/3/user/emails/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.emails.get("{email_id}")
+```
+
 > User retrieve email address response
 
 ```shell
@@ -1690,10 +1694,6 @@ rehive.user.getUserEmailAddresses(emailId).then(function(res){
     },function(err){
         // ...
     })
-```
-
-```python
-rehive.user.emails.get("{email_id}")
 ```
 
 ```javascript
@@ -1805,9 +1805,21 @@ curl https://www.rehive.com/api/3/user/emails/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.emails.delete(
+    {id}
+)
+```
+
 > User delete email address response
 
 ```shell
+{
+    "status": "success"
+}
+```
+
+```python
 {
     "status": "success"
 }
@@ -2113,9 +2125,21 @@ curl https://www.rehive.com/api/3/user/mobiles/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.mobiles.delete(
+    {id}
+)
+```
+
 > User delete mobile number response
 
 ```shell
+{
+    "status": "success"
+}
+```
+
+```python
 {
     "status": "success"
 }
