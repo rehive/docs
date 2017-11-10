@@ -69,7 +69,7 @@ authentication. See <a href="/#authorization">Authentication</a> for 3rd party a
 ```
 
 ```python
-# The SDK handles paginations automatically for every resource. To iterate through pages:
+# The SDK handles paginations automatically for every resource.
 
 rehive.resource.get() # Stores pagination if returned
 rehive.resource.get_next() # Calls with current next value

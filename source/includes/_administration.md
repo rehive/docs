@@ -15,6 +15,10 @@ curl https://www.rehive.com/admin/api/3/admin/users/overview/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.admin.users.overview.get()
+```
+
 > Admin list users overview response
 
 ```shell
@@ -24,6 +28,13 @@ curl https://www.rehive.com/admin/api/3/admin/users/overview/
         "active": 1
     },
     "status": "success"
+}
+```
+
+```python
+{
+    "total": 1,
+    "active": 1
 }
 ```
 
@@ -640,12 +651,12 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.obj('{identifier}').switches.get()
 ```
 
 > List User Switches response
 
-```json
+```shell
 {
     "status": "success",
     "data": [
@@ -659,6 +670,19 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/
         }
     ]
 }
+```
+
+```python
+[
+    {
+        "id": 1,
+        "tx_type": "credit",
+        "subtype": null,
+        "enabled": true,
+        "created": 1497362397968,
+        "updated": 1497362397968
+    }
+]
 ```
 
 #### Endpoint
@@ -681,12 +705,15 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.obj('{identifier}').switches.create(
+    switch_type="credit",
+    enabled=True
+)
 ```
 
 > Create User Switches response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -697,6 +724,17 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/
         "created": 1497362397968,
         "updated": 1497362397968
     }
+}
+```
+
+```python
+{
+    "id": 1,
+    "tx_type": "credit",
+    "subtype": null,
+    "enabled": true,
+    "created": 1497362397968,
+    "updated": 1497362397968
 }
 ```
 
@@ -731,12 +769,14 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.obj('{identifier}').switches.get(
+    {id}
+)
 ```
 
 > Retrieve User Switches response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -747,6 +787,17 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
         "created": 1497362397968,
         "updated": 1497362397968
     }
+}
+```
+
+```python
+{
+    "id": 1,
+    "tx_type": "credit",
+    "subtype": null,
+    "enabled": true,
+    "created": 1497362397968,
+    "updated": 1497362397968
 }
 ```
 
@@ -769,12 +820,15 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.obj('{identifier}').switches.update(
+    {id},
+    enabled=False
+)
 ```
 
 > Update User Switches response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -785,6 +839,17 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
         "created": 1497362397968,
         "updated": 1497362931403
     }
+}
+```
+
+```python
+{
+    "id": 1,
+    "tx_type": "credit",
+    "subtype": null,
+    "enabled": false,
+    "created": 1497362397968,
+    "updated": 1497362931403
 }
 ```
 
@@ -819,12 +884,20 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.obj('{identifier}').switches.delete(
+    {id}
+)
 ```
 
 > Delete User Switches response
 
-```json
+```shell
+{
+    "status": "success"
+}
+```
+
+```python
 {
     "status": "success"
 }
@@ -847,7 +920,7 @@ curl https://rehive.com/api/3/admin/users/addresses/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.addresses.get()
 ```
 
 > List Addresses response
@@ -884,6 +957,30 @@ curl https://rehive.com/api/3/admin/users/addresses/
 }
 ```
 
+```python
+[
+    {
+        "id": 2,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "line_1": "1 Main Street",
+        "line_2": "East City",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001"
+        "status": "pending"
+    }
+]
+```
+
 #### Filtering
 
 Field | Type 
@@ -914,7 +1011,15 @@ curl https://rehive.com/api/3/admin/users/addresses/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.addresses.create(
+    line_1="1 Main Street",
+    line_2="East City",
+    city="Cape Town",
+    state_province="Western Cape",
+    country="ZA",
+    postal_code="8001",
+    user="joe@rehive.com"
+)
 ```
 
 > Create Address response
@@ -941,6 +1046,28 @@ curl https://rehive.com/api/3/admin/users/addresses/
         "postal_code": "8001"
         "status": "pending"
     }
+}
+```
+
+```python
+{
+    "id": 2,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
+    "status": "pending"
 }
 ```
 
@@ -988,7 +1115,9 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.addresses.get(
+   {id} 
+)
 ```
 
 > Retrieve Address response
@@ -1018,6 +1147,28 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
 }
 ```
 
+```python
+{
+    "id": 2,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
+    "status": "pending"
+}
+```
+
 #### Endpoint
 
 `https://rehive.com/api/3/admin/users/addresses/{id}/`
@@ -1032,6 +1183,13 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -D '{"line_1": "1 Main Street"}'
+```
+
+```python
+rehive.admin.users.addresses.update(
+    {id},
+    line_1="1 Main Street"
+)
 ```
 
 > Update Address response
@@ -1058,6 +1216,28 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
         "postal_code": "8001"
         "status": "pending"
     }
+}
+```
+
+```python
+{
+    "id": 2,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
+    "status": "pending"
 }
 ```
 
@@ -1098,9 +1278,21 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.admin.users.addresses.delete(
+    {id}
+)
+```
+
 > Delete address response
 
 ```shell
+{
+    "status": "success",
+}
+```
+
+```python
 {
     "status": "success",
 }
@@ -1510,9 +1702,21 @@ curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.admin.users.bank_accounts.delete(
+    {id}
+)
+```
+
 > Delete Bank Account response
 
 ```shell
+{
+    "status": "success",
+}
+```
+
+```python
 {
     "status": "success",
 }
@@ -1540,7 +1744,7 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.crypto_accounts.get()
 ```
 
 > Admin list crypto accounts response
@@ -1575,6 +1779,28 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
 }
 ```
 
+```python
+[
+    {
+        "id": 1,
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "address": "0000000000000000000000000000000000",
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
+    }
+]
+```
+
 List a user's cryptocurrency addresses.
 
 #### Filtering
@@ -1606,7 +1832,11 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.crypto_accounts.create(
+    address="0000000000000000000000000000000000",
+    type="bitcoin",
+    user="joe@rehive.com"
+)
 ```
 
 > Admin create crypto account response
@@ -1631,6 +1861,26 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
         "metadata": {},
         "status": "pending"
     }
+}
+```
+
+```python
+{
+    "id": 1,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
@@ -1677,7 +1927,9 @@ curl https://rehive.com/api/3/admin/users/crypto-accounts/{id}/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.crypto_accounts.get(
+    {id}
+)
 ```
 
 > Retrieve Crypto Account response
@@ -1705,6 +1957,26 @@ curl https://rehive.com/api/3/admin/users/crypto-accounts/{id}/
 }
 ```
 
+```python
+{
+    "id": {account_id},
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
+}
+```
+
 #### Endpoint
 
 `https://rehive.com/api/3/admin/users/crypto-accounts/{id}/`
@@ -1726,7 +1998,10 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
 ```
 
 ```python
-"To be implemented"
+rehive.admin.users.crypto_accounts.update(
+    {account_id},
+    address="0000000000000000000000000000000000"
+)
 ```
 
 > Admin update crypto account response
@@ -1751,6 +2026,26 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
         "metadata": {},
         "status": "pending"
     }
+}
+```
+
+```python
+{
+    "id": {account_id},
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
@@ -1796,9 +2091,21 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.admin.users.crypto_accounts.delete(
+    {id}
+)
+```
+
 > Admin delete crypto account response
 
 ```shell
+{
+    "status": "success",
+}
+```
+
+```python
 {
     "status": "success",
 }

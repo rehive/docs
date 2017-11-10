@@ -88,11 +88,6 @@ rehive.company.getCompanyCurrencies().then(function(res){
 
 ```python
 rehive.company.currencies.get()
-
-# A note, the SDK handles pagination internally
-# Use the below to iterate through pages after calling the initial get
-rehive.company.currencies.get_next()
-rehive.company.currencies.get_previous()
 ```
 
 > User list company currencies response
@@ -172,6 +167,7 @@ rehive.company.getCompanyBanks().then(function(res){
 ```
 
 ```python
+rehive.company.bank_account.get()
 ```
 
 > User list company banks response
@@ -202,6 +198,28 @@ rehive.company.getCompanyBanks().then(function(res){
 ```
 
 ```javascript
+[
+    {
+        "id": 53,
+        "token": 1,
+        "bank_account": {
+            "id": 1,
+            "name": "Rehive",
+            "number": "xxxxxxxx",
+            "type": "Cheque",
+            "bank_name": "Barclays",
+            "bank_code": "xxxx",
+            "branch_code": "xxxxx",
+            "swift": "",
+            "iban": "",
+            "bic": ""
+        },
+        "reference": "xxxxxxxxxx"
+    }
+]
+```
+
+```python
 [
     {
         "id": 53,
