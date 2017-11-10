@@ -974,7 +974,7 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
 ```
 
 ```python
-"To be implemented"
+rehive.user.crypto_accounts.get()
 ```
 
 > User list crypto accounts response
@@ -996,6 +996,19 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
 ```
 
 ```javascript
+[
+    {
+        "id": 1,
+        "address": "0000000000000000000000000000000000",
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
+    }
+]
+```
+
+```python
 [
     {
         "id": 1,
@@ -1038,7 +1051,10 @@ rehive.user.createUserBitcoinAccount(
 ```
 
 ```python
-"To be implemented"
+rehive.user.crypto_accounts.create(
+    address="0000000000000000000000000000000000",
+    crypto_type="bitcoin"
+)
 ```
 
 > User create crypto account response
@@ -1058,6 +1074,17 @@ rehive.user.createUserBitcoinAccount(
 ```
 
 ```javascript
+{
+    "id": 1,
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
+}
+```
+
+```python
 {
     "id": 1,
     "address": "0000000000000000000000000000000000",
@@ -1099,6 +1126,12 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.crypto_accounts.get(
+    {account_id}
+)
+```
+
 > User retrieve crypto account response
 
 ```shell
@@ -1112,6 +1145,17 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
         "metadata": {},
         "status": "pending"
     }
+}
+```
+
+```python
+{
+    "id": {account_id},
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
@@ -1143,7 +1187,9 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
 ```
 
 ```python
-"To be implemented"
+rehive.user.crypto_accounts.update(
+    address="0000000000000000000000000000000000"
+)
 ```
 
 > User update crypto account response
@@ -1163,6 +1209,17 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
 ```
 
 ```javascript
+{
+    "id": {account_id},
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
+}
+```
+
+```python
 {
     "id": {account_id},
     "address": "0000000000000000000000000000000000",
@@ -1205,9 +1262,21 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.crypto_accounts.delete(
+   {account_id} 
+)
+```
+
 > User delete crypto account response
 
 ```shell
+{
+    "status": "success",
+}
+```
+
+```python
 {
     "status": "success",
 }
