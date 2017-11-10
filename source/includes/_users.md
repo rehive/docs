@@ -559,7 +559,7 @@ rehive.user.getUserBankAccounts().then(function(res){
 ```
 
 ```python
-"To be implemented"
+rehive.user.bank_accounts.get()
 ```
 
 > User list bank accounts response
@@ -606,6 +606,25 @@ rehive.user.getUserBankAccounts().then(function(res){
 
 ```
 
+```python
+[
+    {
+        "id": 1,
+        "name": "Default",
+        "number": "9999999999",
+        "type": "Cheque",
+        "bank_name": "Central Bank",
+        "bank_code": "0000",
+        "branch_code": "0000",
+        "swift": "",
+        "iban": "",
+        "bic": "",
+        "code": "bank_account_VEM7k1y5hnuF",
+        "status": "pending"
+    }
+]
+```
+
 List a user's bank accounts.
 
 #### Endpoint
@@ -644,7 +663,13 @@ rehive.user.createUserBankAccount(
 ```
 
 ```python
-"To be implemented"
+rehive.user.bank_account.create(
+    name="Bank",
+    number="000000000000000",
+    type="Cheque",
+    bank_name="Bank Ltd.",
+    branch_code="0000"
+)
 ```
 
 > User create bank account response
@@ -684,7 +709,23 @@ rehive.user.createUserBankAccount(
     "code": "bank_account_000000000000",
     "status": "pending"
 }
+```
 
+```python
+{
+    "id": 1,
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
+}
 ```
 
 Create a bank account for a user.
@@ -719,6 +760,12 @@ curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.bank_accounts.get(
+    {account_id}
+)
+```
+
 > User retrieve bank account response
 
 ```shell
@@ -738,6 +785,23 @@ curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
         "code": "bank_account_000000000000",
         "status": "pending"
     }
+}
+```
+
+```python
+{
+    "id": {account_id},
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
 }
 ```
 
@@ -769,7 +833,10 @@ rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
 ```
 
 ```python
-"To be implemented"
+rehive.user.bank_accounts.update(
+    {account_id},
+    name="Bank"
+)
 ```
 
 > User update bank account response
@@ -795,6 +862,23 @@ rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
 ```
 
 ```javascript
+{
+    "id": {account_id},
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
+}
+```
+
+```python
 {
     "id": {account_id},
     "name": "Bank",
@@ -843,9 +927,21 @@ curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.bank_accounts.delete(
+   {account_id} 
+)
+```
+
 > User delete bank account response
 
 ```shell
+{
+    "status": "success"
+}
+```
+
+```python
 {
     "status": "success"
 }
