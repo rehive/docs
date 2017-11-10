@@ -1305,7 +1305,7 @@ curl https://www.rehive.com/api/3/user/documents/
 ```
 
 ```python
-"To be implemented"
+rehive.user.documents.get()
 ```
 
 > User list documents response
@@ -1332,6 +1332,20 @@ curl https://www.rehive.com/api/3/user/documents/
 }
 ```
 
+```python
+[
+    {
+        "id": 0,
+        "file": "https://url.to/file.pdf",
+        "document_category": "other",
+        "document_type": "other",
+        "metadata": {},
+        "status": "pending",
+        "note": null
+    }
+]
+```
+
 Get a list of user's documents.
 
 #### Endpoint
@@ -1348,6 +1362,12 @@ curl https://www.rehive.com/api/3/user/documents/{document_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
+```
+
+```python
+rehive.user.documents.get(
+    {document_id}
+)
 ```
 
 > User retrieve document response
@@ -1371,6 +1391,18 @@ curl https://www.rehive.com/api/3/user/documents/{document_id}/
             }
         ]
     }
+}
+```
+
+```python
+{
+    "id": 0,
+    "file": "https://url.to/file.pdf",
+    "document_category": "other",
+    "document_type": "other",
+    "metadata": {},
+    "status": "pending",
+    "note": null
 }
 ```
 
@@ -1409,7 +1441,11 @@ curl https://www.rehive.com/api/3/user/document/
 ```
 
 ```python
-"To be implemented"
+# Note: The file argument should be the full path of the file
+rehive.user.documents.upload(
+    document_type='other',
+    file=file
+)
 ```
 
 > User documents response
@@ -1430,6 +1466,18 @@ curl https://www.rehive.com/api/3/user/document/
 ```
 
 ```javascript
+{
+    "id": 0,
+    "file": "https://url.to/file.pdf",
+    "document_category": "other",
+    "document_type": "other",
+    "metadata": {},
+    "status": "pending",
+    "note": null
+}
+```
+
+```python
 {
     "id": 0,
     "file": "https://url.to/file.pdf",
