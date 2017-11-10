@@ -38,7 +38,7 @@ curl https://www.rehive.com/api/3/
 ```
 
 ```python
-"Not applicable for sdk"
+"The python SDK handles storing and sending the authentication token"
 ```
 
 When making requests, the API key should be included as a token in the `Authorization` header:
@@ -66,6 +66,19 @@ curl https://www.rehive.com/api/3/auth/company/register/
        "password1": "joe1234",
        "password2":"joe1234",
        "terms_and_conditions": true}'
+```
+
+```python
+rehive.auth.register_company(
+    first_name="Joe",
+    last_name="Soap",
+    email="joe@rehive.com",
+    mobile_number="+00000000000",
+    company="rehive",
+    password1="joe1234",
+    password2="joe1234",
+    terms_and_conditions=True
+)
 ```
 
 > Company registration response
@@ -118,6 +131,55 @@ curl https://www.rehive.com/api/3/auth/company/register/
             "date_joined": 1509539800952,
             "switches": []
         }
+    }
+}
+```
+
+```python
+{
+    "token": "{token}",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
     }
 }
 ```
@@ -263,29 +325,50 @@ rehive.auth.register(
 
 ```python
 {
-  "token": "{token}",
-  "user": {
-    "identifier": "00000000-0000-0000-0000-000000000000",
-    "email": "joe@rehive.com",
-    "mobile_number": "+00000000000",
-    "first_name": "Joe",
-    "last_name": "Soap",
-    "company": "rehive",
-    "profile": null,
-    "language": "en",
-    'nationality': '',
-    "currency": {},
-    "metadata": {},
-    "mobile_number": "",
-    "timezone": None,
-    "verified": False,
-    "kyc_verified": False,
-    "status": "pending",
-    "permission_group": "user",
-    "groups": [],
-    "permissions": [],
-    "date_joined": 1505813314238
-  }
+    "token": "{token}",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
+    }
 }
 ```
 
@@ -568,7 +651,6 @@ rehive.auth.logout()
 
 ```shell
 {
-  "message": "Successfully logged out.",
   "status": "success"
 }
 ```
@@ -581,7 +663,6 @@ rehive.auth.logout()
 
 ```python
 {
-  "message": "Successfully logged out.",
   "status": "success"
 }
 ```
@@ -619,7 +700,6 @@ rehive.auth.logout_all()
 
 ```shell
 {
-  "message": "Successfully logged out all sessions.",
   "status": "success"
 }
 ```
@@ -632,7 +712,6 @@ rehive.auth.logout_all()
 
 ```python
 {
-  "message": "Successfully logged out all sessions.",
   "status": "success"
 }
 ```
@@ -671,7 +750,11 @@ rehive.auth.changePassword(
 ```
 
 ```python
-"To be implemented"
+rehive.auth.password.change(
+    old_password="joe1234",
+    new_password1="joe1234",
+    new_password2="joe1234"
+)
 ```
 
 > User change password response
@@ -686,6 +769,12 @@ rehive.auth.changePassword(
 ```javascript
 {
   "message": "New password has been saved."
+}
+```
+
+```python
+{
+  "status": "success"
 }
 ```
 
@@ -989,9 +1078,21 @@ curl https://rehive.com/api/3/auth/email/verify/
   -d '{"key": "{key}"}'
 ```
 
+```python
+rehive.auth.email.verify(
+    key='{key}'
+)
+```
+
 > User verify email response
 
 ```shell
+{
+  "status": "success"
+}
+```
+
+```python
 {
   "status": "success"
 }
