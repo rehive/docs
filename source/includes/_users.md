@@ -559,7 +559,7 @@ rehive.user.getUserBankAccounts().then(function(res){
 ```
 
 ```python
-"To be implemented"
+rehive.user.bank_accounts.get()
 ```
 
 > User list bank accounts response
@@ -606,6 +606,25 @@ rehive.user.getUserBankAccounts().then(function(res){
 
 ```
 
+```python
+[
+    {
+        "id": 1,
+        "name": "Default",
+        "number": "9999999999",
+        "type": "Cheque",
+        "bank_name": "Central Bank",
+        "bank_code": "0000",
+        "branch_code": "0000",
+        "swift": "",
+        "iban": "",
+        "bic": "",
+        "code": "bank_account_VEM7k1y5hnuF",
+        "status": "pending"
+    }
+]
+```
+
 List a user's bank accounts.
 
 #### Endpoint
@@ -644,7 +663,13 @@ rehive.user.createUserBankAccount(
 ```
 
 ```python
-"To be implemented"
+rehive.user.bank_account.create(
+    name="Bank",
+    number="000000000000000",
+    type="Cheque",
+    bank_name="Bank Ltd.",
+    branch_code="0000"
+)
 ```
 
 > User create bank account response
@@ -684,7 +709,23 @@ rehive.user.createUserBankAccount(
     "code": "bank_account_000000000000",
     "status": "pending"
 }
+```
 
+```python
+{
+    "id": 1,
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
+}
 ```
 
 Create a bank account for a user.
@@ -719,6 +760,12 @@ curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.bank_accounts.get(
+    {account_id}
+)
+```
+
 > User retrieve bank account response
 
 ```shell
@@ -738,6 +785,23 @@ curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
         "code": "bank_account_000000000000",
         "status": "pending"
     }
+}
+```
+
+```python
+{
+    "id": {account_id},
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
 }
 ```
 
@@ -769,7 +833,10 @@ rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
 ```
 
 ```python
-"To be implemented"
+rehive.user.bank_accounts.update(
+    {account_id},
+    name="Bank"
+)
 ```
 
 > User update bank account response
@@ -795,6 +862,23 @@ rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
 ```
 
 ```javascript
+{
+    "id": {account_id},
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
+}
+```
+
+```python
 {
     "id": {account_id},
     "name": "Bank",
@@ -843,9 +927,21 @@ curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.bank_accounts.delete(
+   {account_id} 
+)
+```
+
 > User delete bank account response
 
 ```shell
+{
+    "status": "success"
+}
+```
+
+```python
 {
     "status": "success"
 }
@@ -878,7 +974,7 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
 ```
 
 ```python
-"To be implemented"
+rehive.user.crypto_accounts.get()
 ```
 
 > User list crypto accounts response
@@ -900,6 +996,19 @@ rehive.user.getUserBitcoinAccounts().then(function(res){
 ```
 
 ```javascript
+[
+    {
+        "id": 1,
+        "address": "0000000000000000000000000000000000",
+        "code": "crypto_account_000000000000",
+        "crypto_type": "bitcoin",
+        "metadata": {},
+        "status": "pending"
+    }
+]
+```
+
+```python
 [
     {
         "id": 1,
@@ -942,7 +1051,10 @@ rehive.user.createUserBitcoinAccount(
 ```
 
 ```python
-"To be implemented"
+rehive.user.crypto_accounts.create(
+    address="0000000000000000000000000000000000",
+    crypto_type="bitcoin"
+)
 ```
 
 > User create crypto account response
@@ -962,6 +1074,17 @@ rehive.user.createUserBitcoinAccount(
 ```
 
 ```javascript
+{
+    "id": 1,
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
+}
+```
+
+```python
 {
     "id": 1,
     "address": "0000000000000000000000000000000000",
@@ -1003,6 +1126,12 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.crypto_accounts.get(
+    {account_id}
+)
+```
+
 > User retrieve crypto account response
 
 ```shell
@@ -1016,6 +1145,17 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
         "metadata": {},
         "status": "pending"
     }
+}
+```
+
+```python
+{
+    "id": {account_id},
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
@@ -1047,7 +1187,9 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
 ```
 
 ```python
-"To be implemented"
+rehive.user.crypto_accounts.update(
+    address="0000000000000000000000000000000000"
+)
 ```
 
 > User update crypto account response
@@ -1067,6 +1209,17 @@ rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000
 ```
 
 ```javascript
+{
+    "id": {account_id},
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
+}
+```
+
+```python
 {
     "id": {account_id},
     "address": "0000000000000000000000000000000000",
@@ -1109,9 +1262,21 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.crypto_accounts.delete(
+   {account_id} 
+)
+```
+
 > User delete crypto account response
 
 ```shell
+{
+    "status": "success",
+}
+```
+
+```python
 {
     "status": "success",
 }
@@ -1140,7 +1305,7 @@ curl https://www.rehive.com/api/3/user/documents/
 ```
 
 ```python
-"To be implemented"
+rehive.user.documents.get()
 ```
 
 > User list documents response
@@ -1167,6 +1332,20 @@ curl https://www.rehive.com/api/3/user/documents/
 }
 ```
 
+```python
+[
+    {
+        "id": 0,
+        "file": "https://url.to/file.pdf",
+        "document_category": "other",
+        "document_type": "other",
+        "metadata": {},
+        "status": "pending",
+        "note": null
+    }
+]
+```
+
 Get a list of user's documents.
 
 #### Endpoint
@@ -1183,6 +1362,12 @@ curl https://www.rehive.com/api/3/user/documents/{document_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
+```
+
+```python
+rehive.user.documents.get(
+    {document_id}
+)
 ```
 
 > User retrieve document response
@@ -1206,6 +1391,18 @@ curl https://www.rehive.com/api/3/user/documents/{document_id}/
             }
         ]
     }
+}
+```
+
+```python
+{
+    "id": 0,
+    "file": "https://url.to/file.pdf",
+    "document_category": "other",
+    "document_type": "other",
+    "metadata": {},
+    "status": "pending",
+    "note": null
 }
 ```
 
@@ -1244,7 +1441,11 @@ curl https://www.rehive.com/api/3/user/document/
 ```
 
 ```python
-"To be implemented"
+# Note: The file argument should be the full path of the file
+rehive.user.documents.upload(
+    document_type='other',
+    file=file
+)
 ```
 
 > User documents response
@@ -1265,6 +1466,18 @@ curl https://www.rehive.com/api/3/user/document/
 ```
 
 ```javascript
+{
+    "id": 0,
+    "file": "https://url.to/file.pdf",
+    "document_category": "other",
+    "document_type": "other",
+    "metadata": {},
+    "status": "pending",
+    "note": null
+}
+```
+
+```python
 {
     "id": 0,
     "file": "https://url.to/file.pdf",
@@ -1457,6 +1670,10 @@ curl https://www.rehive.com/api/3/user/emails/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.emails.get("{email_id}")
+```
+
 > User retrieve email address response
 
 ```shell
@@ -1477,10 +1694,6 @@ rehive.user.getUserEmailAddresses(emailId).then(function(res){
     },function(err){
         // ...
     })
-```
-
-```python
-rehive.user.emails.get("{email_id}")
 ```
 
 ```javascript
@@ -1592,9 +1805,21 @@ curl https://www.rehive.com/api/3/user/emails/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.emails.delete(
+    {id}
+)
+```
+
 > User delete email address response
 
 ```shell
+{
+    "status": "success"
+}
+```
+
+```python
 {
     "status": "success"
 }
@@ -1900,9 +2125,21 @@ curl https://www.rehive.com/api/3/user/mobiles/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.user.mobiles.delete(
+    {id}
+)
+```
+
 > User delete mobile number response
 
 ```shell
+{
+    "status": "success"
+}
+```
+
+```python
 {
     "status": "success"
 }

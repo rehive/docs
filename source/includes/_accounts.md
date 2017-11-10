@@ -22,10 +22,6 @@ rehive.accounts.getAccountsList(filter).then(function(res){
 ```
 
 ```python
-#Filters are not required
-filters = {
-    "active":True
-}
 rehive.accounts.get(
     filters=filters
 )

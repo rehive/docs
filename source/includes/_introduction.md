@@ -68,6 +68,14 @@ authentication. See <a href="/#authorization">Authentication</a> for 3rd party a
 
 ```
 
+```python
+# The SDK handles paginations automatically for every resource.
+
+rehive.resource.get() # Stores pagination if returned
+rehive.resource.get_next() # Calls with current next value
+rehive.resource.get_previous() # Call with current previous value
+```
+
 Almost all listing endpoints include a way to perform pagination. The default pagination method
 offered by Rehive is offset pagination, which allows navigation to an arbitrary point in 
 a list of results as well as via `next` and `prev` attributes. The default page size is 15 but
@@ -88,6 +96,18 @@ Value | Descrition
 curl https://www.rehive.com/an/api/endpoint/?field_1=abc&field_2=123&orderby=field_1
   -X GET
   -H "Content-Type: application/json"
+```
+
+```python
+# Filters can be parsed to any resource as a dictionary, ex:
+filters = {
+   "field_1": "abc",
+   "field_2": 123,
+   "orderby": "field_1" 
+}
+rehive.resource.get(
+    filters=filters
+)
 ```
 
 Most listing pages also include a way to filter and/or sort the returned list of objects. All filtering
