@@ -322,6 +322,7 @@ rehive.admin.users.create(
     "date_joined": 1464912953000,
     "switches": [],
     "last_login": null,
+    "active": true,
     "password": "*********************************00000000"
 }
 ```
@@ -420,6 +421,7 @@ rehive.admin.users.get(
         "date_joined": 1464912953000,
         "switches": [],
         "last_login": null,
+        "active": true,
         "password": "*********************************00000000"
     }
 }
@@ -471,6 +473,7 @@ rehive.admin.users.get(
     "date_joined": 1464912953000,
     "switches": [],
     "last_login": null,
+    "active": true,
     "password": "*********************************00000000"
 }
 ```
@@ -550,6 +553,7 @@ rehive.admin.users.update(
         "date_joined": 1464912953000,
         "switches": [],
         "last_login": null,
+        "active": true,
         "password": "*********************************00000000"
     }
 }
@@ -601,6 +605,7 @@ rehive.admin.users.update(
     "date_joined": 1464912953000,
     "switches": [],
     "last_login": null,
+    "active": true,
     "password": "*********************************00000000"
 }
 ```
@@ -626,6 +631,7 @@ Field | Description | Default
 `timezone` | timezone | blank
 `birth_date` | birth date | blank
 `status` | status | pending
+`active` | boolean | true
 
 #### Statuses
 

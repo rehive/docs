@@ -656,9 +656,7 @@ rehive.auth.logout()
 ```
 
 ```javascript
-{
-  "message": "Successfully logged out."
-}
+{}
 ```
 
 ```python
@@ -705,9 +703,7 @@ rehive.auth.logout_all()
 ```
 
 ```javascript
-{
-  "message": "Successfully logged out all sessions."
-}
+{}
 ```
 
 ```python
@@ -761,15 +757,12 @@ rehive.auth.password.change(
 
 ```shell
 {
-  "message": "New password has been saved.",
   "status": "success"
 }
 ```
 
 ```javascript
-{
-  "message": "New password has been saved."
-}
+{}
 ```
 
 ```python
@@ -831,20 +824,16 @@ rehive.auth.password.reset(
 
 ```shell
 {
-  "message": "Password reset message has been sent.",
   "status": "success"
 }
 ```
 
 ```javascript
-{
-  "message": "Password reset message has been sent."
-}
+{}
 ```
 
 ```python
 {
-  "message": "Password reset message has been sent.",
   "status": "success"
 }
 ```
@@ -903,20 +892,16 @@ rehive.auth.password.reset_confirm_password(
 
 ```shell
 {
-  "message": "Password has been reset with the new password.",
   "status": "success"
 }
 ```
 
 ```javascript
-{
-  "message": "Password has been reset with the new password."
-}
+{}
 ```
 
 ```python
 {
-  "message": "Password has been reset with the new password.",
   "status": "success"
 }
 ```
