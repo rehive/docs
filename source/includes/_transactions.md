@@ -297,23 +297,20 @@ rehive.transactions.create_credit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
-        "metadata": {}
+        "id": "00000000000000000000"
     }
 }
 ```
 
 ```javascript
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 
@@ -383,23 +380,20 @@ rehive.transactions.create_debit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
-        "metadata": {}
+        "id": "00000000000000000000"
     }
 }
 ```
 
 ```javascript
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 
@@ -464,23 +458,20 @@ rehive.transactions.create_transfer(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
-        "metadata": {}
+        "id": "00000000000000000000"
     }
 }
 ```
 
 ```javascript
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 

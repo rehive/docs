@@ -3488,16 +3488,14 @@ rehive.admin.transactions.create_credit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
-        "metadata": {}
+        "id": "00000000000000000000"
     }
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 
@@ -3559,20 +3557,18 @@ rehive.admin.transactions.create_debit(
 
 > Admin debit response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
-        "metadata": {}
+        "id": "00000000000000000000"
     }
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 
@@ -3629,16 +3625,14 @@ rehive.admin.transactions.create_transfer(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
-        "metadata": {}
+        "id": "00000000000000000000"
     }
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000",
-    "metadata": {}
+    "id": "00000000000000000000"
 }
 ```
 
