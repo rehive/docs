@@ -4200,7 +4200,7 @@ rehive.admin.accounts.get()
                         "currency": {
                             "code": "XBT",
                             "description": "bitcoin",
-                            "symbol": "฿",
+                            "symbol": "???",
                             "unit": "bitcoin",
                             "divisibility": 8
                         },
@@ -4231,7 +4231,7 @@ rehive.admin.accounts.get()
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "฿",
+                    "symbol": "???",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
@@ -4363,7 +4363,7 @@ rehive.admin.accounts.get(
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "฿",
+                    "symbol": "???",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
@@ -4391,7 +4391,7 @@ rehive.admin.accounts.get(
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "฿",
+                "symbol": "???",
                 "unit": "bitcoin",
                 "divisibility": 8
             },
@@ -4516,7 +4516,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "฿",
+                    "symbol": "???",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
@@ -4534,7 +4534,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "฿",
+            "symbol": "???",
             "unit": "bitcoin",
             "divisibility": 8
         },
@@ -4582,7 +4582,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "฿",
+            "symbol": "???",
             "unit": "bitcoin",
             "divisibility": 8
         },
@@ -4597,7 +4597,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8
     },
@@ -4640,7 +4640,7 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "฿",
+            "symbol": "???",
             "unit": "bitcoin",
             "divisibility": 8
         },
@@ -4655,7 +4655,7 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8
     },
@@ -5590,7 +5590,7 @@ rehive.admin.currencies.get()
             {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "฿",
+                "symbol": "???",
                 "unit": "bitcoin",
                 "divisibility": 8,
                 "enabled": true
@@ -5605,7 +5605,7 @@ rehive.admin.currencies.get()
     {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -5630,7 +5630,7 @@ curl https://www.rehive.com/api/3/admin/currencies/
   -H "Content-Type: application/json"
   -d '{"code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8}'
 ```
@@ -5639,7 +5639,7 @@ curl https://www.rehive.com/api/3/admin/currencies/
 rehive.admin.currencies.create(
     code="XBT",
     description="bitcoin",
-    symbol="฿",
+    symbol="???",
     unit="satoshi",
     divisibility=8
 )
@@ -5653,7 +5653,7 @@ rehive.admin.currencies.create(
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": false
@@ -5665,7 +5665,7 @@ rehive.admin.currencies.create(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": false
@@ -5712,7 +5712,7 @@ rehive.admin.currencies.get("{code}")
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -5724,7 +5724,7 @@ rehive.admin.currencies.get("{code}")
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -5764,7 +5764,7 @@ rehive.admin.currencies.update(
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -5776,7 +5776,7 @@ rehive.admin.currencies.update(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -6386,6 +6386,14 @@ curl https://rehive.com/api/3/admin/webhooks/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.webhooks.getList().then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    })
+```
+
 ```python
 rehive.admin.webhooks.get()
 ```
@@ -6404,6 +6412,17 @@ rehive.admin.webhooks.get()
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "url": "http://mysite.com/webhook_endpoint",
+        "event": "user.create",
+        "secret": "secret"
+    }
+]
 ```
 
 ```python
@@ -6435,6 +6454,18 @@ curl https://rehive.com/api/3/admin/webhooks/
        "secret": "secret"}'
 ```
 
+```javascript
+rehive.admin.webhooks.create({
+        url: "http://mysite.com/webhook_endpoint",
+        event: "user.create",
+        secret: "secret"
+    }).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    })
+```
+
 ```python
 rehive.admin.webhooks.post(
     url="http://mysite.com/webhook_endpoint",
@@ -6443,31 +6474,36 @@ rehive.admin.webhooks.post(
 )
 ```
 
-> List webhooks response
+> Create webhooks response
 
 ```shell
 {
     "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "user.create",
-            "secret": "secret"
-        }
-    ]
-}
-```
-
-```python
-[
-    {
+    "data": {
         "id": 1,
         "url": "http://mysite.com/webhook_endpoint",
         "event": "user.create",
         "secret": "secret"
     }
-]
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "url": "http://mysite.com/webhook_endpoint",
+    "event": "user.create",
+    "secret": "secret"
+}
+```
+
+```python
+{
+    "id": 1,
+    "url": "http://mysite.com/webhook_endpoint",
+    "event": "user.create",
+    "secret": "secret"
+}
 ```
 
 #### Endpoint
@@ -6498,6 +6534,14 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.webhooks.get(id).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    })
+```
+
 ```python
 rehive.admin.webhooks.get(
     {id}
@@ -6515,6 +6559,15 @@ rehive.admin.webhooks.get(
         "event": "user.create",
         "secret": "secret"
     }
+}
+```
+
+```javascript
+ {
+    "id": 1,
+    "url": "http://mysite.com/webhook_endpoint",
+    "event": "user.create",
+    "secret": "secret"
 }
 ```
 
@@ -6543,6 +6596,14 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
   -D '{"url": "http://mysite.com/webhook_endpoint"}'
 ```
 
+```javascript
+rehive.admin.webhooks.update(id, {url: "http://mysite.com/webhook_endpoint"}).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.webhooks.update(
     url="http://mysite.com/webhook_endpoint"
@@ -6554,26 +6615,31 @@ rehive.admin.webhooks.update(
 ```shell
 {
     "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "user.create",
-            "secret": "secret"
-        }
-    ]
+    "data": {
+                "id": 1,
+                "url": "http://mysite.com/webhook_endpoint",
+                "event": "user.create",
+                "secret": "secret"
+            }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "url": "http://mysite.com/webhook_endpoint",
+    "event": "user.create",
+    "secret": "secret"
 }
 ```
 
 ```python
-[
-    {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "user.create",
-        "secret": "secret"
-    }
-]
+{
+    "id": 1,
+    "url": "http://mysite.com/webhook_endpoint",
+    "event": "user.create",
+    "secret": "secret"
+}
 ```
 
 #### Endpoint
@@ -6604,6 +6670,14 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.webhooks.delete(id).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.webhooks.delete(
     {id}
@@ -6616,6 +6690,10 @@ rehive.admin.webhooks.delete(
 {
     "status": "success",
 }
+```
+
+```javascript
+{}
 ```
 
 ```python
@@ -6642,6 +6720,14 @@ curl https://rehive.com/api/3/admin/subtypes/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.subtypes.getList().then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.subtypes.get()
 ```
@@ -6664,6 +6750,21 @@ rehive.admin.subtypes.get()
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 20,
+        "name": "credit_subtype",
+        "label": "Our credit",
+        "description": "Description for our credit",
+        "tx_type": "credit",
+        "enabled": true,
+        "created": 1509529290352,
+        "updated": 1509529290352
+    }
+]
 ```
 
 ```python
@@ -6696,6 +6797,21 @@ curl https://rehive.com/api/3/admin/subtypes/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.subtypes.create(
+        {
+            name: "credit_subtype",
+            label: "Our credit",
+            description: "Description for our credit",
+            tx_type:"credit",
+            enabled: true
+        }).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.subtypes.create(
     name="credit_subtype",
@@ -6720,6 +6836,18 @@ rehive.admin.subtypes.create(
         "created": 1509529290352,
         "updated": 1509529290352
     }
+}
+```
+
+```javascript
+ {
+    "id": 20,
+    "name": "credit_subtype",
+    "label": "Our credit",
+    "description": "Description for our credit",
+    "tx_type": "credit",
+    "created": 1509529290352,
+    "updated": 1509529290352
 }
 ```
 
@@ -6765,6 +6893,14 @@ curl https://rehive.com/api/3/admin/subtypes/{id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.subtypes.get(id).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.subtypes.get("{id}")
 ```
@@ -6783,6 +6919,18 @@ rehive.admin.subtypes.get("{id}")
         "created": 1509529290352,
         "updated": 1509529290352
     }
+}
+```
+
+```javascript
+{
+    "id": 20,
+    "name": "credit_subtype",
+    "label": "Our credit",
+    "description": "Description for our credit",
+    "tx_type": "credit",
+    "created": 1509529290352,
+    "updated": 1509529290352
 }
 ```
 
@@ -6814,6 +6962,14 @@ curl https://rehive.com/api/3/admin/subtypes/{id}/
   -D '{"description": "New description"}'
 ```
 
+```javascript
+rehive.admin.subtypes.update(id, {description: "New description"}).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.subtypes.update(
     "{id}",
@@ -6835,6 +6991,18 @@ rehive.admin.subtypes.update(
         "created": 1509529290352,
         "updated": 1509529290352
     }
+}
+```
+
+```javascript
+{
+    "id": 20,
+    "name": "credit_subtype",
+    "label": "Our credit",
+    "description": "New description",
+    "tx_type": "credit",
+    "created": 1509529290352,
+    "updated": 1509529290352
 }
 ```
 
@@ -6874,10 +7042,18 @@ Field | Description | Default
 > Delete subtype request
 
 ```shell
-curl https://rehive.com/api/3/admin/subtypes/
+curl https://rehive.com/api/3/admin/subtypes/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.admin.subtypes.delete(id).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
 ```
 
 ```python
@@ -6892,6 +7068,10 @@ rehive.admin.subtypes.delete(
 {
     "status": "success",
 }
+```
+
+```javascript
+{}
 ```
 
 ```python
@@ -6923,6 +7103,14 @@ curl https://rehive.com/api/3/admin/notifications/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.notifications.getList().then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    })
+```
+
 ```python
 rehive.admin.notifications.get()
 ```
@@ -6941,6 +7129,17 @@ rehive.admin.notifications.get()
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "name": "account_verify",
+        "description": "Account verification notifications",
+        "enabled": true
+    }
+]
 ```
 
 ```python
@@ -6969,6 +7168,14 @@ curl https://rehive.com/api/3/admin/notifications/{id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.notifications.get(id).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    })
+```
+
 ```python
 rehive.admin.notifications.get("{id}")
 ```
@@ -6984,6 +7191,15 @@ rehive.admin.notifications.get("{id}")
         "description": "Account verification notifications",
         "enabled": true
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "name": "account_verify",
+    "description": "Account verification notifications",
+    "enabled": trueed": true
 }
 ```
 
@@ -7012,6 +7228,14 @@ curl https://rehive.com/api/3/admin/notifications/{id}
   -D '{"enabled": false}'
 ```
 
+```javascript
+rehive.admin.notifications.update(id, {enabled: false).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.notifications.update(
     "{id}",
@@ -7030,6 +7254,15 @@ rehive.admin.notifications.update(
         "description": "Account verification notifications",
         "enabled": false
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "name": "account_verify",
+    "description": "Account verification notifications",
+    "enabled": false
 }
 ```
 
@@ -8544,6 +8777,14 @@ curl https://rehive.com/api/3/admin/switches/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.switches.getList().then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.switches.get()
 ```
@@ -8563,6 +8804,18 @@ rehive.admin.switches.get()
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "switch_type": "Allow transactions",
+        "enabled": true,
+        "created": 1497347723605,
+        "updated": 1497347723605
+    }
+]
 ```
 
 ```python
@@ -8596,8 +8849,20 @@ curl https://rehive.com/api/3/admin/switches/
        "enabled": false}'
 ```
 
+```javascript
+rehive.admin.switches.create(
+        {
+            switch_type: "transactions",
+            enabled: false
+        }).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
-rehive.admin.swtiches.create(
+rehive.admin.switches.create(
     switch_type="transactions",
     enabled=False
 )
@@ -8615,6 +8880,16 @@ rehive.admin.swtiches.create(
         "created": 1497348308625,
         "updated": 1497348318654
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "switch_type": "Allow transactions",
+    "enabled": false,
+    "created": 1497348308625,
+    "updated": 1497348318654
 }
 ```
 
@@ -8664,6 +8939,15 @@ curl https://rehive.com/api/3/admin/switches/{id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.switches.get(id).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
+
 ```python
 rehive.admin.switches.get("{id}")
 ```
@@ -8680,6 +8964,16 @@ rehive.admin.switches.get("{id}")
         "created": 1497347723605,
         "updated": 1497347723605
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "switch_type": "Allow transactions",
+    "enabled": true,
+    "created": 1497347723605,
+    "updated": 1497347723605
 }
 ```
 
@@ -8711,6 +9005,14 @@ curl https://rehive.com/api/3/admin/switches/{id}/
   -D '{"enabled": false}'
 ```
 
+```javascript
+rehive.admin.switches.update(id, {enabled: false}).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.switches.update(
     "{id}",
@@ -8730,6 +9032,16 @@ rehive.admin.switches.update(
         "created": 1497348308625,
         "updated": 1497348318654
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "switch_type": "Allow transactions",
+    "enabled": false,
+    "created": 1497348308625,
+    "updated": 1497348318654
 }
 ```
 
@@ -8779,6 +9091,14 @@ curl https://rehive.com/api/3/admin/switches/{id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.switches.delete(id).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.switches.delete(
     {id}
@@ -8791,6 +9111,10 @@ rehive.admin.switches.delete(
 {
     "status": "success"
 }
+```
+
+```javascript
+{}
 ```
 
 ```python
@@ -8822,6 +9146,14 @@ curl https://www.rehive.com/api/3/admin/permission-groups/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.permissionGroups.getList().then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.permission_groups.get()
 ```
@@ -8842,6 +9174,20 @@ rehive.admin.permission_groups.get()
             }
         ]
     }
+}
+```
+
+```javascript
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "name": "test_group",
+            "permissions": []
+        }
+    ]
 }
 ```
 
@@ -8881,6 +9227,14 @@ curl https://www.rehive.com/api/3/admin/permission-groups/
   -D '{"name": "test_group"}'
 ```
 
+```javascript
+rehive.admin.permissionGroups.create({name: "test_group"}).then(function (res) {
+            ...
+        }, function (err) {
+            ...
+        });
+```
+
 ```python
 rehive.admin.permission_groups.create(
     name="test_group"
@@ -8896,6 +9250,13 @@ rehive.admin.permission_groups.create(
         "permissions": []
     },
     "status": "success"
+}
+```
+
+```javascript
+{
+    "name": "test_group",
+    "permissions": []
 }
 ```
 
@@ -8930,6 +9291,14 @@ curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/
   -D '{"name": "new_name"}'
 ```
 
+```javascript
+ rehive.admin.permissionGroups.update(group_name,{name: "new_name"}).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.permission_groups.update(
    {group_name},
@@ -8946,6 +9315,13 @@ rehive.admin.permission_groups.update(
         "permissions": []
     },
     "status": "success"
+}
+```
+
+```javascript
+{
+    "name": "new_name",
+    "permissions": []
 }
 ```
 
@@ -8978,6 +9354,13 @@ curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
+```javascript
+rehive.admin.permissionGroups.delete(group_name).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
 
 ```python
 rehive.admin.permission_groups.delete(
@@ -8991,6 +9374,10 @@ rehive.admin.permission_groups.delete(
 {
     "status": "success"
 }
+```
+
+```javascript
+{}
 ```
 
 ```python
@@ -9016,6 +9403,14 @@ curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/permissio
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.permissionGroups.getPermissionsList(group_name).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.permission_groups.obj({group_name}).permissions.get()
 ```
@@ -9037,6 +9432,21 @@ rehive.admin.permission_groups.obj({group_name}).permissions.get()
             }
         ]
     }
+}
+```
+
+```javascript
+{
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 55,
+            "type": "account",
+            "level": "add"
+        }
+    ]
 }
 ```
 
@@ -9078,6 +9488,18 @@ curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/per
        "level": "view"}'
 ```
 
+```javascript
+rehive.admin.permissionGroups.createPermission(group_name,
+        {
+            type: "account",
+            level: "view"
+        }).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.permission_groups.obj({group_name}).permissions.create(
     type="account",
@@ -9095,6 +9517,14 @@ rehive.admin.permission_groups.obj({group_name}).permissions.create(
         "level": "view"
     },
     "status": "success"
+}
+```
+
+```javascript
+{
+    "id": 367,
+    "type": "account",
+    "level": "view"
 }
 ```
 
@@ -9134,6 +9564,14 @@ curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/per
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.permissionGroups.deletePermission(group_name,permission_id).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 ```python
 rehive.admin.permission_groups.obj({group_name}).permissions.delete(
     {permission_id}
@@ -9146,6 +9584,10 @@ rehive.admin.permission_groups.obj({group_name}).permissions.delete(
 {
     "status": "success"
 }
+```
+
+```javascript
+{}
 ```
 
 ```python
@@ -9173,14 +9615,30 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/
   -D '{"group": "test_group"}'
 ```
 
+```javascript
+rehive.admin.users.addPermissionGroup(uuid, {
+        group: "test_group"
+    }).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 > Admin assign permission group response
 
-```json
+```shell
 {
     "data": {
         "name": "test_group"
     },
     "status": "success"
+}
+```
+
+```javascript
+{
+    "name": "test_group"
 }
 ```
 
@@ -9207,12 +9665,24 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/{group_na
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.users.deletePermissionGroup(uuid,group_name).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 > Admin unassign permission group response
 
-```json
+```shell
 {
     "status": "success"
 }
+```
+
+```javascript
+{}
 ```
 
 Unassign a permission group for a user.
@@ -9234,9 +9704,20 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/
        "level": "view"}'
 ```
 
+```javascript
+rehive.admin.users.createPermission(uuid, {
+        type: "account",
+        level: "view"
+    }).then(function (res) {
+        ...
+    }, function (err) {
+        ...
+    });
+```
+
 > Admin assign permissions response
 
-```json
+```shell
 {
     "status": "success",
     "data": {
@@ -9244,6 +9725,14 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/
         "type": "account",
         "level": "view"
     }
+}
+```
+
+```javascript
+{
+    "id": 269,
+    "type": "account",
+    "level": "view"
 }
 ```
 
@@ -9271,9 +9760,27 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.users.deletePermission(uuid,permission_id).then(function (res) {
+       ...
+    }, function (err) {
+       ...
+    });
+```
+
 > Admin unassign permissions response
 
-```json
+```shell
+{
+    "status": "success"
+}
+```
+
+```javascript
+{}
+```
+
+```python
 {
     "status": "success"
 }
