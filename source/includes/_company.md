@@ -45,8 +45,8 @@ rehive.company.get()
     "name": "Rehive",
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
-    "nationalities": ["US", "ZA"]
-    "logo": null
+    "logo": null,
+    "nationalities":[]
 }
 ```
 

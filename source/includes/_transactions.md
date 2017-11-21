@@ -18,7 +18,6 @@ curl https://www.rehive.com/api/3/transactions/
 ```
 
 ```javascript
-var filters = {tx_type: 'credit',currency: 'ZAR'};
 
 rehive.transactions.getTransactionsList(filters).then(function(res){
         // ...
@@ -92,7 +91,7 @@ rehive.transactions.get(
 
 ```javascript
  {
-    "count": 1,
+    "count": 2,
     "next": null,
     "previous": null,
     "results": [
@@ -100,17 +99,18 @@ rehive.transactions.get(
             "id": "000000000000000000000",
             "tx_type": "credit",
             "subtype": null,
+            "external": false,
             "note": "",
             "metadata": {},
             "status": "Complete",
-            "reference": null,
+            "reference": "",
             "amount": 500,
             "fee": 0,
-            "total_amount": 500,
-            "balance": 500,
-            "account": "0000000000",
+            "balance": 1000,
+            "account": "akC49YT8x4",
             "label": "Credit",
             "company": "rehive",
+            "total_amount":100,
             "currency": {
                 "description": "Rand",
                 "code": "ZAR",
@@ -129,7 +129,44 @@ rehive.transactions.get(
             },
             "source_transaction": null,
             "destination_transaction": null,
-            "created": 1476691969394,
+            "created": 1496135465218,
+            "updated": 1496135465287
+        },
+        {
+            "id": "000000000000000000000",
+            "tx_type": "credit",
+            "subtype": null,
+            "external": false,
+            "note": "",
+            "metadata": {},
+            "status": "Complete",
+            "reference": "",
+            "amount": 500,
+            "fee": 0,
+            "balance": 500,
+            "account": "akC49YT8x4",
+            "label": "Credit",
+            "company": "rehive",
+            "total_amount":500,
+            "currency": {
+                "description": "Rand",
+                "code": "ZAR",
+                "symbol": "R",
+                "unit": "rand",
+                "divisibility": 2
+            },
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "source_transaction": null,
+            "destination_transaction": null,
+            "created": 1496135465218,
             "updated": 1496135465287
         }
     ]
@@ -209,7 +246,6 @@ curl https://www.rehive.com/api/3/transactions/totals/
 ```
 
 ```javascript
-var filters = {currency:'ZAR'};
 
 rehive.transactions.getTotalTransactionsList(filters).then(function(res){
         // ...
@@ -238,10 +274,10 @@ rehive.transactions.get_totals()
 
 ```javascript
 {
-    "amount": 500,
-    "fees": 0,
-    "count": 1,
-    "currency": "ZAR"
+    "amount": 1000,
+    "count": 2,
+    "currency": "ZAR",
+    "fees": 0
 }
 ```
 
@@ -589,17 +625,18 @@ rehive.transactions.get(
     "id": "000000000000000000000",
     "tx_type": "credit",
     "subtype": null,
+    "external": false,
     "note": "",
     "metadata": {},
     "status": "Complete",
-    "reference": null,
+    "reference": "",
     "amount": 500,
     "fee": 0,
-    "total_amount": 500,
     "balance": 500,
-    "account": "0000000000",
+    "account": "akC49YT8x4",
     "label": "Credit",
     "company": "rehive",
+    "total_amount":-300,
     "currency": {
         "description": "Rand",
         "code": "ZAR",
@@ -621,11 +658,11 @@ rehive.transactions.get(
     "messages": [
         {
             "level": "info",
-            "message": "Example Message.",
+            "message": "Transaction completed.",
             "created": 1496144568989
         }
-    ],        
-    "created": 1476691969394,
+    ],
+    "created": 1496135465218,
     "updated": 1496135465287
 }
 ```

@@ -197,14 +197,11 @@ curl https://www.rehive.com/api/3/user/
 ```
 
 ```javascript
-rehive.user.updateUserProfile(
-    {
-        first_name: "Joe"
-    }).then(function(user){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.updateUserProfile(data).then(function (user) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -393,11 +390,11 @@ curl https://www.rehive.com/api/3/user/address/
 ```
 
 ```javascript
-rehive.user.getUserAddress().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.getUserAddress().then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -464,14 +461,11 @@ curl https://www.rehive.com/api/3/user/address/
 ```
 
 ```javascript
-rehive.user.updateUserAddress(
-    {
-        city: "Cape Town"
-    }).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.updateUserAddress(data).then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -551,11 +545,11 @@ curl https://www.rehive.com/api/3/user/bank-accounts/
 ```
 
 ```javascript
-rehive.user.getUserBankAccounts().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.getUserBankAccounts().then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -648,17 +642,21 @@ curl https://www.rehive.com/api/3/user/bank-accounts/
 ```
 
 ```javascript
-rehive.user.createUserBankAccount(
-        {
-            name: "Bank",
-            number: "000000000000000",
-            type: "Cheque",
-            bank_name: "Bank Ltd.",
-            branch_code: "0000"
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
+    rehive.user.createUserBankAccount(
+            {
+                name: name,
+                number: number,
+                type: type,
+                bank_name: bank_name,
+                bank_code: bank_code,
+                branch_code: branch_code,
+                swift: swift,
+                iban: iban,
+                bic: bic
+            }).then(function (res) {
+            //..
+        }, function (err) {
+            //..
         });
 ```
 
@@ -759,7 +757,13 @@ curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
-
+```javascript
+    rehive.user.getUserBankAccount(bankId).then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
+```
 ```python
 rehive.user.bank_accounts.get(
     {account_id}
@@ -785,6 +789,23 @@ rehive.user.bank_accounts.get(
         "code": "bank_account_000000000000",
         "status": "pending"
     }
+}
+```
+
+```javascript
+{
+    "id": {account_id},
+    "name": "Bank",
+    "number": "000000000000000",
+    "type": "Cheque",
+    "bank_name": "Bank Ltd.",
+    "bank_code": null,
+    "branch_code": "0000",
+    "swift": null,
+    "iban": null,
+    "bic": null,
+    "code": "bank_account_000000000000",
+    "status": "pending"
 }
 ```
 
@@ -825,11 +846,11 @@ curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
 ```
 
 ```javascript
-rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+    rehive.user.updateUserBankAccount(accountId,{name: "Bank"}).then(function(res){
+                // ...
+            },function(err){
+                // ...
+            })
 ```
 
 ```python
@@ -966,11 +987,11 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/
 ```
 
 ```javascript
-rehive.user.getUserBitcoinAccounts().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.getUserCryptoAccounts().then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        })
 ```
 
 ```python
@@ -1040,14 +1061,16 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/
 ```
 
 ```javascript
-rehive.user.createUserBitcoinAccount(
-        {
-            address: address
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+    rehive.user.createUserCryptoAccounts(
+            {
+                address: address,
+                crypto_type: crypto_type,
+                metadata: metadata
+            }).then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -1126,6 +1149,14 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+    rehive.user.getUserCryptoAccount(cryptoAccountId).then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        })
+```
+
 ```python
 rehive.user.crypto_accounts.get(
     {account_id}
@@ -1145,6 +1176,17 @@ rehive.user.crypto_accounts.get(
         "metadata": {},
         "status": "pending"
     }
+}
+```
+
+```javascript
+{
+    "id": 1,
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
@@ -1179,11 +1221,11 @@ curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
 ```
 
 ```javascript
-rehive.user.updateUserBitcoinAccount(accountId,{address: "0000000000000000000000000000000000"}).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.updateUserCryptoAccounts(cryptoAccountId, data).then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -1426,18 +1468,18 @@ curl https://www.rehive.com/api/3/user/document/
 ```
 
 ```javascript
- var fileSelected = document.getElementById("fileInput").files[0],
-        formData =  new FormData;
-
+    var fileSelected = document.getElementById("fileInput").files[0],
+        formData = new FormData;
+    
     formData.append('file', fileSelected);
-    formData.append('document_category', 'other');
-    formData.append('document_type', 'other');
-
-    rehive.user.createDocument(formData).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    formData.append('document_type', document_type);
+    formData.append('metadata', JSON.stringify(metadata));
+    
+    rehive.user.createDocument(formData).then(function (res) {
+        //..
+    }, function (err) {
+        //..
+    });
 ```
 
 ```python
@@ -1522,11 +1564,11 @@ curl https://www.rehive.com/api/3/user/emails/
 ```
 
 ```javascript
-rehive.user.getUserEmailAddresses().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.getUserEmailAddresses().then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -1591,15 +1633,15 @@ curl https://www.rehive.com/api/3/user/emails/
 ```
 
 ```javascript
-rehive.user.createUserEmailAddress(
-        {
-            email: "joe@rehive.com",
-            primary: true
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+    rehive.user.createUserEmailAddress(
+            {
+                email: email,
+                primary: primary
+            }).then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -1669,7 +1711,9 @@ curl https://www.rehive.com/api/3/user/emails/{id}/
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
-
+```javascript
+    
+```
 ```python
 rehive.user.emails.get("{email_id}")
 ```
@@ -1731,11 +1775,11 @@ curl https://www.rehive.com/api/3/user/emails/{email_id}
 ```
 
 ```javascript
-rehive.user.updateUserEmailAddress(emailId,{primary: true}).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.updateUserEmailAddress(emailId, data).then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -1841,11 +1885,11 @@ curl https://www.rehive.com/api/3/user/mobiles/
 ```
 
 ```javascript
-rehive.user.getUserMobileNumbers().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.getUserMobileNumbers().then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
@@ -1910,14 +1954,14 @@ curl https://www.rehive.com/api/3/user/mobiles/
 ```
 
 ```javascript
-rehive.user.createUserMobileNumber(
-        {
-            number: "+00000000000",
-            primary: true
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
+    rehive.user.createUserMobileNumber(
+            {
+                number: number,
+                primary: primary
+            }).then(function (res) {
+            //..
+        }, function (err) {
+            //..
         })
 ```
 
@@ -2051,11 +2095,11 @@ curl https://www.rehive.com/api/3/user/mobiles/{number_id}
 ```
 
 ```javascript
-rehive.user.updateUserMobileNumber(numberId,{primary: true}).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    rehive.user.updateUserMobileNumber(mobileNumberId, data).then(function (res) {
+            //..
+        }, function (err) {
+            //..
+        });
 ```
 
 ```python
