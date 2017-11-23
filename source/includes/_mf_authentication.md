@@ -14,11 +14,11 @@ curl https://www.rehive.com/api/3/auth/mfa/
 ```
 
 ```javascript
-    rehive.multiAuth.multiFactorAuthStatus().then(function (res) {
-            //..
-        },function(err){
-            //..
-        })
+rehive.auth.mfa.status.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -69,12 +69,11 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/
 ```
 
 ```javascript
-    rehive.multiAuth.sms.multiFactorAuthSMSPost({mobile_number: mobile_no}).then(function (res) {
-                        //..
-                    }, function (err) {
-                        //..
-                    }
-                )
+rehive.auth.mfa.sms.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -124,14 +123,13 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/
 ```
 
 ```javascript
-    rehive.multiAuth.sms.multiFactorAuthSMSPost({
-                    mobile_number: mobile_no
-                }).then(function (res) {
-                        //..
-                    }, function (err) {
-                        //..
-                    }
-                )
+rehive.auth.mfa.sms.enable({
+    mobile_number: mobile_no
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -172,7 +170,7 @@ posted. Use this OTP to verify the mobile number at the [Verify endpoint](#verif
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/mfa/sms/`
+`https://rehive.com/api/3/auth/mfa/sms/send/`
 
 #### Required Fields
 
@@ -191,11 +189,11 @@ curl https://www.rehive.com/api/3/auth/mfa/sms/send/
 ```
 
 ```javascript
-    rehive.multiAuth.sms.multiFactorAuthSMSResend().then(function(res){
-                    //..
-                }, function (err) {
-                    //..
-                })
+rehive.auth.mfa.sms.send().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -207,27 +205,18 @@ rehive.auth.mfa.send_sms(
 > Send SMS response
 
 ```shell
-  {
-    "status": "success"
-    "data": {
-        "mobile_number": "+27000000000",
-        "confirmed": false
-      },
-    }
-  }
+{
+   "status": "success"
+}
 ```
 
 ```javascript
-{
-    "mobile_number": "+27000000000",
-    "confirmed": false
-}
+{}
 ```
 
 ```python
 {
-  "mobile_number": "+27000000000",
-  "confirmed": false
+   "status": "success"
 }
 ```
 
@@ -258,11 +247,11 @@ curl https://www.rehive.com/api/3/auth/mfa/token/
 ```
 
 ```javascript
-    rehive.multiAuth.token.multiFactorAuthGetTokenStatus().then(function (res) {
-                    //..
-                },function(err){
-                    //..
-                })
+rehive.auth.mfa.token.get().then(function (res) {
+     ...
+}, function (err) {
+     ...
+});
 ```
 
 ```python
@@ -278,18 +267,19 @@ rehive.auth.mfa.token.get()
         "otpauth_url": "otpauth://totp/Rehive1%3A%20joe%40rehive.com?secret=00000000000000000000000000000000&digits=6&issuer=Rehive",
         "issuer": "Rehive",
         "account": "joe@rehive.com",
-        "key": "00000000000000000000000000000000"
+        "key": "00000000000000000000000000000000",
+        "confirmed": false
     }
   }
 ```
 
 ```javascript
 {
-    "account":"test1@rehive.com"
-    "issuer":"Test Company 1"
-    "key":"KJN27K32SJOMLXZJ5V76UW6AWRKF6KWB"
-    "otpauth_url":"otpauth://totp/Test%20Company%201%3A%20test1%40rehive.com?secret=KJN27K32SJOMLXZJ5V76UW6AWRKF6KWB&digits=6&issuer=Test+Company+1"
-
+    "otpauth_url": "otpauth://totp/Rehive1%3A%20joe%40rehive.com?secret=00000000000000000000000000000000&digits=6&issuer=Rehive",
+    "issuer": "Rehive",
+    "account": "joe@rehive.com",
+    "key": "00000000000000000000000000000000",
+    "confirmed": false
 }
 ```
 
@@ -298,7 +288,8 @@ rehive.auth.mfa.token.get()
     "otpauth_url": "otpauth://totp/Rehive1%3A%20joe%40rehive.com?secret=00000000000000000000000000000000&digits=6&issuer=Rehive",
     "issuer": "Rehive",
     "account": "joe@rehive.com",
-    "key": "00000000000000000000000000000000"
+    "key": "00000000000000000000000000000000",
+    "confirmed": false
 }
 ```
 
@@ -317,11 +308,11 @@ curl https://www.rehive.com/api/3/auth/mfa/token/
 ```
 
 ```javascript
-    rehive.multiAuth.token.multiFactorAuthGetTokenStatus().then(function (res) {
-                    //..
-                },function(err){
-                    //..
-                })
+rehive.auth.mfa.token.enable().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -390,11 +381,13 @@ curl https://www.rehive.com/api/3/auth/mfa/verify/
 ```
 
 ```javascript
-    rehive.authVerify.verification({
-                    token: '123456'
-                    }).then(function (res) {
-                        //..
-               })
+rehive.auth.mfa.verify({
+    token: token
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -412,9 +405,7 @@ rehive.auth.mfa.verify(
 ```
 
 ```javascript
-{
-    "status": "success"
-}
+{}
 ```
 
 ```python
