@@ -149,7 +149,7 @@ than (`__gt`) and less than (`__lt`) suffixes (eg. `created__gt`).
 
 #### Metadata Fields 
 
-Ccustom metadata fields can be filtered on their first level children by adding the child
+Custom metadata fields can be filtered on their first level children by adding the child
 attribute as a suffix (`__child_attribute`). So if metadata contains a JSON object with an attribute `name` it can 
 be filtered using `metadata__name`.
 
