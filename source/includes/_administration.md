@@ -3819,184 +3819,6 @@ Field | Description | Default
 `metadata` | custom metadata | {}
 `message` | message object | {}
 
-### List Transaction Webhooks
-
-> List transaction webhooks request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/webhooks/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-> List transaction webhooks response
-
-```json
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "transaction.create",
-            "tx_type": "debit",
-            "secret": "supersecret"
-        }
-    ]
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/webhooks/`
-
-### Create Transaction Webhooks
-
-> Create transaction webhooks request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/webhooks/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"url": "http://mysite.com/webhook_endpoint",
-       "event": "transaction.create",
-       "tx_type": "debit",
-       "secret": "secret"}'
-```
-
-> List transaction webhooks response
-
-```json
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "transaction.create",
-            "tx_type": "debit",
-            "secret": "secret"
-        }
-    ]
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/webhooks/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`url` | Webhook URL | blank
-`event` | Webhook event | null
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | ---
-`tx_type` | Transaction type | null
-`secret` | Webhook secret | "secret"
-
-### Retrieve Transaction Webhook
-
-> Retrieve transaction webhook request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-> Retrieve transaction webhook response
-
-```json
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "transaction.create",
-        "tx_type": "debit",
-        "secret": "secret"
-    }
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
-
-### Update Transaction Webhook
-
-> Update transaction webhook request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"url": "http://mysite.com/webhook_endpoint"}'
-```
-
-> Update transaction webhook response
-
-```json
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "transaction.create",
-            "tx_type": "debit",
-            "secret": "secret"
-        }
-    ]
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`url` | Webhook URL | blank
-`event` | Webhook event | null
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | ---
-`tx_type` | Transaction type | null
-`secret` | Webhook secret | "secret"
-
-
-### Delete Transaction Webhook
-
-> Delete transaction webhook request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
-  -X DELETE
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-> Delete transaction webhook response
-
-```json
-{
-    "status": "success",
-}
-```
 
 #### Endpoint
 
@@ -6395,14 +6217,21 @@ rehive.admin.webhooks.get()
 ```shell
 {
     "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "user.create",
-            "secret": "secret"
-        }
-    ]
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "url": "http://mysite.com/webhook_endpoint",
+                "event": "user.create",
+                "condition": null,
+                "secret": "secret"
+
+            }           
+        ]
+    }
 }
 ```
 
@@ -6412,6 +6241,7 @@ rehive.admin.webhooks.get()
         "id": 1,
         "url": "http://mysite.com/webhook_endpoint",
         "event": "user.create",
+        "condition": null,
         "secret": "secret"
     }
 ]
@@ -6448,26 +6278,24 @@ rehive.admin.webhooks.post(
 ```shell
 {
     "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "user.create",
-            "secret": "secret"
-        }
-    ]
+    "data": {
+        "id": 1,
+        "url": "http://mysite.com/webhook_endpoint",
+        "event": "user.create",
+        "condition": null,
+        "secret": "secret"
+    }
 }
 ```
 
 ```python
-[
-    {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "user.create",
-        "secret": "secret"
-    }
-]
+{
+    "id": 1,
+    "url": "http://mysite.com/webhook_endpoint",
+    "event": "user.create",
+    "condition": null,
+    "secret": "secret"
+}
 ```
 
 #### Endpoint
@@ -6485,7 +6313,18 @@ Field | Description | Default
 
 Field | Description | Default 
 --- | --- | ---
+`condition` | webhook condition* | null
 `secret` | Webhook secret | "secret"
+
+<aside class="notice">
+the <code>condition</code> field is a template strings that is populated with webhook data. 
+When webhook events are triggered, the string is evluated as python and should result in a boolean upon evluation. 
+The condition is limited to a max size of 150 characters, has limited recursion 
+and is only supplied with the webhook data. A valid <code>condition</code> on the 
+<code>transaction.execute</code> webhook would be <code>'{{ tx_type }}' == 'debit'</code>, which would
+result in a webhook only getting triggered if the transaction has a `debit` 
+transaction type.
+</aside>
 
 ### Retrieve Webhook
 
@@ -6513,16 +6352,18 @@ rehive.admin.webhooks.get(
         "id": 1,
         "url": "http://mysite.com/webhook_endpoint",
         "event": "user.create",
+        "condition": null,
         "secret": "secret"
     }
 }
 ```
 
 ```python
- {
+{
     "id": 1,
     "url": "http://mysite.com/webhook_endpoint",
     "event": "user.create",
+    "condition": null,
     "secret": "secret"
 }
 ```
@@ -6554,26 +6395,25 @@ rehive.admin.webhooks.update(
 ```shell
 {
     "status": "success",
-    "data": [
+    "data": {
         {
             "id": 1,
             "url": "http://mysite.com/webhook_endpoint",
             "event": "user.create",
+            "condition": null,
             "secret": "secret"
         }
-    ]
 }
 ```
 
 ```python
-[
-    {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "user.create",
-        "secret": "secret"
-    }
-]
+{
+    "id": 1,
+    "url": "http://mysite.com/webhook_endpoint",
+    "event": "user.create",
+    "condition": null,
+    "secret": "secret"
+}
 ```
 
 #### Endpoint
@@ -6627,6 +6467,173 @@ rehive.admin.webhooks.delete(
 #### Endpoint
 
 `https://rehive.com/api/3/admin/webhooks/{id}/`
+
+
+### List Webhook Tasks
+
+> List webhook tasks request
+
+```shell
+curl https://rehive.com/api/3/admin/webhook-tasks/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List webhook tasks response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "webhook": {
+                    "id": 1,
+                    "url": "http://mysite.com/webhook_endpoint",
+                    "event": "user.create",
+                    "condition": null,
+                    "secret": "secret"
+                },
+                "tries": 1,
+                "completed": 1511546662774,
+                "failed": null,
+                "created": 1511546662487,
+                "updated": 1511546662774          
+            }
+        ]
+    }
+}
+```
+
+#### Filtering
+
+Field | Type 
+--- | --- 
+`webhook` | string
+`webhook__event` | string 
+`webhook__secret` | string
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhook-tasks/`
+
+### Retrieve Webhook Task
+
+> Retrieve webhook task request
+
+```shell
+curl https://rehive.com/api/3/admin/webhook-tasks/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve webhook task response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "webhook": {
+            "id": 1,
+            "url": "http://mysite.com/webhook_endpoint",
+            "event": "user.create",
+            "condition": null,
+            "secret": "secret"
+        },
+        "tries": 1,
+        "data": {
+            ...
+        }
+        "completed": 1511546662774,
+        "failed": null,
+        "created": 1511546662487,
+        "updated": 1511546662774          
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhook-task/{id}/`
+
+
+### List Webhook Task Requests
+
+> List webhook task requests request
+
+```shell
+curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> List webhook task requests response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "response_code": 200,
+                "error": null,
+                "created": 1511546662778
+            }
+        ]
+    }
+}
+```
+
+#### Filtering
+
+Field | Type 
+--- | --- 
+`response_code` | string
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/`
+
+### Retrieve Webhook Task Request
+
+> Retrieve webhook task request request
+
+```shell
+curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+> Retrieve webhook task request response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": 1,
+        "response_code": 200,
+        "error": null,
+        "created": 1511546662778
+    }
+}
+```
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/webhook-task/{id}/requests/{id}/`
 
 
 ## Subtypes

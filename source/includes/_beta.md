@@ -22,21 +22,9 @@ Webhooks should always be created with a secure and private `secret` key (See th
 
 Rehive expects a `200 OK` HTTP response when webhooks are called. If a 200 response is not returned, Rehive will retry the webhook up to a max of 12 times with a gradually increasing delay between each retry.
 
-### Transaction Events
+### Webhook Events
 
-Rehive currently support the following transaction events:
-
-Event | Description 
---- | --- 
-`transaction.create` | transaction created event
-`transaction.update` | transaction updated event
-`transaction.delete` | transaction deleted event
-`transaction.initiate` | transaction initiated (pending) event
-`transaction.execute` | transaction executed (complete/failed) event
-
-### General Events
-
-Rehive currently support the following general events:
+Rehive currently support the following webhook events:
 
 Event | Description 
 --- | --- 
@@ -53,6 +41,11 @@ Event | Description
 `bank_account.update` | bank account updated event
 `crypto_account.create` | crypto account created event
 `crypto_account.update` | crypto account updated event
+`transaction.create` | transaction created event
+`transaction.update` | transaction updated event
+`transaction.delete` | transaction deleted event
+`transaction.initiate` | transaction initiated (pending) event
+`transaction.execute` | transaction executed (complete/failed) event
 
 ## Idempotent Requests
 
