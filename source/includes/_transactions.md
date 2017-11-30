@@ -18,12 +18,16 @@ curl https://www.rehive.com/api/3/transactions/
 ```
 
 ```javascript
+var filters = {
+    tx_type: "credit",
+    currency:'ZAR'
+};
 
-rehive.transactions.getTransactionsList(filters).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.transactions.get({filters: filters}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -247,11 +251,11 @@ curl https://www.rehive.com/api/3/transactions/totals/
 
 ```javascript
 
-rehive.transactions.getTotalTransactionsList(filters).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.transactions.getTotals().then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -296,9 +300,7 @@ Get a user's total transaction details. This is a summary of transaction details
 
 See Transaction List filtering above.
 
-#### Endpoint
-
-`https://rehive.com/api/3/transactions/totals/`## Create Credit
+## Create Credit
 
 > User credit request
 
@@ -312,13 +314,13 @@ curl https://www.rehive.com/api/3/transactions/credit/
 
 ```javascript
 rehive.transactions.createCredit(
-        {
-            amount: 500
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+{
+    amount: 500
+}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -395,13 +397,13 @@ curl https://www.rehive.com/api/3/transactions/debit/
 
 ```javascript
 rehive.transactions.createDebit(
-        {
-            amount: 500
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+{
+    amount: 500
+}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -471,14 +473,14 @@ curl https://www.rehive.com/api/3/transactions/transfer/
 
 ```javascript
 rehive.transactions.createTransfer(
-    {
-        amount: 500,
-        recipient: "joe@rehive.com"
-    }).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+{
+    amount: 500,
+    recipient: "joe@rehive.com"
+}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -556,11 +558,11 @@ curl https://www.rehive.com/api/3/transactions/{id}/
 ```
 
 ```javascript
-rehive.transactions.getTransaction(txCode).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.transactions.get({id: transactionId}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python

@@ -1447,7 +1447,7 @@ curl https://www.rehive.com/api/3/user/documents/{document_id}/
 ```
 
 ```javascript
-rehive.user.documents.get(documentId).then(function (res) {
+rehive.user.documents.get({id: documentId).then(function (res) {
     ...
 }, function (err) {
     ...

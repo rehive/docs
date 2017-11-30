@@ -107,13 +107,13 @@ curl https://www.rehive.com/an/api/endpoint/?field_1=abc&field_2=123&orderby=fie
 ```
 
 ```javascript
-// Filters can be sent to any list resource as an object as the last parameter, ex:
+// Filters can be sent to any list resource as an object, ex:
 filters = {
    field_1: "abc",
    field_2: 123,
    orderby: "field_1"
 }
-rehive.resource.get(filter)
+rehive.resource.get({filters: filters})
 ```
 
 ```python

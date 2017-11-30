@@ -12,13 +12,11 @@ curl https://www.rehive.com/api/3/accounts/
 ```
 
 ```javascript
-var filter = {active:true};
-
-rehive.accounts.getAccountsList(filter).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.get({filters: filters}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -157,14 +155,14 @@ curl https://www.rehive.com/api/3/accounts/
 ```
 
 ```javascript
-    rehive.accounts.createAccount({
-            name: 'savings',
-            primary: false
-        }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        })
+rehive.accounts.create({
+    name: 'savings',
+    primary: false
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -250,11 +248,11 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
 
 ```javascript
 
-rehive.accounts.getAccount(reference,filter).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.get({reference: reference}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -374,11 +372,11 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
 ```
 
 ```javascript
-    rehive.accounts.updateAccount('B2PT5JSL7U',{primary:true}).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.accounts.update(reference,{primary:true}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -463,11 +461,11 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/
 
 ```javascript
 
-rehive.accounts.getAccountCurrenciesList(reference,filter).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.currencies.get(reference).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -574,11 +572,11 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
 ```
 
 ```javascript
-rehive.accounts.getAccountCurrency(reference,currencyCode).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.currencies.get(reference,{code: code}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -666,11 +664,11 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
 ```
 
 ```javascript
-rehive.accounts.updateAccountCurrency(reference,currencyCode,{active: true}).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.currencies.update(reference,currencyCode,{active: true}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
