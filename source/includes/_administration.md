@@ -15,6 +15,14 @@ curl https://www.rehive.com/admin/api/3/admin/users/overview/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.users.overview.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
 ```python
 rehive.admin.users.overview.get()
 ```
@@ -28,6 +36,13 @@ rehive.admin.users.overview.get()
         "active": 1
     },
     "status": "success"
+}
+```
+
+```javascript
+{
+    "total": 1,
+    "active": 1
 }
 ```
 
@@ -56,11 +71,11 @@ curl https://www.rehive.com/admin/api/3/admin/users/
 ```
 
 ```javascript
-    rehive.admin.users.getList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -257,7 +272,7 @@ Field | Type
 
 ### Create User
 
-> Admin create user reuest
+> Admin create user request
 
 ```shell
 curl https://www.rehive.com/api/3/admin/users/`
@@ -271,27 +286,27 @@ curl https://www.rehive.com/api/3/admin/users/`
 ```
 
 ```javascript
-    var fileSelected = document.getElementById("userProfile").files[0],
-            formData = new FormData();
-    
-    
-    formData.append('profile', fileSelected);
-    formData.append('first_name', first_name);
-    formData.append('last_name', last_name);
-    formData.append('email', email);
-    formData.append('id_number', id_number);
-    formData.append('language', language);
-    formData.append('nationality', nationality);
-    formData.append('metadata', metadata);
-    formData.append('mobile_number', mobile_number);
-    formData.append('timezone', timezone);
-    
-    
-    rehive.admin.users.create(formData).then(function (res) {
-        //..
-    }, function (err) {
-        //..
-    });
+var fileSelected = document.getElementById("userProfile").files[0],
+        formData = new FormData;
+
+
+formData.append('profile', fileSelected);
+formData.append('first_name', first_name);
+formData.append('last_name', last_name);
+formData.append('email', email);
+formData.append('id_number', id_number);
+formData.append('language', language);
+formData.append('nationality', nationality);
+formData.append('metadata', metadata);
+formData.append('mobile_number', mobile_number);
+formData.append('timezone', timezone);
+
+
+rehive.admin.users.create(formData).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -498,11 +513,11 @@ curl https://www.rehive.com/api/3/admin/users/{identifier}/
 ```
 
 ```javascript
-    rehive.admin.users.get(uuid).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.get({identifier: identifier}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -679,22 +694,25 @@ curl https://www.rehive.com/api/3/admin/users/{identifier}/`
 ```
 
 ```javascript
-    var fileSelected = document.getElementById("userUpdateProfile").files[0],
-            formData = new FormData();
-    
+var fileSelected = document.getElementById("userUpdateProfile").files[0],
+    formData = new FormData,
+    data = {first_name: 'Joe'};
+
+if(fileSelected){
     formData.append('profile', fileSelected);
-    
-    for (var key in data) {
-        if (data[key]) {
-            formData.append(key, data[key]);
-        }
+}
+
+for (var key in data) {
+    if (data[key]) {
+        formData.append(key, data[key]);
     }
-    
-    rehive.admin.users.update(uuid, formData).then(function (res) {
-        //..
-    }, function (err) {
-        //..
-    });
+}
+
+rehive.admin.users.update(identifier, formData).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -909,11 +927,11 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/
 ```
 
 ```javascript
-    rehive.admin.users.getSwitchesList(uuid).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.switches.get(identifier).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -986,16 +1004,16 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/
 ```
 
 ```javascript
-    rehive.admin.users.createSwitch(uuid, 
-    {
-        subtype:null,
-        tx_type:"credit",
-        enabled:false
-    }).then(function (res) {
-           //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.switches.create(identifier,
+{
+    subtype:null,
+    tx_type:"credit",
+    enabled:false
+}).then(function (res) {
+   ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1074,11 +1092,11 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 ```
 
 ```javascript
-     rehive.admin.users.getSwitch(identifier, id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.switches.get(identifier, {id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1144,13 +1162,13 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 ```
 
 ```javascript
-    rehive.admin.users.updateSwitch(identifier, id, {
-        enabled: true
-    }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.switches.update(identifier, id, {
+    enabled: true
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1229,11 +1247,11 @@ curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
 ```
 
 ```javascript
-   rehive.admin.users.deleteSwitch(identifier, '195').then(function (res) {
-           //..
-       }, function (err) {
-           //..
-       });
+rehive.admin.users.switches.delete(identifier, id).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1251,9 +1269,7 @@ rehive.admin.users.obj('{identifier}').switches.delete(
 ```
 
 ```javascript
-{
-    "status": "success"
-}
+{}
 ```
 
 ```python
@@ -1279,11 +1295,11 @@ curl https://rehive.com/api/3/admin/users/addresses/
 ```
 
 ```javascript
-    rehive.admin.users.getAddressesList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.addresses.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1409,22 +1425,21 @@ curl https://rehive.com/api/3/admin/users/addresses/
 ```
 
 ```javascript
-    rehive.admin.users.createAddress(
-            {
-                user: "bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce",
-                line_1: "1 Main Street",
-                line_2: "East City",
-                city: "Cape Town",
-                state_province: "Western Cape",
-                country: "ZA",
-                postal_code: "8001",
-                status: "pending"
-    
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.addresses.create(
+{
+    user: "joe@rehive.com",
+    line_1: "1 Main Street",
+    line_2: "East City",
+    city: "Cape Town",
+    state_province: "Western Cape",
+    country: "ZA",
+    postal_code: "8001",
+    status: "pending"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1555,11 +1570,11 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
 ```
 
 ```javascript
-    rehive.admin.users.getAddress(id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.addresses.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1657,14 +1672,13 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
 ```
 
 ```javascript
-    rehive.admin.users.updateAddress('195',{
-        line_1: 'toodleloo',
-        country: 'US'
-    }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.addresses.update(id,{
+    line_1: '1 Main Street',
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1784,11 +1798,11 @@ curl https://rehive.com/api/3/admin/users/addresses/{id}/
 ```
 
 ```javascript
-   rehive.admin.users.deleteAddress('195').then(function (res) {
-           //..
-       }, function (err) {
-           //..
-       });
+rehive.admin.users.addresses.delete(id).then(function (res) {
+   ...
+}, function (err) {
+   ...
+});
 ```
 
 ```python
@@ -1806,9 +1820,7 @@ rehive.admin.users.addresses.delete(
 ```
 
 ```javascript
-{
-    "status": "success",
-}
+{}
 ```
 
 ```python
@@ -1834,11 +1846,11 @@ curl https://rehive.com/api/3/admin/users/bank-accounts/
 ```
 
 ```javascript
-    rehive.admin.users.getBankAccountsList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.bankAccounts.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1967,24 +1979,23 @@ curl https://rehive.com/api/3/admin/users/bank-accounts/
 ```
 
 ```javascript
-    rehive.admin.users.createBankAccount(
-            {
-                user: "bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce",
-                name: "Bank",
-                number: "23434",
-                type: "cash",
-                bank_name: "bank name",
-                bank_code: 234342,
-                branch_code: 2343,
-                swift: "",
-                iban: "",
-                bic: "",
-                status: "verified"
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.bankAccounts.create({
+    user: "joe@rehive.com",
+    name: "Bank",
+    number: "23434",
+    type: "cash",
+    bank_name: "bank name",
+    bank_code: 234342,
+    branch_code: 2343,
+    swift: "",
+    iban: "",
+    bic: "",
+    status: "verified"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -2129,11 +2140,11 @@ curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
 ```
 
 ```javascript
-    rehive.admin.users.getBankAccount('494').then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.bankAccounts.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -2240,15 +2251,13 @@ curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
 ```
 
 ```javascript
-    rehive.admin.users.updateBankAccount('494',
-    {
-        name: 'wootwoot',
-        number: 'yo yo'
-    }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.bankAccounts.update(id,{
+    name: 'New account name'
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -2382,11 +2391,11 @@ curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
 ```
 
 ```javascript
-   rehive.admin.users.deleteBankAccount('494').then(function (res) {
-           //..
-       }, function (err) {
-           //..
-       });
+rehive.admin.users.bankAccounts.delete(id).then(function (res) {
+   ...
+}, function (err) {
+   ...
+});
 ```
 
 ```python
@@ -2404,9 +2413,7 @@ rehive.admin.users.bank_accounts.delete(
 ```
 
 ```javascript
-{
-    "status": "success",
-}
+{}
 ```
 
 ```python
@@ -2432,11 +2439,11 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
 ```
 
 ```javascript
-    rehive.admin.users.getCryptoAccountsList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.cryptoAccounts.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 
 ```
 
@@ -2552,18 +2559,18 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
 ```
 
 ```javascript
-    rehive.admin.users.createCryptoAccount(
-            {
-                user: 'bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce',
-                crypto_type: 'ethereum',
-                address: '3242342343223dewwrewrw',
-                metadata: {},
-                status: 'incomplete'
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.cryptoAccounts.create(
+{
+    user: 'joe@rehive.com',
+    crypto_type: 'ethereum',
+    address: '3242342343223dewwrewrw',
+    metadata: {},
+    status: 'incomplete'
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -2683,11 +2690,11 @@ curl https://rehive.com/api/3/admin/users/crypto-accounts/{id}/
 ```
 
 ```javascript
-    rehive.admin.users.getCryptoAccount('122').then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.cryptoAccounts.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -2779,15 +2786,14 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
 ```
 
 ```javascript
-    rehive.admin.users.updateCryptoAccount('126',
-    {
-        address: 'wootwoot',
-        status: 'verified'
-    }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.cryptoAccounts.update(id,
+{
+    address: "0000000000000000000000000000000000"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -2904,11 +2910,11 @@ curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
 ```
 
 ```javascript
-   rehive.admin.users.deleteCryptoAccount('494').then(function (res) {
-           //..
-       }, function (err) {
-           //..
-       });
+rehive.admin.users.cryptoAccounts.delete(id).then(function (res) {
+   ...
+}, function (err) {
+   ...
+});
 ```
 
 ```python
@@ -2926,9 +2932,7 @@ rehive.admin.users.crypto_accounts.delete(
 ```
 
 ```javascript
-{
-    "status": "success",
-}
+{}
 ```
 
 ```python

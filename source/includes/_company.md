@@ -12,11 +12,11 @@ curl https://www.rehive.com/api/3/company/
 ```
 
 ```javascript
-rehive.company.getCompanyDetails().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.company.get().then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -79,11 +79,11 @@ curl https://www.rehive.com/api/3/company/currencies/
 ```
 
 ```javascript
-rehive.company.getCompanyCurrencies().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.company.currencies.get().then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -159,11 +159,11 @@ curl https://www.rehive.com/api/3/company/bank-account/
 ```
 
 ```javascript
-rehive.company.getCompanyBanks().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.company.bankAccounts.get().then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
