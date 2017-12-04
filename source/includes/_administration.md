@@ -146,49 +146,56 @@ rehive.admin.users.get()
 
 ```javascript
 {
-    "count":108
-    "next":"https://rehive.com/api/3/admin/users/?page=2"
-    "previous":null
-    "results":[
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
         {
-            "birth_date":"1991-08-30"
-            "company":"test_company_1"
-            "currency":{
-                "code": "POK", 
-                "description": "Test Currency", 
-                "symbol": "&^", 
-                "unit": "pokal", 
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "id_number": "",
+            "birth_date": "2000-01-01",
+            "profile": null,
+            "currency": {
+                "description": "Rand",
+                "code": "ZAR",
+                "symbol": "R",
+                "unit": "rand",
                 "divisibility": 2
-            }
-            "date_joined":1464912953000
-            "email":"test1@rehive.com"
-            "first_name":"Test"
-            "id_number":""
-            "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-            "kyc":{status: "pending", documents: {…}, addresses: {…}, updated: 1509101280514, bank_accounts: {…}}
-            "language":"en"
-            "last_login":1509354969133
-            "last_name":"Tester 2"
-            "metadata":null
-            "mobile_number":"+27842490903"
-            "nationality":"ZA"
-            "password":"******************************************hXNDe0+Q"
-            "permission_groups":[
-                "name":"admin"
-             ]
-            "permissions":[
-                {
-                    "id":375
-                    "level":"view"
-                    "type":"auth token"
-                }
-            ]
-            "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-            "status":"pending"
-            "switches":[]
-            "timezone":"Asia/Dhaka"
-            "username":"test1"
-            "verified":true
+            },
+            "company": "rehive",
+            "language": "en",
+            "nationality": "ZA",
+            "metadata": null,
+            "mobile_number": "+27840000000",
+            "timezone": "Asia/Dhaka",
+            "verified": true,
+            "kyc": {
+                "bank_accounts": {
+                    "status": null,
+                    "updated": null
+                },
+                "status": "pending",
+                "addresses": {
+                    "status": null,
+                    "updated": null
+                },
+                "documents": {
+                    "status": null,
+                    "updated": null
+                },
+                "updated": 1509619797959
+            },
+            "status": "pending",
+            "permission_groups": [],
+            "permissions": [],
+            "date_joined": 1464912953000,
+            "switches": [],
+            "last_login": null,
+            "password": "*********************************00000000"
         }
     ]
 }
@@ -584,43 +591,52 @@ rehive.admin.users.get(
 
 ```javascript
 {
-    "birth_date":"1991-08-30"
-    "company":"test_company_1"
-    "currency":{
-        "code": "POK", 
-        "description": "Test Currency", 
-        "symbol": "&^", 
-        "unit": "pokal", 
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": "",
+    "birth_date": "2000-01-01",
+    "profile": null,
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
         "divisibility": 2
-    }
-    "date_joined":1464912953000
-    "email":"test1@rehive.com"
-    "first_name":"Test"
-    "id_number":""
-    "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-    "kyc":{status: "pending", documents: {…}, addresses: {…}, updated: 1509101280514, bank_accounts: {…}}
-    "language":"en"
-    "last_login":1509354969133
-    "last_name":"Tester 2"
-    "metadata":null
-    "mobile_number":"+27842490903"
-    "nationality":"ZA"
-    "permission_groups":[
-        "name":"admin"
-     ]
-    "permissions":[
-        {
-            "id":375
-            "level":"view"
-            "type":"auth token"
-        }
-    ]
-    "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-    "status":"pending"
-    "switches":[]
-    "timezone":"Asia/Dhaka"
-    "username":"test1"
-    "verified":tru
+    },
+    "company": "rehive",
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": null,
+    "mobile_number": "+27840000000",
+    "timezone": "Asia/Dhaka",
+    "verified": true,
+    "kyc": {
+        "bank_accounts": {
+            "status": null,
+            "updated": null
+        },
+        "status": "pending",
+        "addresses": {
+            "status": null,
+            "updated": null
+        },
+        "documents": {
+            "status": null,
+            "updated": null
+        },
+        "updated": 1509619797959
+    },
+    "status": "pending",
+    "permission_groups": [],
+    "permissions": [],
+    "date_joined": 1464912953000,
+    "switches": [],
+    "last_login": null,
+    "active": true,
+    "password": "*********************************00000000"
 }
 ```
 
@@ -1342,30 +1358,28 @@ rehive.admin.users.addresses.get()
 
 ```javascript
 {
-    "count":1
-    "next":null
-    "previous":null
-    "results":
-    [
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
         {
-            "city":"San Mateo"
-            "country":"US"
-            "id":1
-            "line_1":"55 th E 3rd Ave"
-            "line_2":"cascsasa"
-            "postal_code":"94401"
-            "state_province":"California"
-            "status":"pending"
-            "user":
-            {
-                "email":"test1@rehive.com"
-                "first_name":"Test"
-                "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-                "last_name":"Tester 2"
-                "mobile_number":"+27842490903"
-                "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-                "username":"test1"
-            }
+            "id": 2,
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "line_1": "1 Main Street",
+            "line_2": "East City",
+            "city": "Cape Town",
+            "state_province": "Western Cape",
+            "country": "ZA",
+            "postal_code": "8001"
+            "status": "pending"
         }
     ]
 }
@@ -1483,24 +1497,23 @@ rehive.admin.users.addresses.create(
 
 ```javascript
 {
-    "city":"Cape Town"
-    "country":"ZA"
-    "id":2
-    "line_1":"1 Main Street"
-    "line_2":"East City"
-    "postal_code":"94401"
-    "state_province":"Western Cape"
-    "status":"pending"
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
+    "id": 2,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
+    "status": "pending"
 }
 ```
 
@@ -1612,24 +1625,23 @@ rehive.admin.users.addresses.get(
 
 ```javascript
 {
-    "city":"Cape Town"
-    "country":"ZA"
-    "id":2
-    "line_1":"1 Main Street"
-    "line_2":"East City"
-    "postal_code":"94401"
-    "state_province":"Western Cape"
-    "status":"pending"
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
+    "id": 2,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
+    "status": "pending"
 }
 ```
 
@@ -1717,24 +1729,23 @@ rehive.admin.users.addresses.update(
 
 ```javascript
 {
-    "city":"Cape Town"
-    "country":"us"
-    "id":195
-    "line_1":"toodleloo"
-    "line_2":"East City"
-    "postal_code":"94401"
-    "state_province":"Western Cape"
-    "status":"pending"
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
+    "id": 2,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "line_1": "1 Main Street",
+    "line_2": "East City",
+    "city": "Cape Town",
+    "state_province": "Western Cape",
+    "country": "ZA",
+    "postal_code": "8001"
+    "status": "pending"
 }
 ```
 
@@ -2485,26 +2496,26 @@ rehive.admin.users.crypto_accounts.get()
 
 ```javascript
 {
-    "count":5
-    "next":null
-    "previous":null
-    "results":
-    [
-        "address":"17moh7q4xK1ADD6PCc6u2DMfofxAj2SBDY"
-        "code":"bitcoin_G8sRjD094Jck"
-        "crypto_type":"bitcoin"
-        "id":5
-        "metadata":{}
-        "status":"pending"
-        "user":
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
         {
-            "email":"test1@rehive.com"
-            "first_name":"Test"
-            "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-            "last_name":"Tester 2"
-            "mobile_number":"+27842490903"
-            "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-            "username":"test1"
+            "id": 1,
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "address": "0000000000000000000000000000000000",
+            "code": "crypto_account_000000000000",
+            "crypto_type": "bitcoin",
+            "metadata": {},
+            "status": "pending"
         }
     ]
 }
@@ -2608,22 +2619,21 @@ rehive.admin.users.crypto_accounts.create(
 
 ```javascript
 {
-    "address":"3242342343223dewwrewrw"
-    "code":"crypto_account_QIMAqxr8AwWk"
-    "crypto_type":"ethereum"
-    "id":130
-    "metadata":{}
-    "status":"incomplete"
-    "user":
-     {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-     }
+    "id": 1,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
@@ -2730,22 +2740,21 @@ rehive.admin.users.crypto_accounts.get(
 
 ```javascript
 {
-    "address":"3242342343223dewwrewrw"
-    "code":"crypto_account_QIMAqxr8AwWk"
-    "crypto_type":"ethereum"
-    "id":130
-    "metadata":{}
-    "status":"incomplete"
-    "user":
-    {
-       "email":"test1@rehive.com"
-       "first_name":"Test"
-       "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-       "last_name":"Tester 2"
-       "mobile_number":"+27842490903"
-       "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-       "username":"test1"
-    }
+    "id": {account_id},
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
 }
 ```
 
@@ -2829,22 +2838,23 @@ rehive.admin.users.crypto_accounts.update(
 ```
 
 ```javascript
-    "address":"3242342343223dewwrewrw"
-    "code":"crypto_account_QIMAqxr8AwWk"
-    "crypto_type":"ethereum"
-    "id":130
-    "metadata":{}
-    "status":"incomplete"
-    "user":
-    {
-       "email":"test1@rehive.com"
-       "first_name":"Test"
-       "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-       "last_name":"Tester 2"
-       "mobile_number":"+27842490903"
-       "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-       "username":"test1"
-    }
+{
+    "id": {account_id},
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "address": "0000000000000000000000000000000000",
+    "code": "crypto_account_000000000000",
+    "crypto_type": "bitcoin",
+    "metadata": {},
+    "status": "pending"
+}
 ```
 
 ```python
@@ -2960,11 +2970,11 @@ curl https://www.rehive.com/api/3/admin/users/documents/
 ```
 
 ```javascript
-    rehive.admin.users.getDocumentsList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.documents.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3006,29 +3016,29 @@ rehive.admin.users.documents.get()
 
 ```javascript
 {
-    "count":5
-    "next":null
-    "previous":null
-    "results":
-    [
-        "document_category":"Proof Of Address"
-        "document_type":"Utility Bill"
-        "file":"https://rehive.s3.amazonaws.com:443/users/2/documents/3bfabdfd9cdd4a2093b47300a914729f_1501657104.png"
-        "id":244
-        "metadata":{}
-        "note":null
-        "status":"pending"
-        "user":
+    "count": 0,
+    "next": null,
+    "previous": null,
+    "results": [
         {
-            "email":"test1@rehive.com"
-            "first_name":"Test"
-            "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-            "last_name":"Tester 2"
-            "mobile_number":"+27842490903"
-            "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-            "username":"test1"
+            "id": 1,
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "file": "https://url.to/file.pdf",
+            "document_category": "other",
+            "document_type": "other",
+            "metadata": {},
+            "status": "pending",
+            "note": null
         }
-    ]    
+    ]
 }
 ```
 
@@ -3082,21 +3092,21 @@ curl https://www.rehive.com/api/3/admin/documents/
 ```
 
 ```javascript
-    var fileSelected = document.getElementById("adminUserDocument").files[0],
-            formData = new FormData();
+var fileSelected = document.getElementById("adminUserDocument").files[0],
+        formData = new FormData();
+
+formData.append('file', fileSelected);
+formData.append('user', user);
+formData.append('document_type', document_type);
+formData.append('metadata', JSON.stringify(metadata));
+formData.append('note', note);
+formData.append('status', status);
     
-    formData.append('file', fileSelected);
-    formData.append('user', user);
-    formData.append('document_type', document_type);
-    formData.append('metadata', JSON.stringify(metadata));
-    formData.append('note', note);
-    formData.append('status', status);
-    
-    rehive.admin.users.createDocument(formData).then(function (res) {
-        //..
-    }, function (err) {
-        //..
-    });
+rehive.admin.users.documents.create(formData).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3219,11 +3229,11 @@ curl https://rehive.com/api/3/admin/users/documents/{document_id}/
 ```
 
 ```javascript
-    rehive.admin.users.getDocument('123').then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.documents.get({id: document_id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3260,23 +3270,22 @@ rehive.admin.users.documents.get(
 
 ```javascript
 {
-    "document_category":"Proof Of Address"
-    "document_type":"Utility Bill"
-    "file":"https://rehive.s3.amazonaws.com:443/users/2/documents/3bfabdfd9cdd4a2093b47300a914729f_1501657104.png"
-    "id":244
-    "metadata":{}
-    "note":null
-    "status":"pending"
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
+    "id": 1,
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "file": "https://url.to/file.pdf",
+    "document_category": "other",
+    "document_type": "other",
+    "metadata": {},
+    "status": "pending",
+    "note": null
 }
 ```
 
@@ -3318,24 +3327,25 @@ curl https://www.rehive.com/api/3/admin/users/documents/{document_id}/
 ```
 
 ```javascript
-    var fileSelected = document.getElementById("updateAdminUserDocument").files[0],
-            formData = new FormData();
-    
-    if (fileSelected) {
-        formData.append('file', fileSelected);
+var fileSelected = document.getElementById("updateAdminUserDocument").files[0],
+        formData = new FormData(),
+        data = {first_name: 'Joe'};
+
+if(fileSelected) {
+    formData.append('file', fileSelected);
+}
+
+for (var key in data) {
+    if (data[key]) {
+        formData.append(key, data[key]);
     }
-    
-    for (var key in data) {
-        if (data[key]) {
-            formData.append(key, data[key]);
-        }
-    }
-    
-    rehive.admin.users.updateDocument(id, formData).then(function (res) {
-        //..
-    }, function (err) {
-        //..
-    });
+}
+
+rehive.admin.users.documents.update(id, formData).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3456,11 +3466,11 @@ curl https://www.rehive.com/admin/api/3/admin/users/emails/
 ```
 
 ```javascript
-    rehive.admin.users.getEmailsList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.emails.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3499,28 +3509,27 @@ rehive.admin.users.emails.get()
 
 ```javascript
 {
-    "count":4
-    "next":null
-    "previous":null
-    "results":
-    [
-        "email":"test1@rehive.com"
-        "id":2
-        "primary":true
-        "user":
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
         {
-            "email":"test1@rehive.com"
-            "first_name":"Test"
-            "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-            "last_name":"Tester 2"
-            "mobile_number":"+27842490903"
-            "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-            "username":"test1"
-        }
-        "verified":true
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "id": 1,
+            "email": "joe@rehive.com",
+            "primary": true,
+            "verified": true
+        },
     ]
-}
-```
+}```
 
 ```python
 [
@@ -3556,7 +3565,7 @@ Field | Type
 
 ### Create Email
 
-> Admin create email reuest
+> Admin create email request
 
 ```shell
 curl https://www.rehive.com/api/3/admin/users/emails/`
@@ -3570,17 +3579,16 @@ curl https://www.rehive.com/api/3/admin/users/emails/`
 ```
 
 ```javascript
-    rehive.admin.users.createEmail(
-            {
-                user: 'bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce',
-                email: 'a@n.com',
-                primary: false,
-                verified: true
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.emails.create({
+    user: '00000000-0000-0000-0000-000000000000',
+    email: 'joe@rehive.com',
+    primary: true,
+    verified: true
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3617,20 +3625,19 @@ rehive.admin.users.emails.create(
 
 ```javascript
 {
-    "email":"test1@rehive.com"
-    "id":2
-    "primary":true
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
-    "verified":true
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -3684,11 +3691,11 @@ curl https://www.rehive.com/api/3/admin/users/emails/{id}/
 ```
 
 ```javascript
-    rehive.admin.users.getEmail('123').then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.emails.get({id: id).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3722,20 +3729,19 @@ rehive.admin.users.emails.get(
 
 ```javascript
 {
-    "email":"test1@rehive.com"
-    "id":123
-    "primary":true
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
-    "verified":true
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -3776,11 +3782,11 @@ curl https://www.rehive.com/api/3/admin/users/emails/{id}/`
 ```
 
 ```javascript
-    rehive.admin.users.updateEmail('123',{verified: false}).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.emails.update(id,{verified: true}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3815,20 +3821,19 @@ rehive.admin.users.emails.update(
 
 ```javascript
 {
-    "email":"test1@rehive.com"
-    "id":123
-    "primary":true
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
-    "verified":false
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "id": 1,
+    "email": "joe@rehive.com",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -3875,11 +3880,11 @@ curl https://www.rehive.com/api/3/admin/users/emails/{id}/`
 ```
 
 ```javascript
-   rehive.admin.users.deleteEmail('123).then(function (res) {
-           //..
-       }, function (err) {
-           //..
-       });
+rehive.admin.users.emails.delete(id).then(function (res) {
+   ...
+}, function (err) {
+   ...
+});
 ```
 
 ```python
@@ -3927,11 +3932,11 @@ curl https://www.rehive.com/admin/api/3/admin/users/mobiles/
 ```
 
 ```javascript
-    rehive.admin.users.getMobilesList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.mobiles.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -3970,25 +3975,25 @@ rehive.admin.users.mobiles.get()
 
 ```javascript
 {
-    "count":2
-    "next":null
-    "previous":null
-    "results":
-    [
-        "id":2
-        "number":"+8801703862565"
-        "primary":true
-        "user":
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
         {
-            "email":"test1@rehive.com"
-            "first_name":"Test"
-            "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-            "last_name":"Tester 2"
-            "mobile_number":"+27842490903"
-            "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-            "username":"test1"
-        }
-        "verified":true
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "id": 1,
+            "number": "+27840000000",
+            "primary": true,
+            "verified": true
+        },
     ]
 }
 ```
@@ -4041,17 +4046,16 @@ curl https://www.rehive.com/api/3/admin/users/mobiles/`
 ```
 
 ```javascript
-    rehive.admin.users.createMobile(
-            {
-                user: 'bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce',
-                number: '+8801703862293',
-                primary: false,
-                verified: true
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.mobiles.create({
+   user: 00000000-0000-0000-0000-000000000000,
+   verified: true,
+   primary: true,
+   number: "+27840000000"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -4088,20 +4092,19 @@ rehive.admin.users.mobiles.create(
 
 ```javascript
 {
-    "id":2
-    "number":"+8801703862565"
-    "primary":true
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
-    "verified":true
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "id": 1,
+    "email": "+27840000000",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -4155,11 +4158,11 @@ curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/
 ```
 
 ```javascript
-    rehive.admin.users.getMobile('1').then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.mobiles.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -4193,20 +4196,19 @@ rehive.admin.users.mobiles.get(
 
 ```javascript
 {
-    "id":2
-    "number":"+8801703862565"
-    "primary":true
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
-    "verified":true
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "id": 1,
+    "number": "+27840000000",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -4247,13 +4249,13 @@ curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/`
 ```
 
 ```javascript
-    rehive.admin.users.updateMobile('1',{
-        verified: false
-    }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.users.mobiles.update(id,{
+    verified: true
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -4288,20 +4290,19 @@ rehive.admin.users.mobiles.update(
 
 ```javascript
 {
-    "id":1
-    "number":"+8801703862565"
-    "primary":true
-    "user":
-    {
-        "email":"test1@rehive.com"
-        "first_name":"Test"
-        "identifier":"bb3d5d3b-3e2e-4d84-8bbf-f3e4c3c987ce"
-        "last_name":"Tester 2"
-        "mobile_number":"+27842490903"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/2/profiles/27023f8978a54359844ec49e6a484f4e_1507627959.png"
-        "username":"test1"
-    }
-    "verified":true
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "id": 1,
+    "number": "+27840000000",
+    "primary": true,
+    "verified": true
 }
 ```
 
@@ -4349,11 +4350,11 @@ curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/`
 ```
 
 ```javascript
-   rehive.admin.users.deleteMobile('2').then(function (res) {
-           //..
-       }, function (err) {
-           //..
-       });
+rehive.admin.users.mobiles.delete(id).then(function (res) {
+   ...
+}, function (err) {
+   ...
+});
 ```
 
 ```python
@@ -4371,9 +4372,7 @@ rehive.admin.users.mobiles.delete(
 ```
 
 ```javascript
-{
-    "status": "success",
-}
+{}
 ```
 
 ```python
@@ -4403,11 +4402,15 @@ curl https://www.rehive.com/api/3/admin/transactions/
 ```
 
 ```javascript
-    rehive.admin.transactions.getList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+
+// Paginations is handled internally by the SDK
+rehive.admin.transactions.getNext()
+rehive.admin.transactions.getPrevious()
 ```
 
 ```python
@@ -4471,49 +4474,47 @@ rehive.admin.transactions.get_previous()
 
 ```javascript
 {
-    "count":4123
-    "next":"https://rehive.com/api/3/admin/transactions/?page=2"
-    "previous":null
-    "results":
-    [
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
         {
-            "account":"53E56UUSYH"
-            "amount":0
-            "balance":0
-            "company":"test_company_1"
-            "created":1509106485981
-            "currency":{"code": "POK", 
-                "description": "Test Currency",
-                "symbol": "&^", 
-                "unit": "pokal", 
+            "id": "000000000000000000000",
+            "tx_type": "credit",
+            "subtype": null,
+            "note": "",
+            "metadata": {},
+            "status": "Complete",
+            "reference": "",
+            "amount": 500,
+            "fee": 0,
+            "total_amount": 500,
+            "balance": 500,
+            "account": "0000000000",
+            "label": "Credit",
+            "company": "rehive",
+            "currency": {
+                "description": "Rand",
+                "code": "ZAR",
+                "symbol": "R",
+                "unit": "rand",
                 "divisibility": 2
-            }
-            "destination_transaction":null
-            "external":false
-            "fee":0
-            "id":"P1KFuWlOulpBMGFphORP"
-            "label":"Credit"
-            "metadata":null
-            "note":""
-            "reference":null
-            "source_transaction":{}
-            "status":"Complete"
-            "subtype":null
-            "total_amount":0
-            "tx_type":"credit"
-            "updated":1509106486213
-            "user":
-            {
-                "email":"joshua@rehive.com"
-                "first_name":""
-                "identifier:"a0e332b7-0ceb-479b-a975-5ad3db18ce85"
-                "last_name":""
-                "mobile_number":"+27793416724"
-                "profile":"https://rehive.s3.amazonaws.com:443/users/14/profiles/ca0975f96afb4b01ab5f5a4433b6f1d1_1502087316.png"
-                "username":"test1"
-            }
+            },
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": "",
+                "mobile_number": "+27840000000",
+                "profile": null
+            },
+            "source_transaction": null,
+            "destination_transaction": null,
+            "created": 1509618707485,
+            "updated": 1509618708277
         }
-    ]    
+    ]
 }
 ```
 
@@ -4591,11 +4592,11 @@ curl https://www.rehive.com/api/3/admin/transactions/totals/
 ```
 
 ```javascript
-    rehive.admin.transactions.getTotal(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.getTotals().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -4656,11 +4657,11 @@ curl https://www.rehive.com/api/3/admin/transactions/{id}/
 ```
 
 ```javascript
-    rehive.admin.transactions.get(id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -4721,41 +4722,49 @@ rehive.admin.transactions.get(
 ```
 
 ```javascript
-    "account":"53E56UUSYH"
-    "amount":0
-    "balance":0
-    "company":"test_company_1"
-    "created":1509106485981
-    "currency":{"code": "POK", 
-        "description": "Test Currency",
-        "symbol": "&^", 
-        "unit": "pokal", 
+{
+    "id": "000000000000000000000",
+    "tx_type": "credit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Complete",
+    "reference": "",
+    "amount": 500,
+    "fee": 0,
+    "total_amount": 500,
+    "balance": 500,
+    "account": "0000000000",
+    "label": "Credit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
         "divisibility": 2
-    }
-    "destination_transaction":null
-    "external":false
-    "fee":0
-    "id":"P1KFuWlOulpBMGFphORP"
-    "label":"Credit"
-    "metadata":null
-    "note":""
-    "reference":null
-    "source_transaction":{}
-    "status":"Complete"
-    "subtype":null
-    "total_amount":0
-    "tx_type":"credit"
-    "updated":1509106486213
-    "user":
-    {
-        "email":"joshua@rehive.com"
-        "first_name":""
-        "identifier":"a0e332b7-0ceb-479b-a975-5ad3db18ce85"
-        "last_name":""
-        "mobile_number":"+27793416724"
-        "profile":"https://rehive.s3.amazonaws.com:443/users/14/profiles/ca0975f96afb4b01ab5f5a4433b6f1d1_1502087316.png"
-        "username":"test1"
-    }
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [
+        {
+            "level": "info",
+            "message": "Transaction completed.",
+            "created": 1496144568989
+        }
+    ],
+    "created": 1509618707485,
+    "updated": 1509618708277
+}
 ```
 
 ```python
@@ -4824,22 +4833,15 @@ curl https://www.rehive.com/api/3/admin/transactions/credit/
 ```
 
 ```javascript
-    rehive.admin.transactions.createCredit(
-            {
-                user: user,
-                currency: currency,
-                amount: amount,
-                subtype: subtype,
-                account: account,
-                reference: reference,
-                metadata: metadata,
-                note: note,
-                confirm_on_create: confirm_on_create
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.createCredit(
+{
+    user: "joe@rehive.com",
+    amount: 500
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -4922,22 +4924,15 @@ curl https://www.rehive.com/api/3/admin/transactions/debit/
 ```
 
 ```javascript
-    rehive.admin.transactions.createDebit(
-            {
-                user: user,
-                currency: currency,
-                amount: amount,
-                subtype: subtype,
-                account: account,
-                reference: reference,
-                metadata: metadata,
-                note: note,
-                confirm_on_create: confirm_on_create
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.createDebit(
+{
+    user: "joe@rehive.com",
+    amount: 500
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -5009,26 +5004,18 @@ curl https://www.rehive.com/api/3/admin/transactions/transfer/
        "recipient": "sally@rehive.com"}'
 ```
 
+```javascript
 rehive.admin.transactions.createTransfer(
-        {
-            user: user,
-            recipient: recipient,
-            currency: currency,
-            amount: amount,
-            debit_subtype: debit_subtype,
-            debit_account: debit_account,
-            debit_note: debit_note,
-            debit_metadata: debit_metadata,
-            debit_reference: debit_reference,
-            credit_subtype: credit_subtype,
-            credit_reference: credit_reference,
-            credit_metadata: credit_metadata,
-            credit_note: credit_note
-        }).then(function (res) {
-        //..
-    }, function (err) {
-        //..
-    });
+{
+    user: "joe@rehive.com",
+    amount: 500,
+    recipient: "sally@rehive.com"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
 
 ```python
 rehive.admin.transactions.create_transfer(
@@ -5105,11 +5092,11 @@ curl https://rehive.com/api/3/admin/transactions/{id}/
 ```
 
 ```javascript
-    rehive.admin.transactions.update(id, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.update(id, {status: "Complete"}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -5309,13 +5296,6 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/
   -H "Content-Type: application/json"
 ```
 
-```javascript
-    rehive.admin.transactions.getWebhooksList().then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
-```
 
 > List transaction webhooks response
 
@@ -5334,18 +5314,6 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/
 }
 ```
 
-```javascript
-[
-    {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "transaction.create",
-        "tx_type": "debit",
-        "secret": "supersecret"
-    }
-]
-
-```
 
 #### Endpoint
 
@@ -5366,19 +5334,6 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/
        "secret": "secret"}'
 ```
 
-```javascript
-    rehive.admin.transactions.createWebhook(
-            {
-                tx_type: tx_type,
-                event: event,
-                url: url,
-                secret: secret
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
-```
 
 > List transaction webhooks response
 
@@ -5397,18 +5352,6 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/
 }
 ```
 
-```javascript
-[
-    {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "transaction.create",
-        "tx_type": "debit",
-        "secret": "secret"
-    }
-]
-
-```
 
 #### Endpoint
 
@@ -5439,13 +5382,6 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
   -H "Content-Type: application/json"
 ```
 
-```javascript
-    rehive.admin.transactions.getWebhook(id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
-```
 
 > Retrieve transaction webhook response
 
@@ -5459,16 +5395,6 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
         "tx_type": "debit",
         "secret": "secret"
     }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "url": "http://mysite.com/webhook_endpoint",
-    "event": "transaction.create",
-    "tx_type": "debit",
-    "secret": "secret"
 }
 ```
 
@@ -5488,14 +5414,6 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
   -D '{"url": "http://mysite.com/webhook_endpoint"}'
 ```
 
-```javascript
-    rehive.admin.transactions.updateWebhook(id, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
-```
-
 > Update transaction webhook response
 
 ```json
@@ -5511,19 +5429,6 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
         }
     ]
 }
-```
-
-```javascript
-[
-    {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "transaction.create",
-        "tx_type": "debit",
-        "secret": "secret"
-    }
-]
-
 ```
 
 #### Endpoint
@@ -5556,23 +5461,9 @@ curl https://rehive.com/api/3/admin/transactions/webhooks/{id}/
   -H "Content-Type: application/json"
 ```
 
-```javascript
-    rehive.admin.transactions.deleteWebhook(id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
-```
-
 > Delete transaction webhook response
 
 ```json
-{
-    "status": "success",
-}
-```
-
-```javascript
 {
     "status": "success",
 }
@@ -5597,11 +5488,11 @@ curl https://rehive.com/api/3/admin/transactions/switches/
 ```
 
 ```javascript
-    rehive.admin.transactions.getSwitchesList().then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.switches.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 > List transaction switches response
@@ -5655,16 +5546,14 @@ curl https://rehive.com/api/3/admin/transactions/switches/
 ```
 
 ```javascript
-    rehive.admin.transactions.createSwitch(
-            {
-                tx_type: tx_type,
-                subtype: subtype,
-                enabled: enabled
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.switches.create({
+    tx_type: "credit",
+    enabled: true
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 > Create transaction switches response
@@ -5725,11 +5614,11 @@ curl https://rehive.com/api/3/admin/transactions/switches/{id}/
 ```
 
 ```javascript
-    rehive.admin.transactions.getSwitch(id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.switches.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 > Retrieve transaction switches response
@@ -5778,11 +5667,11 @@ curl https://rehive.com/api/3/admin/transactions/switches/{id}/
 ```
 
 ```javascript
-    rehive.admin.transactions.updateSwitch(id, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.transactions.switches.update(id, {enabled: false}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 > Update transaction switches response
@@ -5818,13 +5707,6 @@ curl https://rehive.com/api/3/admin/transactions/switches/{id}/
 
 
 
-
-
-
-
-
-
-
 ## Accounts
 
 ### List Accounts
@@ -5839,11 +5721,11 @@ curl https://www.rehive.com/api/3/admin/accounts/
 ```
 
 ```javascript
-    rehive.admin.accounts.getList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -5982,17 +5864,15 @@ curl https://www.rehive.com/api/3/admin/accounts/
 ```
 
 ```javascript
-    rehive.admin.accounts.create(
-            {
-                user: user,
-                name: name,
-                primary: primary,
-                reference: reference
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.create(
+{
+    name: "savings",
+    user: "joe@rehive.com"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6072,11 +5952,11 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/
 ```
 
 ```javascript
-    rehive.admin.accounts.get(reference).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.get({reference: reference}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6197,11 +6077,11 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/
 ```
 
 ```javascript
-    rehive.admin.accounts.update(reference, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.update(reference, {name: "savings"}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6282,11 +6162,11 @@ curl https://www.rehive.com/admin/api/3/accounts/{reference}/currencies/
 ```
 
 ```javascript
-    rehive.admin.accounts.getCurrenciesList(reference, filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.get(reference).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6380,11 +6260,11 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}
 ```
 
 ```javascript
-    rehive.admin.accounts.getCurrency(reference, code).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.get(reference, {code: code}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6459,11 +6339,11 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/
 ```
 
 ```javascript
-    rehive.admin.accounts.updateCurrency(reference, code, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.update(reference, code, {active: true}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6546,11 +6426,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limit
 ```
 
 ```javascript
-    rehive.admin.accounts.getCurrencyLimitsList(reference, code).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.limits.get(reference, code).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6625,16 +6505,16 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limit
 ```
 
 ```javascript
-    rehive.admin.accounts.createCurrencyLimit(reference, code, {
-            tx_type: tx_type,
-            value: value,
-            type: type,
-            subtype: subtype
-        }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.limits.create(reference, code, {
+    tx_type: tx_type,
+    value: value,
+    type: type,
+    subtype: subtype
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6735,11 +6615,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limit
 ```
 
 ```javascript
-    rehive.admin.accounts.getCurrencyLimit(reference, code, id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.limits.get(reference, code, {id: limitId}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6809,11 +6689,15 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limit
 ```
 
 ```javascript
-    rehive.admin.accounts.updateCurrencyLimit(reference, code, id, data).then(function (res) {
-           //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.limits.update(reference, code, limitId,
+{
+    value: 5000,
+    type: "min"
+}).then(function (res) {
+   ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6914,11 +6798,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limit
 ```
 
 ```javascript
-    rehive.admin.accounts.deleteCurrencyLimit(reference, code, id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.limits.delete(reference, code, limitId).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6936,9 +6820,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.delete(
 ```
 
 ```javascript
-{
-    "status": "success",
-}
+{}
 ```
 
 ```python
@@ -6966,11 +6848,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
 ```
 
 ```javascript
-    rehive.admin.accounts.getCurrencyFeesList(reference, code).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.fees.get(reference, code).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7044,16 +6926,14 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
 ```
 
 ```javascript
-rehive.admin.accounts.createCurrencyFee(reference, code, {
-        tx_type: tx_type,
-        value: value,
-        percentage: percentage,
-        subtype: subtype
-    }).then(function (res) {
-        //..
-    }, function (err) {
-        //..
-    });
+rehive.admin.accounts.currencies.fees.create(reference, code, {
+    tx_type: "credit",
+    value: 1000
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7143,11 +7023,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
 ```
 
 ```javascript
-    rehive.admin.accounts.getCurrencyFee(reference, code, id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.fees.get(reference, code, {id: feeId}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7216,11 +7096,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
 ```
 
 ```javascript
-    rehive.admin.accounts.updateCurrencyFee(reference, code, id, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.fees.update(reference, code, feeId, data).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7310,11 +7190,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
 ```
 
 ```javascript
-    rehive.admin.accounts.deleteCurrencyFee(reference, code, id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.fees.delete(reference, code, feeId).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7332,9 +7212,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.delete(
 ```
 
 ```javascript
-{
-    "status": "success"
-}
+{}
 ```
 
 ```python
@@ -7361,11 +7239,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switc
 ```
 
 ```javascript
-    rehive.admin.accounts.getCurrencySwitchesList(reference, code).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.switches.get(reference, code).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7436,15 +7314,14 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switc
 ```
 
 ```javascript
-    rehive.admin.accounts.createCurrencySwitch(reference, code, {
-            tx_type: tx_type,
-            subtype: subtype,
-            enabled: enabled
-        }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.switches.create(reference, code, {
+    tx_type: "credit"
+    enabled: true
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7523,11 +7400,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switc
 ```
 
 ```javascript
-    rehive.admin.accounts.getCurrencySwitch(reference, code, id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.switches.get(reference, code, {id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7594,11 +7471,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switc
 ```
 
 ```javascript
-    rehive.admin.accounts.updateCurrencySwitch(reference, code, id, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.switches.update(reference, code, id, {enabled: false}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7677,11 +7554,11 @@ curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switc
 ```
 
 ```javascript
-    rehive.admin.accounts.deleteCurrencySwitch(reference, code, id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.accounts.currencies.switches.delete(reference, code, id).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7699,9 +7576,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.delet
 ```
 
 ```javascript
-{
-    "status": "success",
-}
+{}
 ```
 
 ```python
