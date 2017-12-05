@@ -7604,11 +7604,11 @@ curl https://www.rehive.com/api/3/admin/currencies/
 ```
 
 ```javascript
-    rehive.admin.currencies.getList(filter).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.currencies.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7692,18 +7692,18 @@ curl https://www.rehive.com/api/3/admin/currencies/
 ```
 
 ```javascript
-    rehive.admin.currencies.create(
-            {
-                code: code,
-                description: description,
-                symbol: symbol,
-                unit: unit,
-                divisibility: divisibility
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.currencies.create(
+{
+    code: "XBT",
+    description: "bitcoin",
+    symbol: "???",
+    unit: "bitcoin",
+    divisibility: 8
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7783,11 +7783,11 @@ curl https://www.rehive.com/api/3/admin/currencies/{code}/
 ```
 
 ```javascript
-    rehive.admin.currencies.get(code).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.currencies.get({code: code}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7851,11 +7851,11 @@ curl https://www.rehive.com/api/3/admin/currencies/{code}/
 ```
 
 ```javascript
-    rehive.admin.currencies.update(code, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.currencies.update(code, {enabled: true}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7936,11 +7936,11 @@ curl https://www.rehive.com/api/3/admin/currencies/{code}/
 ```
 
 ```javascript
-    rehive.admin.currencies.delete(code).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.currencies.delete(code).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7958,9 +7958,7 @@ rehive.admin.currencies.delete(
 ```
 
 ```javascript
-{
-    "status": "success"
-}
+{}
 ```
 
 ```python
@@ -7987,11 +7985,11 @@ curl https://www.rehive.com/api/3/admin/currencies/{code}/overview/
 ```
 
 ```javascript
-    rehive.admin.currencies.getOverview(code).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.currencies.overview.get(code).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8089,11 +8087,11 @@ curl https://rehive.com/api/3/admin/company/
 ```
 
 ```javascript
-    rehive.admin.company.get().then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.company.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8178,11 +8176,11 @@ curl https://rehive.com/api/3/admin/company/
 ```
 
 ```javascript
-    rehive.admin.company.update(data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.company.update({description: "A new description"}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8273,6 +8271,7 @@ Field | Description | Default
 When adding a logo image, the Content-type header needs to be set to multipart/form-data.
 </aside>
 
+## Bank Accounts
 
 ### List Bank Accounts
 
@@ -8286,11 +8285,11 @@ curl https://rehive.com/api/3/admin/bank-accounts/
 ```
 
 ```javascript
-    rehive.admin.bankAccounts.getList().then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.bankAccounts.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8302,34 +8301,7 @@ rehive.admin.bank_accounts.get()
 ```shell
 {
     "status": "success",
-    "data": {
-        "count": 1,
-        "next": null,
-        "previous": null,
-        "results": [
-            {
-                "id": 1,
-                "name": "New account name",
-                "number": "12341234",
-                "type": "Cheque",
-                "bank_name": "Bank",
-                "bank_code": "1234",
-                "branch_code": "1234",
-                "swift": null,
-                "iban": null,
-                "bic": null,
-            }
-        ]
-    }
-}
-```
-
-```javascript
-{
-    "count": 1,
-    "next": null,
-    "previous": null,
-    "results": [
+    "data": [
         {
             "id": 1,
             "name": "New account name",
@@ -8344,6 +8316,23 @@ rehive.admin.bank_accounts.get()
         }
     ]
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "name": "New account name",
+        "number": "12341234",
+        "type": "Cheque",
+        "bank_name": "Bank",
+        "bank_code": "1234",
+        "branch_code": "1234",
+        "swift": null,
+        "iban": null,
+        "bic": null,
+    }
+]
 ```
 
 ```python
@@ -8392,22 +8381,22 @@ curl https://rehive.com/api/3/admin/bank-accounts/
 ```
 
 ```javascript
-    rehive.admin.bankAccounts.create(
-            {
-                name: name,
-                number: number,
-                type: type,
-                bank_name: bank_name,
-                bank_code: bank_code,
-                branch_code: branch_code,
-                swift: swift,
-                iban: iban,
-                bic: bic
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.bankAccounts.create(
+{
+    name: name,
+    number: number,
+    type: type,
+    bank_name: bank_name,
+    bank_code: bank_code,
+    branch_code: branch_code,
+    swift: swift,
+    iban: iban,
+    bic: bic
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8501,11 +8490,11 @@ curl https://rehive.com/api/3/admin/bank-accounts/{id}/
 ```
 
 ```javascript
-    rehive.admin.bankAccounts.get(id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.bankAccounts.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8581,11 +8570,11 @@ curl https://rehive.com/api/3/admin/bank-accounts/{id}/
 ```
 
 ```javascript
-    rehive.admin.bankAccounts.update(id, data).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.bankAccounts.update(id, {name: "New account name"}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8676,11 +8665,11 @@ curl https://rehive.com/api/3/admin/bank-accounts/{id}/
 ```
 
 ```javascript
-    rehive.admin.bankAccounts.delete(id).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.bankAccounts.delete(id).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8698,9 +8687,7 @@ rehive.admin.bank_accounts.delete(
 ```
 
 ```javascript
-{
-    "status": "success",
-}
+{}
 ```
 
 ```python
@@ -8728,11 +8715,11 @@ curl https://rehive.com/api/3/admin/webhooks/
 ```
 
 ```javascript
-rehive.admin.webhooks.getList().then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    })
+rehive.admin.webhooks.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -8744,37 +8731,52 @@ rehive.admin.webhooks.get()
 ```shell
 {
     "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "url": "http://mysite.com/webhook_endpoint",
-            "event": "user.create",
-            "secret": "secret"
-        }
-    ]
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+           {
+               "id": 1,
+               "url": "http://mysite.com/webhook_endpoint",
+               "event": "user.create",
+               "secret": "secret"
+           }
+       ]
+    }
 }
 ```
 
 ```javascript
-[
-    {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "user.create",
-        "secret": "secret"
-    }
-]
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+       {
+           "id": 1,
+           "url": "http://mysite.com/webhook_endpoint",
+           "event": "user.create",
+           "secret": "secret"
+       }
+   ]
+}
 ```
 
 ```python
-[
-    {
-        "id": 1,
-        "url": "http://mysite.com/webhook_endpoint",
-        "event": "user.create",
-        "secret": "secret"
-    }
-]
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+       {
+           "id": 1,
+           "url": "http://mysite.com/webhook_endpoint",
+           "event": "user.create",
+           "secret": "secret"
+       }
+   ]
+}
 ```
 
 #### Endpoint
@@ -8797,14 +8799,14 @@ curl https://rehive.com/api/3/admin/webhooks/
 
 ```javascript
 rehive.admin.webhooks.create({
-        url: "http://mysite.com/webhook_endpoint",
-        event: "user.create",
-        secret: "secret"
-    }).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    })
+    url: "http://mysite.com/webhook_endpoint",
+    event: "user.create",
+    secret: "secret"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -8876,11 +8878,11 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
 ```
 
 ```javascript
-rehive.admin.webhooks.get(id).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    })
+rehive.admin.webhooks.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -8939,10 +8941,10 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
 
 ```javascript
 rehive.admin.webhooks.update(id, {url: "http://mysite.com/webhook_endpoint"}).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -9013,10 +9015,10 @@ curl https://rehive.com/api/3/admin/webhooks/{id}/
 
 ```javascript
 rehive.admin.webhooks.delete(id).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -9062,11 +9064,11 @@ curl https://rehive.com/api/3/admin/subtypes/
 ```
 
 ```javascript
-rehive.admin.subtypes.getList().then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.subtypes.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -9140,17 +9142,17 @@ curl https://rehive.com/api/3/admin/subtypes/
 
 ```javascript
 rehive.admin.subtypes.create(
-        {
-            name: "credit_subtype",
-            label: "Our credit",
-            description: "Description for our credit",
-            tx_type:"credit",
-            enabled: true
-        }).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+{
+    name: "credit_subtype",
+    label: "Our credit",
+    description: "Description for our credit",
+    tx_type:"credit",
+    enabled: true
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -9235,11 +9237,11 @@ curl https://rehive.com/api/3/admin/subtypes/{id}/
 ```
 
 ```javascript
-rehive.admin.subtypes.get(id).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.subtypes.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -9305,10 +9307,10 @@ curl https://rehive.com/api/3/admin/subtypes/{id}/
 
 ```javascript
 rehive.admin.subtypes.update(id, {description: "New description"}).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -9391,10 +9393,10 @@ curl https://rehive.com/api/3/admin/subtypes/{id}/
 
 ```javascript
 rehive.admin.subtypes.delete(id).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -9445,11 +9447,11 @@ curl https://rehive.com/api/3/admin/notifications/
 ```
 
 ```javascript
-rehive.admin.notifications.getList().then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    })
+rehive.admin.notifications.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -9510,11 +9512,11 @@ curl https://rehive.com/api/3/admin/notifications/{id}/
 ```
 
 ```javascript
-rehive.admin.notifications.get(id).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    })
+rehive.admin.notifications.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -9571,10 +9573,10 @@ curl https://rehive.com/api/3/admin/notifications/{id}
 
 ```javascript
 rehive.admin.notifications.update(id, {enabled: false).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
