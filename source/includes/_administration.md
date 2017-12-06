@@ -9650,11 +9650,11 @@ curl https://rehive.com/api/3/admin/tiers/
 ```
 
 ```javascript
-    rehive.admin.tiers.getList().then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.get().then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -9747,17 +9747,17 @@ curl https://rehive.com/api/3/admin/tiers/
 ```
 
 ```javascript
-    rehive.admin.tiers.create(
-            {
-                currency: currency,
-                level: level,
-                name: name,
-                description: description
-            }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.tiers.create(
+{
+    currency: "XBT",
+    level: 1,
+    name: "First tier",
+    description: "This is a tier"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -9852,11 +9852,11 @@ curl https://rehive.com/api/3/admin/tiers/{id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.get(tierId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.get({id: id}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -9935,11 +9935,11 @@ curl https://rehive.com/api/3/admin/tiers/{id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.update(tierId, data).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.update(tierId, data).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10035,11 +10035,11 @@ curl https://rehive.com/api/3/admin/tiers/{id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.delete(tierId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.delete(tierId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10084,11 +10084,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/
 ```
 
 ```javascript
-    rehive.admin.tiers.getRequirementsList(tiersId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.requirements.get(tierId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10152,13 +10152,13 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/
 ```
 
 ```javascript
-    rehive.admin.tiers.createRequirements(tiersId, {
-            requirement: requirement
-        }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.tiers.requirements.create(tierId, {
+    requirement: "birth_date"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -10241,11 +10241,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id
 ```
 
 ```javascript
-    rehive.admin.tiers.getRequirement(tierId, requirementId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.requirements.get(tierId,{id: requirementId}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10305,11 +10305,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id
 ```
 
 ```javascript
-    rehive.admin.tiers.updateRequirement(tierId, requirementId, data).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.requirements.update(tierId, requirementId, {requirement: "proof_of_identity"}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10393,11 +10393,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id
 ```
 
 ```javascript
-    rehive.admin.tiers.deleteRequirement(tierId,requirementId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.requirements.delete(tierId,requirementId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10442,11 +10442,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/
 ```
 
 ```javascript
-    rehive.admin.tiers.getLimitsList(tiersId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.limits.get(tierId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10519,16 +10519,15 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/
 ```
 
 ```javascript
-    rehive.admin.tiers.createLimit(tiersId, {
-            value: value,
-            type: type,
-            tx_type: tx_type,
-            subtype: subtype
-        }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.tiers.limits.create(tierId, {
+    value: 1000,
+    type: "Maximum",
+    tx_type: "credit"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -10629,11 +10628,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.getLimit(tierId, limitId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.limits.get(tierId, {id: limitId}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10703,11 +10702,14 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.updateLimit(tierId, limitId,data).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.limits.update(tierId, limitId,{
+    value: 5000,
+    type: "min"
+}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10808,11 +10810,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.deleteLimit(tierId, limitId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.limits.delete(tierId, limitId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10857,11 +10859,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/
 ```
 
 ```javascript
-    rehive.admin.tiers.getFeesList(tiersId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.fees.get(tierId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -10935,16 +10937,14 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/
 ```
 
 ```javascript
-    rehive.admin.tiers.createFee(tiersId, {
-            value: value,
-            percentage: percentage,
-            tx_type: tx_type,
-            subtype: subtype
-        }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        });
+rehive.admin.tiers.fees.create(tierId, {
+    value: 1000,
+    tx_type: "credit"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -11034,11 +11034,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.getFee(tierId, feeId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.fees.get(tierId, {id: feeId}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -11107,11 +11107,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.updateFee(tierId, feeId,data).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.fees.update(tierId, feeId,{value: 5000}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -11201,11 +11201,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.deleteFee(tierId, feeId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.fees.delete(tierId, feeId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -11250,11 +11250,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/
 ```
 
 ```javascript
-    rehive.admin.tiers.getSwitchesList(tiersId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.switches.get(tierId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -11325,15 +11325,14 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/
 ```
 
 ```javascript
-    rehive.admin.tiers.createSwitch(tiersId, {
-            tx_type: tx_type,
-            subtype: subtype,
-            enabled: enabled
-        }).then(function (res) {
-            //..
-        }, function (err) {
-            //..
-        })
+rehive.admin.tiers.switches.create(tierId, {
+    tx_type: "credit",
+    enabled: true
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -11419,11 +11418,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.getSwitch(tierId, switchId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.switches.get(tierId, {id: switchId}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -11487,11 +11486,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.updateSwitch(tierId, switchId,data).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.switches.update(tierId, switchId,{enabled: false}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -11557,11 +11556,11 @@ curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
 ```
 
 ```javascript
-    rehive.admin.tiers.deleteSwitch(tierId, switchId).then(function (res) {
-            //..
-        }, function (error) {
-            //..
-        })
+rehive.admin.tiers.switches.delete(tierId, switchId).then(function (res) {
+    ...
+}, function (error) {
+    ...
+})
 ```
 
 ```python
@@ -11613,11 +11612,11 @@ curl https://rehive.com/api/3/admin/switches/
 ```
 
 ```javascript
-rehive.admin.switches.getList().then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.switches.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -11686,14 +11685,14 @@ curl https://rehive.com/api/3/admin/switches/
 
 ```javascript
 rehive.admin.switches.create(
-        {
-            switch_type: "transactions",
-            enabled: false
-        }).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+{
+    switch_type: "transactions",
+    enabled: false
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -11775,11 +11774,11 @@ curl https://rehive.com/api/3/admin/switches/{id}/
 ```
 
 ```javascript
-rehive.admin.switches.get(id).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.switches.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 
@@ -11842,10 +11841,10 @@ curl https://rehive.com/api/3/admin/switches/{id}/
 
 ```javascript
 rehive.admin.switches.update(id, {enabled: false}).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -11928,10 +11927,10 @@ curl https://rehive.com/api/3/admin/switches/{id}/
 
 ```javascript
 rehive.admin.switches.delete(id).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -11982,11 +11981,11 @@ curl https://www.rehive.com/api/3/admin/permission-groups/
 ```
 
 ```javascript
-rehive.admin.permissionGroups.getList().then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.permissionGroups.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12064,10 +12063,10 @@ curl https://www.rehive.com/api/3/admin/permission-groups/
 
 ```javascript
 rehive.admin.permissionGroups.create({name: "test_group"}).then(function (res) {
-            ...
-        }, function (err) {
-            ...
-        });
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12127,11 +12126,11 @@ curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/
 ```
 
 ```javascript
- rehive.admin.permissionGroups.update(group_name,{name: "new_name"}).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.permissionGroups.update(groupName,{name: "new_name"}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12190,11 +12189,11 @@ curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/
   -H "Content-Type: application/json"
 ```
 ```javascript
-rehive.admin.permissionGroups.delete(group_name).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.permissionGroups.delete(groupName).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12239,11 +12238,11 @@ curl https://www.rehive.com/api/3/admin/permission-groups/{group_name}/permissio
 ```
 
 ```javascript
-rehive.admin.permissionGroups.getPermissionsList(group_name).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.permissionGroups.permissions.get(groupName).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12324,15 +12323,15 @@ curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/per
 ```
 
 ```javascript
-rehive.admin.permissionGroups.createPermission(group_name,
-        {
-            type: "account",
-            level: "view"
-        }).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.permissionGroups.permissions.create(groupName,
+{
+    type: "account",
+    level: "view"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12400,11 +12399,11 @@ curl https://www.rehive.com/admin/api/3/admin/permission-groups/{group_name}/per
 ```
 
 ```javascript
-rehive.admin.permissionGroups.deletePermission(group_name,permission_id).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.permissionGroups.permissions.delete(groupName,permissionId).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12451,13 +12450,13 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/
 ```
 
 ```javascript
-rehive.admin.users.addPermissionGroup(uuid, {
-        group: "test_group"
-    }).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.users.permissionGroups.create(uuid, {
+    group: "test_group"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 > Admin assign permission group response
@@ -12501,11 +12500,11 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permission-groups/{group_na
 ```
 
 ```javascript
-rehive.admin.users.deletePermissionGroup(uuid,group_name).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.users.permissionGroups.delete(uuid,groupName).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 > Admin unassign permission group response
@@ -12540,14 +12539,14 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/
 ```
 
 ```javascript
-rehive.admin.users.createPermission(uuid, {
-        type: "account",
-        level: "view"
-    }).then(function (res) {
-        ...
-    }, function (err) {
-        ...
-    });
+rehive.admin.users.permissions.create(uuid, {
+    type: "account",
+    level: "view"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 > Admin assign permissions response
@@ -12596,11 +12595,11 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}
 ```
 
 ```javascript
-rehive.admin.users.deletePermission(uuid,permission_id).then(function (res) {
-       ...
-    }, function (err) {
-       ...
-    });
+rehive.admin.users.permissions.delete(uuid,permissionId).then(function (res) {
+   ...
+}, function (err) {
+   ...
+});
 ```
 
 > Admin unassign permissions response
