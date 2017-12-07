@@ -34,7 +34,7 @@ curl https://www.rehive.com/api/3/
 ```
 
 ```javascript
-"Not applicable for sdk"
+"The javascript SDK handles storing and sending the authentication token"
 ```
 
 ```python
@@ -66,6 +66,23 @@ curl https://www.rehive.com/api/3/auth/company/register/
        "password1": "joe1234",
        "password2":"joe1234",
        "terms_and_conditions": true}'
+```
+
+```javascript
+rehive.auth.registerCompany({
+    first_name: "Joe",
+    last_name: "Soap",
+    email: "joe@rehive.com",
+    mobile_number:"+00000000000",
+    company: "rehive",
+    password1: "joe1234",
+    password2: "joe1234",
+    terms_and_conditions: true
+}).then(function (user) {
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -133,6 +150,55 @@ rehive.auth.register_company(
         }
     }
 }
+```
+
+```javascript
+{
+    "token": "{token}",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
+    }
+}    
 ```
 
 ```python
@@ -230,18 +296,19 @@ curl https://www.rehive.com/api/3/auth/register/
 ```
 
 ```javascript
-rehive.auth.register(
-        {first_name: "Joe",
-         last_name: "Soap",
-         email: "joe@rehive.com",
-         company: "rehive",
-         password1: "joe1234",
-         password2:"joe1234"
-        }).then(function(user){
-            // ...
-        },function(err){
-            // ...
-        });
+rehive.auth.register({
+    first_name: "Joe",
+    last_name: "Soap",
+    email: "joe@rehive.com",
+    company: "rehive",
+    password1: "joe1234",
+    password2:"joe1234",
+    terms_and_conditions:true
+}).then(function(user){
+    ...
+},function(err){
+    ...
+});
 ```
 
 ```python
@@ -312,14 +379,50 @@ rehive.auth.register(
 
 ```javascript
 {
-  "identifier": "00000000-0000-0000-0000-000000000000",
-  "email": "joe@rehive.com",
-  "mobile_number": "+00000000000",
-  "first_name": "Joe",
-  "last_name": "Soap",
-  "company": "rehive",
-  "profile": null,
-  "language": "en"
+    "token": "{token}",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "documents": {
+                "updated": null,
+                "status": null
+            },
+            "updated": 1509539801040,
+            "status": "pending",
+            "bank_accounts": {
+                "updated": null,
+                "status": null
+            },
+            "addresses": {
+                "updated": null,
+                "status": null
+            }
+        },
+        "status": "pending",
+        "permission_groups": [
+            {
+                "name": "admin"
+            }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "switches": []
+    }
 }
 ```
 
@@ -428,14 +531,14 @@ curl https://www.rehive.com/api/3/auth/login/
 
 ```javascript
 rehive.auth.login({
-            user: "joe@rehive.com",
-            company: "rehive",
-            password: "joe1234"
-        }).then(function(user){
-            console.log(user);
-            },function(err){
-            // ...
-        })
+    user: "joe@rehive.com",
+    company: "rehive",
+    password: "joe1234"
+}).then(function(user){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -637,10 +740,10 @@ curl https://www.rehive.com/api/3/auth/logout/
 
 ```javascript
 rehive.auth.logout().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -684,10 +787,10 @@ curl https://www.rehive.com/api/3/auth/logout/all/
 
 ```javascript
 rehive.auth.logoutAll().then(function(res){
-            // ...
-        }, function (err){
-            // ...
-        })
+    ...
+}, function (err){
+    ...
+})
 ```
 
 ```python
@@ -733,16 +836,15 @@ curl https://www.rehive.com/api/3/auth/password/change/
 ```
 
 ```javascript
-rehive.auth.changePassword(
-        {
-            old_password: "joe1234",
-            new_password1: "joe1234",
-            new_password2: "joe1234"
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+rehive.auth.password.change({
+    old_password: "joe1234",
+    new_password1: "joe1234",
+    new_password2: "joe1234"
+}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -801,16 +903,16 @@ curl https://www.rehive.com/api/3/auth/password/reset/
        "company": "rehive"}'
 ```
 
+
 ```javascript
-rehive.auth.resetPassword(
-        {
-            user: "joe@rehive.com",
-            company: "rehive"
-        }).then(function(res){
-            // ...
-        }, function (err) {
-            // ...
-        })
+rehive.auth.password.reset({
+    user: "joe@rehive.com",
+    company: "rehive"
+}).then(function(res){
+    ...
+}, function (err) {
+    ...
+})
 ```
 
 ```python
@@ -866,17 +968,16 @@ curl https://www.rehive.com/api/3/auth/password/reset/confirm/
 ```
 
 ```javascript
-rehive.auth.resetConfirmPassword(
-        {
-            new_password1: "joe1234",
-            new_password2: "joe1234",
-            uid: "{uid}",
-            token: "{token}"
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+rehive.auth.password.resetConfirm({
+    new_password1: "joe1234",
+    new_password2: "joe1234",
+    uid: "{uid}",
+    token: "{token}"
+}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -940,15 +1041,14 @@ curl https://www.rehive.com/api/3/auth/email/verify/resend/
 ```
 
 ```javascript
-rehive.auth.resendEmailVerification(
-        {
-            email: "joe@rehive.com",
-            company: "rehive"
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+rehive.auth.email.resendEmailVerification({
+    email: "joe@rehive.com",
+    company: "rehive"
+}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -967,7 +1067,7 @@ rehive.auth.email.resend_email_verification(
 ```
 
 ```javascript
-{ }
+{}
 ```
 
 ```python
@@ -1002,15 +1102,14 @@ curl https://www.rehive.com/api/3auth/mobile/verify/resend/
 ```
 
 ```javascript
-rehive.auth.resendMobileVerification(
-        {
-            mobile: "+27840000000",
-            company: "rehive"
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+rehive.auth.mobile.resendMobileVerification({
+    mobile: "+27840000000",
+    company: "rehive"
+}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -1029,7 +1128,7 @@ rehive.auth.mobile.resend_mobile_verification(
 ```
 
 ```javascript
-{ }
+{}
 ```
 
 ```python
@@ -1062,6 +1161,15 @@ curl https://rehive.com/api/3/auth/email/verify/
   -H "Content-Type: application/json"
   -d '{"key": "{key}"}'
 ```
+```javascript
+rehive.auth.email.verify({
+    key: key
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
 
 ```python
 rehive.auth.email.verify(
@@ -1075,6 +1183,10 @@ rehive.auth.email.verify(
 {
   "status": "success"
 }
+```
+
+```javascript
+{}
 ```
 
 ```python
@@ -1109,14 +1221,13 @@ curl https://rehive.com/api/3/auth/mobile/verify/
 ```
 
 ```javascript
-rehive.auth.verifyMobile(
-        {
-            otp: "{otp}"
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+rehive.auth.mobile.verify({
+    otp: otp
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1134,7 +1245,7 @@ rehive.auth.verify(
 ```
 
 ```javascript
-{ }
+{}
 ```
 
 ```python
@@ -1180,11 +1291,11 @@ curl https://www.rehive.com/api/3/auth/tokens/
 ```
 
 ```javascript
-rehive.token.getTokensList().then(function(res){
-        // ...
-    },function(err){
-        // ...
-    });
+rehive.auth.tokens.get().then(function(res){
+    ...
+},function(err){
+    ...
+});
 ```
 
 ```python
@@ -1206,13 +1317,23 @@ rehive.auth.tokens.get()
 ```
 
 ```javascript
-[
-  {
-    "token_key": "00000000",
-    "expires": null
-  }
-]
-
+    [
+        {
+          "expires": null,
+          "service":null,
+          "token_key": "00000000"
+        },
+        {
+          "expires": "2001-01-01T01:01:01.000001Z",
+          "service":null,
+          "token_key": "00000000",
+        },
+        {
+          "expires": "2001-01-01T01:01:01.000002Z",
+          "service":null,
+          "token_key": "00000000",
+        }
+    ]
 ```
 
 ```python
@@ -1241,14 +1362,13 @@ curl https://www.rehive.com/api/3/auth/tokens/
 ```
 
 ```javascript
-rehive.token.createToken(
-        {
-            password: "joe1234"
-        }).then(function(res){
-            // ...
-        },function(err){
-            // ...
-        })
+rehive.auth.tokens.create({
+    password: "joe12345"
+}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -1315,47 +1435,28 @@ rehive.auth.tokens.create(
 {
     "token": "{token}",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": "",
-        "id_number": null,
-        "birth_date": null,
-        "profile": null,
-        "currency": null,
-        "company": "rehive",
-        "language": "en",
-        "nationality": "ZA",
-        "metadata": {},
-        "mobile_number": "+00000000000",
-        "timezone": null,
-        "verified": false,
-        "kyc": {
-            "documents": {
-                "updated": null,
-                "status": null
-            },
-            "updated": 1509539801040,
-            "status": "pending",
-            "bank_accounts": {
-                "updated": null,
-                "status": null
-            },
-            "addresses": {
-                "updated": null,
-                "status": null
-            }
-        },
-        "status": "pending",
-        "permission_groups": [
-            {
-                "name": "admin"
-            }
-        ],
-        "permissions": [],
-        "date_joined": 1509539800952,
-        "switches": []
+        "birth_date":null,
+        "company":"rehive",
+        "currency":{},
+        "date_joined":1509017031198,
+        "email":"joe@rehive.com",
+        "first_name":"new",
+        "id_number":null,
+        "identifier":"00000000-0000-0000-0000-000000000000",
+        "kyc":{},
+        "language":"en",
+        "last_name":"user",
+        "metadata":{},
+        "mobile_number":"",
+        "nationality":"",
+        "permission_groups":[],
+        "permissions":[]
+        "profile":null,
+        "status":"pending",
+        "switches":[],
+        "timezone":null,
+        "username":"",
+        "verified":false
     }
 }
 ```
@@ -1433,11 +1534,11 @@ curl https://www.rehive.com/api/3/auth/tokens/{token_key}/
 ```
 
 ```javascript
-rehive.token.deleteToken("000a0a00").then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.auth.tokens.delete("token_key").then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -1453,7 +1554,7 @@ rehive.auth.tokens.delete("{token_key}")
 ```
 
 ```javascript
-{ }
+{}
 ```
 
 ```python
@@ -1479,18 +1580,18 @@ curl https://www.rehive.com/api/3/auth/tokens/verify/
 ```
 
 ```javascript
-rehive.token.deleteToken("000a0a00").then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.auth.tokens.verify("token_key").then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
-rehive.auth.tokens.delete("{token_key}")
+rehive.auth.tokens.verify("{token_key}")
 ```
 
-> Delete token response
+> Verify token response
 
 ```shell
 {
@@ -1543,50 +1644,47 @@ rehive.auth.tokens.delete("{token_key}")
 
 ```javascript
 {
-    "status": "success",
-    "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": "",
-        "id_number": null,
-        "birth_date": null,
-        "profile": null,
-        "currency": null,
-        "company": "rehive",
-        "language": "en",
-        "nationality": "ZA",
-        "metadata": {},
-        "mobile_number": "+00000000000",
-        "timezone": null,
-        "verified": false,
-        "kyc": {
-            "documents": {
-                "updated": null,
-                "status": null
-            },
-            "updated": 1509539801040,
-            "status": "pending",
-            "bank_accounts": {
-                "updated": null,
-                "status": null
-            },
-            "addresses": {
-                "updated": null,
-                "status": null
-            }
+    "identifier": "00000000-0000-0000-0000-000000000000",
+    "first_name": "Joe",
+    "last_name": "Soap",
+    "email": "joe@rehive.com",
+    "username": "",
+    "id_number": null,
+    "birth_date": null,
+    "profile": null,
+    "currency": null,
+    "company": "rehive",
+    "language": "en",
+    "nationality": "ZA",
+    "metadata": {},
+    "mobile_number": "+00000000000",
+    "timezone": null,
+    "verified": false,
+    "kyc": {
+        "documents": {
+            "updated": null,
+            "status": null
         },
+        "updated": 1509539801040,
         "status": "pending",
-        "permission_groups": [
-            {
-                "name": "admin"
-            }
-        ],
-        "permissions": [],
-        "date_joined": 1509539800952,
-        "switches": []
-    }
+        "bank_accounts": {
+            "updated": null,
+            "status": null
+        },
+        "addresses": {
+            "updated": null,
+            "status": null
+        }
+    },
+    "status": "pending",
+    "permission_groups": [
+        {
+            "name": "admin"
+        }
+    ],
+    "permissions": [],
+    "date_joined": 1509539800952,
+    "switches": []
 }
 ```
 

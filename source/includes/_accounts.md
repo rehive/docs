@@ -12,13 +12,11 @@ curl https://www.rehive.com/api/3/accounts/
 ```
 
 ```javascript
-var filter = {active:true};
-
-rehive.accounts.getAccountsList(filter).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.get({filters: filters}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -75,11 +73,9 @@ rehive.accounts.get(
         {
             "name": "default",
             "reference": "0000000000",
-            "primary": true,
             "currencies": [
                 {
                     "balance": 10000,
-                    "available_balance": 10000,
                     "currency": {
                         "code": "XBT",
                         "description": "bitcoin",
@@ -87,16 +83,18 @@ rehive.accounts.get(
                         "unit": "bitcoin",
                         "divisibility": 8
                     },
-                    "limits": [],
-                    "fees": [],
-                    "switches": [],
+                    "fees":[],
+                    "limits":[],
+                    "switches":[],
                     "active": true
                 }
             ],
+            "primary":false,
             "created": 1464858068745,
             "updated": 1464858068745
         }
     ]
+
 }
 ```
 
@@ -156,6 +154,17 @@ curl https://www.rehive.com/api/3/accounts/
   -d '{"name": "savings"}'
 ```
 
+```javascript
+rehive.accounts.create({
+    name: 'savings',
+    primary: false
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
+```
+
 ```python
 rehive.accounts.create(
     name="savings"
@@ -176,6 +185,17 @@ rehive.accounts.create(
         "created": 1501145581365,
         "updated": 1501145581370
     },
+}
+```
+
+```javascript
+{
+    "name": "savings",
+    "reference": "0000000000",
+    "primary": true,
+    "currencies": [],
+    "created": 1501145581365,
+    "updated": 1501145581370
 }
 ```
 
@@ -227,13 +247,12 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
 ```
 
 ```javascript
-var filter = {active:true}
 
-rehive.accounts.getAccount(reference,filter).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.get({reference: reference}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -276,28 +295,27 @@ rehive.accounts.get(
 
 ```javascript
 {
-    "name": "default",
-    "reference": "0000000000",
-    "primary": true,
-    "currencies": [
-        {
-            "balance": 10000,
-            "available_balance": 10000,
-            "currency": {
-                "code": "XBT",
-                "description": "bitcoin",
-                "symbol": "฿",
-                "unit": "bitcoin",
-                "divisibility": 8
-            },
-            "limits": [],
-            "fees": [],
-            "switches": [],
-            "active": true
-        }
-    ],
-    "created": 1464858068745,
-    "updated": 1464858068745
+     "name": "default",
+     "reference": "0000000000",
+     "currencies": [
+      {
+          "balance": 10000,
+          "currency": {
+              "code": "XBT",
+              "description": "bitcoin",
+              "symbol": "฿",
+              "unit": "bitcoin",
+              "divisibility": 8
+          },
+          "fees":[],
+          "limits":[],
+          "switches":[],
+          "active": true
+      }
+     ],
+     "primary":false,
+     "created": 1464858068745,
+     "updated": 1464858068
 }
 ```
 
@@ -353,6 +371,14 @@ curl https://www.rehive.com/api/3/accounts/{reference}/
   -d '{"name": "savings"}'
 ```
 
+```javascript
+rehive.accounts.update(reference,{primary:true}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
 ```python
 rehive.accounts.update(
     "{reference}",
@@ -373,6 +399,17 @@ rehive.accounts.update(
         "created": 1501145581365,
         "updated": 1501145581370
     },
+}
+```
+
+```javascript
+{
+    "name": "savings",
+    "reference": "0000000000",
+    "primary": true,
+    "currencies": [],
+    "created": 1501145581365,
+    "updated": 1501145581370
 }
 ```
 
@@ -423,13 +460,12 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/
 ```
 
 ```javascript
-var filter = {active:true}
 
-rehive.accounts.getAccountCurrenciesList(reference,filter).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.currencies.get(reference).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -536,11 +572,11 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
 ```
 
 ```javascript
-rehive.accounts.getAccountCurrency(reference,currencyCode).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.currencies.get(reference,{code: code}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -589,6 +625,7 @@ rehive.accounts.obj("{reference}").currencies.get(
     "active": true
 }
 ```
+```
 
 ```python
 {
@@ -616,7 +653,7 @@ Retrieve an account's currency belonging to a user.
 
 ## Update Account Currency
 
-> User retrieve account currency request
+> User update account currency request
 
 ```shell
 curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
@@ -627,11 +664,11 @@ curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
 ```
 
 ```javascript
-rehive.accounts.updateAccountCurrency(reference,currencyCode,{active: true}).then(function(res){
-        // ...
-    },function(err){
-        // ...
-    })
+rehive.accounts.currencies.update(reference,currencyCode,{active: true}).then(function(res){
+    ...
+},function(err){
+    ...
+})
 ```
 
 ```python
@@ -646,7 +683,7 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
 )
 ```
 
-> User retrieve account currency response
+> User update account currency response
 
 ```shell
 {

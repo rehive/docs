@@ -3,8 +3,8 @@
 ```javascript
 SDK Initialization
 
-
-window.rehive = new Rehive({apiVersion: 3});
+// Both apiVersion and apiToken are optional and the apiVersion defaults to 3
+window.rehive = new Rehive({apiVersion: 3, apiToken: 'APITOKEN'});
 ```
 
 ```python
@@ -68,6 +68,14 @@ authentication. See <a href="/#authorization">Authentication</a> for 3rd party a
 
 ```
 
+```javascript
+// The SDK handles paginations automatically for every resource.
+
+rehive.resource.get() // Stores pagination if returned
+rehive.resource.getNext() // Calls with current next value
+rehive.resource.getPrevious() // Call with current previous value
+```
+
 ```python
 # The SDK handles paginations automatically for every resource.
 
@@ -96,6 +104,16 @@ Value | Descrition
 curl https://www.rehive.com/an/api/endpoint/?field_1=abc&field_2=123&orderby=field_1
   -X GET
   -H "Content-Type: application/json"
+```
+
+```javascript
+// Filters can be sent to any list resource as an object, ex:
+filters = {
+   field_1: "abc",
+   field_2: 123,
+   orderby: "field_1"
+}
+rehive.resource.get({filters: filters})
 ```
 
 ```python
@@ -131,7 +149,7 @@ than (`__gt`) and less than (`__lt`) suffixes (eg. `created__gt`).
 
 #### Metadata Fields 
 
-Ccustom metadata fields can be filtered on their first level children by adding the child
+Custom metadata fields can be filtered on their first level children by adding the child
 attribute as a suffix (`__child_attribute`). So if metadata contains a JSON object with an attribute `name` it can 
 be filtered using `metadata__name`.
 
