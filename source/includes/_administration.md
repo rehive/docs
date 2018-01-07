@@ -135,7 +135,11 @@ rehive.admin.users.get()
                 "permission_groups": [],
                 "permissions": [],
                 "date_joined": 1464912953000,
-                "switches": [],
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                },
                 "last_login": null,
                 "password": "*********************************00000000"
             }
@@ -193,7 +197,11 @@ rehive.admin.users.get()
             "permission_groups": [],
             "permissions": [],
             "date_joined": 1464912953000,
-            "switches": [],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
             "last_login": null,
             "password": "*********************************00000000"
         }
@@ -246,7 +254,11 @@ rehive.admin.users.get()
         "permission_groups": [],
         "permissions": [],
         "date_joined": 1464912953000,
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "last_login": null,
         "password": "*********************************00000000"
     }
@@ -257,10 +269,10 @@ Get a list of users belonging to a company.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `identifier` | string
-`email` | string 
+`email` | string
 `mobile_number` | string
 `first_name` | string
 `last_name` | string
@@ -270,8 +282,8 @@ Field | Type
 `nationality` | string
 `status` | string
 `currency` | string
-`date_joined` | millsecond timestamp 
-`last_login` | millsecond timestamp 
+`date_joined` | millsecond timestamp
+`last_login` | millsecond timestamp
 
 #### Endpoint
 
@@ -373,7 +385,11 @@ rehive.admin.users.create(
         "permission_groups": [],
         "permissions": [],
         "date_joined": 1464912953000,
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "last_login": null,
         "password": "*********************************00000000"
     }
@@ -424,7 +440,11 @@ rehive.admin.users.create(
     "permission_groups": [],
     "permissions": [],
     "date_joined": 1464912953000,
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "last_login": null,
     "password": "*********************************00000000"
 }
@@ -474,7 +494,11 @@ rehive.admin.users.create(
     "permission_groups": [],
     "permissions": [],
     "date_joined": 1464912953000,
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "last_login": null,
     "active": true,
     "password": "*********************************00000000"
@@ -581,7 +605,11 @@ rehive.admin.users.get(
         "permission_groups": [],
         "permissions": [],
         "date_joined": 1464912953000,
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "last_login": null,
         "active": true,
         "password": "*********************************00000000"
@@ -633,7 +661,11 @@ rehive.admin.users.get(
     "permission_groups": [],
     "permissions": [],
     "date_joined": 1464912953000,
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "last_login": null,
     "active": true,
     "password": "*********************************00000000"
@@ -684,7 +716,11 @@ rehive.admin.users.get(
     "permission_groups": [],
     "permissions": [],
     "date_joined": 1464912953000,
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "last_login": null,
     "active": true,
     "password": "*********************************00000000"
@@ -786,7 +822,11 @@ rehive.admin.users.update(
         "permission_groups": [],
         "permissions": [],
         "date_joined": 1464912953000,
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "last_login": null,
         "active": true,
         "password": "*********************************00000000"
@@ -838,7 +878,11 @@ rehive.admin.users.update(
     "permission_groups": [],
     "permissions": [],
     "date_joined": 1464912953000,
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "last_login": null,
     "active": true,
     "password": "*********************************00000000"
@@ -889,7 +933,11 @@ rehive.admin.users.update(
     "permission_groups": [],
     "permissions": [],
     "date_joined": 1464912953000,
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "last_login": null,
     "active": true,
     "password": "*********************************00000000"
@@ -905,7 +953,7 @@ Update a user's details.
 #### Optional Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `first_name` | first name | blank
 `last_name` | last name | blank
 `id_number` | ID number | blank
@@ -921,383 +969,106 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
 `incomplete` | Incomplete
 `verified` | Verified
 
-### List User Switches
+### Retrieve User Settings
 
-List all switches related to a user.
-
-> List User Switches request
+> Admin retrieve user settings request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/{identifier}/switches/
+curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
 ```javascript
-rehive.admin.users.switches.get(identifier).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
 ```
 
 ```python
-rehive.admin.users.obj('{identifier}').switches.get()
 ```
 
-> List User Switches response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "tx_type": "credit",
-            "subtype": null,
-            "enabled": true,
-            "created": 1497362397968,
-            "updated": 1497362397968
-        }
-    ]
-}
-```
-
-```javascript
-{
-    [
-        {
-            "created":1509362224879
-            "enabled":false
-            "id":47
-            "subtype":null
-            "tx_type":"credit"
-            "updated":1509362224879
-        }
-    ]
-}
-```
-
-```python
-[
-    {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-]
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/users/{identifier}/switches/`
-
-### Create User Switches
-
-Create a new switch related to a user.
-
-> Create User Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/users/{identifier}/switches/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"tx_type": "credit",
-       "enabled": true}'
-```
-
-```javascript
-rehive.admin.users.switches.create(identifier,
-{
-    subtype:null,
-    tx_type:"credit",
-    enabled:false
-}).then(function (res) {
-   ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.users.obj('{identifier}').switches.create(
-    switch_type="credit",
-    enabled=True
-)
-```
-
-> Create User Switches response
+> Admin retrieve user settings response
 
 ```shell
 {
     "status": "success",
     "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
     }
 }
 ```
 
 ```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
 ```
 
 ```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
 ```
+
+Retrieve a company's user settings.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/{identifier}/switches/`
+`https://rehive.com/api/3/admin/users/{identifier}/settings/`
 
-#### Required Fields
+### Update User
 
-Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction Type | null
+> Admin update user settings request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/`
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"allow_transactions": true}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin update user settings response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Update a user's settings.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/users/{identifier}/settings/`
 
 #### Optional Fields
 
-Field | Description | Default 
---- | --- | ---
-`subtype` | Subtype name | null
-`enabled` | Enabled | false
-
-### Retrieve User Switches
-
-Retrieve a specific switch related to a user
-
-> Retrieve User Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.users.switches.get(identifier, {id: id}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.users.obj('{identifier}').switches.get(
-    {id}
-)
-```
-
-> Retrieve User Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
-
-### Update User Switches
-
-Update a specific switch related to a user
-
-> Update User Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"enabled": false}'
-```
-
-```javascript
-rehive.admin.users.switches.update(identifier, id, {
-    enabled: true
-}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.users.obj('{identifier}').switches.update(
-    {id},
-    enabled=False
-)
-```
-
-> Update User Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": false,
-        "created": 1497362397968,
-        "updated": 1497362931403
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": false,
-    "created": 1497362397968,
-    "updated": 1497362931403
-}
-```
-
-#### Required Fields
-
 Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction Type | null
-
-#### Optional Fields
-
-Field | Description | Default 
 --- | --- | ---
-`subtype` | Subtype name | null
-`enabled` | Enabled | false
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
-
-### Delete User Switches
-
-Delete a specific switch related to a user
-
-> Delete User Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/users/{identifier}/switches/{id}
-  -X DELETE
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.users.switches.delete(identifier, id).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.users.obj('{identifier}').switches.delete(
-    {id}
-)
-```
-
-> Delete User Switches response
-
-```shell
-{
-    "status": "success"
-}
-```
-
-```javascript
-{}
-```
-
-```python
-{
-    "status": "success"
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/users/{identifier}/switches/{id}`
-
+`allow_transactions` | Allow transactions | true
+`allow_debit_transactions` | Allow debit transactions | true
+`allow_credit_transactions` | Allow credit transactions | true,
 
 ### List Addresses
 
@@ -1411,8 +1182,8 @@ rehive.admin.users.addresses.get()
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `user` | string
 `status` | string
 
@@ -1546,12 +1317,12 @@ rehive.admin.users.addresses.create(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | user identifier | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `line_1` | address line one | blank | false
 `line_2` | address line 2 | blank | false
@@ -1563,8 +1334,8 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
@@ -1592,7 +1363,7 @@ rehive.admin.users.addresses.get({id: id}).then(function (res) {
 
 ```python
 rehive.admin.users.addresses.get(
-   {id} 
+   {id}
 )
 ```
 
@@ -1777,7 +1548,7 @@ rehive.admin.users.addresses.update(
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `line_1` | address line one | blank | false
 `line_2` | address line 2 | blank | false
@@ -1789,8 +1560,8 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
@@ -2111,12 +1882,12 @@ rehive.admin.bank_accounts.create(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | user identifier | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `name` | Account Name | blank
 `number` | Account Number | blank
@@ -2131,8 +1902,8 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
@@ -2367,7 +2138,7 @@ rehive.admin.bank_accounts.update(
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `name` | Account Name | blank
 `number` | Account Number | blank
@@ -2382,8 +2153,8 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
@@ -2547,8 +2318,8 @@ List a user's cryptocurrency addresses.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `user` | string
 `status` | string
 
@@ -2666,13 +2437,13 @@ Create a crypto account for a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | user identifier | null
 `address` | full bitcoin address | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
 `metadata` | custom metadata | {}
@@ -2680,8 +2451,8 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
@@ -2886,13 +2657,13 @@ Update a user's crypto account.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | user identifier | null
 `address` | full bitcoin address | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
 `metadata` | custom metadata | {}
@@ -2900,8 +2671,8 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
@@ -3069,8 +2840,8 @@ Get a list of users' documents.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `user` | string
 `status` | string
 
@@ -3101,7 +2872,7 @@ formData.append('document_type', document_type);
 formData.append('metadata', JSON.stringify(metadata));
 formData.append('note', note);
 formData.append('status', status);
-    
+
 rehive.admin.users.documents.create(formData).then(function (res) {
     ...
 }, function (err) {
@@ -3194,13 +2965,13 @@ Upload user document.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | user identifier | null
 `file` | a document file | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `document_category` | The document category | other
 `document_type` | The type of docuemnt | other
@@ -3209,8 +2980,8 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
@@ -3431,12 +3202,12 @@ Update a user's document.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `file` | a document file | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `document_category` | The document category | other
 `document_type` | The type of docuemnt | other
@@ -3445,8 +3216,8 @@ Field | Description | Default
 
 #### Statuses
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `obsolete` | Obsolete
 `declined` | Declined
 `pending` | Pending
@@ -3555,8 +3326,8 @@ Get a list of emails belonging to a company.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `user` | string
 
 #### Endpoint
@@ -3668,13 +3439,13 @@ Create an email address for a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | user identifier | null
 `email` | email address | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `verified` | verified status | false
 `primary` | primary status | false
@@ -3863,7 +3634,7 @@ Update a user's email.
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `verified` | verified status | false
 `primary` | primary status | false
@@ -4020,8 +3791,8 @@ Get a list of mobile numbers belonging to a company.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `user` | string
 
 #### Endpoint
@@ -4133,13 +3904,13 @@ Create a mobile number for a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | user identifier | null
 `mobile` | mobile number | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `verified` | verified status | false
 `primary` | primary status | false
@@ -4330,7 +4101,7 @@ Update a user's mobile.
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `verified` | verified status | false
 `primary` | primary status | false
@@ -4561,17 +4332,17 @@ Get a company's transaction list.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `id` | string
-`tx_type` | boolean 
+`tx_type` | boolean
 `subtype` | string
 `status` | string
 `account` | string
 `user` | string
 `source_transaction` | boolean
 `destination_transaction` | boolean
-`created` | millsecond timestamp 
+`created` | millsecond timestamp
 `metadata` | any
 
 #### Endpoint
@@ -4881,13 +4652,13 @@ Create a credit transaction on behalf of a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | email, mobile number, or unique identifier | null
 `amount` | amount | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `reference` | optional credit reference | blank
 `subtype` | a custom defined subtype | null
@@ -4972,13 +4743,13 @@ Create a debit transaction on behalf of a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | email, mobile number, or unique identifier | null
 `amount` | amount | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `reference` | optional debit reference | blank
 `subtype` | a custom defined subtype | null
@@ -5055,14 +4826,14 @@ Create a transfer transaction on behalf of a user. This will transfer currency f
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | email, mobile number, or unique identifier | null
 `amount` | amount | null
 `recipient` | email, mobile number, or unique identifier | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `currency` | currency code | blank
 `debit_subtype` | a custom defined subtype | null
@@ -5252,7 +5023,7 @@ rehive.admin.transactions.delete("{id}")
 }
 ```
 
-Update a transaction. This endpoint can be used to transition a transaction to any state. The following states transitions are permitted: `Pending`, `Complete`, `Failed`, `Deleted`. 
+Update a transaction. This endpoint can be used to transition a transaction to any state. The following states transitions are permitted: `Pending`, `Complete`, `Failed`, `Deleted`.
 
 In addition, you can update the transaction metadata and add messages to the transaction message logs.
 
@@ -5264,7 +5035,7 @@ attribute should be a JSON object with 2 attributes `level` and `message`.
 1. `level` : The message log level, this can be `info`, `warning`, or `error`.
 2. `message`: The message text detail.
 
-Each message added to a transaction will be stored in a list. Rehive will also add messages to this list when erorrs occur during processing. 
+Each message added to a transaction will be stored in a list. Rehive will also add messages to this list when erorrs occur during processing.
 
 #### Endpoint
 
@@ -5273,12 +5044,12 @@ Each message added to a transaction will be stored in a list. Rehive will also a
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `status` | update action/status (`Pending`, `Complete`, `Failed`, `Deleted`) | null | true
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `metadata` | custom metadata | {}
 `message` | message object | {}
@@ -5287,240 +5058,6 @@ Field | Description | Default
 #### Endpoint
 
 `https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
-
-
-### List Transaction Switches
-
-List all switches related to transactions.
-
-> List transaction switches request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/switches/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.transactions.switches.get().then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-> List transaction switches response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "tx_type": "credit",
-            "subtype": null,
-            "enabled": true,
-            "created": 1497362397968,
-            "updated": 1497362397968
-        }
-    ]
-}
-```
-
-```javascript
-[
-    {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-]
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/switches/`
-
-### Create Transaction Switches
-
-Create switches related to transactions.
-
-> Create transaction switches request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/switches/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"tx_type": "credit",
-       "enabled": true}'
-```
-
-```javascript
-rehive.admin.transactions.switches.create({
-    tx_type: "credit",
-    enabled: true
-}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-> Create transaction switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/switches/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction Type | 
-`enabled` | Enabled | false 
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | ---
-`subtype` | Subtype name | null
-
-### Retrieve Transaction Switches
-
-Retrieve a specific switch related to transactions.
-
-> Retrieve transaction switches request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/switches/{id}/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.transactions.switches.get({id: id}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-> Retrieve transaction switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/switches/{id}/`
-
-### Update Transaction Switches
-
-Update a specific switch related to transactions.
-
-> Update transaction switches request
-
-```shell
-curl https://rehive.com/api/3/admin/transactions/switches/{id}/
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"enabled": false}'
-```
-
-```javascript
-rehive.admin.transactions.switches.update(id, {enabled: false}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-> Update transaction switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": false,
-        "created": 1497362397968,
-        "updated": 1497362931403
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": false,
-    "created": 1497362397968,
-    "updated": 1497362931403
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/transactions/switches/{id}/`
-
-
 
 ## Accounts
 
@@ -5568,13 +5105,17 @@ rehive.admin.accounts.get()
                         "currency": {
                             "code": "XBT",
                             "description": "bitcoin",
-                            "symbol": "???",
+                            "symbol": "฿",
                             "unit": "bitcoin",
                             "divisibility": 8
                         },
                         "limits": [],
                         "fees": [],
-                        "switches": [],
+                        "settings": {
+                            "allow_transactions": true,
+                            "allow_debit_transactions": true,
+                            "allow_credit_transactions": true
+                        },
                         "active": true
                     }
                 ],
@@ -5603,13 +5144,17 @@ rehive.admin.accounts.get()
                     "currency": {
                         "code": "XBT",
                         "description": "bitcoin",
-                        "symbol": "???",
+                        "symbol": "฿",
                         "unit": "bitcoin",
                         "divisibility": 8
                     },
                     "limits": [],
                     "fees": [],
-                    "switches": [],
+                    "settings": {
+                        "allow_transactions": true,
+                        "allow_debit_transactions": true,
+                        "allow_credit_transactions": true
+                    },
                     "active": true
                 }
             ],
@@ -5633,13 +5178,17 @@ rehive.admin.accounts.get()
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "???",
+                    "symbol": "฿",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
                 "limits": [],
                 "fees": [],
-                "switches": [],
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                },
                 "active": true
             }
         ],
@@ -5653,11 +5202,11 @@ Get a list of accounts belonging to users in a company.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `reference` | string
 `name` | string
-`active` | boolean 
+`active` | boolean
 `primary` | boolean
 `user` | string
 
@@ -5744,13 +5293,13 @@ Create a account for a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `name` | account name | null
 `user` | account user | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `reference` | account reference | 10 random chars
 `primary` | account primary status | false
@@ -5796,13 +5345,17 @@ rehive.admin.accounts.get(
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "???",
+                    "symbol": "฿",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
                 "limits": [],
                 "fees": [],
-                "switches": [],
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                },
                 "active": true
             }
         ],
@@ -5824,13 +5377,17 @@ rehive.admin.accounts.get(
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "???",
+                "symbol": "฿",
                 "unit": "bitcoin",
                 "divisibility": 8
             },
             "limits": [],
             "fees": [],
-            "switches": [],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
             "active": true
         }
     ],
@@ -5851,13 +5408,17 @@ rehive.admin.accounts.get(
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "???",
+                "symbol": "฿",
                 "unit": "bitcoin",
                 "divisibility": 8
             },
             "limits": [],
             "fees": [],
-            "switches": [],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
             "active": true
         }
     ],
@@ -5870,9 +5431,9 @@ Retrieve an account belonging to a company.
 
 #### Filtering
 
-Field | Type 
---- | --- 
-`active` | boolean 
+Field | Type
+--- | ---
+`active` | boolean
 
 #### Endpoint
 
@@ -5953,13 +5514,13 @@ Update an account for a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `name` | account name | null
 `user` | account user | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `reference` | account reference | 10 random chars
 `primary` | account primary status | false
@@ -6000,14 +5561,24 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
         "results": [
             {
                 "balance": 10000,
+                "available_balance": 10000,
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "???",
+                    "symbol": "฿",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
-                "active": true
+                "limits": [],
+                "fees": [],
+                "active": false,
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                },
+                "created": 1464858068732,
+                "updated": 1464858068732
             }
         ]
     }
@@ -6022,14 +5593,24 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
     "results": [
         {
             "balance": 10000,
+            "available_balance": 10000,
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "???",
+                "symbol": "฿",
                 "unit": "bitcoin",
                 "divisibility": 8
             },
-            "active": true
+            "limits": [],
+            "fees": [],
+            "active": false,
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
+            "created": 1464858068732,
+            "updated": 1464858068732e": true
         }
     ]
 }
@@ -6039,14 +5620,24 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
 [
     {
         "balance": 10000,
+        "available_balance": 10000,
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "???",
+            "symbol": "฿",
             "unit": "bitcoin",
             "divisibility": 8
         },
-        "active": true
+        "limits": [],
+        "fees": [],
+        "active": false,
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
+        "created": 1464858068732,
+        "updated": 1464858068732
     }
 ]
 ```
@@ -6055,9 +5646,9 @@ Get a list of currencies for an account belonging to a company.
 
 #### Filtering
 
-Field | Type 
---- | --- 
-`active` | boolean 
+Field | Type
+--- | ---
+`active` | boolean
 
 #### Endpoint
 
@@ -6095,14 +5686,24 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
     "status": "success",
     "data": {
         "balance": 10000,
+        "available_balance": 10000,
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "???",
+            "symbol": "฿",
             "unit": "bitcoin",
             "divisibility": 8
         },
-        "active": true
+        "limits": [],
+        "fees": [],
+        "active": false,
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
+        "created": 1464858068732,
+        "updated": 1464858068732
     }
 }
 ```
@@ -6110,28 +5711,48 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
 ```javascript
 {
     "balance": 10000,
+    "available_balance": 10000,
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
         "divisibility": 8
     },
-    "active": true
+    "limits": [],
+    "fees": [],
+    "active": false,
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "created": 1464858068732,
+    "updated": 1464858068732
 }
 ```
 
 ```python
 {
     "balance": 10000,
+    "available_balance": 10000,
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
         "divisibility": 8
     },
-    "active": true
+    "limits": [],
+    "fees": [],
+    "active": false,
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "created": 1464858068732,
+    "updated": 1464858068732
 }
 ```
 
@@ -6175,14 +5796,24 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
     "status": "success",
     "data": {
         "balance": 10000,
+        "available_balance": 10000,
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "???",
+            "symbol": "฿",
             "unit": "bitcoin",
             "divisibility": 8
         },
-        "active": true
+        "limits": [],
+        "fees": [],
+        "active": false,
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
+        "created": 1464858068732,
+        "updated": 1464858068732
     }
 }
 ```
@@ -6190,28 +5821,48 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
 ```javascript
 {
     "balance": 10000,
+    "available_balance": 10000,
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
         "divisibility": 8
     },
-    "active": true
+    "limits": [],
+    "fees": [],
+    "active": false,
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "created": 1464858068732,
+    "updated": 1464858068732
 }
 ```
 
 ```python
 {
     "balance": 10000,
+    "available_balance": 10000,
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
         "divisibility": 8
     },
-    "active": true
+    "limits": [],
+    "fees": [],
+    "active": false,
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "created": 1464858068732,
+    "updated": 1464858068732
 }
 ```
 
@@ -6224,8 +5875,103 @@ Update the active status of an account currency. Activating an account's currenc
 #### Optional Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `active` | is active currency | false
+
+
+### Retrieve Account Currency Settings
+
+> Admin retrieve account currency settings request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin retrieve account currency settings response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Retrieve an account's currency's settings.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/`
+
+### Update Account Currency
+
+> Admin retrieve account currency settings request
+
+```shell
+curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"allow_transactions": true}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin retrieve account currency settings response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Update the settings of an acocunt currency.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/`
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`allow_transactions` | Allow transactions | true
+`allow_debit_transactions` | Allow debit transactions | true
+`allow_credit_transactions` | Allow credit transactions | true
+
 
 ### List Account Currency Limits
 
@@ -6388,32 +6134,32 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.create(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `value` | Limit value | 0
-`type` | Limit Type | 
+`type` | Limit Type |
 `tx_type` | Transaction type limits are applied |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `subtype` | Transaction subtype name | null
 
 #### Limit Types
 
-Value | Description 
---- | --- 
-`max` | Maximum 
-`day_max` | Maximum per day 
-`month_max` | Maximum per month 
-`min` | Minimum 
-`overdraft` | Overdraft 
+Value | Description
+--- | ---
+`max` | Maximum
+`day_max` | Maximum per day
+`month_max` | Maximum per month
+`min` | Minimum
+`overdraft` | Overdraft
 
 #### Transaction Types
 
-Value | Description 
---- | --- 
-`credit` | Credit 
+Value | Description
+--- | ---
+`credit` | Credit
 `debit` | Debit
 
 ### Retrieve Account Currency Limit
@@ -6571,32 +6317,32 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.update(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `value` | Limit value | 0
-`type` | Limit Type | 
+`type` | Limit Type |
 `tx_type` | Transaction type limits are applied |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `subtype` | Transaction subtype name | null
 
 #### Limit Types
 
-Value | Description 
---- | --- 
-`max` | Maximum 
-`day_max` | Maximum per day 
-`month_max` | Maximum per month 
-`min` | Minimum 
-`overdraft` | Overdraft 
+Value | Description
+--- | ---
+`max` | Maximum
+`day_max` | Maximum per day
+`month_max` | Maximum per month
+`min` | Minimum
+`overdraft` | Overdraft
 
 #### Transaction Types
 
-Value | Description 
---- | --- 
-`credit` | Credit 
+Value | Description
+--- | ---
+`credit` | Credit
 `debit` | Debit
 
 ### Delete Account Currency Limit
@@ -6806,22 +6552,22 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.create(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction type fees are applied | 
+--- | --- | ---
+`tx_type` | Transaction type fees are applied |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
-`value` | Fee amount | 0 
-`percentage` | Percentage amount | 
-`subtype` | Transaction subtype name | null 
+`value` | Fee amount | 0
+`percentage` | Percentage amount |
+`subtype` | Transaction subtype name | null
 
 #### Transaction Types
 
-Value | Description 
---- | --- 
-`credit` | Credit 
+Value | Description
+--- | ---
+`credit` | Credit
 `debit` | Debit
 
 ### Retrieve Account Currency fee
@@ -6973,22 +6719,22 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.update(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction type fees are applied | 
+--- | --- | ---
+`tx_type` | Transaction type fees are applied |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
-`value` | Fee amount | 0 
-`percentage` | Percentage amount | 
-`subtype` | Transaction subtype name | null 
+`value` | Fee amount | 0
+`percentage` | Percentage amount |
+`subtype` | Transaction subtype name | null
 
 #### Transaction Types
 
-Value | Description 
---- | --- 
-`credit` | Credit 
+Value | Description
+--- | ---
+`credit` | Credit
 `debit` | Debit
 
 ### Delete Account Currency Fee
@@ -7040,371 +6786,6 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.delete(
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
 
-### List Account Currency Switches
-
-List all switches related to the currency
-
-> List Account Currency Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.accounts.currencies.switches.get(reference, code).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.get()
-```
-
-> List Account Currency Switches response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "tx_type": "credit",
-            "subtype": null,
-            "enabled": true,
-            "created": 1497362397968,
-            "updated": 1497362397968
-        }
-    ]
-}
-```
-
-```javascript
-[
-    {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-]
-```
-
-```python
-[
-    {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-]
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/`
-
-### Create Account Currency Switches
-
-Create a new switch for the currency
-
-> Create Account Currency Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"tx_type": "credit",
-       "enabled": true}'
-```
-
-```javascript
-rehive.admin.accounts.currencies.switches.create(reference, code, {
-    tx_type: "credit"
-    enabled: true
-}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.create(
-    tx_type="credit",
-    enabled=True
-)
-```
-
-> Create Account Currency Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction Type | 
-`enabled` | Enabled | false
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | ---
-`subtype` | Subtype name | null
-
-### Retrieve Account Currency Switches
-
-Retrieve a specific switch related to the currency
-
-> Retrieve Account Currency Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.accounts.currencies.switches.get(reference, code, {id: id}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.get(
-    "{id}"
-)
-```
-
-
-> Retrieve Account Currency Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497362397968,
-        "updated": 1497362397968
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497362397968,
-    "updated": 1497362397968
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/`
-
-### Update Account Currency Switches
-
-Update a specific switch related to the currency
-
-> Update Account Currency Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"enabled": false}'
-```
-
-```javascript
-rehive.admin.accounts.currencies.switches.update(reference, code, id, {enabled: false}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.update(
-    "{id}",
-    enabled=False
-)
-```
-
-> Update Account Currency Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": false,
-        "created": 1497362397968,
-        "updated": 1497362931403
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": false,
-    "created": 1497362397968,
-    "updated": 1497362931403
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": false,
-    "created": 1497362397968,
-    "updated": 1497362931403
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction Type | 
-`enabled` | Enabled | false
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | ---
-`subtype` | Subtype name | null
-
-### Delete Account Currency Switches
-
-Delete a specific switch related to the currency.
-
-> Delete Account Currency Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/
-  -X DELETE
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.accounts.currencies.switches.delete(reference, code, id).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").switches.delete(
-    "{id}"
-)
-```
-
-> Delete Account Currency Switches response
-
-```shell
-{
-    "status": "success",
-}
-```
-
-```javascript
-{}
-```
-
-```python
-{
-    "status": "success",
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/switches/{id}/`
-
-
 ## Currencies
 
 ### List Currencies
@@ -7443,7 +6824,7 @@ rehive.admin.currencies.get()
             {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "???",
+                "symbol": "฿",
                 "unit": "bitcoin",
                 "divisibility": 8,
                 "enabled": true
@@ -7462,7 +6843,7 @@ rehive.admin.currencies.get()
         {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "???",
+            "symbol": "฿",
             "unit": "bitcoin",
             "divisibility": 8,
             "enabled": true
@@ -7476,7 +6857,7 @@ rehive.admin.currencies.get()
     {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -7501,9 +6882,10 @@ curl https://www.rehive.com/api/3/admin/currencies/
   -H "Content-Type: application/json"
   -d '{"code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
-        "divisibility": 8}'
+        "divisibility": 8,
+        "enabled": true}'
 ```
 
 ```javascript
@@ -7511,9 +6893,10 @@ rehive.admin.currencies.create(
 {
     code: "XBT",
     description: "bitcoin",
-    symbol: "???",
+    symbol: "฿",
     unit: "bitcoin",
-    divisibility: 8
+    divisibility: 8,
+    enabled: true
 }).then(function (res) {
     ...
 }, function (err) {
@@ -7525,9 +6908,10 @@ rehive.admin.currencies.create(
 rehive.admin.currencies.create(
     code="XBT",
     description="bitcoin",
-    symbol="???",
+    symbol="฿",
     unit="satoshi",
-    divisibility=8
+    divisibility=8,
+    enabled=true
 )
 ```
 
@@ -7539,10 +6923,10 @@ rehive.admin.currencies.create(
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
         "divisibility": 8,
-        "enabled": false
+        "enabled": true
     }
 }
 ```
@@ -7551,10 +6935,10 @@ rehive.admin.currencies.create(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "???",
+    "symbol": "฿",
     "unit": "bitcoin",
     "divisibility": 8,
-    "enabled": false
+    "enabled": true
 }
 ```
 
@@ -7562,14 +6946,14 @@ rehive.admin.currencies.create(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "???",
+    "symbol": "฿",
     "unit": "bitcoin",
     "divisibility": 8,
-    "enabled": false
+    "enabled": true
 }
 ```
 
-Create a custom currency. This currency will be unique to the company that created it.
+Create a custom currency.
 
 #### Endpoint
 
@@ -7578,12 +6962,13 @@ Create a custom currency. This currency will be unique to the company that creat
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `code` | currency code | null
 `description` | name of currency | null
 `symbol` | currency symbol | null
 `unit` | unit, like `dollar` | null
 `divisibility` | number of decimal places | 0
+`enabled` | enabled status | null
 
 
 ### Retrieve Currency
@@ -7617,7 +7002,7 @@ rehive.admin.currencies.get("{code}")
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -7629,7 +7014,7 @@ rehive.admin.currencies.get("{code}")
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "???",
+    "symbol": "฿",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -7640,7 +7025,7 @@ rehive.admin.currencies.get("{code}")
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "???",
+    "symbol": "฿",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -7688,7 +7073,7 @@ rehive.admin.currencies.update(
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "???",
+        "symbol": "฿",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -7700,7 +7085,7 @@ rehive.admin.currencies.update(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "???",
+    "symbol": "฿",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -7711,7 +7096,7 @@ rehive.admin.currencies.update(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "???",
+    "symbol": "฿",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -7731,7 +7116,7 @@ Note that default currencies can not be updated, and only custom currencies can 
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `code` | currency code | null
 `description` | name of currency | null
 `symbol` | currency symbol | null
@@ -7924,14 +7309,23 @@ rehive.admin.company.get()
         "description": "A Test Company.",
         "website": "http://www.test_company.com",
         "logo": "https://www.test_company.com/logo.jpg",
-        "password_reset_url": null,
-        "email_confirmation_url": null,
-        "default_currency": "XBT",
-        "nationalities": [],
         "address": {
             // ...
         },
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true,
+            "require_verification": true,
+            "allow_registrations": true,
+            "allow_overdrafts": false,
+            "auto_complete_transactions": false,
+            "allow_session_durations": false,
+            "require_terms_and_conditions": false,
+            "password_reset_url": null,
+            "email_confirmation_url": null,
+            "nationalities": []
+        }
     }
 }
 ```
@@ -7943,14 +7337,23 @@ rehive.admin.company.get()
     "description": "A Test Company.",
     "website": "http://www.test_company.com",
     "logo": "https://www.test_company.com/logo.jpg",
-    "password_reset_url": null,
-    "email_confirmation_url": null,
-    "default_currency": "XBT",
-    "nationalities": [],
     "address": {
         // ...
     },
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true,
+        "require_verification": true,
+        "allow_registrations": true,
+        "allow_overdrafts": false,
+        "auto_complete_transactions": false,
+        "allow_session_durations": false,
+        "require_terms_and_conditions": false,
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "nationalities": []
+    }
 }
 ```
 
@@ -7961,14 +7364,23 @@ rehive.admin.company.get()
     "description": "A Test Company.",
     "website": "http://www.test_company.com",
     "logo": "https://www.test_company.com/logo.jpg",
-    "password_reset_url": null,
-    "email_confirmation_url": null,
-    "default_currency": "XBT"
-    "nationalities": [],
     "address": {
         # ...
     },
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true,
+        "require_verification": true,
+        "allow_registrations": true,
+        "allow_overdrafts": false,
+        "auto_complete_transactions": false,
+        "allow_session_durations": false,
+        "require_terms_and_conditions": false,
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "nationalities": []
+    }
 }
 ```
 
@@ -8015,14 +7427,23 @@ rehive.admin.company.update(
         "description": "A new description",
         "website": "http://www.test_company.com",
         "logo": "https://www.test_company.com/logo.jpg",
-        "password_reset_url": null,
-        "email_confirmation_url": null,
-        "default_currency": "XBT",
-        "nationalities": [],
         "address": {
             // ...
         },
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true,
+            "require_verification": true,
+            "allow_registrations": true,
+            "allow_overdrafts": false,
+            "auto_complete_transactions": false,
+            "allow_session_durations": false,
+            "require_terms_and_conditions": false,
+            "password_reset_url": null,
+            "email_confirmation_url": null,
+            "nationalities": []
+        }
     }
 }
 ```
@@ -8034,14 +7455,23 @@ rehive.admin.company.update(
     "description": "A Test Company.",
     "website": "http://www.test_company.com",
     "logo": "https://www.test_company.com/logo.jpg",
-    "password_reset_url": null,
-    "email_confirmation_url": null,
-    "default_currency": "XBT",
-    "nationalities": [],
     "address": {
         // ...
     },
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true,
+        "require_verification": true,
+        "allow_registrations": true,
+        "allow_overdrafts": false,
+        "auto_complete_transactions": false,
+        "allow_session_durations": false,
+        "require_terms_and_conditions": false,
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "nationalities": []
+    }
 }
 ```
 
@@ -8052,14 +7482,23 @@ rehive.admin.company.update(
     "description": "A new description",
     "website": "http://www.test_company.com",
     "logo": "https://www.test_company.com/logo.jpg",
-    "password_reset_url": null,
-    "email_confirmation_url": null,
-    "default_currency": "XBT",
-    "nationalities": [],
     "address": {
         // ...
     },
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true,
+        "require_verification": true,
+        "allow_registrations": true,
+        "allow_overdrafts": false,
+        "auto_complete_transactions": false,
+        "allow_session_durations": false,
+        "require_terms_and_conditions": false,
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "nationalities": []
+    }
 }
 ```
 
@@ -8071,20 +7510,135 @@ Retrieve the company info.
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `name` | Company Name | blank
 `description` | Company Description | blank
 `website` | Company website URL | blank
 `logo` | Company logo URL | blank
-`nationalities` | List of accepted nationalities | blank
-`password_reset_url` | Custom company password reset URL | blank
-`email_confirmation_url` | Custom company email confirmation URL | blank
-`default_currency` | Default company currency | null
 
 <aside class="notice">
 When adding a logo image, the Content-type header needs to be set to multipart/form-data.
 </aside>
+
+## Company Settings
+
+### Retrieve Company Settings
+
+> View the company settings
+
+```shell
+curl https://rehive.com/api/3/admin/company/settings/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Company settings response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true,
+        "require_verification": true,
+        "allow_registrations": true,
+        "allow_overdrafts": false,
+        "auto_complete_transactions": false,
+        "allow_session_durations": false,
+        "require_terms_and_conditions": false,
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "nationalities": []
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Retrieve the company settings.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/company/settings/`
+
+### Update Company Settings
+
+> Update company settings
+
+```shell
+curl https://rehive.com/api/3/admin/company/settings/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"allow_transactions": true}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Update company settings response
+
+```shell
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true,
+    "require_verification": true,
+    "allow_registrations": true,
+    "allow_overdrafts": false,
+    "auto_complete_transactions": false,
+    "allow_session_durations": false,
+    "require_terms_and_conditions": false,
+    "password_reset_url": null,
+    "email_confirmation_url": null,
+    "nationalities": []
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Retrieve the company settings.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/company/settings/`
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`allow_transactions` | Allow transactions | true
+`allow_debit_transactions` | Allow debit transactions | true
+`allow_credit_transactions` | Allow credit transactions | true,
+`require_verification` | Require verifications | true
+`allow_registrations` | Allow registrations | true
+`allow_overdrafts` | Allow overdrafts |false
+`auto_complete_transactions` | Auto complete transactions | false
+`allow_session_durations` | Allow sesison durations |false
+`require_terms_and_conditions` | Require terms and conditions | false
+`nationalities` | List of accepted nationalities | blank
+`password_reset_url` | Custom company password reset URL | blank
+`email_confirmation_url` | Custom company email confirmation URL | blank
 
 ## Bank Accounts
 
@@ -8169,8 +7723,8 @@ rehive.admin.bank_accounts.get()
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `user` | string
 `status` | string
 
@@ -8674,24 +8228,24 @@ rehive.admin.webhooks.post(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `url` | Webhook URL | blank
 `event` | Webhook event | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `condition` | webhook condition* | null
 `secret` | Webhook secret | "secret"
 
 <aside class="notice">
-the <code>condition</code> field is a template strings that is populated with webhook data. 
-When webhook events are triggered, the string is evluated as python and should result in a boolean upon evluation. 
-The condition is limited to a max size of 150 characters, has limited recursion 
-and is only supplied with the webhook data. A valid <code>condition</code> on the 
+the <code>condition</code> field is a template strings that is populated with webhook data.
+When webhook events are triggered, the string is evluated as python and should result in a boolean upon evluation.
+The condition is limited to a max size of 150 characters, has limited recursion
+and is only supplied with the webhook data. A valid <code>condition</code> on the
 <code>transaction.execute</code> webhook would be <code>'{{ tx_type }}' == 'debit'</code>, which would
-result in a webhook only getting triggered if the transaction has a `debit` 
+result in a webhook only getting triggered if the transaction has a `debit`
 transaction type.
 </aside>
 
@@ -8828,13 +8382,13 @@ rehive.admin.webhooks.update(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `url` | Webhook URL | blank
 `event` | Webhook event | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `secret` | Webhook secret | "secret"
 
@@ -8920,7 +8474,7 @@ curl https://rehive.com/api/3/admin/webhook-tasks/
                 "completed": 1511546662774,
                 "failed": null,
                 "created": 1511546662487,
-                "updated": 1511546662774          
+                "updated": 1511546662774
             }
         ]
     }
@@ -8929,10 +8483,10 @@ curl https://rehive.com/api/3/admin/webhook-tasks/
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `webhook` | string
-`webhook__event` | string 
+`webhook__event` | string
 `webhook__secret` | string
 
 #### Endpoint
@@ -8971,7 +8525,7 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/
         "completed": 1511546662774,
         "failed": null,
         "created": 1511546662487,
-        "updated": 1511546662774          
+        "updated": 1511546662774
     }
 }
 ```
@@ -9015,8 +8569,8 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `response_code` | string
 
 #### Endpoint
@@ -9216,13 +8770,13 @@ rehive.admin.subtypes.create(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `tx_type` | Transaction type | blank
 `name` | name | blank
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `label` | label | blank
 `description` | description | blank
@@ -9371,13 +8925,13 @@ rehive.admin.subtypes.update(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `tx_type` | Transaction type | blank
 `name` | name | blank
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `label` | label | blank
 `description` | description | blank
@@ -9637,7 +9191,7 @@ Tiers are a way in which to categorise users based on requirements for the tier.
 Tiers are set on a currency to limit users' transactions on that currency.
 
 Tiers are checked in ascending order based on their level, with the user getting
-validation corresponding to the highest tier they matched. 
+validation corresponding to the highest tier they matched.
 
 ### List Tiers
 
@@ -9679,7 +9233,11 @@ rehive.admin.tiers.get()
             "requirements": [],
             "limits": [],
             "fees": [],
-            "switches": [],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
             "created": 1497367640298,
             "updated": 1497367640298
         }
@@ -9698,7 +9256,11 @@ rehive.admin.tiers.get()
         "requirements": [],
         "limits": [],
         "fees": [],
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "created": 1497367640298,
         "updated": 1497367640298
     }
@@ -9716,7 +9278,11 @@ rehive.admin.tiers.get()
         "requirements": [],
         "limits": [],
         "fees": [],
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "created": 1497367640298,
         "updated": 1497367640298
     }
@@ -9725,10 +9291,10 @@ rehive.admin.tiers.get()
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `currency` | string
-`requirement` | string 
+`requirement` | string
 
 #### Endpoint
 
@@ -9784,7 +9350,11 @@ rehive.admin.tiers.create(
         "requirements": [],
         "limits": [],
         "fees": [],
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "created": 1497367640298,
         "updated": 1497367640298
     }
@@ -9801,7 +9371,11 @@ rehive.admin.tiers.create(
     "requirements": [],
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "created": 1497367640298,
     "updated": 1497367640298
 }
@@ -9817,7 +9391,11 @@ rehive.admin.tiers.create(
     "requirements": [],
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "created": 1497367640298,
     "updated": 1497367640298
 }
@@ -9830,12 +9408,12 @@ rehive.admin.tiers.create(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
-`currency` | Currency code related to this tier | 
+--- | --- | ---
+`currency` | Currency code related to this tier |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `level` | Tier Level | null
 `name` | Name of the tier | blank
@@ -9880,7 +9458,11 @@ rehive.admin.tiers.get("{id}")
         "requirements": [],
         "limits": [],
         "fees": [],
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "created": 1497367640298,
         "updated": 1497367640298
     }
@@ -9897,7 +9479,11 @@ rehive.admin.tiers.get("{id}")
     "requirements": [],
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "created": 1497367640298,
     "updated": 1497367640298
 }
@@ -9913,7 +9499,11 @@ rehive.admin.tiers.get("{id}")
     "requirements": [],
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "created": 1497367640298,
     "updated": 1497367640298
 }
@@ -9966,7 +9556,11 @@ rehive.admin.tiers.update(
         "requirements": [],
         "limits": [],
         "fees": [],
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "created": 1497367640298,
         "updated": 1497369829536
     }
@@ -9983,7 +9577,11 @@ rehive.admin.tiers.update(
     "requirements": [],
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "created": 1497367640298,
     "updated": 1497369829536
 }
@@ -9999,7 +9597,11 @@ rehive.admin.tiers.update(
     "requirements": [],
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "created": 1497367640298,
     "updated": 1497369829536
 }
@@ -10008,12 +9610,12 @@ rehive.admin.tiers.update(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
-`currency` | Currency code related to this tier | 
+--- | --- | ---
+`currency` | Currency code related to this tier |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `level` | Tier Level | null
 `name` | Name of the tier | blank
@@ -10208,14 +9810,14 @@ rehive.admin.tiers.obj("{tier_id}").requirements.create(
 
 #### Required Fields
 
-Field | Description | Default 
---- | --- | --- 
-`requirement` | Requirement Type | 
+Field | Description | Default
+--- | --- | ---
+`requirement` | Requirement Type |
 
 #### Requirement Types
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `first_name` | First Name
 `last_name` | Last Name
 `nationality` | Nationality
@@ -10360,14 +9962,14 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
 
 #### Required Fields
 
-Field | Description | Default 
---- | --- | --- 
-`requirement` | Requirement Type | 
+Field | Description | Default
+--- | --- | ---
+`requirement` | Requirement Type |
 
 #### Requirement Types
 
-Value | Description 
---- | --- 
+Value | Description
+--- | ---
 `first_name` | First Name
 `last_name` | Last Name
 `nationality` | Nationality
@@ -10589,32 +10191,32 @@ rehive.admin.tiers.obj("{tier_id}").limits.create(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `value` | Limit value | 0
-`type` | Limit Type | 
-`tx_type` | Transaction type limits are applied | 
+`type` | Limit Type |
+`tx_type` | Transaction type limits are applied |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `subtype` | Transaction subtype name | null
 
 #### Limit Types
 
-Value | Description 
---- | --- 
-`max` | Maximum 
-`day_max` | Maximum per day 
-`month_max` | Maximum per month 
-`min` | Minimum 
-`overdraft` | Overdraft 
+Value | Description
+--- | ---
+`max` | Maximum
+`day_max` | Maximum per day
+`month_max` | Maximum per month
+`min` | Minimum
+`overdraft` | Overdraft
 
 #### Transaction Types
 
-Value | Description 
---- | --- 
-`credit` | Credit 
+Value | Description
+--- | ---
+`credit` | Credit
 `debit` | Debit
 
 ### Retrieve Tier Limits
@@ -10771,32 +10373,32 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `value` | Limit value | 0
-`type` | Limit Type | 
-`tx_type` | Transaction type limits are applied | 
+`type` | Limit Type |
+`tx_type` | Transaction type limits are applied |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `subtype` | Transaction subtype name | null
 
 #### Limit Types
 
-Value | Description 
---- | --- 
-`max` | Maximum 
-`day_max` | Maximum per day 
-`month_max` | Maximum per month 
-`min` | Minimum 
-`overdraft` | Overdraft 
+Value | Description
+--- | ---
+`max` | Maximum
+`day_max` | Maximum per day
+`month_max` | Maximum per month
+`min` | Minimum
+`overdraft` | Overdraft
 
 #### Transaction Types
 
-Value | Description 
---- | --- 
-`credit` | Credit 
+Value | Description
+--- | ---
+`credit` | Credit
 `debit` | Debit
 
 ### Delete Tier Limits
@@ -11005,22 +10607,22 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction type fees are applied | 
+--- | --- | ---
+`tx_type` | Transaction type fees are applied |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `value` | Fee amount | 0
-`percentage` | Percentage amount | 
+`percentage` | Percentage amount |
 `subtype` | Transaction subtype name | null
 
 #### Transaction Types
 
-Value | Description 
---- | --- 
-`credit` | Credit 
+Value | Description
+--- | ---
+`credit` | Credit
 `debit` | Debit
 
 ### Retrieve Tier fee
@@ -11172,22 +10774,22 @@ rehive.admin.tiers.obj("{tier_id}").fees.update(
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction type fees are applied | 
+--- | --- | ---
+`tx_type` | Transaction type fees are applied |
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `value` | Fee amount | 0
-`percentage` | Percentage amount | 
+`percentage` | Percentage amount |
 `subtype` | Transaction subtype name | null
 
 #### Transaction Types
 
-Value | Description 
---- | --- 
-`credit` | Credit 
+Value | Description
+--- | ---
+`credit` | Credit
 `debit` | Debit
 
 ### Delete Tier fee
@@ -11238,731 +10840,6 @@ rehive.admin.tiers.obj({tier_id}).fees.delete(
 #### Endpoint
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
-
-### List Tier Switches
-
-List all switches related to a tier.
-
-> List Tier Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.tiers.switches.get(tierId).then(function (res) {
-    ...
-}, function (error) {
-    ...
-})
-```
-
-```python
-rehive.admin.tiers.obj("{tier_id}").switches.get()
-```
-
-> List Tier Switches response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "tx_type": "credit",
-            "subtype": null,
-            "enabled": true,
-            "created": 1497370313086,
-            "updated": 1497370313086
-        }
-    ]
-}
-```
-
-```javascript
-[
-    {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497370313086,
-        "updated": 1497370313086
-    }
-]
-```
-
-```python
-[
-    {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497370313086,
-        "updated": 1497370313086
-    }
-]
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/`
-
-### Create Tier Switches
-
-Create a new switch related to a Tier.
-
-> Create Tier Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"tx_type": "credit",
-       "enabled": true}'
-```
-
-```javascript
-rehive.admin.tiers.switches.create(tierId, {
-    tx_type: "credit",
-    enabled: true
-}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-})
-```
-
-```python
-rehive.admin.tiers.obj("{tier_id}").switches.create(
-    tx_type="credit",
-    enabled=True
-)
-```
-
-> Create Tier Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497370313086,
-        "updated": 1497370313086
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497370313086,
-    "updated": 1497370313086
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497370313086,
-    "updated": 1497370313086
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`tx_type` | Transaction Type | 
-`enabled` | Enabled | false
-
-#### Optional Fields
-
-Field | Description | Default 
---- | --- | ---
-`subtype` | Subtype name | null
-
-#### Transaction Types
-
-Value | Description 
---- | --- 
-`credit` | Credit 
-`debit` | Debit
-
-### Retrieve Tier Switches
-
-Retrieve a specific switch related to a Tier
-
-> Retrieve Tier Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.tiers.switches.get(tierId, {id: switchId}).then(function (res) {
-    ...
-}, function (error) {
-    ...
-})
-```
-
-```python
-rehive.admin.tiers.obj("{tier_id}").switches.get("{switch_id}")
-```
-
-> Retrieve Tier Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497370313086,
-        "updated": 1497370313086
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497370313086,
-    "updated": 1497370313086
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497370313086,
-    "updated": 1497370313086
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/`
-
-### Update Tier Switches
-
-Update a specific switch related to a Tier
-
-> Update Tier Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"enabled": false}'
-```
-
-```javascript
-rehive.admin.tiers.switches.update(tierId, switchId,{enabled: false}).then(function (res) {
-    ...
-}, function (error) {
-    ...
-})
-```
-
-```python
-rehive.admin.tiers.obj("{tier_id}").switches.update(
-    "{switch_id}",
-    enabled=False
-)
-```
-
-> Update Tier Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "tx_type": "credit",
-        "subtype": null,
-        "enabled": true,
-        "created": 1497370313086,
-        "updated": 1497370313086
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497370313086,
-    "updated": 1497370313086
-}
-```
-
-```python
-{
-    "id": 1,
-    "tx_type": "credit",
-    "subtype": null,
-    "enabled": true,
-    "created": 1497370313086,
-    "updated": 1497370313086
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/`
-
-### Delete Tier Switches
-
-Delete a specific switch related to a Tier
-
-> Delete Tier Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/
-  -X DELETE
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.tiers.switches.delete(tierId, switchId).then(function (res) {
-    ...
-}, function (error) {
-    ...
-})
-```
-
-```python
-rehive.admin.tiers.obj({tier_id}).switches.delete(
-   {switch_id} 
-)
-```
-
-> Delete Tier Switches response
-
-```shell
-{
-    "status": "success"
-}
-```
-
-```javascript
-{}
-```
-
-```python
-{
-    "status": "success"
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/tiers/{tier_id}/switches/{switch_id}/`
-
-## Switches
-
-Switches are a way to determine which actions are allowed to the users in terms of transactions.
-
-Global switches are the highest level switches by overriding any switches that are
-set on a user, company, currency or tier level.
-
-### List Global Switches
-
-List all the global switches.
-
-> List Global Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/switches/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.switches.get().then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.switches.get()
-```
-
-> List Global Switches response
-
-```shell
-{
-    "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "switch_type": "Allow transactions",
-            "enabled": true,
-            "created": 1497347723605,
-            "updated": 1497347723605
-        }
-    ]
-}
-```
-
-```javascript
-[
-    {
-        "id": 1,
-        "switch_type": "Allow transactions",
-        "enabled": true,
-        "created": 1497347723605,
-        "updated": 1497347723605
-    }
-]
-```
-
-```python
-[
-    {
-        "id": 1,
-        "switch_type": "Allow transactions",
-        "enabled": true,
-        "created": 1497347723605,
-        "updated": 1497347723605
-    }
-]
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/switches/`
-
-### Create Global Switches
-
-Create a new global switch.
-
-> Create Global Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/switches/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"switch_type": "transactions",
-       "enabled": false}'
-```
-
-```javascript
-rehive.admin.switches.create(
-{
-    switch_type: "transactions",
-    enabled: false
-}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.switches.create(
-    switch_type="transactions",
-    enabled=False
-)
-```
-
-> Create Global Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "switch_type": "Allow transactions",
-        "enabled": false,
-        "created": 1497348308625,
-        "updated": 1497348318654
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "switch_type": "Allow transactions",
-    "enabled": false,
-    "created": 1497348308625,
-    "updated": 1497348318654
-}
-```
-
-```python
-{
-    "id": 1,
-    "switch_type": "Allow transactions",
-    "enabled": false,
-    "created": 1497348308625,
-    "updated": 1497348318654
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/switches/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | --- 
-`enabled` | Account Name | false
-`switch_type` | Global Switch Type Label | 
-
-#### Types
-Global switches can be one of the following types.
-
-Value | Description
---- | ---
-`transactions` | Allow transactions
-`verification` | Allow transactions for unverified users
-`overdraft` | Allow unlimited overdrafts
-`auto_confirm` | Automatically complete transactions on creation
-`manage_accounts` | Allow users to manage their accounts
-`session_duration` | Allow users to set their own session duration
-
-### Retrieve Global Switches
-
-Retrieve a specific global switch.
-
-> Retrieve Global Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/switches/{id}/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.switches.get({id: id}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-
-```python
-rehive.admin.switches.get("{id}")
-```
-
-> Retrieve Global Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "switch_type": "Allow transactions",
-        "enabled": true,
-        "created": 1497347723605,
-        "updated": 1497347723605
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "switch_type": "Allow transactions",
-    "enabled": true,
-    "created": 1497347723605,
-    "updated": 1497347723605
-}
-```
-
-```python
-{
-    "id": 1,
-    "switch_type": "Allow transactions",
-    "enabled": true,
-    "created": 1497347723605,
-    "updated": 1497347723605
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/switches/{id}/`
-
-### Update Global Switches
-
-Update a specific global switch.
-
-> Update Global Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/switches/{id}/
-  -X PUT
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"enabled": false}'
-```
-
-```javascript
-rehive.admin.switches.update(id, {enabled: false}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.switches.update(
-    "{id}",
-    enabled=False
-)
-```
-
-> Update Global Switches response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "id": 1,
-        "switch_type": "Allow transactions",
-        "enabled": false,
-        "created": 1497348308625,
-        "updated": 1497348318654
-    }
-}
-```
-
-```javascript
-{
-    "id": 1,
-    "switch_type": "Allow transactions",
-    "enabled": false,
-    "created": 1497348308625,
-    "updated": 1497348318654
-}
-```
-
-```python
-{
-    "id": 1,
-    "switch_type": "Allow transactions",
-    "enabled": false,
-    "created": 1497348308625,
-    "updated": 1497348318654
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/switches/{id}/`
-
-#### Optional Fields
-
-Field | Description | Default
---- | --- | ---
-`switch_type` | Global Switch Type | 
-`enabled` | Account Name | false
-
-#### Types
-Global switches can be one of the following types.
-
-Value | Description
---- | ---
-`transactions` | Allow transactions
-`verification` | Allow transactions for unverified users
-`overdraft` | Allow unlimited overdrafts
-`auto_confirm` | Automatically complete transactions on creation
-`manage_accounts` | Allow users to manage their accounts
-`session_duration` | Allow users to set their own session duration
-
-### Delete Global Switches
-
-Delete a specific global switch.
-
-> Delete Global Switches request
-
-```shell
-curl https://rehive.com/api/3/admin/switches/{id}/
-  -X DELETE
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.switches.delete(id).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.switches.delete(
-    {id}
-)
-```
-
-> Delete Global Switches response
-
-```shell
-{
-    "status": "success"
-}
-```
-
-```javascript
-{}
-```
-
-```python
-{
-    "status": "success"
-}
-```
-
-#### Endpoint
-
-`https://rehive.com/api/3/admin/switches/{id}/`
 
 ## Permissions
 
@@ -12113,7 +10990,7 @@ Create a new permission group with no permission associated to it.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `name` | Permission group name | ""
 
 ### Update permission groups
@@ -12139,7 +11016,7 @@ rehive.admin.permissionGroups.update(groupName,{name: "new_name"}).then(function
 ```python
 rehive.admin.permission_groups.update(
    {group_name},
-   name="new_name" 
+   name="new_name"
 )
 ```
 
@@ -12629,3 +11506,240 @@ Unassign a permissions for a user.
 
 `https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}/`
 
+## Account Configurations
+
+Account configurations are used to define account presets. The configurations
+can then be attached to specifc groups.
+
+### List Account Configuration
+
+> List account configuration request
+
+```shell
+curl https://rehive.com/api/3/admin/account-configurations/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> List account configuration response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "name": "default",
+                "label": "Default",
+                "created": 1464858068732,
+                "updated": 1464858068732
+            }
+        ]
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+List account configurations.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/account-configurations/`
+
+### Create Account Configuration
+
+> Create account configuration request
+
+```shell
+curl https://rehive.com/api/3/admin/account-configurations/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"name": "default",
+       "label": "Default"}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Create account configuration response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "name": "default",
+        "label": "Default",
+        "created": 1464858068732,
+        "updated": 1464858068732
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Create an account configuration.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/account-configurations/`
+
+### Retrieve Account Configuration
+
+> Account configuration request
+
+```shell
+curl https://rehive.com/api/3/admin/account-configurations/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Account configuration response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "name": "default",
+                "label": "Default",
+                "created": 1464858068732,
+                "updated": 1464858068732
+            }
+        ]
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Retrieve an account configuration.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/account-configurations/`
+
+### Update Account Configuration
+
+> Update account configuration request
+
+```shell
+curl https://rehive.com/api/3/admin/account-configurations/{account_configuration_id}/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"name": "default", "label": "Default"}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Update account configuration response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "name": "default",
+        "label": "Default",
+        "created": 1464858068732,
+        "updated": 1464858068732
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Retrieve an account configuration.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/account-configurations/{account_configuration_id}/`
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`name` | Name of account | null
+`label` | Label of account | blank
+
+### Delete Account Configuration
+
+> Delete account configuration request
+
+```shell
+curl https://rehive.com/api/3/admin/account-configurations/{account_configuration_id}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Delete account configuration response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Delete an account configuration.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/account-configurations/{account_configuration_id}/`

@@ -32,8 +32,21 @@ rehive.company.get()
         "name": "Rehive",
         "description": "Wallets for everyone.",
         "website": "http://www.rehive.com",
-        "nationalities": ["US", "ZA"]
-        "logo": null
+        "logo": null,
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true,
+            "require_verification": true,
+            "allow_registrations": true,
+            "allow_overdrafts": false,
+            "auto_complete_transactions": false,
+            "allow_session_durations": false,
+            "require_terms_and_conditions": false,
+            "password_reset_url": null,
+            "email_confirmation_url": null,
+            "nationalities": []
+        }
     },
     "status": "success"
 }
@@ -46,7 +59,20 @@ rehive.company.get()
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
     "logo": null,
-    "nationalities":[]
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true,
+        "require_verification": true,
+        "allow_registrations": true,
+        "allow_overdrafts": false,
+        "auto_complete_transactions": false,
+        "allow_session_durations": false,
+        "require_terms_and_conditions": false,
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "nationalities": []
+    }
 }
 ```
 
@@ -56,8 +82,21 @@ rehive.company.get()
     "name": "Rehive",
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
-    "nationalities": ["US", "ZA"]
-    "logo": null
+    "logo": null,
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true,
+        "require_verification": true,
+        "allow_registrations": true,
+        "allow_overdrafts": false,
+        "auto_complete_transactions": false,
+        "allow_session_durations": false,
+        "require_terms_and_conditions": false,
+        "password_reset_url": null,
+        "email_confirmation_url": null,
+        "nationalities": []
+    }
 }
 ```
 

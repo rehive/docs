@@ -52,7 +52,11 @@ rehive.accounts.get(
                         },
                         "limits": [],
                         "fees": [],
-                        "switches": [],
+                        "settings": {
+                            "allow_transactions": true,
+                            "allow_debit_transactions": true,
+                            "allow_credit_transactions": true
+                        },
                         "active": true
                     }
                 ],
@@ -85,7 +89,11 @@ rehive.accounts.get(
                     },
                     "fees":[],
                     "limits":[],
-                    "switches":[],
+                    "settings": {
+                        "allow_transactions": true,
+                        "allow_debit_transactions": true,
+                        "allow_credit_transactions": true
+                    },
                     "active": true
                 }
             ],
@@ -117,7 +125,11 @@ rehive.accounts.get(
                 },
                 "limits": [],
                 "fees": [],
-                "switches": [],
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                },
                 "active": true
             }
         ],
@@ -131,11 +143,11 @@ Get a list of accounts belonging to a user.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `reference` | string
 `name` | string
-`active` | boolean 
+`active` | boolean
 `primary` | boolean
 
 #### Endpoint
@@ -212,27 +224,21 @@ rehive.accounts.create(
 
 Create a account for a user.
 
-<aside class="notice">
-Users cannot manage their accounts (create or update) by default. In order to 
-enable account management for users please set the corresponding global company 
-switch. 
-</aside>
-
 #### Endpoint
 
 `https://rehive.com/api/3/accounts/`
 
 #### Required Fields
 
-Field | Description | Default 
---- | --- | --- 
-`name` | account name | null 
+Field | Description | Default
+--- | --- | ---
+`name` | account name | null
 
 #### Optional Fields
 
-Field | Description | Default 
---- | --- | --- 
-`primary` | account primary status | false 
+Field | Description | Default
+--- | --- | ---
+`primary` | account primary status | false
 
 
 ## Retrieve Account
@@ -283,7 +289,11 @@ rehive.accounts.get(
                 },
                 "limits": [],
                 "fees": [],
-                "switches": [],
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                },
                 "active": true
             }
         ],
@@ -295,27 +305,31 @@ rehive.accounts.get(
 
 ```javascript
 {
-     "name": "default",
-     "reference": "0000000000",
-     "currencies": [
-      {
-          "balance": 10000,
-          "currency": {
-              "code": "XBT",
-              "description": "bitcoin",
-              "symbol": "฿",
-              "unit": "bitcoin",
-              "divisibility": 8
-          },
-          "fees":[],
-          "limits":[],
-          "switches":[],
-          "active": true
-      }
-     ],
-     "primary":false,
-     "created": 1464858068745,
-     "updated": 1464858068
+    "name": "default",
+    "reference": "0000000000",
+    "currencies": [
+        {
+            "balance": 10000,
+            "currency": {
+                "code": "XBT",
+                "description": "bitcoin",
+                "symbol": "฿",
+                "unit": "bitcoin",
+                "divisibility": 8
+            },
+            "fees":[],
+            "limits":[],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
+            "active": true
+        }
+    ],
+    "primary":false,
+    "created": 1464858068745,
+    "updated": 1464858068
 }
 ```
 
@@ -337,7 +351,11 @@ rehive.accounts.get(
             },
             "limits": [],
             "fees": [],
-            "switches": [],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
             "active": true
         }
     ],
@@ -350,9 +368,9 @@ Retrieve an account belonging to a user.
 
 #### Filtering
 
-Field | Type 
---- | --- 
-`active` | boolean 
+Field | Type
+--- | ---
+`active` | boolean
 
 #### Endpoint
 
@@ -426,26 +444,20 @@ rehive.accounts.update(
 
 Update an account for a user.
 
-<aside class="notice">
-Users cannot manage their accounts (create or update) by default. In order to 
-enable account management for users please set the corresponding global company 
-switch. 
-</aside>
-
 #### Endpoint
 
 `https://rehive.com/api/3/accounts/{reference}/`
 
 #### Required Fields
 
-Field | Description | Default 
---- | --- | --- 
-`name` | account name | null 
+Field | Description | Default
+--- | --- | ---
+`name` | account name | null
 
 #### Optional Fields
-Field | Description | Default 
---- | --- | --- 
-`primary` | account primary status | false 
+Field | Description | Default
+--- | --- | ---
+`primary` | account primary status | false
 
 
 ## List Account Currencies
@@ -494,7 +506,11 @@ rehive.accounts.obj("{reference}").currencies.get()
                 },
                 "limits": [],
                 "fees": [],
-                "switches": [],
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                },
                 "active": true
             }
         ]
@@ -520,7 +536,11 @@ rehive.accounts.obj("{reference}").currencies.get()
             },
             "limits": [],
             "fees": [],
-            "switches": [],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
             "active": true
         }
     ]
@@ -542,7 +562,11 @@ rehive.accounts.obj("{reference}").currencies.get()
         },
         "limits": [],
         "fees": [],
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "active": true
     }
 ]
@@ -552,8 +576,8 @@ Get a list of currencies for an account belonging to a user.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `active` | boolean
 
 #### Endpoint
@@ -602,7 +626,11 @@ rehive.accounts.obj("{reference}").currencies.get(
         },
         "limits": [],
         "fees": [],
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "active": true
     }
 }
@@ -621,7 +649,11 @@ rehive.accounts.obj("{reference}").currencies.get(
     },
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "active": true
 }
 ```
@@ -640,7 +672,11 @@ rehive.accounts.obj("{reference}").currencies.get(
     },
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "active": true
 }
 ```
@@ -700,7 +736,11 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
         },
         "limits": [],
         "fees": [],
-        "switches": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "active": true
     }
 }
@@ -719,7 +759,11 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
     },
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "active": true
 }
 ```
@@ -737,7 +781,11 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
     },
     "limits": [],
     "fees": [],
-    "switches": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
     "active": true
 }
 ```
@@ -750,6 +798,6 @@ Update the active status of an account currency. Activating an account's currenc
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | --- |
-`active` | is active currency | false 
+`active` | is active currency | false

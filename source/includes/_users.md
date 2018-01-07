@@ -1,14 +1,14 @@
 # Users
 
 All non authentication access on the Rehive API is made by registered users. This is true of the orginal company owner
-as well as all subsequent users (whether granted admin permissions or not). The user endpoints provide a means to 
+as well as all subsequent users (whether granted admin permissions or not). The user endpoints provide a means to
 add, alter and view additional user information.
 
 <aside class="notice">
 All user's are loosely intgrated with the concept of KYC. This includes several features for making it easier to see
-how far a user is in the KYC process: KYC statuses on user data (`obsolete`, `declined`, `pending`, `incomplet`, `verified`) 
-verification for email addresses and mobile numbers, KYC summaries (under the `kyc` attribute) on top level user objects. 
-The KYC summary is a useful tool to see what parts of a user's profile have been added, when the data was lasst updated 
+how far a user is in the KYC process: KYC statuses on user data (`obsolete`, `declined`, `pending`, `incomplet`, `verified`)
+verification for email addresses and mobile numbers, KYC summaries (under the `kyc` attribute) on top level user objects.
+The KYC summary is a useful tool to see what parts of a user's profile have been added, when the data was lasst updated
 and whether they have an apporiate status.
 </aside>
 
@@ -81,7 +81,11 @@ rehive.user.get()
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
 }
 ```
@@ -128,7 +132,11 @@ rehive.user.get()
     ],
     "permissions": [],
     "date_joined": 1509539800952,
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
 }
 ```
 
@@ -174,7 +182,11 @@ rehive.user.get()
     ],
     "permissions": [],
     "date_joined": 1509539800952,
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
 }
 ```
 
@@ -256,7 +268,11 @@ rehive.user.update(
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
 }
 ```
@@ -303,7 +319,11 @@ rehive.user.update(
     ],
     "permissions": [],
     "date_joined": 1509539800952,
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
 }
 ```
 
@@ -349,7 +369,11 @@ rehive.user.update(
     ],
     "permissions": [],
     "date_joined": 1509539800952,
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
 }
 ```
 
@@ -954,7 +978,7 @@ rehive.user.bankAccounts.delete(accountId).then(function (res) {
 
 ```python
 rehive.user.bank_accounts.delete(
-   {account_id} 
+   {account_id}
 )
 ```
 
@@ -1132,12 +1156,12 @@ Create a crypto account for a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `address` | full bitcoin address | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
 `metadata` | custom metadata | {}
@@ -1286,12 +1310,12 @@ Update a user's crypto account.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `address` | full bitcoin address | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
 `metadata` | custom metadata | {}
@@ -1319,7 +1343,7 @@ rehive.user.cryptoAccounts.delete(accountId).then(function (res) {
 
 ```python
 rehive.user.crypto_accounts.delete(
-   {account_id} 
+   {account_id}
 )
 ```
 
@@ -1600,16 +1624,16 @@ Upload a user document.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `file` | a document file | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
-`document_category` | The document category | other 
-`document_type` | The type of docuemnt | other 
-`metadata` | custom metadata | {} 
+`document_category` | The document category | other
+`document_type` | The type of docuemnt | other
+`metadata` | custom metadata | {}
 
 
 ## List Email Addresses
@@ -1751,12 +1775,12 @@ Create an email address for a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `email` | email address | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `primary` | is a primary user email | false
 
@@ -1846,7 +1870,7 @@ rehive.user.emails.update(
 
 # Quick method for setting primary
 rehive.user.emails.make_primary(
-   "{email_id}" 
+   "{email_id}"
 )
 ```
 
@@ -2079,14 +2103,14 @@ Create a mobile number for a user.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `number` | mobile number address (including area code)| null
 
 #### Optional Fields
 
 Field | Description | Default
---- | --- | --- 
-`primary` | is a primary user number | false 
+--- | --- | ---
+`primary` | is a primary user number | false
 
 ## Retrieve Mobile Numbers
 
@@ -2177,7 +2201,7 @@ rehive.user.mobiles.update(
 
 # Quick method for setting primary
 rehive.user.mobiles.make_primary(
-   "{number_id}" 
+   "{number_id}"
 )
 ```
 

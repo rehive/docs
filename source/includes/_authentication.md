@@ -1,13 +1,13 @@
 # Authentication
 
-The authentication endpoints provide the core for all Rehive access control. 
-This includes such tasks as registration, login, verification, password 
+The authentication endpoints provide the core for all Rehive access control.
+This includes such tasks as registration, login, verification, password
 changes and lost password retrievals.
 
 ## Authorization
 Rehive uses a token-based HTTP Authentication scheme.
 
-Once a user has logged in and received a token, each subsequent request should 
+Once a user has logged in and received a token, each subsequent request should
 include the token in the HTTP Authorization header.
 
 Tokens expire 10 hours after creation. Once a token has expired, login is required in order to re-authenticate.
@@ -16,13 +16,13 @@ Rehive's tokens allow for a single user to have multiple active tokens on separa
 as the ability for admin users to create tokens that do not expire.
 
 <aside class="warning">
-    For security reasons Rehive will only expose the token once, on login or on 
+    For security reasons Rehive will only expose the token once, on login or on
     register, and never again. Be sure to store it somewhere safe.
 </aside>
 
 <aside class="notice">
     See <a href="/#tokens">Tokens</a> for managing authentication tokens.
-</aside>  
+</aside>
 
 **Authorization Header**
 
@@ -146,7 +146,11 @@ rehive.auth.register_company(
             ],
             "permissions": [],
             "date_joined": 1509539800952,
-            "switches": []
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     }
 }
@@ -196,9 +200,13 @@ rehive.auth.register_company(
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
-}    
+}
 ```
 
 ```python
@@ -245,13 +253,17 @@ rehive.auth.register_company(
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
 }
 ```
 
-Register a company owner with the details specified. A successful registration 
-will create a company, return the user's details and a token that can be used 
+Register a company owner with the details specified. A successful registration
+will create a company, return the user's details and a token that can be used
 for subsequent requests.
 
 #### Endpoint
@@ -260,8 +272,8 @@ for subsequent requests.
 
 #### Required Fields
 
-Field | Description | Default 
---- | --- | --- 
+Field | Description | Default
+--- | --- | ---
 `first_name` | first name | null
 `last_name` | last name | null
 `email` | email address | null
@@ -272,8 +284,8 @@ Field | Description | Default
 
 #### Optional Fields
 
-Field | Description | Default 
---- | --- | --- 
+Field | Description | Default
+--- | --- | ---
 `mobile_number` | mobile number | null
 `nationality` | country code | null
 `session_duration` | session duration | 36000000
@@ -371,7 +383,11 @@ rehive.auth.register(
             ],
             "permissions": [],
             "date_joined": 1509539800952,
-            "switches": []
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     }
 }
@@ -421,7 +437,11 @@ rehive.auth.register(
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
 }
 ```
@@ -470,12 +490,16 @@ rehive.auth.register(
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
 }
 ```
 
-Register a user with the credentials provided. A successful registration will 
+Register a user with the credentials provided. A successful registration will
 return the user's details and a token that can be used for subsequent requests.
 
 #### Endpoint
@@ -484,8 +508,8 @@ return the user's details and a token that can be used for subsequent requests.
 
 #### Required Fields
 
-Field | Description | Default 
---- | --- | --- 
+Field | Description | Default
+--- | --- | ---
 `first_name` | first name | null
 `last_name` | last name | null
 `email` | email address | null
@@ -495,25 +519,24 @@ Field | Description | Default
 
 #### Optional Fields
 
-Field | Description | Default 
---- | --- | --- 
+Field | Description | Default
+--- | --- | ---
 `terms_and_conditions` | agreed to terms | false
 `mobile_number` | mobile number | null
 `nationality` | country code | null
 `session_duration` | session duration | 36000000
 
 <aside class="notice">
-<code>terms_and_conditions</code> can be set as a required by enabling the 
-<code>terms_and_conditions</code> global switch. See <a href="/#switches">switches</a> 
-for more information.
+<code>terms_and_conditions</code> can be set as a required by enabling the
+<code>require_terms_and_conditions</code> setting on the company.
 </aside>
 
 <aside class="notice">
-<code>session_duration</code> is an optional field that can be set to specify the 
-duration (in milliseconds) of the authentication token that is created when 
-loggin in. If the field is not set, the duration defaults to 10 hours. 
-NOTE: This field only becomes available after the global switch <code>session_duration</code> 
-has been enabled. See <a href="/#switches">switches</a> for more information.
+<code>session_duration</code> is an optional field that can be set to specify the
+duration (in milliseconds) of the authentication token that is created when
+loggin in. If the field is not set, the duration defaults to 10 hours.
+NOTE: This field only becomes available after the company setting
+<code>allow_session_durations</code> has been enabled.
 </aside>
 
 ## Login
@@ -597,7 +620,11 @@ rehive.auth.login(
             ],
             "permissions": [],
             "date_joined": 1509539800952,
-            "switches": []
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     }
 }
@@ -645,7 +672,11 @@ rehive.auth.login(
     ],
     "permissions": [],
     "date_joined": 1509539800952,
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
 }
 ```
 
@@ -695,17 +726,21 @@ rehive.auth.login(
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
   }
 }
 ```
 
-Login a user with the credentials provided. A successful login will return the 
+Login a user with the credentials provided. A successful login will return the
 user's details and a token that can be used for subsequent requests.
 
 <aside class="warning">
-    If multi-factor authentication is enabled, see the OTP 
+    If multi-factor authentication is enabled, see the OTP
     <a href="/#verify-multi-factor-authentication">verify endpoint</a> for how to verify OTPs after login.
 </aside>
 
@@ -716,14 +751,14 @@ user's details and a token that can be used for subsequent requests.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `user` | email, mobile number, or unique identifier | null
 `company` | company identifier | null
 `password` | password | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `session_duration` | session duration | 36000000
 
@@ -1010,8 +1045,8 @@ rehive.auth.password.reset_confirm_password(
 Reset a password using a reset `token` and `uid`. These details are sent in an email by Rehive.
 
 <aside class="notice">
-The URL included in the reset email can be customized via the dashboard in 
-`settings -> company info`. Changing this URL is required if you wish to make 
+The URL included in the reset email can be customized via the dashboard in
+`settings -> company info`. Changing this URL is required if you wish to make
 use of your own client side UI for resetting emails.
 </aside>
 
@@ -1146,7 +1181,7 @@ Resends mobile verifications for a mobile number.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `mobile` | mobile number | null
 `company` | company identifier | null
 
@@ -1254,7 +1289,7 @@ rehive.auth.verify(
 }
 ```
 
-Verify a mobile number with an OTP. Unlike the "Verify Email", the user needs to 
+Verify a mobile number with an OTP. Unlike the "Verify Email", the user needs to
 be logged in for this functionality to work.
 
 #### Endpoint
@@ -1271,11 +1306,11 @@ Field | Description | Default
 ## Tokens
 
 The tokens endpoints provide some basic access to managing user and admin tokens.
-The ability to create infinite lifespan tokens as well as viewing active tokens and 
+The ability to create infinite lifespan tokens as well as viewing active tokens and
 deleting unused tokens.
 
 <aside class="notice">
-    For security purposes Rehive stores hashed authentication tokens and has 
+    For security purposes Rehive stores hashed authentication tokens and has
     no access to the orginal token value.
 </aside>
 
@@ -1345,7 +1380,7 @@ rehive.auth.tokens.get()
 ]
 ```
 
-Retrieve a list of the current active tokens for the authenticated user. 
+Retrieve a list of the current active tokens for the authenticated user.
 Notice that only the `token_key` is exposed here and not the whole token, in case
 user tokens need to be managed on the client side.
 
@@ -1425,7 +1460,11 @@ rehive.auth.tokens.create(
             ],
             "permissions": [],
             "date_joined": 1509539800952,
-            "switches": []
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     }
 }
@@ -1453,7 +1492,11 @@ rehive.auth.tokens.create(
         "permissions":[]
         "profile":null,
         "status":"pending",
-        "switches":[],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
         "timezone":null,
         "username":"",
         "verified":false
@@ -1505,7 +1548,11 @@ rehive.auth.tokens.create(
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
 }
 ```
@@ -1637,7 +1684,11 @@ rehive.auth.tokens.verify("{token_key}")
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
 }
 ```
@@ -1684,7 +1735,11 @@ rehive.auth.tokens.verify("{token_key}")
     ],
     "permissions": [],
     "date_joined": 1509539800952,
-    "switches": []
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    }
 }
 ```
 
@@ -1732,7 +1787,11 @@ rehive.auth.tokens.verify("{token_key}")
         ],
         "permissions": [],
         "date_joined": 1509539800952,
-        "switches": []
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        }
     }
 }
 ```
