@@ -139,9 +139,15 @@ rehive.auth.register_company(
                 }
             },
             "status": "pending",
-            "permission_groups": [
+            "groups": [
                 {
-                    "name": "admin"
+                    "name": "test",
+                    "label": "Test",
+                    "settings": {
+                        "allow_transactions": true,
+                        "allow_debit_transactions": true,
+                        "allow_credit_transactions": true
+                    }
                 }
             ],
             "permissions": [],
@@ -193,9 +199,15 @@ rehive.auth.register_company(
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -246,9 +258,15 @@ rehive.auth.register_company(
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -376,9 +394,15 @@ rehive.auth.register(
                 }
             },
             "status": "pending",
-            "permission_groups": [
+            "groups": [
                 {
-                    "name": "admin"
+                    "name": "test",
+                    "label": "Test",
+                    "settings": {
+                        "allow_transactions": true,
+                        "allow_debit_transactions": true,
+                        "allow_credit_transactions": true
+                    }
                 }
             ],
             "permissions": [],
@@ -430,9 +454,15 @@ rehive.auth.register(
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -483,9 +513,15 @@ rehive.auth.register(
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -613,9 +649,15 @@ rehive.auth.login(
                 }
             },
             "status": "pending",
-            "permission_groups": [
+            "groups": [
                 {
-                    "name": "admin"
+                    "name": "test",
+                    "label": "Test",
+                    "settings": {
+                        "allow_transactions": true,
+                        "allow_debit_transactions": true,
+                        "allow_credit_transactions": true
+                    }
                 }
             ],
             "permissions": [],
@@ -665,9 +707,15 @@ rehive.auth.login(
         }
     },
     "status": "pending",
-    "permission_groups": [
+    "groups": [
         {
-            "name": "admin"
+            "name": "test",
+            "label": "Test",
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     ],
     "permissions": [],
@@ -719,9 +767,15 @@ rehive.auth.login(
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -1453,9 +1507,15 @@ rehive.auth.tokens.create(
                 }
             },
             "status": "pending",
-            "permission_groups": [
+            "groups": [
                 {
-                    "name": "admin"
+                    "name": "test",
+                    "label": "Test",
+                    "settings": {
+                        "allow_transactions": true,
+                        "allow_debit_transactions": true,
+                        "allow_credit_transactions": true
+                    }
                 }
             ],
             "permissions": [],
@@ -1488,7 +1548,7 @@ rehive.auth.tokens.create(
         "metadata":{},
         "mobile_number":"",
         "nationality":"",
-        "permission_groups":[],
+        "groups":[],
         "permissions":[]
         "profile":null,
         "status":"pending",
@@ -1541,9 +1601,15 @@ rehive.auth.tokens.create(
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -1677,9 +1743,15 @@ rehive.auth.tokens.verify("{token_key}")
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -1728,9 +1800,15 @@ rehive.auth.tokens.verify("{token_key}")
         }
     },
     "status": "pending",
-    "permission_groups": [
+    "groups": [
         {
-            "name": "admin"
+            "name": "test",
+            "label": "Test",
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     ],
     "permissions": [],
@@ -1780,9 +1858,15 @@ rehive.auth.tokens.verify("{token_key}")
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],

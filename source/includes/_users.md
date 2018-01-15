@@ -74,9 +74,15 @@ rehive.user.get()
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -125,9 +131,15 @@ rehive.user.get()
         }
     },
     "status": "pending",
-    "permission_groups": [
+    "groups": [
         {
-            "name": "admin"
+            "name": "test",
+            "label": "Test",
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     ],
     "permissions": [],
@@ -175,9 +187,15 @@ rehive.user.get()
         }
     },
     "status": "pending",
-    "permission_groups": [
+    "groups": [
         {
-            "name": "admin"
+            "name": "test",
+            "label": "Test",
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     ],
     "permissions": [],
@@ -261,9 +279,15 @@ rehive.user.update(
             }
         },
         "status": "pending",
-        "permission_groups": [
+        "groups": [
             {
-                "name": "admin"
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
         ],
         "permissions": [],
@@ -312,9 +336,15 @@ rehive.user.update(
         }
     },
     "status": "pending",
-    "permission_groups": [
+    "groups": [
         {
-            "name": "admin"
+            "name": "test",
+            "label": "Test",
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     ],
     "permissions": [],
@@ -362,9 +392,15 @@ rehive.user.update(
         }
     },
     "status": "pending",
-    "permission_groups": [
+    "groups": [
         {
-            "name": "admin"
+            "name": "test",
+            "label": "Test",
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            }
         }
     ],
     "permissions": [],
