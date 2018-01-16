@@ -9185,10 +9185,10 @@ Field | Description | Default
 --- | --- | ---
 `enabled` | Account Name | false
 
-## Tiers
+## Group Tiers
 
 Tiers are a way in which to categorise users based on requirements for the tier.
-Tiers are set on a currency to limit users' transactions on that currency.
+Tiers are set on a group to limit users' transactions on that group for certain currencies.
 
 Tiers are checked in ascending order based on their level, with the user getting
 validation corresponding to the highest tier they matched.
@@ -9200,7 +9200,7 @@ List all tiers.
 > List Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9298,7 +9298,7 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/`
 
 ### Create Tier
 
@@ -9307,7 +9307,7 @@ Create a new tier.
 > Create Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9403,7 +9403,7 @@ rehive.admin.tiers.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/`
 
 #### Required Fields
 
@@ -9426,7 +9426,7 @@ Retrieve a specific tier.
 > Retrieve Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9511,7 +9511,7 @@ rehive.admin.tiers.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{id}/`
 
 ### Update Tier
 
@@ -9520,7 +9520,7 @@ Update the name of description of a tier.
 > Update Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9624,7 +9624,7 @@ Field | Description | Default
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/`
 
 ### Delete Tier
 
@@ -9633,7 +9633,7 @@ Delete a specific tier.
 > Delete Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9673,7 +9673,7 @@ rehive.admin.tiers.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{id}/`
 
 ### List Tier Requirements
 
@@ -9682,7 +9682,7 @@ List all requirements related to a tier.
 > List Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9740,7 +9740,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/`
 
 ### Create Tier Requirements
 
@@ -9749,7 +9749,7 @@ Create a new switch related to a Tier.
 > Create Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9806,7 +9806,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/`
 
 #### Required Fields
 
@@ -9839,7 +9839,7 @@ Retrieve a specific requirement related to a Tier
 > Retrieve Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9893,7 +9893,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
 
 ### Update Tier Requirements
 
@@ -9902,7 +9902,7 @@ Update a specific requirement related to a Tier
 > Update Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9958,7 +9958,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
 
 #### Required Fields
 
@@ -9991,7 +9991,7 @@ Delete a specific requirement related to a Tier
 > Delete Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10031,7 +10031,7 @@ rehive.admin.tiers.obj({tier_id}).requirements.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/requirements/{requirement_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
 
 ### List Tier Limits
 
@@ -10040,7 +10040,7 @@ List all Limits related to a tier.
 > List Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10107,7 +10107,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/`
 
 ### Create Tier Limits
 
@@ -10116,7 +10116,7 @@ Create a new limit related to a Tier.
 > Create Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10186,7 +10186,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/`
 
 #### Required Fields
 
@@ -10226,7 +10226,7 @@ Retrieve a specific requirement related to a Tier
 > Retrieve Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10289,7 +10289,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
 
 ### Update Tier Limits
 
@@ -10298,7 +10298,7 @@ Update a specific limits related to a Tier
 > Update Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10368,7 +10368,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
 
 #### Required Fields
 
@@ -10408,7 +10408,7 @@ Delete a specific requirement related to a Tier
 > Delete Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10448,7 +10448,7 @@ rehive.admin.tiers.obj({tier_id}).limits.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/limits/{limit_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
 
 ### List Tier Fees
 
@@ -10457,7 +10457,7 @@ List all fees related to a Tier.
 > List Tier Fees request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10524,7 +10524,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/`
 
 ### Create Tier Fee
 
@@ -10533,7 +10533,7 @@ Create a new fee related to a Tier.
 > Create Tier Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10602,7 +10602,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/`
 
 #### Required Fields
 
@@ -10632,7 +10632,7 @@ Retrieve a specific requirement related to a Tier.
 > Retrieve Tier Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10695,7 +10695,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
 
 ### Update Tier Fee
 
@@ -10704,7 +10704,7 @@ Update a specific fees related to a Tier.
 > Update Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10769,7 +10769,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
 
 #### Required Fields
 
@@ -10799,7 +10799,7 @@ Delete a specific requirement related to a Tier.
 > Delete Tier Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/
+curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10839,7 +10839,7 @@ rehive.admin.tiers.obj({tier_id}).fees.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
+`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
 
 ## Groups
 
