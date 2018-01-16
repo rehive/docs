@@ -10841,13 +10841,10 @@ rehive.admin.tiers.obj({tier_id}).fees.delete(
 
 `https://rehive.com/api/3/admin/tiers/{tier_id}/fees/{fee_id}/`
 
-## Permissions
+## Groups
 
-#### groups
-Rehive inclused fine-grained permission management system, that allows admin users to create groups as well as individually manage users' permissions to view, add, edit or delete data from the system via admin endpoints.
-
-#### Users and Permissions
-Users can either be assigned groups, or permissions directly. When assigning groups to a user, the user will have the access specified in the permission assigned to the permission group. Individual permissions can be assigned to user if some additional permission only need to be provided to a specific user.
+Rehive inclused a group management system, that allows admin users to create groups as well as individually manage users' 
+permissions to view, add, edit or delete data from the system via admin endpoints.
 
 ### List groups
 
@@ -10919,11 +10916,7 @@ rehive.admin.groups.get()
 }
 ```
 
-Get a list of groups that have been created with the associated permissions.
-
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+Get a list of groups that have been created.
 
 #### Endpoint
 
@@ -10981,7 +10974,7 @@ rehive.admin.groups.create(
 }
 ```
 
-Create a new permission group with no permission associated to it.
+Create a new group.
 
 #### Endpoint
 
@@ -10991,7 +10984,7 @@ Create a new permission group with no permission associated to it.
 
 Field | Description | Default
 --- | --- | ---
-`name` | Permission group name | ""
+`name` | group name | ""
 
 ### Update groups
 
@@ -11046,7 +11039,7 @@ rehive.admin.groups.update(
 }
 ```
 
-Update the permission group's name.
+Update the group's details.
 
 #### Endpoint
 
@@ -11056,7 +11049,7 @@ Update the permission group's name.
 
 Field | Description | Default
 --- | --- | ---
-`name` | Permission group name | ""
+`name` | group name | ""
 
 ### Delete groups
 
@@ -11100,15 +11093,108 @@ rehive.admin.groups.delete(
 }
 ```
 
-Delete the permission group and all associated permissions assigned to it.
+Delete the group.
 
 #### Endpoint
 
 `https://rehive.com/api/3/admin/groups/{group_name}/`
 
-### List permissions
 
-> Admin list permissions request
+### Assign group
+
+> Admin assign group request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/groups/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"group": "test_group"}'
+```
+
+```javascript
+rehive.admin.users.groups.create(uuid, {
+    group: "test_group"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+> Admin assign group response
+
+```shell
+{
+    "data": {
+        "name": "test_group"
+    },
+    "status": "success"
+}
+```
+
+```javascript
+{
+    "name": "test_group"
+}
+```
+
+Assign a user to a group.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/groups/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | ---
+`group` | Group name | ""
+
+### Unassign group
+
+> Admin unassign group request
+
+```shell
+curl https://www.rehive.com/api/3/admin/users/{uuid}/groups/{group_name}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.admin.users.groups.delete(uuid,groupName).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+> Admin unassign group response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+```javascript
+{}
+```
+
+Unassign a group from a user.
+
+#### Endpoint
+
+`https://www.rehive.com/api/3/admin/users/{uuid}/groups/{group_name}/`
+
+## Permissions
+
+Users can either be assigned groups, or permissions directly. When assigning groups to a user, the user will have the access specified in the permission assigned to the group. Individual permissions can be assigned to user if some additional permission only need to be provided to a specific user.
+
+### List group permissions
+
+> Admin list group permissions request
 
 ```shell
 curl https://www.rehive.com/api/3/admin/groups/{group_name}/permissions/
@@ -11129,7 +11215,7 @@ rehive.admin.groups.permissions.get(groupName).then(function (res) {
 rehive.admin.groups.obj({group_name}).permissions.get()
 ```
 
-> Admin list permissions response
+> Admin list group permissions response
 
 ```shell
 {
@@ -11179,19 +11265,15 @@ rehive.admin.groups.obj({group_name}).permissions.get()
 }
 ```
 
-List all the permissions associated to a permission group.
-
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+List all the permissions associated to a group.
 
 #### Endpoint
 
 `https://rehive.com/api/3/admin/groups/{group_name}/permissions/`
 
-### Add permissions
+### Add group permissions
 
-> Admin add permissions request
+> Admin add group permissions request
 
 ```shell
 curl https://www.rehive.com/admin/api/3/admin/groups/{group_name}/permissions/
@@ -11250,11 +11332,7 @@ rehive.admin.groups.obj({group_name}).permissions.create(
 }
 ```
 
-Add the given permission to the permission group.
-
-#### Pagination
-
-The list is paginated and can be navigated via the `next` and `previous` fields or by setting a `page` parameter in the request URL.
+Add the given permission to the group.
 
 #### Endpoint
 
@@ -11267,9 +11345,9 @@ Field | Description | Default
 `type` | Permission type | ""
 `level` | Level of permission | ""
 
-### Remove permissions
+### Remove group permissions
 
-> Admin remove permissions request
+> Admin remove group permissions request
 
 ```shell
 curl https://www.rehive.com/admin/api/3/admin/groups/{group_name}/permissions/{permission_id}/
@@ -11292,7 +11370,7 @@ rehive.admin.groups.obj({group_name}).permissions.delete(
 )
 ```
 
-> Admin remove permissions response
+> Admin remove group permissions response
 
 ```shell
 {
@@ -11310,100 +11388,11 @@ rehive.admin.groups.obj({group_name}).permissions.delete(
 }
 ```
 
-Remove the permission from the permission group.
+Remove the permission from the group.
 
 #### Endpoint
 
 `https://rehive.com/api/3/admin/groups/{group_name}/permissions/{permission_id}/`
-
-
-### Assign permission group
-
-> Admin assign permission group request
-
-```shell
-curl https://www.rehive.com/api/3/admin/users/{uuid}/groups/
-  -X POST
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -D '{"group": "test_group"}'
-```
-
-```javascript
-rehive.admin.users.groups.create(uuid, {
-    group: "test_group"
-}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-> Admin assign permission group response
-
-```shell
-{
-    "data": {
-        "name": "test_group"
-    },
-    "status": "success"
-}
-```
-
-```javascript
-{
-    "name": "test_group"
-}
-```
-
-Assign a permission group to a user.
-
-#### Endpoint
-
-`https://www.rehive.com/api/3/admin/users/{uuid}/groups/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | ---
-`group` | Group name | ""
-
-### Unassign permission group
-
-> Admin unassign permission group request
-
-```shell
-curl https://www.rehive.com/api/3/admin/users/{uuid}/groups/{group_name}/
-  -X DELETE
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.users.groups.delete(uuid,groupName).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-> Admin unassign permission group response
-
-```shell
-{
-    "status": "success"
-}
-```
-
-```javascript
-{}
-```
-
-Unassign a permission group for a user.
-
-#### Endpoint
-
-`https://www.rehive.com/api/3/admin/users/{uuid}/groups/{group_name}/`
 
 ### Assign permissions
 
