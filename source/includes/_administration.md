@@ -10880,8 +10880,20 @@ rehive.admin.groups.get()
         "previous": null,
         "results": [
             {
-                "name": "test_group",
-                "permissions": []
+                "name": "test",
+                "label": "Test",
+                "description": null,
+                "default": false,
+                "public": true,
+                "permissions": 0,
+                "tiers": [],
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                },
+                "created": 1516008597579,
+                "updated": 1516008579877
             }
         ]
     }
@@ -10895,8 +10907,20 @@ rehive.admin.groups.get()
     "previous": null,
     "results": [
         {
-            "name": "test_group",
-            "permissions": []
+            "name": "test",
+            "label": "Test",
+            "description": null,
+            "default": false,
+            "public": true,
+            "permissions": 0,
+            "tiers": [],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
+            "created": 1516008597579,
+            "updated": 1516008579877
         }
     ]
 }
@@ -10909,8 +10933,20 @@ rehive.admin.groups.get()
     "previous": null,
     "results": [
         {
-            "name": "test_group",
-            "permissions": []
+            "name": "test",
+            "label": "Test",
+            "description": null,
+            "default": false,
+            "public": true,
+            "permissions": 0,
+            "tiers": [],
+            "settings": {
+                "allow_transactions": true,
+                "allow_debit_transactions": true,
+                "allow_credit_transactions": true
+            },
+            "created": 1516008597579,
+            "updated": 1516008579877
         }
     ]
 }
@@ -10931,11 +10967,11 @@ curl https://www.rehive.com/api/3/admin/groups/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -D '{"name": "test_group"}'
+  -D '{"name": "test"}'
 ```
 
 ```javascript
-rehive.admin.groups.create({name: "test_group"}).then(function (res) {
+rehive.admin.groups.create({name: "test"}).then(function (res) {
     ...
 }, function (err) {
     ...
@@ -10944,7 +10980,7 @@ rehive.admin.groups.create({name: "test_group"}).then(function (res) {
 
 ```python
 rehive.admin.groups.create(
-    name="test_group"
+    name="test"
 )
 ```
 
@@ -10953,8 +10989,20 @@ rehive.admin.groups.create(
 ```shell
 {
     "data": {
-        "name": "test_group",
-        "permissions": []
+        "name": "test",
+        "label": "Test",
+        "description": null,
+        "default": false,
+        "public": true,
+        "permissions": 0,
+        "tiers": [],
+        "settings": {
+            "allow_transactions": false,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
+        "created": 1516008597579,
+        "updated": 1516008579877
     },
     "status": "success"
 }
@@ -10962,15 +11010,39 @@ rehive.admin.groups.create(
 
 ```javascript
 {
-    "name": "test_group",
-    "permissions": []
+    "name": "test",
+    "label": "Test",
+    "description": null,
+    "default": false,
+    "public": true,
+    "permissions": 0,
+    "tiers": [],
+    "settings": {
+        "allow_transactions": false,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "created": 1516008597579,
+    "updated": 1516008579877
 }
 ```
 
 ```python
 {
-    "name": "test_group",
-    "permissions": []
+    "name": "test",
+    "label": "Test",
+    "description": null,
+    "default": false,
+    "public": true,
+    "permissions": 0,
+    "tiers": [],
+    "settings": {
+        "allow_transactions": false,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "created": 1516008597579,
+    "updated": 1516008579877
 }
 ```
 
@@ -11019,7 +11091,19 @@ rehive.admin.groups.update(
 {
     "data": {
         "name": "new_name",
-        "permissions": []
+        "label": "Test",
+        "description": null,
+        "default": false,
+        "public": true,
+        "permissions": 0,
+        "tiers": [],
+        "settings": {
+            "allow_transactions": false,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
+        "created": 1516008597579,
+        "updated": 1516008579877
     },
     "status": "success"
 }
@@ -11028,14 +11112,38 @@ rehive.admin.groups.update(
 ```javascript
 {
     "name": "new_name",
-    "permissions": []
+    "label": "Test",
+    "description": null,
+    "default": false,
+    "public": true,
+    "permissions": 0,
+    "tiers": [],
+    "settings": {
+        "allow_transactions": false,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "created": 1516008597579,
+    "updated": 1516008579877
 }
 ```
 
 ```python
 {
     "name": "new_name",
-    "permissions": []
+    "label": "Test",
+    "description": null,
+    "default": false,
+    "public": true,
+    "permissions": 0,
+    "tiers": [],
+    "settings": {
+        "allow_transactions": false,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "created": 1516008597579,
+    "updated": 1516008579877
 }
 ```
 
@@ -11109,12 +11217,12 @@ curl https://www.rehive.com/api/3/admin/users/{uuid}/groups/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -D '{"group": "test_group"}'
+  -D '{"group": "test"}'
 ```
 
 ```javascript
 rehive.admin.users.groups.create(uuid, {
-    group: "test_group"
+    group: "test"
 }).then(function (res) {
     ...
 }, function (err) {
@@ -11127,7 +11235,12 @@ rehive.admin.users.groups.create(uuid, {
 ```shell
 {
     "data": {
-        "name": "test_group"
+        "name": "test",
+        "label": "Test",
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
     },
     "status": "success"
 }
@@ -11135,7 +11248,12 @@ rehive.admin.users.groups.create(uuid, {
 
 ```javascript
 {
-    "name": "test_group"
+    "name": "test",
+    "label": "Test",
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
 }
 ```
 
