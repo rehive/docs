@@ -4598,14 +4598,16 @@ curl https://www.rehive.com/api/3/admin/transactions/credit/
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
-       "amount": 500}'
+       "amount": 500,
+       "currency": "ZAR"}'
 ```
 
 ```javascript
 rehive.admin.transactions.createCredit(
 {
     user: "joe@rehive.com",
-    amount: 500
+    amount: 500,
+    currency: "ZAR"
 }).then(function (res) {
     ...
 }, function (err) {
@@ -4616,7 +4618,8 @@ rehive.admin.transactions.createCredit(
 ```python
 rehive.admin.transactions.create_credit(
     user="joe@rehive.com",
-    amount=500
+    amount=500,
+    currency="ZAR"
 )
 ```
 
@@ -4689,14 +4692,16 @@ curl https://www.rehive.com/api/3/admin/transactions/debit/
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
-       "amount": 500}'
+       "amount": 500,
+       "currency": "ZAR"}'
 ```
 
 ```javascript
 rehive.admin.transactions.createDebit(
 {
     user: "joe@rehive.com",
-    amount: 500
+    amount: 500,
+    currency: "ZAR"
 }).then(function (res) {
     ...
 }, function (err) {
@@ -4707,7 +4712,8 @@ rehive.admin.transactions.createDebit(
 ```python
 rehive.admin.transactions.create_debit(
     user="joe@rehive.com",
-    amount=500
+    amount=500,
+    currency="ZAR"
 )
 ```
 
@@ -4770,6 +4776,7 @@ curl https://www.rehive.com/api/3/admin/transactions/transfer/
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
        "amount": 500,
+       "currency": "ZAR",
        "recipient": "sally@rehive.com"}'
 ```
 
@@ -4778,6 +4785,7 @@ rehive.admin.transactions.createTransfer(
 {
     user: "joe@rehive.com",
     amount: 500,
+    currency: "ZAR",
     recipient: "sally@rehive.com"
 }).then(function (res) {
     ...
@@ -4790,6 +4798,7 @@ rehive.admin.transactions.createTransfer(
 rehive.admin.transactions.create_transfer(
     user="joe@rehive.com",
     amount=500,
+    currency="ZAR",
     recipient="sally@rehive.com"
 )
 ```
@@ -10843,7 +10852,7 @@ rehive.admin.tiers.obj({tier_id}).fees.delete(
 
 ## Groups
 
-Rehive inclused a group management system, that allows admin users to create groups as well as individually manage users' 
+Rehive inclused a group management system, that allows admin users to create groups as well as individually manage users'
 permissions to view, add, edit or delete data from the system via admin endpoints.
 
 ### List groups
@@ -11613,17 +11622,18 @@ Unassign a permissions for a user.
 
 `https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}/`
 
-## Account Configurations
+## Group Account Configurations
 
 Account configurations are used to define account presets. The configurations
-can then be attached to specifc groups.
+are attached to specifc groups and can be used to configure account settings
+and currencies.
 
-### List Account Configuration
+### List Group Account Configuration
 
-> List account configuration request
+> List group account configurations request
 
 ```shell
-curl https://rehive.com/api/3/admin/account-configurations/
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11635,7 +11645,7 @@ curl https://rehive.com/api/3/admin/account-configurations/
 ```python
 ```
 
-> List account configuration response
+> List group account configurations response
 
 ```shell
 {
@@ -11648,6 +11658,9 @@ curl https://rehive.com/api/3/admin/account-configurations/
             {
                 "name": "default",
                 "label": "Default",
+                "currencies": [],
+                "default": true,
+                "primary": true,
                 "created": 1464858068732,
                 "updated": 1464858068732
             }
@@ -11662,18 +11675,18 @@ curl https://rehive.com/api/3/admin/account-configurations/
 ```python
 ```
 
-List account configurations.
+List group account configurations.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/account-configurations/`
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/`
 
-### Create Account Configuration
+### Create Group Account Configuration
 
-> Create account configuration request
+> Create group account configuration request
 
 ```shell
-curl https://rehive.com/api/3/admin/account-configurations/
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11687,7 +11700,7 @@ curl https://rehive.com/api/3/admin/account-configurations/
 ```python
 ```
 
-> Create account configuration response
+> Create group account configuration response
 
 ```shell
 {
@@ -11695,6 +11708,9 @@ curl https://rehive.com/api/3/admin/account-configurations/
     "data": {
         "name": "default",
         "label": "Default",
+        "currencies": [],
+        "default": true,
+        "primary": true,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -11707,18 +11723,32 @@ curl https://rehive.com/api/3/admin/account-configurations/
 ```python
 ```
 
-Create an account configuration.
+Create a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/account-configurations/`
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/`
 
-### Retrieve Account Configuration
+#### Required Fields
 
-> Account configuration request
+Field | Description | Default
+--- | --- | ---
+`name` | Name of account | null
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`label` | Label of account | blank
+`default` | Default to users on register | false
+`primary` | The main account for a group | false
+
+### Retrieve Group Account Configuration
+
+> Group account configuration request
 
 ```shell
-curl https://rehive.com/api/3/admin/account-configurations/
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11730,7 +11760,7 @@ curl https://rehive.com/api/3/admin/account-configurations/
 ```python
 ```
 
-> Account configuration response
+> Group account configuration response
 
 ```shell
 {
@@ -11743,6 +11773,9 @@ curl https://rehive.com/api/3/admin/account-configurations/
             {
                 "name": "default",
                 "label": "Default",
+                "currencies": [],
+                "default": true,
+                "primary": true,
                 "created": 1464858068732,
                 "updated": 1464858068732
             }
@@ -11757,18 +11790,18 @@ curl https://rehive.com/api/3/admin/account-configurations/
 ```python
 ```
 
-Retrieve an account configuration.
+Retrieve a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/account-configurations/`
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/`
 
-### Update Account Configuration
+### Update Group Account Configuration
 
-> Update account configuration request
+> Update group account configuration request
 
 ```shell
-curl https://rehive.com/api/3/admin/account-configurations/{account_configuration_id}/
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11781,7 +11814,7 @@ curl https://rehive.com/api/3/admin/account-configurations/{account_configuratio
 ```python
 ```
 
-> Update account configuration response
+> Update group account configuration response
 
 ```shell
 {
@@ -11789,6 +11822,9 @@ curl https://rehive.com/api/3/admin/account-configurations/{account_configuratio
     "data": {
         "name": "default",
         "label": "Default",
+        "currencies": [],
+        "default": true,
+        "primary": true,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -11801,25 +11837,32 @@ curl https://rehive.com/api/3/admin/account-configurations/{account_configuratio
 ```python
 ```
 
-Retrieve an account configuration.
+Retrieve a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/account-configurations/{account_configuration_id}/`
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | ---
+`name` | Name of account | null
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
-`name` | Name of account | null
 `label` | Label of account | blank
+`default` | Default to users on register | false
+`primary` | The main account for a group | false
 
-### Delete Account Configuration
+### Delete Group Account Configuration
 
-> Delete account configuration request
+> Delete group account configuration request
 
 ```shell
-curl https://rehive.com/api/3/admin/account-configurations/{account_configuration_id}/
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11831,7 +11874,7 @@ curl https://rehive.com/api/3/admin/account-configurations/{account_configuratio
 ```python
 ```
 
-> Delete account configuration response
+> Delete group account configuration response
 
 ```shell
 {
@@ -11845,8 +11888,190 @@ curl https://rehive.com/api/3/admin/account-configurations/{account_configuratio
 ```python
 ```
 
-Delete an account configuration.
+Delete a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/account-configurations/{account_configuration_id}/`
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/`
+
+
+### List Group Account Configuration Currencies
+
+> Admin list group account configuration currencies request
+
+```shell
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin list group account configuration currencies response
+
+```shell
+{
+    "status": "success",
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "code": "ZAR",
+            "description": "Rand",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        }
+    ]
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Get a list of currencies for a group account configuration.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/`
+
+
+### Create Group Account Configuration Currency
+
+> Admin create group account configuration currency request
+
+```shell
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"currency": "ZAR"}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin create group account configuration currency response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "code": "ZAR",
+        "description": "Rand",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Create a currency for a group account configuration.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | ---
+`currency` | Currency code | null
+
+### Retrieve Group Account Configuration Currency
+
+> Admin retrieve group account configuration currency request
+
+```shell
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin retrieve group account configuration currency response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "code": "ZAR",
+        "description": "Rand",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Retrieve an account's currency belonging to a group account configuration.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/`
+
+### Delete Account Currency
+
+> Admin retrieve account currency request
+
+```shell
+curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin retrieve account currency response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Remove a currency from a group account configuration group.
+
+#### Endpoint
+
+`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/`

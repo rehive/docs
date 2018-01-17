@@ -222,16 +222,16 @@ Get a a user's transaction list.
 
 #### Filtering
 
-Field | Type 
---- | --- 
+Field | Type
+--- | ---
 `id` | string
-`tx_type` | boolean 
+`tx_type` | boolean
 `subtype` | string
 `status` | string
 `account` | string
 `source_transaction` | boolean
 `destination_transaction` | boolean
-`created` | millsecond timestamp 
+`created` | millsecond timestamp
 `metadata` | any
 
 #### Endpoint
@@ -309,13 +309,14 @@ curl https://www.rehive.com/api/3/transactions/credit/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -d '{"amount": 500}'
+  -d '{"amount": 500, "currency": "ZAR"}'
 ```
 
 ```javascript
 rehive.transactions.createCredit(
 {
-    amount: 500
+    amount: 500,
+    currency: "ZAR"
 }).then(function(res){
     ...
 },function(err){
@@ -325,7 +326,8 @@ rehive.transactions.createCredit(
 
 ```python
 rehive.transactions.create_credit(
-    amount=500
+    amount=500,
+    currency="ZAR"
 )
 ```
 
@@ -361,12 +363,12 @@ Create a credit transaction.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `amount` | amount | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `currency` | currency code | blank
 `reference` | optional credit reference | blank
@@ -392,13 +394,14 @@ curl https://www.rehive.com/api/3/transactions/debit/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -d '{"amount": 500}'
+  -d '{"amount": 500, "currency": "ZAR"}'
 ```
 
 ```javascript
 rehive.transactions.createDebit(
 {
-    amount: 500
+    amount: 500,
+    currency": "ZAR"
 }).then(function(res){
     ...
 },function(err){
@@ -408,7 +411,8 @@ rehive.transactions.createDebit(
 
 ```python
 rehive.transactions.create_debit(
-    amount=500
+    amount=500,
+    currency="ZAR"
 )
 ```
 
@@ -444,12 +448,12 @@ Create a debit transaction.
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `amount` | amount | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `currency` | currency code | blank
 `reference` | optional debit reference | blank
@@ -468,6 +472,7 @@ curl https://www.rehive.com/api/3/transactions/transfer/
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"amount": 500,
+       "currency": "ZAR",
        "recipient": "joe@rehive.com"}'
 ```
 
@@ -526,13 +531,13 @@ The transfer transaction endpoint is a wrapper for standard debit/credit transac
 #### Required Fields
 
 Field | Description | Default
---- | --- | --- 
+--- | --- | ---
 `amount` | amount | null
 `recipient` | email, mobile number, or unique identifier | null
 
 #### Optional Fields
 
-Field | Description | Default 
+Field | Description | Default
 --- | --- | ---
 `currency` | currency code | blank
 `debit_subtype` | a custom defined subtype | null
@@ -567,7 +572,7 @@ rehive.transactions.get({id: transactionId}).then(function(res){
 
 ```python
 rehive.transactions.get(
-   "{id}" 
+   "{id}"
 )
 ```
 
@@ -615,7 +620,7 @@ rehive.transactions.get(
                 "message": "Example Message.",
                 "created": 1496144568989
             }
-        ],        
+        ],
         "created": 1476691969394,
         "updated": 1496135465287
     }
@@ -709,7 +714,7 @@ rehive.transactions.get(
             "message": "Example Message.",
             "created": 1496144568989
         }
-    ],        
+    ],
     "created": 1476691969394,
     "updated": 1496135465287
 }

@@ -183,7 +183,6 @@ rehive.accounts.create(
 )
 ```
 
-
 > User create account response
 
 ```shell
@@ -238,7 +237,7 @@ Field | Description | Default
 
 Field | Description | Default
 --- | --- | ---
-`primary` | account primary status | false
+`label` | label for an account | false
 
 
 ## Retrieve Account
@@ -375,89 +374,6 @@ Field | Type
 #### Endpoint
 
 `https://rehive.com/api/3/accounts/{reference}/`
-
-
-## Update Account
-
-> User update account request
-
-```shell
-curl https://www.rehive.com/api/3/accounts/{reference}/
-  -X PATCH
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-  -d '{"name": "savings"}'
-```
-
-```javascript
-rehive.accounts.update(reference,{primary:true}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.accounts.update(
-    "{reference}",
-    name="savings"
-)
-```
-
-> User update account response
-
-```shell
-{
-    "status": "success",
-    "data": {
-        "name": "savings",
-        "reference": "0000000000",
-        "primary": true,
-        "currencies": [],
-        "created": 1501145581365,
-        "updated": 1501145581370
-    },
-}
-```
-
-```javascript
-{
-    "name": "savings",
-    "reference": "0000000000",
-    "primary": true,
-    "currencies": [],
-    "created": 1501145581365,
-    "updated": 1501145581370
-}
-```
-
-```python
-{
-    "name": "savings",
-    "reference": "0000000000",
-    "primary": true,
-    "currencies": [],
-    "created": 1501145581365,
-    "updated": 1501145581370
-}
-```
-
-Update an account for a user.
-
-#### Endpoint
-
-`https://rehive.com/api/3/accounts/{reference}/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | ---
-`name` | account name | null
-
-#### Optional Fields
-Field | Description | Default
---- | --- | ---
-`primary` | account primary status | false
 
 
 ## List Account Currencies
