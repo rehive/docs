@@ -992,6 +992,7 @@ curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/
 ```
 
 ```python
+rehive.admin.users.obj('2fba8a20-3d4b-41db-994d-ddc86159316f').settings.get()
 ```
 
 > Admin retrieve user settings response
@@ -1011,6 +1012,11 @@ curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/
 ```
 
 ```python
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true
+}
 ```
 
 Retrieve a company's user settings.
@@ -1035,6 +1041,9 @@ curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/`
 ```
 
 ```python
+rehive.admin.users.obj('{identifier}').settings.update(
+    allow_transactions=True
+)
 ```
 
 > Admin update user settings response
@@ -1054,6 +1063,11 @@ curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/`
 ```
 
 ```python
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true
+}
 ```
 
 Update a user's settings.
@@ -5903,6 +5917,7 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/s
 ```
 
 ```python
+rehive.admin.accounts.obj("{reference}").currencies.obj({code}).settings.get()
 ```
 
 > Admin retrieve account currency settings response
@@ -5922,6 +5937,11 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/s
 ```
 
 ```python
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true
+}
 ```
 
 Retrieve an account's currency's settings.
@@ -5932,7 +5952,7 @@ Retrieve an account's currency's settings.
 
 ### Update Account Currency
 
-> Admin retrieve account currency settings request
+> Admin update account currency settings request
 
 ```shell
 curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/
@@ -5946,6 +5966,9 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/s
 ```
 
 ```python
+rehive.admin.accounts.obj("{reference}").currencies.obj({code}).settings.update(
+    allow_credit_transactions=True
+)
 ```
 
 > Admin retrieve account currency settings response
@@ -5965,6 +5988,11 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/s
 ```
 
 ```python
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true
+}
 ```
 
 Update the settings of an acocunt currency.
@@ -7547,6 +7575,7 @@ curl https://rehive.com/api/3/admin/company/settings/
 ```
 
 ```python
+rehive.admin.company.settings.get()
 ```
 
 > Company settings response
@@ -7575,6 +7604,20 @@ curl https://rehive.com/api/3/admin/company/settings/
 ```
 
 ```python
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true,
+    "require_verification": true,
+    "allow_registrations": true,
+    "allow_overdrafts": false,
+    "auto_complete_transactions": false,
+    "allow_session_durations": false,
+    "require_terms_and_conditions": false,
+    "password_reset_url": null,
+    "email_confirmation_url": null,
+    "nationalities": []
+}
 ```
 
 Retrieve the company settings.
@@ -7599,6 +7642,9 @@ curl https://rehive.com/api/3/admin/company/settings/
 ```
 
 ```python
+rehive.admin.company.settings.update(
+    allow_transactions=True
+)
 ```
 
 > Update company settings response
@@ -7624,6 +7670,20 @@ curl https://rehive.com/api/3/admin/company/settings/
 ```
 
 ```python
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true,
+    "require_verification": true,
+    "allow_registrations": true,
+    "allow_overdrafts": false,
+    "auto_complete_transactions": false,
+    "allow_session_durations": false,
+    "require_terms_and_conditions": false,
+    "password_reset_url": null,
+    "email_confirmation_url": null,
+    "nationalities": []
+}
 ```
 
 Retrieve the company settings.
@@ -8460,6 +8520,10 @@ curl https://rehive.com/api/3/admin/webhook-tasks/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.admin.webhook_tasks.get()
+```
+
 > List webhook tasks response
 
 ```shell
@@ -8490,6 +8554,31 @@ curl https://rehive.com/api/3/admin/webhook-tasks/
 }
 ```
 
+```python
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "webhook": {
+                "id": 1,
+                "url": "http://mysite.com/webhook_endpoint",
+                "event": "user.create",
+                "condition": null,
+                "secret": "secret"
+            },
+            "tries": 1,
+            "completed": 1511546662774,
+            "failed": null,
+            "created": 1511546662487,
+            "updated": 1511546662774
+        }
+    ]
+}
+```
+
 #### Filtering
 
 Field | Type
@@ -8511,6 +8600,12 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
+```
+
+```python
+rehive.admin.webhook_tasks.get(
+    {id}
+)
 ```
 
 > Retrieve webhook task response
@@ -8539,6 +8634,28 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/
 }
 ```
 
+
+```python
+{
+    "id": 1,
+    "webhook": {
+        "id": 1,
+        "url": "http://mysite.com/webhook_endpoint",
+        "event": "user.create",
+        "condition": null,
+        "secret": "secret"
+    },
+    "tries": 1,
+    "data": {
+        ...
+    }
+    "completed": 1511546662774,
+    "failed": null,
+    "created": 1511546662487,
+    "updated": 1511546662774
+}
+```
+
 #### Endpoint
 
 `https://rehive.com/api/3/admin/webhook-task/{id}/`
@@ -8553,6 +8670,10 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
+```
+
+```python
+rehive.admin.webhook_tasks.obj({id}).requests.get()
 ```
 
 > List webhook task requests response
@@ -8576,6 +8697,17 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/
 }
 ```
 
+```python
+[
+    {
+        "id": 1,
+        "response_code": 200,
+        "error": null,
+        "created": 1511546662778
+    }
+]
+```
+
 #### Filtering
 
 Field | Type
@@ -8597,6 +8729,12 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/{id}/
   -H "Content-Type: application/json"
 ```
 
+```python
+rehive.admin.webhook_tasks.obj({id}).requests.get(
+    {id}
+)
+```
+
 > Retrieve webhook task request response
 
 ```shell
@@ -8608,6 +8746,15 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/{id}/
         "error": null,
         "created": 1511546662778
     }
+}
+```
+
+```python
+{
+    "id": 1,
+    "response_code": 200,
+    "error": null,
+    "created": 1511546662778
 }
 ```
 
@@ -11239,6 +11386,12 @@ rehive.admin.users.groups.create(uuid, {
 });
 ```
 
+```python
+rehive.admin.users.obj({uuid}).groups.assign(
+    group='test'
+)
+```
+
 > Admin assign group response
 
 ```shell
@@ -11256,6 +11409,17 @@ rehive.admin.users.groups.create(uuid, {
 ```
 
 ```javascript
+{
+    "name": "test",
+    "label": "Test",
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+}
+```
+
+```python
 {
     "name": "test",
     "label": "Test",
@@ -11297,6 +11461,12 @@ rehive.admin.users.groups.delete(uuid,groupName).then(function (res) {
 });
 ```
 
+```python
+rehive.admin.users.obj({uuid}).groups.unassign(
+    group='test'
+)
+```
+
 > Admin unassign group response
 
 ```shell
@@ -11307,6 +11477,12 @@ rehive.admin.users.groups.delete(uuid,groupName).then(function (res) {
 
 ```javascript
 {}
+```
+
+```python
+{
+    "status": "success"
+}
 ```
 
 Unassign a group from a user.
@@ -11545,6 +11721,13 @@ rehive.admin.users.permissions.create(uuid, {
 });
 ```
 
+```python
+rehive.admin.users.obj({uuid}).permissions.create(
+    type="account",
+    level="view
+)
+```
+
 > Admin assign permissions response
 
 ```shell
@@ -11559,6 +11742,14 @@ rehive.admin.users.permissions.create(uuid, {
 ```
 
 ```javascript
+{
+    "id": 269,
+    "type": "account",
+    "level": "view"
+}
+```
+
+```python
 {
     "id": 269,
     "type": "account",
@@ -11596,6 +11787,12 @@ rehive.admin.users.permissions.delete(uuid,permissionId).then(function (res) {
 }, function (err) {
    ...
 });
+```
+
+```python
+rehive.admin.users.obj({uuid}).permissions.delete(
+    {permissions_id}
+)
 ```
 
 > Admin unassign permissions response
@@ -11643,6 +11840,7 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.get()
 ```
 
 > List group account configurations response
@@ -11673,6 +11871,17 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/
 ```
 
 ```python
+[
+    {
+        "name": "default",
+        "label": "Default",
+        "currencies": [],
+        "default": true,
+        "primary": true,
+        "created": 1464858068732,
+        "updated": 1464858068732
+    }
+]
 ```
 
 List group account configurations.
@@ -11698,6 +11907,10 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.create(
+    name="default",
+    label="Default"
+)
 ```
 
 > Create group account configuration response
@@ -11721,6 +11934,15 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/
 ```
 
 ```python
+{
+    "name": "default",
+    "label": "Default",
+    "currencies": [],
+    "default": true,
+    "primary": true,
+    "created": 1464858068732,
+    "updated": 1464858068732
+}
 ```
 
 Create a group account configuration.
@@ -11758,6 +11980,9 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.get(
+    {config_name}
+)
 ```
 
 > Group account configuration response
@@ -11788,6 +12013,17 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+[
+    {
+        "name": "default",
+        "label": "Default",
+        "currencies": [],
+        "default": true,
+        "primary": true,
+        "created": 1464858068732,
+        "updated": 1464858068732
+    }
+]
 ```
 
 Retrieve a group account configuration.
@@ -11812,6 +12048,11 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.update(
+    {config_name},
+    name="default",
+    label="Default"
+)
 ```
 
 > Update group account configuration response
@@ -11835,6 +12076,15 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+{
+    "name": "default",
+    "label": "Default",
+    "currencies": [],
+    "default": true,
+    "primary": true,
+    "created": 1464858068732,
+    "updated": 1464858068732
+}
 ```
 
 Retrieve a group account configuration.
@@ -11872,6 +12122,9 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.delete(
+    {config_name}
+)
 ```
 
 > Delete group account configuration response
@@ -11886,6 +12139,9 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+{
+    "status": "success"
+}
 ```
 
 Delete a group account configuration.
@@ -11910,6 +12166,8 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.obj({config_name})/.
+    currencies.get()
 ```
 
 > Admin list group account configuration currencies response
@@ -11935,6 +12193,15 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+[
+    {
+        "code": "ZAR",
+        "description": "Rand",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    }
+]
 ```
 
 Get a list of currencies for a group account configuration.
@@ -11960,6 +12227,10 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.obj({config_name})/.
+    currencies.post(
+        currency="ZAR"
+    )
 ```
 
 > Admin create group account configuration currency response
@@ -11981,6 +12252,13 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+{
+    "code": "ZAR",
+    "description": "Rand",
+    "symbol": "R",
+    "unit": "rand",
+    "divisibility": 2
+}
 ```
 
 Create a currency for a group account configuration.
@@ -12010,6 +12288,10 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.obj({config_name})/.
+    currencies.get(
+        {code}
+    )
 ```
 
 > Admin retrieve group account configuration currency response
@@ -12031,6 +12313,13 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+{
+    "code": "ZAR",
+    "description": "Rand",
+    "symbol": "R",
+    "unit": "rand",
+    "divisibility": 2
+}
 ```
 
 Retrieve an account's currency belonging to a group account configuration.
@@ -12054,6 +12343,10 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+rehive.admin.groups.obj({group_name}).account_configurations.obj({config_name})/.
+    currencies.delete(
+        {code}
+    )
 ```
 
 > Admin retrieve account currency response
@@ -12068,6 +12361,9 @@ curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```python
+{
+    "status": "success"
+}
 ```
 
 Remove a currency from a group account configuration group.
