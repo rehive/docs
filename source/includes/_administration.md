@@ -5128,7 +5128,7 @@ rehive.admin.accounts.get()
                         "currency": {
                             "code": "XBT",
                             "description": "bitcoin",
-                            "symbol": "฿",
+                            "symbol": "???",
                             "unit": "bitcoin",
                             "divisibility": 8
                         },
@@ -5167,7 +5167,7 @@ rehive.admin.accounts.get()
                     "currency": {
                         "code": "XBT",
                         "description": "bitcoin",
-                        "symbol": "฿",
+                        "symbol": "???",
                         "unit": "bitcoin",
                         "divisibility": 8
                     },
@@ -5201,7 +5201,7 @@ rehive.admin.accounts.get()
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "฿",
+                    "symbol": "???",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
@@ -5368,7 +5368,7 @@ rehive.admin.accounts.get(
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "฿",
+                    "symbol": "???",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
@@ -5400,7 +5400,7 @@ rehive.admin.accounts.get(
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "฿",
+                "symbol": "???",
                 "unit": "bitcoin",
                 "divisibility": 8
             },
@@ -5431,7 +5431,7 @@ rehive.admin.accounts.get(
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "฿",
+                "symbol": "???",
                 "unit": "bitcoin",
                 "divisibility": 8
             },
@@ -5588,7 +5588,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
                 "currency": {
                     "code": "XBT",
                     "description": "bitcoin",
-                    "symbol": "฿",
+                    "symbol": "???",
                     "unit": "bitcoin",
                     "divisibility": 8
                 },
@@ -5620,7 +5620,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
             "currency": {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "฿",
+                "symbol": "???",
                 "unit": "bitcoin",
                 "divisibility": 8
             },
@@ -5647,7 +5647,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "฿",
+            "symbol": "???",
             "unit": "bitcoin",
             "divisibility": 8
         },
@@ -5713,7 +5713,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "฿",
+            "symbol": "???",
             "unit": "bitcoin",
             "divisibility": 8
         },
@@ -5738,7 +5738,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8
     },
@@ -5762,7 +5762,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8
     },
@@ -5823,7 +5823,7 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
         "currency": {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "฿",
+            "symbol": "???",
             "unit": "bitcoin",
             "divisibility": 8
         },
@@ -5848,7 +5848,7 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8
     },
@@ -5872,7 +5872,7 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
     "currency": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8
     },
@@ -6861,7 +6861,7 @@ rehive.admin.currencies.get()
             {
                 "code": "XBT",
                 "description": "bitcoin",
-                "symbol": "฿",
+                "symbol": "???",
                 "unit": "bitcoin",
                 "divisibility": 8,
                 "enabled": true
@@ -6880,7 +6880,7 @@ rehive.admin.currencies.get()
         {
             "code": "XBT",
             "description": "bitcoin",
-            "symbol": "฿",
+            "symbol": "???",
             "unit": "bitcoin",
             "divisibility": 8,
             "enabled": true
@@ -6894,7 +6894,7 @@ rehive.admin.currencies.get()
     {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -6919,7 +6919,7 @@ curl https://www.rehive.com/api/3/admin/currencies/
   -H "Content-Type: application/json"
   -d '{"code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true}'
@@ -6930,7 +6930,7 @@ rehive.admin.currencies.create(
 {
     code: "XBT",
     description: "bitcoin",
-    symbol: "฿",
+    symbol: "???",
     unit: "bitcoin",
     divisibility: 8,
     enabled: true
@@ -6945,7 +6945,7 @@ rehive.admin.currencies.create(
 rehive.admin.currencies.create(
     code="XBT",
     description="bitcoin",
-    symbol="฿",
+    symbol="???",
     unit="satoshi",
     divisibility=8,
     enabled=true
@@ -6960,7 +6960,7 @@ rehive.admin.currencies.create(
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -6972,7 +6972,7 @@ rehive.admin.currencies.create(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -6983,7 +6983,7 @@ rehive.admin.currencies.create(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -7039,7 +7039,7 @@ rehive.admin.currencies.get("{code}")
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -7051,7 +7051,7 @@ rehive.admin.currencies.get("{code}")
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -7062,7 +7062,7 @@ rehive.admin.currencies.get("{code}")
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -7110,7 +7110,7 @@ rehive.admin.currencies.update(
     "data": {
         "code": "XBT",
         "description": "bitcoin",
-        "symbol": "฿",
+        "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
         "enabled": true
@@ -7122,7 +7122,7 @@ rehive.admin.currencies.update(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -7133,7 +7133,7 @@ rehive.admin.currencies.update(
 {
     "code": "XBT",
     "description": "bitcoin",
-    "symbol": "฿",
+    "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
     "enabled": true
@@ -9467,8 +9467,10 @@ curl https://rehive.com/api/3/admin/{group_name}/tiers/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -D '{"switch_type": "transactions",
-       "enabled": false}'
+  -D '{"currency": "XBT",
+       "level": 1
+       "name": "First tier"
+       "description": "This is a tier"}'
 ```
 
 ```javascript
@@ -9487,8 +9489,10 @@ rehive.admin.tiers.create(
 
 ```python
 rehive.admin.tiers.create(
-    switch_type="transactions",
-    enabled=False
+    currency="XBT",
+    level=1,
+    name="First tier",
+    description="This is a tier"
 )
 ```
 
@@ -9900,7 +9904,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
 
 ### Create Tier Requirements
 
-Create a new switch related to a Tier.
+Create a new requirement related to a Tier.
 
 > Create Tier Requirements request
 

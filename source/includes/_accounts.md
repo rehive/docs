@@ -168,8 +168,7 @@ curl https://www.rehive.com/api/3/accounts/
 
 ```javascript
 rehive.accounts.create({
-    name: 'savings',
-    primary: false
+    name: 'savings'
 }).then(function (res) {
     ...
 }, function (err) {
