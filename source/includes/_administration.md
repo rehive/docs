@@ -11967,7 +11967,7 @@ rehive.admin.switches.delete(
 ## Permissions
 
 #### Permission Groups
-Rehive inclused fine-grained permission management system, that allows admin users to create permission groups as well as individually manage users' permissions to view, add, edit or delete data from the system via admin endpoints.
+Rehive includes fine-grained permission management system, that allows admin users to create permission groups as well as individually manage users' permissions to view, add, edit or delete data from the system via admin endpoints.
 
 #### Users and Permissions
 Users can either be assigned permission groups, or permissions directly. When assigning permission groups to a user, the user will have the access specified in the permission assigned to the permission group. Individual permissions can be assigned to user if some additional permission only need to be provided to a specific user.
