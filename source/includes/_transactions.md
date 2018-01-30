@@ -530,23 +530,24 @@ The transfer transaction endpoint is a wrapper for standard debit/credit transac
 
 #### Required Fields
 
+#### Required Fields
+
 Field | Description | Default
 --- | --- | ---
 `amount` | amount | null
-`recipient` | email, mobile number, or unique identifier | null
+|<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> |<ul><li>email, mobile number, or unique identifier</li><li>account reference code</li></ul> |null|
+`currency` | currency code | blank
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
-`currency` | currency code | blank
 `debit_subtype` | a custom defined subtype | null
 `debit_account` | account reference code | null
 `debit_note` | user's note or message | blank
 `debit_metadata` | custom metadata | {}
 `debit_reference` | optional debit reference | string
 `credit_subtype` | a custom defined subtype | null
-`credit_account` | account reference code | null
 `credit_note` | user's note or message | blank
 `credit_metadata` | custom metadata | {}
 `credit_reference` | optional credit reference | string
