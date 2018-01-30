@@ -989,6 +989,11 @@ curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/
 ```
 
 ```javascript
+rehive.admin.users.settings.get(identifier).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1009,6 +1014,11 @@ rehive.admin.users.obj('2fba8a20-3d4b-41db-994d-ddc86159316f').settings.get()
 ```
 
 ```javascript
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true
+}
 ```
 
 ```python
@@ -1025,7 +1035,7 @@ Retrieve a company's user settings.
 
 `https://rehive.com/api/3/admin/users/{identifier}/settings/`
 
-### Update User
+### Update User Settings
 
 > Admin update user settings request
 
@@ -1038,6 +1048,11 @@ curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/`
 ```
 
 ```javascript
+rehive.admin.users.settings.update(identifier,{allow_transactions: true}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -1060,6 +1075,11 @@ rehive.admin.users.obj('{identifier}').settings.update(
 ```
 
 ```javascript
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true
+}
 ```
 
 ```python
