@@ -74,15 +74,6 @@ rehive.transactions.get(
                     "unit": "rand",
                     "divisibility": 2
                 },
-                "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
-                    "first_name": "Joe",
-                    "last_name": "Soap",
-                    "email": "joe@rehive.com",
-                    "username": "",
-                    "mobile_number": "+27840000000",
-                    "profile": null
-                },
                 "source_transaction": null,
                 "destination_transaction": null,
                 "created": 1476691969394,
@@ -122,15 +113,6 @@ rehive.transactions.get(
                 "unit": "rand",
                 "divisibility": 2
             },
-            "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
-                "first_name": "Joe",
-                "last_name": "Soap",
-                "email": "joe@rehive.com",
-                "username": "",
-                "mobile_number": "+27840000000",
-                "profile": null
-            },
             "source_transaction": null,
             "destination_transaction": null,
             "created": 1496135465218,
@@ -158,15 +140,6 @@ rehive.transactions.get(
                 "symbol": "R",
                 "unit": "rand",
                 "divisibility": 2
-            },
-            "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
-                "first_name": "Joe",
-                "last_name": "Soap",
-                "email": "joe@rehive.com",
-                "username": "",
-                "mobile_number": "+27840000000",
-                "profile": null
             },
             "source_transaction": null,
             "destination_transaction": null,
@@ -200,15 +173,6 @@ rehive.transactions.get(
             "symbol": "R",
             "unit": "rand",
             "divisibility": 2
-        },
-        "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Joe",
-            "last_name": "Soap",
-            "email": "joe@rehive.com",
-            "username": "",
-            "mobile_number": "+27840000000",
-            "profile": null
         },
         "source_transaction": null,
         "destination_transaction": null,
@@ -604,15 +568,6 @@ rehive.transactions.get(
             "unit": "rand",
             "divisibility": 2
         },
-        "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Joe",
-            "last_name": "Soap",
-            "email": "joe@rehive.com",
-            "username": "",
-            "mobile_number": "+27840000000",
-            "profile": null
-        },
         "source_transaction": null,
         "destination_transaction": null,
         "messages": [
@@ -652,15 +607,6 @@ rehive.transactions.get(
         "unit": "rand",
         "divisibility": 2
     },
-    "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": "",
-        "mobile_number": "+27840000000",
-        "profile": null
-    },
     "source_transaction": null,
     "destination_transaction": null,
     "messages": [
@@ -697,15 +643,6 @@ rehive.transactions.get(
         "symbol": "R",
         "unit": "rand",
         "divisibility": 2
-    },
-    "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": "",
-        "mobile_number": "+27840000000",
-        "profile": null
     },
     "source_transaction": null,
     "destination_transaction": null,
