@@ -4220,12 +4220,12 @@ rehive.admin.transactions.get_previous()
                 "subtype": null,
                 "note": "",
                 "metadata": {},
-                "status": "Complete",
+                "status": "Pending",
                 "reference": "",
                 "amount": 500,
                 "fee": 0,
                 "total_amount": 500,
-                "balance": 500,
+                "balance": 0,
                 "account": "0000000000",
                 "label": "Credit",
                 "company": "rehive",
@@ -4267,12 +4267,12 @@ rehive.admin.transactions.get_previous()
             "subtype": null,
             "note": "",
             "metadata": {},
-            "status": "Complete",
+            "status": "Pending",
             "reference": "",
             "amount": 500,
             "fee": 0,
             "total_amount": 500,
-            "balance": 500,
+            "balance": 0,
             "account": "0000000000",
             "label": "Credit",
             "company": "rehive",
@@ -4309,12 +4309,12 @@ rehive.admin.transactions.get_previous()
         "subtype": null,
         "note": "",
         "metadata": {},
-        "status": "Complete",
+        "status": "Pending",
         "reference": "",
         "amount": 500,
         "fee": 0,
         "total_amount": 500,
-        "balance": 500,
+        "balance": 0,
         "account": "0000000000",
         "label": "Credit",
         "company": "rehive",
@@ -4464,12 +4464,12 @@ rehive.admin.transactions.get(
         "subtype": null,
         "note": "",
         "metadata": {},
-        "status": "Complete",
+        "status": "Pending",
         "reference": "",
         "amount": 500,
         "fee": 0,
         "total_amount": 500,
-        "balance": 500,
+        "balance": 0,
         "account": "0000000000",
         "label": "Credit",
         "company": "rehive",
@@ -4491,13 +4491,8 @@ rehive.admin.transactions.get(
         },
         "source_transaction": null,
         "destination_transaction": null,
-        "messages": [
-            {
-                "level": "info",
-                "message": "Transaction completed.",
-                "created": 1496144568989
-            }
-        ],
+        "messages": [],
+        "fees": [],
         "created": 1509618707485,
         "updated": 1509618708277
     }
@@ -4511,12 +4506,12 @@ rehive.admin.transactions.get(
     "subtype": null,
     "note": "",
     "metadata": {},
-    "status": "Complete",
+    "status": "Pending",
     "reference": "",
     "amount": 500,
     "fee": 0,
     "total_amount": 500,
-    "balance": 500,
+    "balance": 0,
     "account": "0000000000",
     "label": "Credit",
     "company": "rehive",
@@ -4538,13 +4533,8 @@ rehive.admin.transactions.get(
     },
     "source_transaction": null,
     "destination_transaction": null,
-    "messages": [
-        {
-            "level": "info",
-            "message": "Transaction completed.",
-            "created": 1496144568989
-        }
-    ],
+    "messages": [],
+    "fees": [],
     "created": 1509618707485,
     "updated": 1509618708277
 }
@@ -4557,12 +4547,12 @@ rehive.admin.transactions.get(
     "subtype": null,
     "note": "",
     "metadata": {},
-    "status": "Complete",
+    "status": "Pending",
     "reference": "",
     "amount": 500,
     "fee": 0,
     "total_amount": 500,
-    "balance": 500,
+    "balance": 0,
     "account": "0000000000",
     "label": "Credit",
     "company": "rehive",
@@ -4584,13 +4574,8 @@ rehive.admin.transactions.get(
     },
     "source_transaction": null,
     "destination_transaction": null,
-    "messages": [
-        {
-            "level": "info",
-            "message": "Transaction completed.",
-            "created": 1496144568989
-        }
-    ],
+    "messages": [],
+    "fees": [],
     "created": 1509618707485,
     "updated": 1509618708277
 }
@@ -4643,20 +4628,125 @@ rehive.admin.transactions.create_credit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000"
+        "id": "00000000000000000000",
+        "tx_type": "credit",
+        "subtype": null,
+        "note": "",
+        "metadata": {},
+        "status": "Pending",
+        "reference": null,
+        "amount": 500,
+        "fee": 0,
+        "total_amount": 500,
+        "balance": 0,
+        "account": "0000000000",
+        "label": "Credit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": null,
+        "messages": [],
+        "fees": [],
+        "created": 1476691969394,
+        "updated": 1496135465287
     }
 }
 ```
 
 ```javascript
 {
-    "id": "00000000000000000000"
+    "id": "00000000000000000000",
+    "tx_type": "credit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Pending",
+    "reference": null,
+    "amount": 500,
+    "fee": 0,
+    "total_amount": 500,
+    "balance": 0,
+    "account": "0000000000",
+    "label": "Credit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [],
+    "fees": [],
+    "created": 1476691969394,
+    "updated": 1496135465287
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000"
+    "id": "00000000000000000000",
+    "tx_type": "credit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Pending",
+    "reference": null,
+    "amount": 500,
+    "fee": 0,
+    "total_amount": 500,
+    "balance": 0,
+    "account": "0000000000",
+    "label": "Credit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [],
+    "fees": [],
+    "created": 1476691969394,
+    "updated": 1496135465287
 }
 ```
 
@@ -4737,20 +4827,125 @@ rehive.admin.transactions.create_debit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000"
+        "id": "00000000000000000000",
+        "tx_type": "debit",
+        "subtype": null,
+        "note": "",
+        "metadata": {},
+        "status": "Pending",
+        "reference": null,
+        "amount": -500,
+        "fee": 0,
+        "total_amount": -500,
+        "balance": 0,
+        "account": "0000000000",
+        "label": "Debit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": null,
+        "messages": [],
+        "fees": [],
+        "created": 1476691969394,
+        "updated": 1496135465287
     }
 }
 ```
 
 ```javascript
 {
-    "id": "00000000000000000000"
+    "id": "00000000000000000000",
+    "tx_type": "debit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Pending",
+    "reference": null,
+    "amount": -500,
+    "fee": 0,
+    "total_amount": -500,
+    "balance": 0,
+    "account": "0000000000",
+    "label": "Debit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [],
+    "fees": [],
+    "created": 1476691969394,
+    "updated": 1496135465287
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000"
+    "id": "00000000000000000000",
+    "tx_type": "debit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Pending",
+    "reference": null,
+    "amount": -500,
+    "fee": 0,
+    "total_amount": -500,
+    "balance": 0,
+    "account": "0000000000",
+    "label": "Debit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [],
+    "fees": [],
+    "created": 1476691969394,
+    "updated": 1496135465287
 }
 ```
 
@@ -4791,7 +4986,7 @@ curl https://www.rehive.com/api/3/admin/transactions/transfer/
   -d '{"user": "joe@rehive.com",
        "amount": 500,
        "currency": "ZAR",
-       "recipient": "sally@rehive.com"}'
+       "recipient": "susan@rehive.com"}'
 ```
 
 ```javascript
@@ -4800,7 +4995,7 @@ rehive.admin.transactions.createTransfer(
     user: "joe@rehive.com",
     amount: 500,
     currency: "ZAR",
-    recipient: "sally@rehive.com"
+    recipient: "susan@rehive.com"
 }).then(function (res) {
     ...
 }, function (err) {
@@ -4813,7 +5008,7 @@ rehive.admin.transactions.create_transfer(
     user="joe@rehive.com",
     amount=500,
     currency="ZAR",
-    recipient="sally@rehive.com"
+    recipient="susan@rehive.com"
 )
 ```
 
@@ -4823,20 +5018,158 @@ rehive.admin.transactions.create_transfer(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000"
+        "id": "00000000000000000000",
+        "tx_type": "debit",
+        "subtype": null,
+        "note": "",
+        "metadata": {},
+        "status": "Pending",
+        "reference": null,
+        "amount": -500,
+        "fee": 0,
+        "total_amount": -500,
+        "balance": 0,
+        "account": "0000000000",
+        "label": "Debit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": "",
+            "mobile_number": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": {
+            "id": "00000000000000000000",
+            "user": {
+                "identifier": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Susan",
+                "last_name": "Brown",
+                "email": "susan@rehive.com",
+                "username": "",
+                "mobile_number": "+27850000000",
+                "profile": null
+            }
+        },
+        "messages": [],
+        "fees": [],
+        "created": 1476691969394,
+        "updated": 1496135465287
     }
 }
 ```
 
 ```javascript
 {
-    "id": "00000000000000000000"
+    "id": "00000000000000000000",
+    "tx_type": "debit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Pending",
+    "reference": null,
+    "amount": -500,
+    "fee": 0,
+    "total_amount": -500,
+    "balance": 0,
+    "account": "0000000000",
+    "label": "Debit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": {
+        "id": "00000000000000000000",
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Susan",
+            "last_name": "Brown",
+            "email": "susan@rehive.com",
+            "username": "",
+            "mobile_number": "+27850000000",
+            "profile": null
+        }
+    },
+    "messages": [],
+    "fees": [],
+    "created": 1476691969394,
+    "updated": 1496135465287
 }
 ```
 
 ```python
 {
-    "id": "00000000000000000000"
+    "id": "00000000000000000000",
+    "tx_type": "debit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Pending",
+    "reference": null,
+    "amount": -500,
+    "fee": 0,
+    "total_amount": -500,
+    "balance": 0,
+    "account": "0000000000",
+    "label": "Debit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "mobile_number": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": {
+        "id": "00000000000000000000",
+        "user": {
+            "identifier": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Susan",
+            "last_name": "Brown",
+            "email": "susan@rehive.com",
+            "username": "",
+            "mobile_number": "+27850000000",
+            "profile": null
+        }
+    },
+    "messages": [],
+    "fees": [],
+    "created": 1476691969394,
+    "updated": 1496135465287
 }
 ```
 
@@ -4852,7 +5185,8 @@ Field | Description | Default
 --- | --- | ---
 `user` | email, mobile number, or unique identifier | null
 `amount` | amount | null
-`recipient` | email, mobile number, or unique identifier | null
+<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, or unique identifier</li><li>account reference code</li></ul> | null
+`currency` | currency code | blank
 
 #### Optional Fields
 
@@ -4941,13 +5275,8 @@ rehive.admin.transactions.delete("{id}")
         },
         "source_transaction": null,
         "destination_transaction": null,
-        "messages": [
-            {
-                "level": "info",
-                "message": "Transaction completed.",
-                "created": 1496144568989
-            }
-        ],
+        "messages": [],
+        "fees": [],
         "created": 1509618707485,
         "updated": 1509618708277
     }
@@ -4988,13 +5317,8 @@ rehive.admin.transactions.delete("{id}")
     },
     "source_transaction": null,
     "destination_transaction": null,
-    "messages": [
-        {
-            "level": "info",
-            "message": "Transaction completed.",
-            "created": 1496144568989
-        }
-    ],
+    "messages": [],
+    "fees": [],
     "created": 1509618707485,
     "updated": 1509618708277
 }
@@ -5034,13 +5358,8 @@ rehive.admin.transactions.delete("{id}")
     },
     "source_transaction": null,
     "destination_transaction": null,
-    "messages": [
-        {
-            "level": "info",
-            "message": "Transaction completed.",
-            "created": 1496144568989
-        }
-    ],
+    "messages": [],
+    "fees": [],
     "created": 1509618707485,
     "updated": 1509618708277
 }
