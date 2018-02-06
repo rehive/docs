@@ -6253,6 +6253,11 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/s
 ```
 
 ```javascript
+rehive.admin.accounts.currencies.settings.get(reference,code).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6273,6 +6278,11 @@ rehive.admin.accounts.obj("{reference}").currencies.obj({code}).settings.get()
 ```
 
 ```javascript
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true
+}
 ```
 
 ```python
@@ -6289,7 +6299,7 @@ Retrieve an account's currency's settings.
 
 `https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/`
 
-### Update Account Currency
+### Update Account Currency Settings
 
 > Admin update account currency settings request
 
@@ -6302,6 +6312,11 @@ curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/s
 ```
 
 ```javascript
+rehive.admin.accounts.currencies.settings.update(reference, code, {allow_transactions: true}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -6324,6 +6339,11 @@ rehive.admin.accounts.obj("{reference}").currencies.obj({code}).settings.update(
 ```
 
 ```javascript
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true
+}
 ```
 
 ```python
