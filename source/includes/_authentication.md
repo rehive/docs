@@ -29,7 +29,7 @@ as the ability for admin users to create tokens that do not expire.
 > Token authorization request
 
 ```shell
-curl https://www.rehive.com/api/3/
+curl https://api.rehive.com/3/
   -H "Authorization: Token {token}"
 ```
 
@@ -55,7 +55,7 @@ You must replace <code>{token}</code> with your API token.
 > Company registration request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/company/register/
+curl https://api.rehive.com/3/auth/company/register/
   -X POST
   -H "Content-Type: application/json"
   -d '{"first_name": "Joe",
@@ -286,7 +286,7 @@ for subsequent requests.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/company/register/`
+`https://api.rehive.com/3/auth/company/register/`
 
 #### Required Fields
 
@@ -314,7 +314,7 @@ Field | Description | Default
 > User registration request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/register/
+curl https://api.rehive.com/3/auth/register/
   -X POST
   -H "Content-Type: application/json"
   -d '{"first_name": "Joe",
@@ -540,7 +540,7 @@ return the user's details and a token that can be used for subsequent requests.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/register/`
+`https://api.rehive.com/3/auth/register/`
 
 #### Required Fields
 
@@ -580,7 +580,7 @@ NOTE: This field only becomes available after the company setting
 > User login request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/login/
+curl https://api.rehive.com/3/auth/login/
   -X POST
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
@@ -800,7 +800,7 @@ user's details and a token that can be used for subsequent requests.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/login/`
+`https://api.rehive.com/3/auth/login/`
 
 #### Required Fields
 
@@ -821,7 +821,7 @@ Field | Description | Default
 > User logout request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/logout/
+curl https://api.rehive.com/3/auth/logout/
   -X POST
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
@@ -861,14 +861,14 @@ Logs the current user out and invalidates the token that was used to authenticat
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/logout/`
+`https://api.rehive.com/3/auth/logout/`
 
 ## Logout All
 
 > User logout all request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/logout/all/
+curl https://api.rehive.com/3/auth/logout/all/
   -X POST
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
@@ -908,14 +908,14 @@ Logs the current user out and invalidates all the tokens related to the user tha
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/logout/all/`
+`https://api.rehive.com/3/auth/logout/all/`
 
 ## Change Password
 
 > User change password request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/password/change/
+curl https://api.rehive.com/3/auth/password/change/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -970,7 +970,7 @@ Take note of the <code>Authorization</code> header required for authentication.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/password/change/`
+`https://api.rehive.com/3/auth/password/change/`
 
 #### Required Fields
 
@@ -985,7 +985,7 @@ Field | Description | Default
 > User reset password request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/password/reset/
+curl https://api.rehive.com/3/auth/password/reset/
   -X POST
   -H "Content-Type: application/json"
   -d '{"user": "joe@rehive.com",
@@ -1033,7 +1033,7 @@ Send a password reset email.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/password/reset/`
+`https://api.rehive.com/3/auth/password/reset/`
 
 #### Required Fields
 
@@ -1047,7 +1047,7 @@ Field | Description | Default
 > User reset password confirm request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/password/reset/confirm/
+curl https://api.rehive.com/3/auth/password/reset/confirm/
   -X POST
   -H "Content-Type: application/json"
   -d '{"new_password1": "joe1234",
@@ -1106,7 +1106,7 @@ use of your own client side UI for resetting emails.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/password/reset/confirm/`
+`https://api.rehive.com/3/auth/password/reset/confirm/`
 
 #### Required Fields
 
@@ -1122,7 +1122,7 @@ Field | Description | Default
 > User resend email verification request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/email/verify/resend/
+curl https://api.rehive.com/3/auth/email/verify/resend/
   -X POST
   -H "Content-Type: application/json"
   -d '{"email": "joe@rehive.com",
@@ -1169,7 +1169,7 @@ Resend email verifications for an email.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/email/verify/resend/`
+`https://api.rehive.com/3/auth/email/verify/resend/`
 
 #### Required Fields
 
@@ -1183,7 +1183,7 @@ Field | Description | Default
 > User resend mobile verification request
 
 ```shell
-curl https://www.rehive.com/api/3auth/mobile/verify/resend/
+curl https://api.rehive.com/3/auth/mobile/verify/resend/
   -X POST
   -H "Content-Type: application/json"
   -d '{"mobile": "+27840000000",
@@ -1230,7 +1230,7 @@ Resends mobile verifications for a mobile number.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/auth/mobile/verify/resend/`
+`https://api.rehive.com/3/auth/mobile/verify/resend/`
 
 #### Required Fields
 
@@ -1245,7 +1245,7 @@ Field | Description | Default
 > User verify email request
 
 ```shell
-curl https://rehive.com/api/3/auth/email/verify/
+curl https://api.rehive.com/3/auth/email/verify/
   -X POST
   -H "Content-Type: application/json"
   -d '{"key": "{key}"}'
@@ -1288,7 +1288,7 @@ Verify an email number with a key. The key is sent in an email by Rehive.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/email/verify/`
+`https://api.rehive.com/3/auth/email/verify/`
 
 #### Required Fields
 
@@ -1302,7 +1302,7 @@ Field | Description | Default
 > User verify mobile request
 
 ```shell
-curl https://rehive.com/api/3/auth/mobile/verify/
+curl https://api.rehive.com/3/auth/mobile/verify/
   -X POST
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
@@ -1348,7 +1348,7 @@ be logged in for this functionality to work.
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/mobile/verify/`
+`https://api.rehive.com/3/auth/mobile/verify/`
 
 #### Required Fields
 
@@ -1373,7 +1373,7 @@ deleting unused tokens.
 > List tokens request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/tokens/
+curl https://api.rehive.com/3/auth/tokens/
   -X GET
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
@@ -1443,7 +1443,7 @@ user tokens need to be managed on the client side.
 > Create token request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/tokens/
+curl https://api.rehive.com/3/auth/tokens/
   -X POST
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
@@ -1627,7 +1627,7 @@ Creating a token here will remove the expiration time on the token, thus giving 
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/tokens/`
+`https://api.rehive.com/3/auth/tokens/`
 
 #### Required Fields
 
@@ -1640,7 +1640,7 @@ Field | Description | Default
 > Delete token request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/tokens/{token_key}/
+curl https://api.rehive.com/3/auth/tokens/{token_key}/
   -X DELETE
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
@@ -1678,14 +1678,14 @@ rehive.auth.tokens.delete("{token_key}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/tokens/{token_key}/`
+`https://api.rehive.com/3/auth/tokens/{token_key}/`
 
 ### Verify Token
 
 > Verify token request
 
 ```shell
-curl https://www.rehive.com/api/3/auth/tokens/verify/
+curl https://api.rehive.com/3/auth/tokens/verify/
   -X POST
   -H "Content-Type: application/json"
   -H "Authorization: Token {token}"
@@ -1882,5 +1882,5 @@ rehive.auth.tokens.verify("{token_key}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/auth/tokens/{token_key}`
+`https://api.rehive.com/3/auth/tokens/{token_key}`
 

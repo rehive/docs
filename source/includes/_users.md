@@ -17,7 +17,7 @@ and whether they have an apporiate status.
 > User profile request
 
 ```shell
-curl https://www.rehive.com/api/3/user/
+curl https://api.rehive.com/3/user/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -212,14 +212,14 @@ Retrieve a user's profile information.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/`
+`https://api.rehive.com/3/user/`
 
 ## Update Profile
 
 > User update profile request
 
 ```shell
-curl https://www.rehive.com/api/3/user/
+curl https://api.rehive.com/3/user/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -417,7 +417,7 @@ Update a user's profile information.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/`
+`https://api.rehive.com/3/user/`
 
 #### Optional Fields
 
@@ -443,7 +443,7 @@ Field | Description | Default
 > User retrieve address request
 
 ```shell
-curl https://www.rehive.com/api/3/user/address/
+curl https://api.rehive.com/3/user/address/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -506,14 +506,14 @@ Retrieve a user's address.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/address/`
+`https://api.rehive.com/3/user/address/`
 
 ## Update Address
 
 > User update address request
 
 ```shell
-curl https://www.rehive.com/api/3/user/address/
+curl https://api.rehive.com/3/user/address/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -579,7 +579,7 @@ Update a user's address.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/address/`
+`https://api.rehive.com/3/user/address/`
 
 #### Optional Fields
 
@@ -598,7 +598,7 @@ Field | Description | Default
 > User list bank accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank-accounts/
+curl https://api.rehive.com/3/user/bank-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -683,14 +683,14 @@ List a user's bank accounts.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank-accounts/`
+`https://api.rehive.com/3/user/bank-accounts/`
 
 ## Create Bank Account
 
 > User create bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank-accounts/
+curl https://api.rehive.com/3/user/bank-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -786,7 +786,7 @@ Create a bank account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank-accounts/`
+`https://api.rehive.com/3/user/bank-accounts/`
 
 #### Optional Fields
 
@@ -808,7 +808,7 @@ Field | Description | Default
 > User retrieve bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
+curl https://api.rehive.com/3/user/bank-accounts/{account_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -886,7 +886,7 @@ Retrieve a user's bank account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank-accounts/{account_id}/`
+`https://api.rehive.com/3/user/bank-accounts/{account_id}/`
 
 
 ## Update Bank Account
@@ -894,7 +894,7 @@ Retrieve a user's bank account.
 > User update bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
+curl https://api.rehive.com/3/user/bank-accounts/{account_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -976,7 +976,7 @@ Update a user's bank account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank-accounts/{account_id}/`
+`https://api.rehive.com/3/user/bank-accounts/{account_id}/`
 
 #### Optional Fields
 
@@ -998,7 +998,7 @@ Field | Description | Default
 > User delete bank account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/bank-accounts/{account_id}/
+curl https://api.rehive.com/3/user/bank-accounts/{account_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1039,7 +1039,7 @@ Delete a user's bank account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/bank-accounts/{account_id}/`
+`https://api.rehive.com/3/user/bank-accounts/{account_id}/`
 
 
 ## List Crypto Accounts
@@ -1047,7 +1047,7 @@ Delete a user's bank account.
 > User list crypto accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/user/crypto-accounts/
+curl https://api.rehive.com/3/user/crypto-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1113,14 +1113,14 @@ List a user's cryptocurrency addresses.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/crypto-accounts/`
+`https://api.rehive.com/3/user/crypto-accounts/`
 
 ## Create Crypto Account
 
 > User create crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/crypto-accounts/
+curl https://api.rehive.com/3/user/crypto-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1187,7 +1187,7 @@ Create a crypto account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/crypto-accounts/`
+`https://api.rehive.com/3/user/crypto-accounts/`
 
 #### Required Fields
 
@@ -1208,7 +1208,7 @@ Field | Description | Default
 > User retrieve crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
+curl https://api.rehive.com/3/user/crypto-accounts/{account_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1270,7 +1270,7 @@ Get a user's crypto account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/crypto-accounts/{account_id}/`
+`https://api.rehive.com/3/user/crypto-accounts/{account_id}/`
 
 
 ## Update Crypto Account
@@ -1278,7 +1278,7 @@ Get a user's crypto account.
 > User update crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
+curl https://api.rehive.com/3/user/crypto-accounts/{account_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1341,7 +1341,7 @@ Update a user's crypto account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/crypto-accounts/{account_id}/`
+`https://api.rehive.com/3/user/crypto-accounts/{account_id}/`
 
 #### Required Fields
 
@@ -1363,7 +1363,7 @@ Field | Description | Default
 > User delete crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/user/crypto-accounts/{account_id}/
+curl https://api.rehive.com/3/user/crypto-accounts/{account_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1405,7 +1405,7 @@ Delete a user's crypto account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/crypto-accounts/{account_id}/`
+`https://api.rehive.com/3/user/crypto-accounts/{account_id}/`
 
 
 ## List Documents
@@ -1413,7 +1413,7 @@ Delete a user's crypto account.
 > User list documents request
 
 ```shell
-curl https://www.rehive.com/api/3/user/documents/
+curl https://api.rehive.com/3/user/documents/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1492,7 +1492,7 @@ Get a list of user's documents.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/user/documents/`
+`https://api.rehive.com/3/user/documents/`
 
 
 ## Retrieve Document
@@ -1500,7 +1500,7 @@ Get a list of user's documents.
 > User retrieve document request
 
 ```shell
-curl https://www.rehive.com/api/3/user/documents/{document_id}/
+curl https://api.rehive.com/3/user/documents/{document_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1572,7 +1572,7 @@ Get a user's document.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/user/documents/{document_id}/`
+`https://api.rehive.com/3/user/documents/{document_id}/`
 
 
 ## Create Document
@@ -1580,7 +1580,7 @@ Get a user's document.
 > User documents request
 
 ```shell
-curl https://www.rehive.com/api/3/user/document/
+curl https://api.rehive.com/3/user/document/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: multipart/form-data"
@@ -1655,7 +1655,7 @@ Upload a user document.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/document/`
+`https://api.rehive.com/3/user/document/`
 
 #### Required Fields
 
@@ -1677,7 +1677,7 @@ Field | Description | Default
 > User list email addresses request
 
 ```shell
-curl https://www.rehive.com/api/3/user/emails/
+curl https://api.rehive.com/3/user/emails/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1737,14 +1737,14 @@ Get a list of user's email addresses.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/user/emails/`
+`https://api.rehive.com/3/user/emails/`
 
 ## Create Email Address
 
 > User create email address request
 
 ```shell
-curl https://www.rehive.com/api/3/user/emails/
+curl https://api.rehive.com/3/user/emails/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1806,7 +1806,7 @@ Create an email address for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/emails/`
+`https://api.rehive.com/3/user/emails/`
 
 #### Required Fields
 
@@ -1826,7 +1826,7 @@ Field | Description | Default
 > User retrieve email address request
 
 ```shell
-curl https://www.rehive.com/api/3/user/emails/{id}/
+curl https://api.rehive.com/3/user/emails/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1876,14 +1876,14 @@ rehive.user.emails.get("{email_id}")
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/user/emails/{id}/`
+`https://api.rehive.com/3/user/emails/{id}/`
 
 ## Update Email Address
 
 > User update email address request
 
 ```shell
-curl https://www.rehive.com/api/3/user/emails/{email_id}
+curl https://api.rehive.com/3/user/emails/{email_id}
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1946,7 +1946,7 @@ Update a user's email address. The email address can be changed to be the user's
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/emails/{email_id}`
+`https://api.rehive.com/3/user/emails/{email_id}`
 
 #### Optional Fields
 
@@ -1959,7 +1959,7 @@ Field | Description | Default
 > User delete email address request
 
 ```shell
-curl https://www.rehive.com/api/3/user/emails/{id}/
+curl https://api.rehive.com/3/user/emails/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1999,14 +1999,14 @@ rehive.user.emails.delete(
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/user/emails/{id}/`
+`https://api.rehive.com/3/user/emails/{id}/`
 
 ## List Mobile Numbers
 
 > User mobile numbers request
 
 ```shell
-curl https://www.rehive.com/api/3/user/mobiles/
+curl https://api.rehive.com/3/user/mobiles/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2066,14 +2066,14 @@ Get a list of user's mobile numbers.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/user/mobiles/`
+`https://api.rehive.com/3/user/mobiles/`
 
 ## Create Mobile Number
 
 > User create mobile number request
 
 ```shell
-curl https://www.rehive.com/api/3/user/mobiles/
+curl https://api.rehive.com/3/user/mobiles/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2134,7 +2134,7 @@ Create a mobile number for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/mobiles/`
+`https://api.rehive.com/3/user/mobiles/`
 
 #### Required Fields
 
@@ -2153,7 +2153,7 @@ Field | Description | Default
 > User retrieve mobile number request
 
 ```shell
-curl https://www.rehive.com/api/3/user/mobiles/{id}/
+curl https://api.rehive.com/3/user/mobiles/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2207,14 +2207,14 @@ Retrieve a user's mobile number.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/user/mobiles/`
+`https://api.rehive.com/3/user/mobiles/`
 
 ## Update Mobile Number
 
 > User update mobile number request
 
 ```shell
-curl https://www.rehive.com/api/3/user/mobiles/{number_id}
+curl https://api.rehive.com/3/user/mobiles/{number_id}
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2277,7 +2277,7 @@ Update a user's mobile number. The number can be changed to be the user's primar
 
 #### Endpoint
 
-`https://rehive.com/api/3/user/mobiles/{number_id}`
+`https://api.rehive.com/3/user/mobiles/{number_id}`
 
 #### Optional Fields
 
@@ -2290,7 +2290,7 @@ Field | Description | Default
 > User delete mobile number request
 
 ```shell
-curl https://www.rehive.com/api/3/user/mobiles/{id}/
+curl https://api.rehive.com/3/user/mobiles/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2330,4 +2330,4 @@ rehive.user.mobiles.delete(
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/user/mobiles/{id}/`
+`https://api.rehive.com/3/user/mobiles/{id}/`

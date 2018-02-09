@@ -26,8 +26,8 @@ Rehive expects a `200 OK` HTTP response when webhooks are called. If a 200 respo
 
 Rehive currently support the following webhook events:
 
-Event | Description 
---- | --- 
+Event | Description
+--- | ---
 `user.create`  | user created event
 `user.update` | user updated event
 `user.password.reset` | user password reset request event
@@ -70,5 +70,5 @@ To perform an idempotent request, attach a unique key to any `POST`, `PUT` or `P
 API requests made with a new key will get saved along with their HTTP response. Follow up requests made with the same key will always return the same response (As long as the request has the same HTTP method and URL path). The keys (and their associated saved responses) expire after 24 hours.
 
 <aside class="notice">
-Idempotent requests will not work for anonymous users and/or any endpoints found under <a href="/#authorization">Authentication</a> (eg. URL paths beginning with `/api/3/auth/`)
+Idempotent requests will not work for anonymous users and/or any endpoints found under <a href="/#authorization">Authentication</a> (eg. URL paths beginning with `/auth/`)
 </aside>

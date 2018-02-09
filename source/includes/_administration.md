@@ -9,7 +9,7 @@ Rehive includes a set of admin-only endpoints that can make working with users a
 > Admin users overview request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/users/overview/
+curl https://api.rehive.com/3/admin/users/overview/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -57,14 +57,14 @@ Get an overview of users belonging to a company.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/overview/`
+`https://api.rehive.com/3/admin/users/overview/`
 
 ### List Users
 
 > Admin list users request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/users/
+curl https://api.rehive.com/3/admin/users/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -287,14 +287,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/`
+`https://api.rehive.com/3/admin/users/`
 
 ### Create User
 
 > Admin create user request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/`
+curl https://api.rehive.com/3/admin/users/`
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -509,7 +509,7 @@ Update a user's details.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/`
+`https://api.rehive.com/3/admin/users/`
 
 #### Optional Fields
 
@@ -537,7 +537,7 @@ Field | Description | Default
 > Admin retrieve user request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/{identifier}/
+curl https://api.rehive.com/3/admin/users/{identifier}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -731,14 +731,14 @@ Retrieve a company's user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/{identifier}/`
+`https://api.rehive.com/3/admin/users/{identifier}/`
 
 ### Update User
 
 > Admin update user request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/{identifier}/`
+curl https://api.rehive.com/3/admin/users/{identifier}/`
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -948,7 +948,7 @@ Update a user's details.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/{identifier}/`
+`https://api.rehive.com/3/admin/users/{identifier}/`
 
 #### Optional Fields
 
@@ -982,7 +982,7 @@ Value | Description
 > Admin retrieve user settings request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/
+curl https://api.rehive.com/3/admin/users/{identifier}/settings/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1023,14 +1023,14 @@ Retrieve a company's user settings.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/{identifier}/settings/`
+`https://api.rehive.com/3/admin/users/{identifier}/settings/`
 
 ### Update User
 
 > Admin update user settings request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/{identifier}/settings/`
+curl https://api.rehive.com/3/admin/users/{identifier}/settings/`
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1074,7 +1074,7 @@ Update a user's settings.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/{identifier}/settings/`
+`https://api.rehive.com/3/admin/users/{identifier}/settings/`
 
 #### Optional Fields
 
@@ -1089,7 +1089,7 @@ Field | Description | Default
 > List Addresses request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/addresses/
+curl https://api.rehive.com/3/admin/users/addresses/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1203,14 +1203,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/addresses/`
+`https://api.rehive.com/3/admin/users/addresses/`
 
 ### Create Address
 
 > Create Address request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/addresses/
+curl https://api.rehive.com/3/admin/users/addresses/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1326,7 +1326,7 @@ rehive.admin.users.addresses.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/addresses/`
+`https://api.rehive.com/3/admin/users/addresses/`
 
 #### Required Fields
 
@@ -1361,7 +1361,7 @@ Value | Description
 > Retrieve Address request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/addresses/{id}/
+curl https://api.rehive.com/3/admin/users/addresses/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1454,14 +1454,14 @@ rehive.admin.users.addresses.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/addresses/{id}/`
+`https://api.rehive.com/3/admin/users/addresses/{id}/`
 
 ### Update Address
 
 > Update Address request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/addresses/{id}/
+curl https://api.rehive.com/3/admin/users/addresses/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1558,7 +1558,7 @@ rehive.admin.users.addresses.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/addresses/{id}/`
+`https://api.rehive.com/3/admin/users/addresses/{id}/`
 
 #### Optional Fields
 
@@ -1587,7 +1587,7 @@ Value | Description
 > Delete address request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/addresses/{id}/
+curl https://api.rehive.com/3/admin/users/addresses/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1627,7 +1627,7 @@ rehive.admin.users.addresses.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/addresses/{id}/`
+`https://api.rehive.com/3/admin/users/addresses/{id}/`
 
 
 ### List Bank Accounts
@@ -1635,7 +1635,7 @@ rehive.admin.users.addresses.delete(
 > List Bank Accounts request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/bank-accounts/
+curl https://api.rehive.com/3/admin/users/bank-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1754,14 +1754,14 @@ rehive.admin.banks_accounts.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/bank-accounts/`
+`https://api.rehive.com/3/admin/users/bank-accounts/`
 
 ### Create Bank Account
 
 > Create Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/bank-accounts/
+curl https://api.rehive.com/3/admin/users/bank-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1891,7 +1891,7 @@ rehive.admin.bank_accounts.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/bank-accounts/`
+`https://api.rehive.com/3/admin/users/bank-accounts/`
 
 #### Required Fields
 
@@ -1929,7 +1929,7 @@ Value | Description
 > Retrieve Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
+curl https://api.rehive.com/3/admin/users/bank-accounts/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2032,14 +2032,14 @@ rehive.admin.bank_accounts.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/bank-accounts/{id}/`
+`https://api.rehive.com/3/admin/users/bank-accounts/{id}/`
 
 ### Update Bank Account
 
 > Update Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
+curl https://api.rehive.com/3/admin/users/bank-accounts/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2148,7 +2148,7 @@ rehive.admin.bank_accounts.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/bank-accounts/{id}/`
+`https://api.rehive.com/3/admin/users/bank-accounts/{id}/`
 
 #### Optional Fields
 
@@ -2180,7 +2180,7 @@ Value | Description
 > Delete Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/bank-accounts/{id}/
+curl https://api.rehive.com/3/admin/users/bank-accounts/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2220,7 +2220,7 @@ rehive.admin.users.bank_accounts.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/bank-accounts/{id}/`
+`https://api.rehive.com/3/admin/users/bank-accounts/{id}/`
 
 
 ### List Crypto Accounts
@@ -2228,7 +2228,7 @@ rehive.admin.users.bank_accounts.delete(
 > Admin list crypto accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
+curl https://api.rehive.com/3/admin/users/crypto-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2339,14 +2339,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/crypto-accounts/`
+`https://api.rehive.com/3/admin/users/crypto-accounts/`
 
 ### Create Crypto Account
 
 > Admin create crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/crypto-accounts/
+curl https://api.rehive.com/3/admin/users/crypto-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2446,7 +2446,7 @@ Create a crypto account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/crypto-accounts/`
+`https://api.rehive.com/3/admin/users/crypto-accounts/`
 
 #### Required Fields
 
@@ -2478,7 +2478,7 @@ Value | Description
 > Retrieve Crypto Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/crypto-accounts/{id}/
+curl https://api.rehive.com/3/admin/users/crypto-accounts/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2565,14 +2565,14 @@ rehive.admin.users.crypto_accounts.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/crypto-accounts/{id}/`
+`https://api.rehive.com/3/admin/users/crypto-accounts/{id}/`
 
 ### Update Crypto Account
 
 > Admin update crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
+curl https://api.rehive.com/3/admin/users/crypto-accounts/{account_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2666,7 +2666,7 @@ Update a user's crypto account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/crypto-accounts/{account_id}/`
+`https://api.rehive.com/3/admin/users/crypto-accounts/{account_id}/`
 
 #### Required Fields
 
@@ -2698,7 +2698,7 @@ Value | Description
 > Admin delete crypto account request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/crypto-accounts/{account_id}/
+curl https://api.rehive.com/3/admin/users/crypto-accounts/{account_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2740,7 +2740,7 @@ Delete a user's crypto account.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/crypto-accounts/{account_id}/`
+`https://api.rehive.com/3/admin/users/crypto-accounts/{account_id}/`
 
 
 ### List Documents
@@ -2748,7 +2748,7 @@ Delete a user's crypto account.
 > Admin list documents request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/documents/
+curl https://api.rehive.com/3/admin/users/documents/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -2861,7 +2861,7 @@ Field | Type
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/admin/users/documents/`
+`https://api.rehive.com/3/admin/users/documents/`
 
 
 ### Create Document
@@ -2869,7 +2869,7 @@ Field | Type
 > Admin documents request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/documents/
+curl https://api.rehive.com/3/admin/documents/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: multipart/form-data"
@@ -2974,7 +2974,7 @@ Upload user document.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/document/`
+`https://api.rehive.com/3/admin/document/`
 
 #### Required Fields
 
@@ -3007,7 +3007,7 @@ Value | Description
 > Retrieve Document request
 
 ```shell
-curl https://rehive.com/api/3/admin/users/documents/{document_id}/
+curl https://api.rehive.com/3/admin/users/documents/{document_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3097,14 +3097,14 @@ rehive.admin.users.documents.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/documents/{document_id}/`
+`https://api.rehive.com/3/admin/users/documents/{document_id}/`
 
 ### Update Document
 
 > Update document request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/documents/{document_id}/
+curl https://api.rehive.com/3/admin/users/documents/{document_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: multipart/form-data"
@@ -3211,7 +3211,7 @@ Update a user's document.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/documents/{document_id}/`
+`https://api.rehive.com/3/admin/users/documents/{document_id}/`
 
 #### Required Fields
 
@@ -3244,7 +3244,7 @@ Value | Description
 > Admin list emails request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/users/emails/
+curl https://api.rehive.com/3/admin/users/emails/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3346,14 +3346,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/emails/`
+`https://api.rehive.com/3/admin/users/emails/`
 
 ### Create Email
 
 > Admin create email request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/emails/`
+curl https://api.rehive.com/3/admin/users/emails/`
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3448,7 +3448,7 @@ Create an email address for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/emails/`
+`https://api.rehive.com/3/admin/users/emails/`
 
 #### Required Fields
 
@@ -3469,7 +3469,7 @@ Field | Description | Default
 > Admin retrieve email request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/emails/{id}/
+curl https://api.rehive.com/3/admin/users/emails/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3552,14 +3552,14 @@ Retrieve a company's email.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/emails/{id}/`
+`https://api.rehive.com/3/admin/users/emails/{id}/`
 
 ### Update Email
 
 > Admin update email request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/emails/{id}/`
+curl https://api.rehive.com/3/admin/users/emails/{id}/`
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3644,7 +3644,7 @@ Update a user's email.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/emails/{id}/`
+`https://api.rehive.com/3/admin/users/emails/{id}/`
 
 #### Optional Fields
 
@@ -3658,7 +3658,7 @@ Field | Description | Default
 > Admin delete email request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/emails/{id}/`
+curl https://api.rehive.com/3/admin/users/emails/{id}/`
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3700,7 +3700,7 @@ Delete a user's email.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/emails/{id}/`
+`https://api.rehive.com/3/admin/users/emails/{id}/`
 
 
 ### List Mobiles
@@ -3708,7 +3708,7 @@ Delete a user's email.
 > Admin list mobiles request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/users/mobiles/
+curl https://api.rehive.com/3/admin/users/mobiles/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3811,14 +3811,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/mobiles/`
+`https://api.rehive.com/3/admin/users/mobiles/`
 
 ### Create Mobile
 
 > Admin create mobile request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/mobiles/`
+curl https://api.rehive.com/3/admin/users/mobiles/`
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -3913,7 +3913,7 @@ Create a mobile number for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/mobiles/`
+`https://api.rehive.com/3/admin/users/mobiles/`
 
 #### Required Fields
 
@@ -3934,7 +3934,7 @@ Field | Description | Default
 > Admin retrieve mobile request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/
+curl https://api.rehive.com/3/admin/users/mobiles/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4017,14 +4017,14 @@ Retrieve a company's mobile.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/mobiles/{id}/`
+`https://api.rehive.com/3/admin/users/mobiles/{id}/`
 
 ### Update Mobile
 
 > Admin update mobile request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/`
+curl https://api.rehive.com/3/admin/users/mobiles/{id}/`
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4111,7 +4111,7 @@ Update a user's mobile.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/mobiles/{id}/`
+`https://api.rehive.com/3/admin/users/mobiles/{id}/`
 
 #### Optional Fields
 
@@ -4126,7 +4126,7 @@ Field | Description | Default
 > Admin delete mobile request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/mobiles/{id}/`
+curl https://api.rehive.com/3/admin/users/mobiles/{id}/`
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4168,7 +4168,7 @@ Delete a user's mobile.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/users/mobiles/{id}/`
+`https://api.rehive.com/3/admin/users/mobiles/{id}/`
 
 
 ## Transactions
@@ -4178,7 +4178,7 @@ Delete a user's mobile.
 > Admin transactions request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/transactions/
+curl https://api.rehive.com/3/admin/transactions/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4361,14 +4361,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/`
+`https://api.rehive.com/3/admin/transactions/`
 
 ### Total Transactions
 
 > Admin total transactions request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/transactions/totals/
+curl https://api.rehive.com/3/admin/transactions/totals/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4426,14 +4426,14 @@ See Transaction List filtering above.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/totals/`
+`https://api.rehive.com/3/admin/transactions/totals/`
 
 ### Retrieve Transaction
 
 > Retrieve transaction request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/transactions/{id}/
+curl https://api.rehive.com/3/admin/transactions/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4585,14 +4585,14 @@ Get transaction details for a spcific transactions.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/{id}/`
+`https://api.rehive.com/3/admin/transactions/{id}/`
 
 ### Create Credit
 
 > Admin credit request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/transactions/credit/
+curl https://api.rehive.com/3/admin/transactions/credit/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4754,7 +4754,7 @@ Create a credit transaction on behalf of a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/credit/`
+`https://api.rehive.com/3/admin/transactions/credit/`
 
 #### Required Fields
 
@@ -4791,7 +4791,7 @@ When creating a transaction as an admin user, a <code>user</code> attribute shou
 > Admin debit request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/transactions/debit/
+curl https://api.rehive.com/3/admin/transactions/debit/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -4953,7 +4953,7 @@ Create a debit transaction on behalf of a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/debit/`
+`https://api.rehive.com/3/admin/transactions/debit/`
 
 #### Required Fields
 
@@ -4979,7 +4979,7 @@ Field | Description | Default
 > Admin transfer request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/transactions/transfer/
+curl https://api.rehive.com/3/admin/transactions/transfer/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5177,7 +5177,7 @@ Create a transfer transaction on behalf of a user. This will transfer currency f
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/transfer/`
+`https://api.rehive.com/3/admin/transactions/transfer/`
 
 #### Required Fields
 
@@ -5210,7 +5210,7 @@ Field | Description | Default
 > Admin update transaction request
 
 ```shell
-curl https://rehive.com/api/3/admin/transactions/{id}/
+curl https://api.rehive.com/3/admin/transactions/{id}/
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5381,7 +5381,7 @@ Each message added to a transaction will be stored in a list. Rehive will also a
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/{id}/`
+`https://api.rehive.com/3/admin/transactions/{id}/`
 
 #### Required Fields
 
@@ -5399,7 +5399,7 @@ Field | Description | Default
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/transactions/webhooks/{id}/`
+`https://api.rehive.com/3/admin/transactions/webhooks/{id}/`
 
 ## Accounts
 
@@ -5408,7 +5408,7 @@ Field | Description | Default
 > Admin list accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/
+curl https://api.rehive.com/3/admin/accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5554,14 +5554,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/`
+`https://api.rehive.com/3/admin/accounts/`
 
 ### Create Account
 
 > Admin create account request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/
+curl https://api.rehive.com/3/admin/accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5630,7 +5630,7 @@ Create a account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/`
+`https://api.rehive.com/3/admin/accounts/`
 
 #### Required Fields
 
@@ -5651,7 +5651,7 @@ Field | Description | Default
 > Admin retrieve account request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/{reference}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5779,7 +5779,7 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/`
 
 
 ### Update Account
@@ -5787,7 +5787,7 @@ Field | Type
 > Admin update account request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/{reference}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5851,7 +5851,7 @@ Update an account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/`
 
 #### Required Fields
 
@@ -5873,7 +5873,7 @@ Field | Description | Default
 > Admin list account currencies request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/accounts/{reference}/currencies/
+curl https://api.rehive.com/3/accounts/{reference}/currencies/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5994,14 +5994,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/`
 
 ### Retrieve Account Currency
 
 > Admin retrieve account currency request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6102,14 +6102,14 @@ Retrieve an account's currency belonging to a company.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}`
 
 ### Update Account Currency
 
 > Admin retrieve account currency request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6212,7 +6212,7 @@ Update the active status of an account currency. Activating an account's currenc
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/`
 
 #### Optional Fields
 
@@ -6226,7 +6226,7 @@ Field | Description | Default
 > Admin retrieve account currency settings request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/settings/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6267,14 +6267,14 @@ Retrieve an account's currency's settings.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/settings/`
 
 ### Update Account Currency
 
 > Admin update account currency settings request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/settings/
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6318,7 +6318,7 @@ Update the settings of an acocunt currency.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/settings/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/settings/`
 
 #### Optional Fields
 
@@ -6336,7 +6336,7 @@ List all Limits related to am account currency.
 > List Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6403,7 +6403,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/`
 
 ### Create Account Currency Limit
 
@@ -6412,7 +6412,7 @@ Create a new limit related to an account currency.
 > Create Account Currency Limit request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6485,7 +6485,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/`
 
 #### Required Fields
 
@@ -6525,7 +6525,7 @@ Retrieve a specific requirement related to an account currency.
 > Retrieve Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6588,7 +6588,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
 
 ### Update Account Currency Limit
 
@@ -6597,7 +6597,7 @@ Update a specific limits related to an account currency.
 > Update Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6668,7 +6668,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
 
 #### Required Fields
 
@@ -6708,7 +6708,7 @@ Delete a specific limits related to an account currency.
 > Delete Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6748,7 +6748,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/limits/{limit_id}/`
 
 
 ### List Account Currency Fees
@@ -6758,7 +6758,7 @@ List all fees related to am account currency.
 > List Account Currency Fees request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6825,7 +6825,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/`
 
 ### Create Account Currency Fee
 
@@ -6834,7 +6834,7 @@ Create a new fee related to an account currency.
 > Create Account Currency Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6903,7 +6903,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/`
 
 #### Required Fields
 
@@ -6933,7 +6933,7 @@ Retrieve a specific requirement related to an account currency.
 > Retrieve Account Currency Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6996,7 +6996,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
 
 ### Update Account Currency Fee
 
@@ -7005,7 +7005,7 @@ Update a specific fees related to an account currency.
 > Update Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7070,7 +7070,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
 
 #### Required Fields
 
@@ -7100,7 +7100,7 @@ Delete a specific fees related to an account currency.
 > Delete Account Currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
+curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7140,7 +7140,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
+`https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/fees/{fee_id}/`
 
 ## Currencies
 
@@ -7149,7 +7149,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.delete(
 > Admin list currencies request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/currencies/
+curl https://api.rehive.com/3/admin/currencies/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7225,14 +7225,14 @@ Get a list of all existing currencies. This includes default Rehive currencies a
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/currencies/`
+`https://api.rehive.com/3/admin/currencies/`
 
 ### Create Currency
 
 > Admin create currency request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/currencies/
+curl https://api.rehive.com/3/admin/currencies/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7313,7 +7313,7 @@ Create a custom currency.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/currencies/`
+`https://api.rehive.com/3/admin/currencies/`
 
 #### Required Fields
 
@@ -7332,7 +7332,7 @@ Field | Description | Default
 > Admin retrieve currency request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/currencies/{code}/
+curl https://api.rehive.com/3/admin/currencies/{code}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7392,14 +7392,14 @@ Retrieve a currencies details.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/currencies/{code}/`
+`https://api.rehive.com/3/admin/currencies/{code}/`
 
 ### Update Currency
 
 > Admin update currency request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/currencies/{code}/
+curl https://api.rehive.com/3/admin/currencies/{code}/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7467,7 +7467,7 @@ Note that default currencies can not be updated, and only custom currencies can 
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/currencies/{code}/`
+`https://api.rehive.com/3/admin/currencies/{code}/`
 
 #### Required Fields
 
@@ -7485,7 +7485,7 @@ Field | Description | Default
 > Admin delete currency request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/currencies/{code}/
+curl https://api.rehive.com/3/admin/currencies/{code}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7527,14 +7527,14 @@ This endpoint can be used to delete custom currencies that was created.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/currencies/{code}/`
+`https://api.rehive.com/3/admin/currencies/{code}/`
 
 ### Currency Overview
 
 > Admin currency overview request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/currencies/{code}/overview/
+curl https://api.rehive.com/3/admin/currencies/{code}/overview/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7627,7 +7627,7 @@ Get an overview of the selected currency's transactions.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/currencies/{code}/overview/`
+`https://api.rehive.com/3/admin/currencies/{code}/overview/`
 
 ## Company
 
@@ -7636,7 +7636,7 @@ Get an overview of the selected currency's transactions.
 > View the company info
 
 ```shell
-curl https://rehive.com/api/3/admin/company/
+curl https://api.rehive.com/3/admin/company/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7744,14 +7744,14 @@ Retrieve the company info.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/company/`
+`https://api.rehive.com/3/admin/company/`
 
 ### Update Company
 
 > Update company info
 
 ```shell
-curl https://rehive.com/api/3/admin/company/
+curl https://api.rehive.com/3/admin/company/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7862,7 +7862,7 @@ Retrieve the company info.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/company/`
+`https://api.rehive.com/3/admin/company/`
 
 #### Optional Fields
 
@@ -7884,7 +7884,7 @@ When adding a logo image, the Content-type header needs to be set to multipart/f
 > View the company settings
 
 ```shell
-curl https://rehive.com/api/3/admin/company/settings/
+curl https://api.rehive.com/3/admin/company/settings/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -7943,14 +7943,14 @@ Retrieve the company settings.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/company/settings/`
+`https://api.rehive.com/3/admin/company/settings/`
 
 ### Update Company Settings
 
 > Update company settings
 
 ```shell
-curl https://rehive.com/api/3/admin/company/settings/
+curl https://api.rehive.com/3/admin/company/settings/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8009,7 +8009,7 @@ Retrieve the company settings.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/company/settings/`
+`https://api.rehive.com/3/admin/company/settings/`
 
 #### Optional Fields
 
@@ -8035,7 +8035,7 @@ Field | Description | Default
 > List Bank Accounts request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/
+curl https://api.rehive.com/3/admin/bank-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8118,14 +8118,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/`
+`https://api.rehive.com/3/admin/bank-accounts/`
 
 ### Create Bank Account
 
 > Create Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/
+curl https://api.rehive.com/3/admin/bank-accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8219,7 +8219,7 @@ rehive.admin.bank_account.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/`
+`https://api.rehive.com/3/admin/bank-accounts/`
 
 #### Optional Fields
 
@@ -8240,7 +8240,7 @@ Field | Description | Default
 > Retrieve Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/{id}/
+curl https://api.rehive.com/3/admin/bank-accounts/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8312,14 +8312,14 @@ rehive.admin.bank_accounts.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/{id}/`
+`https://api.rehive.com/3/admin/bank-accounts/{id}/`
 
 ### Update Bank Account
 
 > Update Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/{id}/
+curl https://api.rehive.com/3/admin/bank-accounts/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8393,7 +8393,7 @@ rehive.admin.bank_accounts.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/{id}/`
+`https://api.rehive.com/3/admin/bank-accounts/{id}/`
 
 #### Optional Fields
 
@@ -8415,7 +8415,7 @@ Field | Description | Default
 > Delete Bank Account request
 
 ```shell
-curl https://rehive.com/api/3/admin/bank-accounts/{id}/
+curl https://api.rehive.com/3/admin/bank-accounts/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8455,7 +8455,7 @@ rehive.admin.bank_accounts.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/bank-accounts/{id}/`
+`https://api.rehive.com/3/admin/bank-accounts/{id}/`
 
 
 ## Webhooks
@@ -8465,7 +8465,7 @@ rehive.admin.bank_accounts.delete(
 > List webhooks request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/
+curl https://api.rehive.com/3/admin/webhooks/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8538,14 +8538,14 @@ rehive.admin.webhooks.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/`
+`https://api.rehive.com/3/admin/webhooks/`
 
 ### Create Webhook
 
 > Create webhooks request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/
+curl https://api.rehive.com/3/admin/webhooks/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8611,7 +8611,7 @@ rehive.admin.webhooks.post(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/`
+`https://api.rehive.com/3/admin/webhooks/`
 
 #### Required Fields
 
@@ -8642,7 +8642,7 @@ transaction type.
 > Retrieve webhook request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/{id}/
+curl https://api.rehive.com/3/admin/webhooks/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8698,14 +8698,14 @@ rehive.admin.webhooks.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/{id}/`
+`https://api.rehive.com/3/admin/webhooks/{id}/`
 
 ### Update Webhook
 
 > Update webhook request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/{id}/
+curl https://api.rehive.com/3/admin/webhooks/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8765,7 +8765,7 @@ rehive.admin.webhooks.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/{id}/`
+`https://api.rehive.com/3/admin/webhooks/{id}/`
 
 #### Required Fields
 
@@ -8785,7 +8785,7 @@ Field | Description | Default
 > Delete webhook request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhooks/{id}/
+curl https://api.rehive.com/3/admin/webhooks/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8825,7 +8825,7 @@ rehive.admin.webhooks.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhooks/{id}/`
+`https://api.rehive.com/3/admin/webhooks/{id}/`
 
 
 ### List Webhook Tasks
@@ -8833,7 +8833,7 @@ rehive.admin.webhooks.delete(
 > List webhook tasks request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhook-tasks/
+curl https://api.rehive.com/3/admin/webhook-tasks/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8908,14 +8908,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhook-tasks/`
+`https://api.rehive.com/3/admin/webhook-tasks/`
 
 ### Retrieve Webhook Task
 
 > Retrieve webhook task request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhook-tasks/{id}/
+curl https://api.rehive.com/3/admin/webhook-tasks/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -8977,7 +8977,7 @@ rehive.admin.webhook_tasks.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhook-task/{id}/`
+`https://api.rehive.com/3/admin/webhook-task/{id}/`
 
 
 ### List Webhook Task Requests
@@ -8985,7 +8985,7 @@ rehive.admin.webhook_tasks.get(
 > List webhook task requests request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/
+curl https://api.rehive.com/3/admin/webhook-tasks/{id}/requests/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9035,14 +9035,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/`
+`https://api.rehive.com/3/admin/webhook-tasks/{id}/requests/`
 
 ### Retrieve Webhook Task Request
 
 > Retrieve webhook task request request
 
 ```shell
-curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/{id}/
+curl https://api.rehive.com/3/admin/webhook-tasks/{id}/requests/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9079,7 +9079,7 @@ rehive.admin.webhook_tasks.obj({id}).requests.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/webhook-task/{id}/requests/{id}/`
+`https://api.rehive.com/3/admin/webhook-task/{id}/requests/{id}/`
 
 
 ## Subtypes
@@ -9089,7 +9089,7 @@ rehive.admin.webhook_tasks.obj({id}).requests.get(
 > List subtypes request
 
 ```shell
-curl https://rehive.com/api/3/admin/subtypes/
+curl https://api.rehive.com/3/admin/subtypes/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9159,14 +9159,14 @@ rehive.admin.subtypes.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/subtypes/`
+`https://api.rehive.com/3/admin/subtypes/`
 
 ### Create subtypes
 
 > Create subtypes request
 
 ```shell
-curl https://rehive.com/api/3/admin/subtypes/
+curl https://api.rehive.com/3/admin/subtypes/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9240,7 +9240,7 @@ rehive.admin.subtypes.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/subtypes/`
+`https://api.rehive.com/3/admin/subtypes/`
 
 #### Required Fields
 
@@ -9262,7 +9262,7 @@ Field | Description | Default
 > Retrieve subtypes request
 
 ```shell
-curl https://rehive.com/api/3/admin/subtypes/{id}/
+curl https://api.rehive.com/3/admin/subtypes/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9323,14 +9323,14 @@ rehive.admin.subtypes.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/subtypes/{id}/`
+`https://api.rehive.com/3/admin/subtypes/{id}/`
 
 ### Update subtype
 
 > Update subtype request
 
 ```shell
-curl https://rehive.com/api/3/admin/subtypes/{id}/
+curl https://api.rehive.com/3/admin/subtypes/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9395,7 +9395,7 @@ rehive.admin.subtypes.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/subtypes/{id}/`
+`https://api.rehive.com/3/admin/subtypes/{id}/`
 
 #### Required Fields
 
@@ -9417,7 +9417,7 @@ Field | Description | Default
 > Delete subtype request
 
 ```shell
-curl https://rehive.com/api/3/admin/subtypes/{id}/
+curl https://api.rehive.com/3/admin/subtypes/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9462,7 +9462,7 @@ inaccessible you can "disable" it instead using the `enabled` attribute.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/subtypes/{id}/`
+`https://api.rehive.com/3/admin/subtypes/{id}/`
 
 
 ## Notifications
@@ -9472,7 +9472,7 @@ inaccessible you can "disable" it instead using the `enabled` attribute.
 > List Notifications request
 
 ```shell
-curl https://rehive.com/api/3/admin/notifications/
+curl https://api.rehive.com/3/admin/notifications/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9530,14 +9530,14 @@ rehive.admin.notifications.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/notifications/`
+`https://api.rehive.com/3/admin/notifications/`
 
 ### Retrieve Notifications
 
 > Retrieve Notifications request
 
 ```shell
-curl https://rehive.com/api/3/admin/notifications/{id}/
+curl https://api.rehive.com/3/admin/notifications/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9589,14 +9589,14 @@ rehive.admin.notifications.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/notifications/{id}`
+`https://api.rehive.com/3/admin/notifications/{id}`
 
 ### Update Notifications
 
 > Update Notifications request
 
 ```shell
-curl https://rehive.com/api/3/admin/notifications/{id}
+curl https://api.rehive.com/3/admin/notifications/{id}
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9652,7 +9652,7 @@ rehive.admin.notifications.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/notifications/{id}`
+`https://api.rehive.com/3/admin/notifications/{id}`
 
 #### Required Fields
 
@@ -9675,7 +9675,7 @@ List all tiers.
 > List Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9773,7 +9773,7 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/`
 
 ### Create Tier
 
@@ -9782,7 +9782,7 @@ Create a new tier.
 > Create Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9878,7 +9878,7 @@ rehive.admin.tiers.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/`
 
 #### Required Fields
 
@@ -9901,7 +9901,7 @@ Retrieve a specific tier.
 > Retrieve Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -9986,7 +9986,7 @@ rehive.admin.tiers.get("{id}")
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{id}/`
 
 ### Update Tier
 
@@ -9995,7 +9995,7 @@ Update the name of description of a tier.
 > Update Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10099,7 +10099,7 @@ Field | Description | Default
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/`
 
 ### Delete Tier
 
@@ -10108,7 +10108,7 @@ Delete a specific tier.
 > Delete Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10148,7 +10148,7 @@ rehive.admin.tiers.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{id}/`
 
 ### List Tier Requirements
 
@@ -10157,7 +10157,7 @@ List all requirements related to a tier.
 > List Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10215,7 +10215,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/`
 
 ### Create Tier Requirements
 
@@ -10224,7 +10224,7 @@ Create a new switch related to a Tier.
 > Create Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10281,7 +10281,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/`
 
 #### Required Fields
 
@@ -10314,7 +10314,7 @@ Retrieve a specific requirement related to a Tier
 > Retrieve Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10368,7 +10368,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
 
 ### Update Tier Requirements
 
@@ -10377,7 +10377,7 @@ Update a specific requirement related to a Tier
 > Update Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10433,7 +10433,7 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
 
 #### Required Fields
 
@@ -10466,7 +10466,7 @@ Delete a specific requirement related to a Tier
 > Delete Tier Requirements request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10506,7 +10506,7 @@ rehive.admin.tiers.obj({tier_id}).requirements.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{requirement_id}/`
 
 ### List Tier Limits
 
@@ -10515,7 +10515,7 @@ List all Limits related to a tier.
 > List Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10582,7 +10582,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/`
 
 ### Create Tier Limits
 
@@ -10591,7 +10591,7 @@ Create a new limit related to a Tier.
 > Create Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10661,7 +10661,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/`
 
 #### Required Fields
 
@@ -10701,7 +10701,7 @@ Retrieve a specific requirement related to a Tier
 > Retrieve Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10764,7 +10764,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
 
 ### Update Tier Limits
 
@@ -10773,7 +10773,7 @@ Update a specific limits related to a Tier
 > Update Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10843,7 +10843,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
 
 #### Required Fields
 
@@ -10883,7 +10883,7 @@ Delete a specific requirement related to a Tier
 > Delete Tier Limits request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10923,7 +10923,7 @@ rehive.admin.tiers.obj({tier_id}).limits.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_id}/`
 
 ### List Tier Fees
 
@@ -10932,7 +10932,7 @@ List all fees related to a Tier.
 > List Tier Fees request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -10999,7 +10999,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.get()
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/`
 
 ### Create Tier Fee
 
@@ -11008,7 +11008,7 @@ Create a new fee related to a Tier.
 > Create Tier Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11077,7 +11077,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/`
 
 #### Required Fields
 
@@ -11107,7 +11107,7 @@ Retrieve a specific requirement related to a Tier.
 > Retrieve Tier Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11170,7 +11170,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.get(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
 
 ### Update Tier Fee
 
@@ -11179,7 +11179,7 @@ Update a specific fees related to a Tier.
 > Update Tier request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11244,7 +11244,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.update(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
 
 #### Required Fields
 
@@ -11274,7 +11274,7 @@ Delete a specific requirement related to a Tier.
 > Delete Tier Fee request
 
 ```shell
-curl https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
+curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11314,7 +11314,7 @@ rehive.admin.tiers.obj({tier_id}).fees.delete(
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
+`https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/`
 
 ## Groups
 
@@ -11326,7 +11326,7 @@ permissions to view, add, edit or delete data from the system via admin endpoint
 > Admin list groups request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/groups/
+curl https://api.rehive.com/3/admin/groups/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11431,14 +11431,14 @@ Get a list of groups that have been created.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/`
+`https://api.rehive.com/3/admin/groups/`
 
 ### Create groups
 
 > Admin create groups request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/groups/
+curl https://api.rehive.com/3/admin/groups/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11525,7 +11525,7 @@ Create a new group.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/`
+`https://api.rehive.com/3/admin/groups/`
 
 #### Required Fields
 
@@ -11538,7 +11538,7 @@ Field | Description | Default
 > Admin update groups request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/groups/{group_name}/
+curl https://api.rehive.com/3/admin/groups/{group_name}/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11626,7 +11626,7 @@ Update the group's details.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/`
+`https://api.rehive.com/3/admin/groups/{group_name}/`
 
 #### Required Fields
 
@@ -11639,7 +11639,7 @@ Field | Description | Default
 > Admin delete groups request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/groups/{group_name}/
+curl https://api.rehive.com/3/admin/groups/{group_name}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11680,7 +11680,7 @@ Delete the group.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/`
+`https://api.rehive.com/3/admin/groups/{group_name}/`
 
 
 ### Assign group
@@ -11688,7 +11688,7 @@ Delete the group.
 > Admin assign group request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/{uuid}/groups/
+curl https://api.rehive.com/3/admin/users/{uuid}/groups/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11753,7 +11753,7 @@ Assign a user to a group.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/admin/users/{uuid}/groups/`
+`https://api.rehive.com/3/admin/users/{uuid}/groups/`
 
 #### Required Fields
 
@@ -11766,7 +11766,7 @@ Field | Description | Default
 > Admin unassign group request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/{uuid}/groups/{group_name}/
+curl https://api.rehive.com/3/admin/users/{uuid}/groups/{group_name}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11808,7 +11808,7 @@ Unassign a group from a user.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/admin/users/{uuid}/groups/{group_name}/`
+`https://api.rehive.com/3/admin/users/{uuid}/groups/{group_name}/`
 
 ## Permissions
 
@@ -11819,7 +11819,7 @@ Users can either be assigned groups, or permissions directly. When assigning gro
 > Admin list group permissions request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/groups/{group_name}/permissions/
+curl https://api.rehive.com/3/admin/groups/{group_name}/permissions/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11891,14 +11891,14 @@ List all the permissions associated to a group.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/permissions/`
+`https://api.rehive.com/3/admin/groups/{group_name}/permissions/`
 
 ### Add group permissions
 
 > Admin add group permissions request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/groups/{group_name}/permissions/
+curl https://api.rehive.com/3/admin/groups/{group_name}/permissions/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -11958,7 +11958,7 @@ Add the given permission to the group.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/permissions/`
+`https://api.rehive.com/3/admin/groups/{group_name}/permissions/`
 
 #### Required Fields
 
@@ -11972,7 +11972,7 @@ Field | Description | Default
 > Admin remove group permissions request
 
 ```shell
-curl https://www.rehive.com/admin/api/3/admin/groups/{group_name}/permissions/{permission_id}/
+curl https://api.rehive.com/3/admin/groups/{group_name}/permissions/{permission_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12014,14 +12014,14 @@ Remove the permission from the group.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/permissions/{permission_id}/`
+`https://api.rehive.com/3/admin/groups/{group_name}/permissions/{permission_id}/`
 
 ### Assign permissions
 
 > Admin assign permissions request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/
+curl https://api.rehive.com/3/admin/users/{uuid}/permissions/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12080,7 +12080,7 @@ Assign a permission to a user.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/admin/users/{uuid}/permissions/`
+`https://api.rehive.com/3/admin/users/{uuid}/permissions/`
 
 #### Required Fields
 
@@ -12094,7 +12094,7 @@ Field | Description | Default
 > Admin unassign permissions request
 
 ```shell
-curl https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}/
+curl https://api.rehive.com/3/admin/users/{uuid}/permissions/{permission_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12136,7 +12136,7 @@ Unassign a permissions for a user.
 
 #### Endpoint
 
-`https://www.rehive.com/api/3/admin/users/{uuid}/permissions/{permission_id}/`
+`https://api.rehive.com/3/admin/users/{uuid}/permissions/{permission_id}/`
 
 ## Group Account Configurations
 
@@ -12149,7 +12149,7 @@ and currencies.
 > List group account configurations request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12207,14 +12207,14 @@ List group account configurations.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/`
 
 ### Create Group Account Configuration
 
 > Create group account configuration request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12268,7 +12268,7 @@ Create a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/`
 
 #### Required Fields
 
@@ -12289,7 +12289,7 @@ Field | Description | Default
 > Group account configuration request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12349,14 +12349,14 @@ Retrieve a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/`
 
 ### Update Group Account Configuration
 
 > Update group account configuration request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12410,7 +12410,7 @@ Retrieve a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/`
 
 #### Required Fields
 
@@ -12431,7 +12431,7 @@ Field | Description | Default
 > Delete group account configuration request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12467,7 +12467,7 @@ Delete a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/`
 
 
 ### List Group Account Configuration Currencies
@@ -12475,7 +12475,7 @@ Delete a group account configuration.
 > Admin list group account configuration currencies request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12527,7 +12527,7 @@ Get a list of currencies for a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/`
 
 
 ### Create Group Account Configuration Currency
@@ -12535,7 +12535,7 @@ Get a list of currencies for a group account configuration.
 > Admin create group account configuration currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12584,7 +12584,7 @@ Create a currency for a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/`
 
 #### Required Fields
 
@@ -12597,7 +12597,7 @@ Field | Description | Default
 > Admin retrieve group account configuration currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12645,14 +12645,14 @@ Retrieve an account's currency belonging to a group account configuration.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/`
 
 ### Delete Account Currency
 
 > Admin retrieve account currency request
 
 ```shell
-curl https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/
+curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12689,4 +12689,4 @@ Remove a currency from a group account configuration group.
 
 #### Endpoint
 
-`https://rehive.com/api/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/`
+`https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/`

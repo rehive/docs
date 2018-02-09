@@ -5,7 +5,7 @@
 > User list accounts request
 
 ```shell
-curl https://www.rehive.com/api/3/accounts/
+curl https://api.rehive.com/3/accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -18,7 +18,7 @@ rehive.accounts.get({filters: filters}).then(function(res){
     ...
 })
 ```
-
+https://api.rehive.com/3/
 ```python
 rehive.accounts.get(
     filters=filters
@@ -152,14 +152,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/accounts/`
+`https://api.rehive.com/3/accounts/`
 
 ## Create Account
 
 > User create account request
 
 ```shell
-curl https://www.rehive.com/api/3/accounts/
+curl https://api.rehive.com/3/accounts/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -225,7 +225,7 @@ Create a account for a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/accounts/`
+`https://api.rehive.com/3/accounts/`
 
 #### Required Fields
 
@@ -245,7 +245,7 @@ Field | Description | Default
 > User retrieve account request
 
 ```shell
-curl https://www.rehive.com/api/3/accounts/{reference}/
+curl https://api.rehive.com/3/accounts/{reference}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -373,7 +373,7 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/accounts/{reference}/`
+`https://api.rehive.com/3/accounts/{reference}/`
 
 
 ## List Account Currencies
@@ -381,7 +381,7 @@ Field | Type
 > User list account currencies request
 
 ```shell
-curl https://www.rehive.com/api/3/accounts/{reference}/currencies/
+curl https://api.rehive.com/3/accounts/{reference}/currencies/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -498,14 +498,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/accounts/{reference}/currencies/`
+`https://api.rehive.com/3/accounts/{reference}/currencies/`
 
 ## Retrieve Account Currency
 
 > User retrieve account currency request
 
 ```shell
-curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
+curl https://api.rehive.com/3/accounts/{reference}/currencies/{code}
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -601,14 +601,14 @@ Retrieve an account's currency belonging to a user.
 
 #### Endpoint
 
-`https://rehive.com/api/3/accounts/{reference}/currencies/{code}`
+`https://api.rehive.com/3/accounts/{reference}/currencies/{code}`
 
 ## Update Account Currency
 
 > User update account currency request
 
 ```shell
-curl https://www.rehive.com/api/3/accounts/{reference}/currencies/{code}
+curl https://api.rehive.com/3/accounts/{reference}/currencies/{code}
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -710,7 +710,7 @@ Update the active status of an account currency. Activating an account's currenc
 
 #### Endpoint
 
-`https://rehive.com/api/3/accounts/{reference}/currencies/{code}`
+`https://api.rehive.com/3/accounts/{reference}/currencies/{code}`
 
 #### Optional Fields
 

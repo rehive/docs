@@ -5,7 +5,7 @@
 > User retrieve company details request
 
 ```shell
-curl https://www.rehive.com/api/3/company/
+curl https://api.rehive.com/3/company/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -104,14 +104,14 @@ Retrieve current user's company details.
 
 #### Endpoint
 
-`https://rehive.com/api/3/company/`
+`https://api.rehive.com/3/company/`
 
 ## List Company Currencies
 
 > User list company currencies request
 
 ```shell
-curl https://www.rehive.com/api/3/company/currencies/
+curl https://api.rehive.com/3/company/currencies/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -184,14 +184,14 @@ Get a list of available currencies for the current user's company.
 
 #### Endpoint
 
-`https://rehive.com/api/3/company/currencies/`
+`https://api.rehive.com/3/company/currencies/`
 
 ## List Company Banks
 
 > User list company banks request
 
 ```shell
-curl https://www.rehive.com/api/3/company/bank-account/
+curl https://api.rehive.com/3/company/bank-account/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -284,4 +284,4 @@ List company banks for the current user's company.
 
 #### Endpoint
 
-`https://rehive.com/api/3/company/bank-account/`
+`https://api.rehive.com/3/company/bank-account/`

@@ -11,7 +11,7 @@ Transactions are run as asynchronous processes within Rehive, so the latest stat
 > User transactions request
 
 ```shell
-curl https://www.rehive.com/api/3/transactions/
+curl https://api.rehive.com/3/transactions/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -171,14 +171,14 @@ Field | Type
 
 #### Endpoint
 
-`https://rehive.com/api/3/transactions/`
+`https://api.rehive.com/3/transactions/`
 
 ## Total Transactions
 
 > User total transactions request
 
 ```shell
-curl https://www.rehive.com/api/3/transactions/totals/
+curl https://api.rehive.com/3/transactions/totals/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -240,7 +240,7 @@ See Transaction List filtering above.
 > User credit request
 
 ```shell
-curl https://www.rehive.com/api/3/transactions/credit/
+curl https://api.rehive.com/3/transactions/credit/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -371,7 +371,7 @@ Create a credit transaction.
 
 #### Endpoint
 
-`https://rehive.com/api/3/transactions/credit/`
+`https://api.rehive.com/3/transactions/credit/`
 
 #### Required Fields
 
@@ -403,7 +403,7 @@ A <code>subtype</code> can be created in the admin dashboard (or via the API). A
 > User debit request
 
 ```shell
-curl https://www.rehive.com/api/3/transactions/debit/
+curl https://api.rehive.com/3/transactions/debit/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -534,7 +534,7 @@ Create a debit transaction.
 
 #### Endpoint
 
-`https://rehive.com/api/3/transactions/debit/`
+`https://api.rehive.com/3/transactions/debit/`
 
 #### Required Fields
 
@@ -558,7 +558,7 @@ Field | Description | Default
 > User transfer request
 
 ```shell
-curl https://www.rehive.com/api/3/transactions/transfer/
+curl https://api.rehive.com/3/transactions/transfer/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -728,7 +728,7 @@ The transfer transaction endpoint is a wrapper for standard debit/credit transac
 
 #### Endpoint
 
-`https://rehive.com/api/3/transactions/transfer/`
+`https://api.rehive.com/3/transactions/transfer/`
 
 #### Required Fields
 
@@ -760,7 +760,7 @@ Field | Description | Default
 > Retrieve transaction request
 
 ```shell
-curl https://www.rehive.com/api/3/transactions/{id}/
+curl https://api.rehive.com/3/transactions/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -885,5 +885,5 @@ Get transaction details for a spcific transactions.
 
 #### Endpoint
 
-`https://rehive.com/api/3/transactions/{id}/`
+`https://api.rehive.com/3/transactions/{id}/`
 
