@@ -7931,6 +7931,11 @@ curl https://rehive.com/api/3/admin/company/settings/
 ```
 
 ```javascript
+rehive.admin.company.settings.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -7960,6 +7965,20 @@ rehive.admin.company.settings.get()
 ```
 
 ```javascript
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true,
+    "require_verification": true,
+    "allow_registrations": true,
+    "allow_overdrafts": false,
+    "auto_complete_transactions": false,
+    "allow_session_durations": false,
+    "require_terms_and_conditions": false,
+    "password_reset_url": null,
+    "email_confirmation_url": null,
+    "nationalities": []
+}
 ```
 
 ```python
@@ -7998,6 +8017,11 @@ curl https://rehive.com/api/3/admin/company/settings/
 ```
 
 ```javascript
+rehive.admin.company.settings.update({allow_transactions: true}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -8026,6 +8050,20 @@ rehive.admin.company.settings.update(
 ```
 
 ```javascript
+{
+    "allow_transactions": true,
+    "allow_debit_transactions": true,
+    "allow_credit_transactions": true,
+    "require_verification": true,
+    "allow_registrations": true,
+    "allow_overdrafts": false,
+    "auto_complete_transactions": false,
+    "allow_session_durations": false,
+    "require_terms_and_conditions": false,
+    "password_reset_url": null,
+    "email_confirmation_url": null,
+    "nationalities": []
+}
 ```
 
 ```python
@@ -8879,6 +8917,14 @@ curl https://rehive.com/api/3/admin/webhook-tasks/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.webhookTasks.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+})
+```
+
 ```python
 rehive.admin.webhook_tasks.get()
 ```
@@ -8910,6 +8956,31 @@ rehive.admin.webhook_tasks.get()
             }
         ]
     }
+}
+```
+
+```javascript
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 1,
+            "webhook": {
+                "id": 1,
+                "url": "http://mysite.com/webhook_endpoint",
+                "event": "user.create",
+                "condition": null,
+                "secret": "secret"
+            },
+            "tries": 1,
+            "completed": 1511546662774,
+            "failed": null,
+            "created": 1511546662487,
+            "updated": 1511546662774
+        }
+    ]
 }
 ```
 
@@ -8961,6 +9032,14 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.webhookTasks.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
 ```python
 rehive.admin.webhook_tasks.get(
     {id}
@@ -8993,6 +9072,26 @@ rehive.admin.webhook_tasks.get(
 }
 ```
 
+```javascript
+{
+    "id": 1,
+    "webhook": {
+        "id": 1,
+        "url": "http://mysite.com/webhook_endpoint",
+        "event": "user.create",
+        "condition": null,
+        "secret": "secret"
+    },
+    "tries": 1,
+    "data": {
+        ...
+    }
+    "completed": 1511546662774,
+    "failed": null,
+    "created": 1511546662487,
+    "updated": 1511546662774
+}
+```
 
 ```python
 {
@@ -9031,6 +9130,14 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.webhookTasks.requests.get(webhookTaskID).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
 ```python
 rehive.admin.webhook_tasks.obj({id}).requests.get()
 ```
@@ -9054,6 +9161,17 @@ rehive.admin.webhook_tasks.obj({id}).requests.get()
         ]
     }
 }
+```
+
+```javascript
+[
+    {
+        "id": 1,
+        "response_code": 200,
+        "error": null,
+        "created": 1511546662778
+    }
+]
 ```
 
 ```python
@@ -9088,6 +9206,14 @@ curl https://rehive.com/api/3/admin/webhook-tasks/{id}/requests/{id}/
   -H "Content-Type: application/json"
 ```
 
+```javascript
+rehive.admin.webhookTasks.requests.get(webhookTaskID,{id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
 ```python
 rehive.admin.webhook_tasks.obj({id}).requests.get(
     {id}
@@ -9107,6 +9233,16 @@ rehive.admin.webhook_tasks.obj({id}).requests.get(
     }
 }
 ```
+
+```javascript
+{
+    "id": 1,
+    "response_code": 200,
+    "error": null,
+    "created": 1511546662778
+}
+```
+
 
 ```python
 {
