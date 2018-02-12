@@ -414,7 +414,7 @@ curl https://api.rehive.com/3/transactions/debit/
 rehive.transactions.createDebit(
 {
     amount: 500,
-    currency": "ZAR"
+    currency: "ZAR"
 }).then(function(res){
     ...
 },function(err){
