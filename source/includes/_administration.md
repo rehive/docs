@@ -9858,7 +9858,7 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/
 ```
 
 ```javascript
-rehive.admin.tiers.get().then(function (res) {
+rehive.admin.groups.tiers.get(groupName).then(function (res) {
     ...
 }, function (error) {
     ...
@@ -9969,9 +9969,8 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/
 ```
 
 ```javascript
-rehive.admin.tiers.create(
+rehive.admin.groups.tiers.create(groupName,
 {
-    currency: "XBT",
     level: 1,
     name: "First tier",
     description: "This is a tier"
@@ -10088,11 +10087,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{id}/
 ```
 
 ```javascript
-rehive.admin.tiers.get({id: id}).then(function (res) {
+rehive.admin.groups.tiers.get(groupName,{id: id}).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10183,11 +10182,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{id}/
 ```
 
 ```javascript
-rehive.admin.tiers.update(tierId, data).then(function (res) {
+rehive.admin.groups.tiers.update(groupName,tierId, {name: "Updated Name"}).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10295,11 +10294,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{id}/
 ```
 
 ```javascript
-rehive.admin.tiers.delete(tierId).then(function (res) {
+rehive.admin.groups.tiers.delete(groupName,tierId).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10344,11 +10343,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/
 ```
 
 ```javascript
-rehive.admin.tiers.requirements.get(tierId).then(function (res) {
+rehive.admin.groups.tiers.requirements.get(groupName,tierId).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10412,7 +10411,7 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/
 ```
 
 ```javascript
-rehive.admin.tiers.requirements.create(tierId, {
+rehive.admin.groups.tiers.requirements.create(groupName,tierId, {
     requirement: "birth_date"
 }).then(function (res) {
     ...
@@ -10501,11 +10500,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{r
 ```
 
 ```javascript
-rehive.admin.tiers.requirements.get(tierId,{id: requirementId}).then(function (res) {
+rehive.admin.groups.tiers.requirements.get(groupName,tierId, {id: id}).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10565,11 +10564,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{r
 ```
 
 ```javascript
-rehive.admin.tiers.requirements.update(tierId, requirementId, {requirement: "proof_of_identity"}).then(function (res) {
+rehive.admin.groups.tiers.requirements.update(groupName,tierId, requirementId,{requirement: "proof_of_identity"}).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10653,11 +10652,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/requirements/{r
 ```
 
 ```javascript
-rehive.admin.tiers.requirements.delete(tierId,requirementId).then(function (res) {
+rehive.admin.groups.tiers.requirements.delete(name,tierId,requirementId).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10702,11 +10701,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/
 ```
 
 ```javascript
-rehive.admin.tiers.limits.get(tierId).then(function (res) {
+rehive.admin.groups.tiers.limits.get(groupName,tierId).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10737,6 +10736,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get()
     {
         "id": 1,
         "value": 1000,
+        "currency": "USD",
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
@@ -10779,10 +10779,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/
 ```
 
 ```javascript
-rehive.admin.tiers.limits.create(tierId, {
+rehive.admin.groups.tiers.limits.create(name,tierId, {
+    currency: 'USD',
     value: 1000,
     type: "Maximum",
-    tx_type: "credit"
+    tx_type: 'credit'
 }).then(function (res) {
     ...
 }, function (err) {
@@ -10819,6 +10820,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.create(
 {
     "id": 1,
     "value": 1000,
+    "currency": "USD",
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
@@ -10888,11 +10890,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_i
 ```
 
 ```javascript
-rehive.admin.tiers.limits.get(tierId, {id: limitId}).then(function (res) {
+rehive.admin.groups.tiers.limits.get(groupName,tierId, {id: id}).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -10922,6 +10924,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get(
 {
     "id": 1,
     "value": 1000,
+    "currency": "USD",
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
@@ -10962,14 +10965,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_i
 ```
 
 ```javascript
-rehive.admin.tiers.limits.update(tierId, limitId,{
-    value: 5000,
-    type: "min"
-}).then(function (res) {
+rehive.admin.groups.tiers.limits.update(groupName,tierId, limitId,{value: 5000,type: "min"}).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -11001,6 +11001,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
 {
     "id": 1,
     "value": 5000,
+    "currency": "USD",
     "type": "Minimum",
     "tx_type": "credit",
     "subtype": null,
@@ -11070,11 +11071,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/limits/{limit_i
 ```
 
 ```javascript
-rehive.admin.tiers.limits.delete(tierId, limitId).then(function (res) {
+rehive.admin.groups.tiers.limits.delete(groupName,tierId, limitId).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -11119,11 +11120,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/
 ```
 
 ```javascript
-rehive.admin.tiers.fees.get(tierId).then(function (res) {
+rehive.admin.groups.tiers.fees.get(groupName,tierId).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -11154,6 +11155,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.get()
     {
         "id": 1,
         "value": 1000,
+        "currency": "USD",
         "percentage": null,
         "tx_type": "credit",
         "subtype": null,
@@ -11197,9 +11199,10 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/
 ```
 
 ```javascript
-rehive.admin.tiers.fees.create(tierId, {
+rehive.admin.groups.tiers.fees.create(groupName,tierId, {
+    currency: 'XBT',
     value: 1000,
-    tx_type: "credit"
+    tx_type: 'credit'
 }).then(function (res) {
     ...
 }, function (err) {
@@ -11235,6 +11238,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
 {
     "id": 1,
     "value": 1000,
+    "currency": "USD",
     "percentage": null,
     "tx_type": "credit",
     "subtype": null,
@@ -11294,11 +11298,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
 ```
 
 ```javascript
-rehive.admin.tiers.fees.get(tierId, {id: feeId}).then(function (res) {
+rehive.admin.groups.tiers.fees.get(groupName,tierId, {id: id}).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -11328,6 +11332,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.get(
 {
     "id": 1,
     "value": 1000,
+    "currency": "USD",
     "percentage": null,
     "tx_type": "credit",
     "subtype": null,
@@ -11367,11 +11372,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
 ```
 
 ```javascript
-rehive.admin.tiers.fees.update(tierId, feeId,{value: 5000}).then(function (res) {
+rehive.admin.groups.tiers.fees.update(groupName,tierId, feeId,{value: 5000}).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -11388,6 +11393,7 @@ rehive.admin.tiers.obj("{tier_id}").fees.update(
     "data": {
         "id": 1,
         "value": 5000,
+        "currency": "USD",
         "percentage": null,
         "tx_type": "credit",
         "subtype": null,
@@ -11461,11 +11467,11 @@ curl https://api.rehive.com/3/admin/{group_name}/tiers/{tier_id}/fees/{fee_id}/
 ```
 
 ```javascript
-rehive.admin.tiers.fees.delete(tierId, feeId).then(function (res) {
+rehive.admin.groups.tiers.fees.delete(groupName,tierId, feeId).then(function (res) {
     ...
 }, function (error) {
     ...
-})
+});
 ```
 
 ```python
@@ -12336,6 +12342,11 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.get(groupName).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12367,6 +12378,17 @@ rehive.admin.groups.obj({group_name}).account_configurations.get()
 ```
 
 ```javascript
+[
+    {
+        "name": "default",
+        "label": "Default",
+        "currencies": [],
+        "default": true,
+        "primary": true,
+        "created": 1464858068732,
+        "updated": 1464858068732
+    }
+]
 ```
 
 ```python
@@ -12403,6 +12425,16 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.create(groupName,
+{
+    name: 'default',
+    label: 'Default'
+
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12430,6 +12462,15 @@ rehive.admin.groups.obj({group_name}).account_configurations.create(
 ```
 
 ```javascript
+{
+    "name": "default",
+    "label": "Default",
+    "currencies": [],
+    "default": true,
+    "primary": true,
+    "created": 1464858068732,
+    "updated": 1464858068732
+}
 ```
 
 ```python
@@ -12476,6 +12517,11 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.get(groupName,{name: configName}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12509,6 +12555,17 @@ rehive.admin.groups.obj({group_name}).account_configurations.get(
 ```
 
 ```javascript
+[
+    {
+        "name": "default",
+        "label": "Default",
+        "currencies": [],
+        "default": true,
+        "primary": true,
+        "created": 1464858068732,
+        "updated": 1464858068732
+    }
+]
 ```
 
 ```python
@@ -12544,6 +12601,11 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.update(groupName,configName,{name: "default", label: "Default"}).then(function (res) {
+    ...
+}, function (error) {
+    ...
+});
 ```
 
 ```python
@@ -12572,6 +12634,15 @@ rehive.admin.groups.obj({group_name}).account_configurations.update(
 ```
 
 ```javascript
+{
+    "name": "default",
+    "label": "Default",
+    "currencies": [],
+    "default": true,
+    "primary": true,
+    "created": 1464858068732,
+    "updated": 1464858068732
+}
 ```
 
 ```python
@@ -12618,6 +12689,11 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.delete(groupName,configName).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12635,6 +12711,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.delete(
 ```
 
 ```javascript
+{}
 ```
 
 ```python
@@ -12662,6 +12739,11 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.currencies.get(groupName,configName).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12689,6 +12771,15 @@ rehive.admin.groups.obj({group_name}).account_configurations.obj({config_name})/
 ```
 
 ```javascript
+[
+    {
+        "code": "ZAR",
+        "description": "Rand",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    }
+]
 ```
 
 ```python
@@ -12723,6 +12814,14 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.currencies.create(groupName,configName,
+{
+    currency: "ZAR"
+}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12748,6 +12847,13 @@ rehive.admin.groups.obj({group_name}).account_configurations.obj({config_name})/
 ```
 
 ```javascript
+{
+    "code": "ZAR",
+    "description": "Rand",
+    "symbol": "R",
+    "unit": "rand",
+    "divisibility": 2
+}
 ```
 
 ```python
@@ -12784,6 +12890,11 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.currencies.get(groupName,configName,{code: 'ZAR'}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12809,6 +12920,13 @@ rehive.admin.groups.obj({group_name}).account_configurations.obj({config_name})/
 ```
 
 ```javascript
+{
+    "code": "ZAR",
+    "description": "Rand",
+    "symbol": "R",
+    "unit": "rand",
+    "divisibility": 2
+}
 ```
 
 ```python
@@ -12839,6 +12957,11 @@ curl https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{
 ```
 
 ```javascript
+rehive.admin.groups.accountConfigurations.currencies.delete(groupName,configName,code).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
 ```
 
 ```python
@@ -12857,6 +12980,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.obj({config_name})/
 ```
 
 ```javascript
+{}
 ```
 
 ```python
