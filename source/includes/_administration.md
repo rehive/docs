@@ -116,32 +116,14 @@ rehive.admin.users.get()
                 "timezone": "Asia/Dhaka",
                 "verified": true,
                 "kyc": {
-                    "bank_accounts": {
-                        "status": null,
-                        "updated": null
-                    },
-                    "status": "pending",
-                    "addresses": {
-                        "status": null,
-                        "updated": null
-                    },
-                    "documents": {
-                        "status": null,
-                        "updated": null
-                    },
-                    "updated": 1509619797959
+                    "updated": 1509539801040,
+                    "status": "pending"
                 },
                 "status": "pending",
                 "groups": [],
-                "permissions": [],
                 "date_joined": 1464912953000,
-                "settings": {
-                    "allow_transactions": true,
-                    "allow_debit_transactions": true,
-                    "allow_credit_transactions": true
-                },
                 "last_login": null,
-                "password": "*********************************00000000"
+                "active": true
             }
         ]
     }
@@ -178,32 +160,14 @@ rehive.admin.users.get()
             "timezone": "Asia/Dhaka",
             "verified": true,
             "kyc": {
-                "bank_accounts": {
-                    "status": null,
-                    "updated": null
-                },
-                "status": "pending",
-                "addresses": {
-                    "status": null,
-                    "updated": null
-                },
-                "documents": {
-                    "status": null,
-                    "updated": null
-                },
-                "updated": 1509619797959
+                "updated": 1509539801040,
+                "status": "pending"
             },
             "status": "pending",
             "groups": [],
-            "permissions": [],
             "date_joined": 1464912953000,
-            "settings": {
-                "allow_transactions": true,
-                "allow_debit_transactions": true,
-                "allow_credit_transactions": true
-            },
             "last_login": null,
-            "password": "*********************************00000000"
+            "active": true
         }
     ]
 }
@@ -235,32 +199,14 @@ rehive.admin.users.get()
         "timezone": "Asia/Dhaka",
         "verified": true,
         "kyc": {
-            "bank_accounts": {
-                "status": null,
-                "updated": null
-            },
-            "status": "pending",
-            "addresses": {
-                "status": null,
-                "updated": null
-            },
-            "documents": {
-                "status": null,
-                "updated": null
-            },
-            "updated": 1509619797959
+            "updated": 1509539801040,
+            "status": "pending"
         },
         "status": "pending",
         "groups": [],
-        "permissions": [],
         "date_joined": 1464912953000,
-        "settings": {
-            "allow_transactions": true,
-            "allow_debit_transactions": true,
-            "allow_credit_transactions": true
-        },
         "last_login": null,
-        "password": "*********************************00000000"
+        "active": true
     }
 ]
 ```
@@ -282,6 +228,7 @@ Field | Type
 `nationality` | string
 `status` | string
 `currency` | string
+`active` | boolean
 `date_joined` | millsecond timestamp
 `last_login` | millsecond timestamp
 
@@ -366,20 +313,8 @@ rehive.admin.users.create(
         "timezone": "Asia/Dhaka",
         "verified": true,
         "kyc": {
-            "bank_accounts": {
-                "status": null,
-                "updated": null
-            },
-            "status": "pending",
-            "addresses": {
-                "status": null,
-                "updated": null
-            },
-            "documents": {
-                "status": null,
-                "updated": null
-            },
-            "updated": 1509619797959
+            "updated": 1509539801040,
+            "status": "pending"
         },
         "status": "pending",
         "groups": [],
@@ -391,7 +326,7 @@ rehive.admin.users.create(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "password": "*********************************00000000"
+        "active": true
     }
 }
 ```
@@ -421,20 +356,8 @@ rehive.admin.users.create(
     "timezone": "Asia/Dhaka",
     "verified": true,
     "kyc": {
-        "bank_accounts": {
-            "status": null,
-            "updated": null
-        },
-        "status": "pending",
-        "addresses": {
-            "status": null,
-            "updated": null
-        },
-        "documents": {
-            "status": null,
-            "updated": null
-        },
-        "updated": 1509619797959
+        "updated": 1509539801040,
+        "status": "pending"
     },
     "status": "pending",
     "groups": [],
@@ -446,7 +369,7 @@ rehive.admin.users.create(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "password": "*********************************00000000"
+    "active": true
 }
 ```
 
@@ -475,20 +398,8 @@ rehive.admin.users.create(
     "timezone": "Asia/Dhaka",
     "verified": true,
     "kyc": {
-        "bank_accounts": {
-            "status": null,
-            "updated": null
-        },
-        "status": "pending",
-        "addresses": {
-            "status": null,
-            "updated": null
-        },
-        "documents": {
-            "status": null,
-            "updated": null
-        },
-        "updated": 1509619797959
+        "updated": 1509539801040,
+        "status": "pending"
     },
     "status": "pending",
     "groups": [],
@@ -500,8 +411,7 @@ rehive.admin.users.create(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true,
-    "password": "*********************************00000000"
+    "active": true
 }
 ```
 
@@ -586,20 +496,8 @@ rehive.admin.users.get(
         "timezone": "Asia/Dhaka",
         "verified": true,
         "kyc": {
-            "bank_accounts": {
-                "status": null,
-                "updated": null
-            },
-            "status": "pending",
-            "addresses": {
-                "status": null,
-                "updated": null
-            },
-            "documents": {
-                "status": null,
-                "updated": null
-            },
-            "updated": 1509619797959
+            "updated": 1509539801040,
+            "status": "pending"
         },
         "status": "pending",
         "groups": [],
@@ -611,8 +509,7 @@ rehive.admin.users.get(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "active": true,
-        "password": "*********************************00000000"
+        "active": true
     }
 }
 ```
@@ -642,20 +539,8 @@ rehive.admin.users.get(
     "timezone": "Asia/Dhaka",
     "verified": true,
     "kyc": {
-        "bank_accounts": {
-            "status": null,
-            "updated": null
-        },
-        "status": "pending",
-        "addresses": {
-            "status": null,
-            "updated": null
-        },
-        "documents": {
-            "status": null,
-            "updated": null
-        },
-        "updated": 1509619797959
+        "updated": 1509539801040,
+        "status": "pending"
     },
     "status": "pending",
     "groups": [],
@@ -667,8 +552,7 @@ rehive.admin.users.get(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true,
-    "password": "*********************************00000000"
+    "active": true
 }
 ```
 
@@ -697,20 +581,8 @@ rehive.admin.users.get(
     "timezone": "Asia/Dhaka",
     "verified": true,
     "kyc": {
-        "bank_accounts": {
-            "status": null,
-            "updated": null
-        },
-        "status": "pending",
-        "addresses": {
-            "status": null,
-            "updated": null
-        },
-        "documents": {
-            "status": null,
-            "updated": null
-        },
-        "updated": 1509619797959
+        "updated": 1509539801040,
+        "status": "pending"
     },
     "status": "pending",
     "groups": [],
@@ -722,8 +594,7 @@ rehive.admin.users.get(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true,
-    "password": "*********************************00000000"
+    "active": true
 }
 ```
 
@@ -803,20 +674,8 @@ rehive.admin.users.update(
         "timezone": "Asia/Dhaka",
         "verified": true,
         "kyc": {
-            "bank_accounts": {
-                "status": null,
-                "updated": null
-            },
-            "status": "pending",
-            "addresses": {
-                "status": null,
-                "updated": null
-            },
-            "documents": {
-                "status": null,
-                "updated": null
-            },
-            "updated": 1509619797959
+            "updated": 1509539801040,
+            "status": "pending"
         },
         "status": "pending",
         "groups": [],
@@ -828,8 +687,7 @@ rehive.admin.users.update(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "active": true,
-        "password": "*********************************00000000"
+        "active": true
     }
 }
 ```
@@ -859,20 +717,8 @@ rehive.admin.users.update(
     "timezone": "Asia/Dhaka",
     "verified": true,
     "kyc": {
-        "bank_accounts": {
-            "status": null,
-            "updated": null
-        },
-        "status": "pending",
-        "addresses": {
-            "status": null,
-            "updated": null
-        },
-        "documents": {
-            "status": null,
-            "updated": null
-        },
-        "updated": 1509619797959
+        "updated": 1509539801040,
+        "status": "pending"
     },
     "status": "pending",
     "groups": [],
@@ -884,8 +730,7 @@ rehive.admin.users.update(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true,
-    "password": "*********************************00000000"
+    "active": true
 }
 ```
 
@@ -914,20 +759,8 @@ rehive.admin.users.update(
     "timezone": "Asia/Dhaka",
     "verified": true,
     "kyc": {
-        "bank_accounts": {
-            "status": null,
-            "updated": null
-        },
-        "status": "pending",
-        "addresses": {
-            "status": null,
-            "updated": null
-        },
-        "documents": {
-            "status": null,
-            "updated": null
-        },
-        "updated": 1509619797959
+        "updated": 1509539801040,
+        "status": "pending"
     },
     "status": "pending",
     "groups": [],
@@ -939,8 +772,7 @@ rehive.admin.users.update(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true,
-    "password": "*********************************00000000"
+    "active": true
 }
 ```
 
@@ -1103,6 +935,108 @@ Field | Description | Default
 `allow_transactions` | Allow transactions | true
 `allow_debit_transactions` | Allow debit transactions | true
 `allow_credit_transactions` | Allow credit transactions | true,
+
+
+### Retrieve User KYC
+
+> Admin retrieve user kyc request
+
+```shell
+curl https://api.rehive.com/3/admin/users/{identifier}/kyc/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin retrieve user kyc response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "status": "pending",
+        "updated": 1520929665311
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Retrieve a company's user kyc details.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/users/{identifier}/kyc/`
+
+### Update User KYC
+
+> Admin update user kyc request
+
+```shell
+curl https://api.rehive.com/3/admin/users/{identifier}/kyc/`
+  -X PUT
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"status": "verified"}'
+```
+
+```javascript
+
+```
+
+```python
+```
+
+> Admin update user kyc response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "status": "verified",
+        "updated": 1520929665311
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Update a user's kyc.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/users/{identifier}/kyc/`
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`status` | kyc status| true
+
+#### Statuses
+
+Value | Description
+--- | ---
+`obsolete` | Obsolete
+`declined` | Declined
+`pending` | Pending
+`incomplete` | Incomplete
+`verified` | Verified
+
 
 ### List Addresses
 

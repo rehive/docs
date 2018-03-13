@@ -58,20 +58,8 @@ rehive.user.get()
         "timezone": null,
         "verified": false,
         "kyc": {
-            "documents": {
-                "updated": null,
-                "status": null
-            },
             "updated": 1509539801040,
-            "status": "pending",
-            "bank_accounts": {
-                "updated": null,
-                "status": null
-            },
-            "addresses": {
-                "updated": null,
-                "status": null
-            }
+            "status": "pending"
         },
         "status": "pending",
         "groups": [
@@ -115,20 +103,8 @@ rehive.user.get()
     "timezone": null,
     "verified": false,
     "kyc": {
-        "documents": {
-            "updated": null,
-            "status": null
-        },
         "updated": 1509539801040,
-        "status": "pending",
-        "bank_accounts": {
-            "updated": null,
-            "status": null
-        },
-        "addresses": {
-            "updated": null,
-            "status": null
-        }
+        "status": "pending"
     },
     "status": "pending",
     "groups": [
@@ -171,20 +147,8 @@ rehive.user.get()
     "timezone": null,
     "verified": false,
     "kyc": {
-        "documents": {
-            "updated": null,
-            "status": null
-        },
         "updated": 1509539801040,
-        "status": "pending",
-        "bank_accounts": {
-            "updated": null,
-            "status": null
-        },
-        "addresses": {
-            "updated": null,
-            "status": null
-        }
+        "status": "pending"
     },
     "status": "pending",
     "groups": [
@@ -263,20 +227,8 @@ rehive.user.update(
         "timezone": null,
         "verified": false,
         "kyc": {
-            "documents": {
-                "updated": null,
-                "status": null
-            },
             "updated": 1509539801040,
-            "status": "pending",
-            "bank_accounts": {
-                "updated": null,
-                "status": null
-            },
-            "addresses": {
-                "updated": null,
-                "status": null
-            }
+            "status": "pending"
         },
         "status": "pending",
         "groups": [
@@ -320,20 +272,8 @@ rehive.user.update(
     "timezone": null,
     "verified": false,
     "kyc": {
-        "documents": {
-            "updated": null,
-            "status": null
-        },
         "updated": 1509539801040,
-        "status": "pending",
-        "bank_accounts": {
-            "updated": null,
-            "status": null
-        },
-        "addresses": {
-            "updated": null,
-            "status": null
-        }
+        "status": "pending"
     },
     "status": "pending",
     "groups": [
@@ -376,20 +316,8 @@ rehive.user.update(
     "timezone": null,
     "verified": false,
     "kyc": {
-        "documents": {
-            "updated": null,
-            "status": null
-        },
         "updated": 1509539801040,
-        "status": "pending",
-        "bank_accounts": {
-            "updated": null,
-            "status": null
-        },
-        "addresses": {
-            "updated": null,
-            "status": null
-        }
+        "status": "pending"
     },
     "status": "pending",
     "groups": [

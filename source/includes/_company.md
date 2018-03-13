@@ -191,22 +191,16 @@ Get a list of available currencies for the current user's company.
 > User list company banks request
 
 ```shell
-curl https://api.rehive.com/3/company/bank-account/
+curl https://api.rehive.com/3/company/bank-accounts/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
 ```javascript
-rehive.company.bankAccounts.get().then(function(res){
-    ...
-},function(err){
-    ...
-})
 ```
 
 ```python
-rehive.company.bank_account.get()
 ```
 
 > User list company banks response
@@ -214,11 +208,12 @@ rehive.company.bank_account.get()
 ```shell
 {
     "status": "success",
-    "data": [
-        {
-            "id": 53,
-            "token": 1,
-            "bank_account": {
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
                 "id": 1,
                 "name": "Rehive",
                 "number": "xxxxxxxx",
@@ -229,59 +224,35 @@ rehive.company.bank_account.get()
                 "swift": "",
                 "iban": "",
                 "bic": ""
-            },
-            "reference": "xxxxxxxxxx"
-        }
-    ]
+                "currencies": [
+                    {
+                        "code": "ZAR",
+                        "description": "Rand",
+                        "symbol": "R",
+                        "unit": "rand",
+                        "divisibility": 2
+                    }
+                ]
+            }
+        ]
+    }
 }
 ```
 
 ```javascript
-[
-    {
-        "id": 53,
-        "token": 1,
-        "bank_account": {
-            "id": 1,
-            "name": "Rehive",
-            "number": "xxxxxxxx",
-            "type": "Cheque",
-            "bank_name": "Barclays",
-            "bank_code": "xxxx",
-            "branch_code": "xxxxx",
-            "swift": "",
-            "iban": "",
-            "bic": ""
-        },
-        "reference": "xxxxxxxxxx"
-    }
-]
 ```
 
 ```python
-[
-    {
-        "id": 53,
-        "token": 1,
-        "bank_account": {
-            "id": 1,
-            "name": "Rehive",
-            "number": "xxxxxxxx",
-            "type": "Cheque",
-            "bank_name": "Barclays",
-            "bank_code": "xxxx",
-            "branch_code": "xxxxx",
-            "swift": "",
-            "iban": "",
-            "bic": ""
-        },
-        "reference": "xxxxxxxxxx"
-    }
-]
 ```
 
 List company banks for the current user's company.
 
+#### Filtering
+
+Field | Type
+--- | ---
+`currency` | string
+
 #### Endpoint
 
-`https://api.rehive.com/3/company/bank-account/`
+`https://api.rehive.com/3/company/bank-accounts/`
