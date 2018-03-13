@@ -1717,5 +1717,5 @@ rehive.auth.tokens.verify("{token_key}")
 
 #### Endpoint
 
-`https://api.rehive.com/3/auth/tokens/{token_key}`
+`https://api.rehive.com/3/auth/tokens/verify/`
 
