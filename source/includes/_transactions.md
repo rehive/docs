@@ -378,12 +378,12 @@ Create a credit transaction.
 Field | Description | Default
 --- | --- | ---
 `amount` | amount | null
+`currency` | currency code | null
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
-`currency` | currency code | blank
 `reference` | optional credit reference | blank
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
@@ -541,12 +541,12 @@ Create a debit transaction.
 Field | Description | Default
 --- | --- | ---
 `amount` | amount | null
+`currency` | currency code | null
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
-`currency` | currency code | blank
 `reference` | optional debit reference | blank
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
@@ -738,7 +738,7 @@ Field | Description | Default
 --- | --- | ---
 `amount` | amount | null
 <ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, or unique identifier</li><li>account reference code</li></ul> | null
-`currency` | currency code | blank
+`currency` | currency code | null
 
 #### Optional Fields
 

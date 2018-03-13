@@ -4716,6 +4716,7 @@ Field | Description | Default
 --- | --- | ---
 `user` | email, mobile number, or unique identifier | null
 `amount` | amount | null
+`currency` | currency code | null
 
 #### Optional Fields
 
@@ -4725,7 +4726,6 @@ Field | Description | Default
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
 `note` | user's note or message | blank
-`currency` | currency code | blank
 `metadata` | custom metadata | {}
 `status` | status to transition to | Pending
 
@@ -4915,6 +4915,7 @@ Field | Description | Default
 --- | --- | ---
 `user` | email, mobile number, or unique identifier | null
 `amount` | amount | null
+`currency` | currency code | null
 
 #### Optional Fields
 
@@ -4924,7 +4925,6 @@ Field | Description | Default
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
 `note` | user's note or message | blank
-`currency` | currency code | blank
 `metadata` | custom metadata | {}
 `status` | status to transition to | Pending
 
@@ -5140,13 +5140,12 @@ Field | Description | Default
 `user` | email, mobile number, or unique identifier | null
 `amount` | amount | null
 <ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, or unique identifier</li><li>account reference code</li></ul> | null
-`currency` | currency code | blank
+`currency` | currency code | null
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
-`currency` | currency code | blank
 `debit_subtype` | a custom defined subtype | null
 `debit_account` | account reference code | null
 `debit_note` | user's note or message | blank
