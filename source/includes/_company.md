@@ -201,6 +201,7 @@ curl https://api.rehive.com/3/company/bank-accounts/
 ```
 
 ```python
+rehive.company.bank_accounts.get()
 ```
 
 > User list company banks response
@@ -243,6 +244,29 @@ curl https://api.rehive.com/3/company/bank-accounts/
 ```
 
 ```python
+[
+    {
+        "id": 1,
+        "name": "Rehive",
+        "number": "xxxxxxxx",
+        "type": "Cheque",
+        "bank_name": "Barclays",
+        "bank_code": "xxxx",
+        "branch_code": "xxxxx",
+        "swift": "",
+        "iban": "",
+        "bic": ""
+        "currencies": [
+            {
+                "code": "ZAR",
+                "description": "Rand",
+                "symbol": "R",
+                "unit": "rand",
+                "divisibility": 2
+            }
+        ]
+    }
+]
 ```
 
 List company banks for the current user's company.
