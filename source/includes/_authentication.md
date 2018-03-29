@@ -590,44 +590,47 @@ rehive.auth.login(
 
 ```javascript
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
-    "first_name": "Joe",
-    "last_name": "Soap",
-    "email": "joe@rehive.com",
-    "username": "",
-    "id_number": null,
-    "birth_date": null,
-    "profile": null,
-    "currency": null,
-    "company": "rehive",
-    "language": "en",
-    "nationality": "ZA",
-    "metadata": {},
-    "mobile_number": "+00000000000",
-    "timezone": null,
-    "verified": false,
-    "kyc": {
-        "updated": 1509539801040,
-        "status": "pending"
-    },
-    "status": "pending",
-    "groups": [
-        {
-            "name": "test",
-            "label": "Test",
-            "settings": {
-                "allow_transactions": true,
-                "allow_debit_transactions": true,
-                "allow_credit_transactions": true
+    "token": "{token}",
+    "user": {
+        "identifier": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
+        "kyc": {
+            "updated": 1509539801040,
+            "status": "pending"
+        },
+        "status": "pending",
+        "groups": [
+            {
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
             }
+        ],
+        "permissions": [],
+        "date_joined": 1509539800952,
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
         }
-    ],
-    "permissions": [],
-    "date_joined": 1509539800952,
-    "settings": {
-        "allow_transactions": true,
-        "allow_debit_transactions": true,
-        "allow_credit_transactions": true
     }
 }
 ```
