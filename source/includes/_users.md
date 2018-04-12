@@ -74,7 +74,8 @@ rehive.user.get()
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -119,7 +120,8 @@ rehive.user.get()
         }
     ],
     "permissions": [],
-    "date_joined": 1509539800952,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -163,7 +165,8 @@ rehive.user.get()
         }
     ],
     "permissions": [],
-    "date_joined": 1509539800952,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -243,7 +246,8 @@ rehive.user.update(
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -288,7 +292,8 @@ rehive.user.update(
         }
     ],
     "permissions": [],
-    "date_joined": 1509539800952,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -332,7 +337,8 @@ rehive.user.update(
         }
     ],
     "permissions": [],
-    "date_joined": 1509539800952,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,

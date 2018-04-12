@@ -121,7 +121,8 @@ rehive.admin.users.get()
                 },
                 "status": "pending",
                 "groups": [],
-                "date_joined": 1464912953000,
+                "created": 1464912953000,
+                "updated": 1464912953000,
                 "last_login": null,
                 "active": true
             }
@@ -165,7 +166,8 @@ rehive.admin.users.get()
             },
             "status": "pending",
             "groups": [],
-            "date_joined": 1464912953000,
+            "created": 1464912953000,
+            "updated": 1464912953000,
             "last_login": null,
             "active": true
         }
@@ -204,7 +206,8 @@ rehive.admin.users.get()
         },
         "status": "pending",
         "groups": [],
-        "date_joined": 1464912953000,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "last_login": null,
         "active": true
     }
@@ -229,8 +232,9 @@ Field | Type
 `status` | string
 `currency` | string
 `active` | boolean
-`date_joined` | millsecond timestamp
-`last_login` | millsecond timestamp
+`created` | millisecond timestamp
+`updated` | millisecond timestamp
+`last_login` | millisecond timestamp
 
 #### Endpoint
 
@@ -319,7 +323,8 @@ rehive.admin.users.create(
         "status": "pending",
         "groups": [],
         "permissions": [],
-        "date_joined": 1464912953000,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -362,7 +367,8 @@ rehive.admin.users.create(
     "status": "pending",
     "groups": [],
     "permissions": [],
-    "date_joined": 1464912953000,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -404,7 +410,8 @@ rehive.admin.users.create(
     "status": "pending",
     "groups": [],
     "permissions": [],
-    "date_joined": 1464912953000,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -502,7 +509,8 @@ rehive.admin.users.get(
         "status": "pending",
         "groups": [],
         "permissions": [],
-        "date_joined": 1464912953000,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -545,7 +553,8 @@ rehive.admin.users.get(
     "status": "pending",
     "groups": [],
     "permissions": [],
-    "date_joined": 1464912953000,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -587,7 +596,8 @@ rehive.admin.users.get(
     "status": "pending",
     "groups": [],
     "permissions": [],
-    "date_joined": 1464912953000,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -680,7 +690,8 @@ rehive.admin.users.update(
         "status": "pending",
         "groups": [],
         "permissions": [],
-        "date_joined": 1464912953000,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -723,7 +734,8 @@ rehive.admin.users.update(
     "status": "pending",
     "groups": [],
     "permissions": [],
-    "date_joined": 1464912953000,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -765,7 +777,8 @@ rehive.admin.users.update(
     "status": "pending",
     "groups": [],
     "permissions": [],
-    "date_joined": 1464912953000,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,

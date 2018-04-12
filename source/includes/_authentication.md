@@ -139,7 +139,8 @@ rehive.auth.register_company(
                 }
             ],
             "permissions": [],
-            "date_joined": 1509539800952,
+            "created": 1464912953000,
+            "updated": 1464912953000,
             "settings": {
                 "allow_transactions": true,
                 "allow_debit_transactions": true,
@@ -187,7 +188,8 @@ rehive.auth.register_company(
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -234,7 +236,8 @@ rehive.auth.register_company(
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -358,7 +361,8 @@ rehive.auth.register(
                 }
             ],
             "permissions": [],
-            "date_joined": 1509539800952,
+            "created": 1464912953000,
+            "updated": 1464912953000,
             "settings": {
                 "allow_transactions": true,
                 "allow_debit_transactions": true,
@@ -406,7 +410,8 @@ rehive.auth.register(
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -453,7 +458,8 @@ rehive.auth.register(
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -577,7 +583,8 @@ rehive.auth.login(
                 }
             ],
             "permissions": [],
-            "date_joined": 1509539800952,
+            "created": 1464912953000,
+            "updated": 1464912953000,
             "settings": {
                 "allow_transactions": true,
                 "allow_debit_transactions": true,
@@ -625,7 +632,8 @@ rehive.auth.login(
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -674,7 +682,8 @@ rehive.auth.login(
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -1402,7 +1411,8 @@ rehive.auth.tokens.create(
                 }
             ],
             "permissions": [],
-            "date_joined": 1509539800952,
+            "created": 1464912953000,
+            "updated": 1464912953000,
             "settings": {
                 "allow_transactions": true,
                 "allow_debit_transactions": true,
@@ -1420,7 +1430,8 @@ rehive.auth.tokens.create(
         "birth_date":null,
         "company":"rehive",
         "currency":{},
-        "date_joined":1509017031198,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "email":"joe@rehive.com",
         "first_name":"new",
         "id_number":null,
@@ -1487,7 +1498,8 @@ rehive.auth.tokens.create(
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -1617,7 +1629,8 @@ rehive.auth.tokens.verify("{token_key}")
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
@@ -1662,7 +1675,8 @@ rehive.auth.tokens.verify("{token_key}")
         }
     ],
     "permissions": [],
-    "date_joined": 1509539800952,
+    "created": 1464912953000,
+    "updated": 1464912953000,
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
@@ -1708,7 +1722,8 @@ rehive.auth.tokens.verify("{token_key}")
             }
         ],
         "permissions": [],
-        "date_joined": 1509539800952,
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
