@@ -33,6 +33,7 @@ rehive.admin.users.overview.get()
 {
     "data": {
         "total": 1,
+        "enabled": 1,
         "active": 1
     },
     "status": "success"
@@ -42,6 +43,7 @@ rehive.admin.users.overview.get()
 ```javascript
 {
     "total": 1,
+    "enabled": 1,
     "active": 1
 }
 ```
@@ -49,6 +51,7 @@ rehive.admin.users.overview.get()
 ```python
 {
     "total": 1,
+    "enabled": 1,
     "active": 1
 }
 ```
@@ -124,7 +127,7 @@ rehive.admin.users.get()
                 "created": 1464912953000,
                 "updated": 1464912953000,
                 "last_login": null,
-                "active": true
+                "enabled": true
             }
         ]
     }
@@ -169,7 +172,7 @@ rehive.admin.users.get()
             "created": 1464912953000,
             "updated": 1464912953000,
             "last_login": null,
-            "active": true
+            "enabled": true
         }
     ]
 }
@@ -209,7 +212,7 @@ rehive.admin.users.get()
         "created": 1464912953000,
         "updated": 1464912953000,
         "last_login": null,
-        "active": true
+        "enabled": true
     }
 ]
 ```
@@ -231,7 +234,7 @@ Field | Type
 `nationality` | string
 `status` | string
 `currency` | string
-`active` | boolean
+`enabled` | boolean
 `created` | millisecond timestamp
 `updated` | millisecond timestamp
 `last_login` | millisecond timestamp
@@ -259,7 +262,6 @@ curl https://api.rehive.com/3/admin/users/`
 var fileSelected = document.getElementById("userProfile").files[0],
         formData = new FormData;
 
-
 formData.append('profile', fileSelected);
 formData.append('first_name', first_name);
 formData.append('last_name', last_name);
@@ -270,7 +272,6 @@ formData.append('nationality', nationality);
 formData.append('metadata', metadata);
 formData.append('mobile_number', mobile_number);
 formData.append('timezone', timezone);
-
 
 rehive.admin.users.create(formData).then(function (res) {
     ...
@@ -331,7 +332,7 @@ rehive.admin.users.create(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "active": true
+        "enabled": true
     }
 }
 ```
@@ -375,7 +376,7 @@ rehive.admin.users.create(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true
+    "enabled": true
 }
 ```
 
@@ -418,7 +419,7 @@ rehive.admin.users.create(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true
+    "enabled": true
 }
 ```
 
@@ -444,6 +445,7 @@ Field | Description | Default
 `mobile_number` | mobile number | blank
 `timezone` | timezone | blank
 `birth_date` | birth date | blank
+`enabled` | boolean | true
 
 <aside class="warning">
     A `mobile_number` or `email` is required.
@@ -517,7 +519,7 @@ rehive.admin.users.get(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "active": true
+        "enabled": true
     }
 }
 ```
@@ -561,7 +563,7 @@ rehive.admin.users.get(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true
+    "enabled": true
 }
 ```
 
@@ -604,7 +606,7 @@ rehive.admin.users.get(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true
+    "enabled": true
 }
 ```
 
@@ -698,7 +700,7 @@ rehive.admin.users.update(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "active": true
+        "enabled": true
     }
 }
 ```
@@ -742,7 +744,7 @@ rehive.admin.users.update(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true
+    "enabled": true
 }
 ```
 
@@ -785,7 +787,7 @@ rehive.admin.users.update(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "active": true
+    "enabled": true
 }
 ```
 
@@ -810,7 +812,7 @@ Field | Description | Default
 `timezone` | timezone | blank
 `birth_date` | birth date | blank
 `status` | status | pending
-`active` | boolean | true
+`enabled` | boolean | true
 
 #### Statuses
 
