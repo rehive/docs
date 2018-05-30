@@ -8506,6 +8506,53 @@ rehive.admin.bank_accounts.currencies.get(
 
 `https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/{currency_code}`
 
+### Delete Bank Account Currency
+
+> Delete Bank Account Currency request
+
+```shell
+curl https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/{currency_code}
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.admin.bankAccounts.currencies.delete(id, currency_code).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+```python
+rehive.admin.bank_accounts.currencies.delete(
+    {id}, {currency_code}
+)
+```
+
+> Delete Bank Account Currencies response
+
+```shell
+{
+    "status": "success"
+}
+```
+
+```javascript
+{} 
+```
+
+```python
+{
+    "status": "success"
+}
+```
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/{currency_code}`
+
 ### Add Bank Account Currency
 
 > Add Bank Account Currency request
