@@ -8442,6 +8442,79 @@ rehive.admin.bank_accounts.currencies.get(
 
 `https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/`
 
+### Add Bank Account Currency
+
+> Add Bank Account Currency request
+
+```shell
+curl https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -D '{"currency": "XBT"}'
+```
+
+```javascript
+rehive.admin.bankAccounts.currencies.create(id, {currency: "XBT"}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+```python
+rehive.admin.bank_accounts.currencies.create(
+    {id},
+    currency="XBT"
+)
+```
+
+> Add Bank Account Currency response
+
+```shell
+{
+    "status": "success",
+    "data": { 
+        "code": 'XBT',
+        "description": 'bitcoin',
+        "symbol": '฿',
+        "unit": 'bitcoin',
+        "divisibility": 8 
+    }
+}
+```
+
+```javascript
+{ 
+  "code": 'XBT',
+  "description": 'bitcoin',
+  "symbol": '฿',
+  "unit": 'bitcoin',
+  "divisibility": 8 
+}
+```
+
+```python
+{ 
+  "code": 'XBT',
+  "description": 'bitcoin',
+  "symbol": '฿',
+  "unit": 'bitcoin',
+  "divisibility": 8 
+}
+```
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/`
+
+#### Fields
+
+Field | Description | Required
+--- | --- | ---
+`currency` | Currency code of existing currency | true
+
+
 ### Update Bank Account
 
 > Update Bank Account request
@@ -8536,6 +8609,7 @@ Field | Description | Default
 `swift` | swift | blank
 `iban` | iban | blank
 `bic` | bic | blank
+
 
 
 ### Delete Bank Account
