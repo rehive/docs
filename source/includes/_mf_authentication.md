@@ -178,6 +178,51 @@ Field | Description | Default
 --- | --- | ---
 `mobile_number` | Mobile Number | null
 
+## Disable SMS Authentication
+
+> Disable SMS request
+
+```shell
+curl https://api.rehive.com/3/auth/mfa/sms/
+  -X DELETE
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.auth.mfa.sms.disable().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+```python
+rehive.auth.mfa.sms.disable()
+```
+
+> Disable SMS response
+
+```shell
+  {
+    "status": "success"
+  }
+```
+
+```javascript
+{}
+```
+
+```python
+ {
+    "status": "success"
+  }
+```
+
+#### Endpoint
+
+`https://api.rehive.com/3/auth/mfa/sms/`
+
+
 ## Send SMS
 
 > Send SMS request
@@ -368,6 +413,51 @@ Field | Description
 `issuer` | The company name in Rehive
 `account` | The user email address enabling multi-factor authentication
 `key` | Secret key
+
+## Disable Token Authentication
+
+> Disable Token request
+
+```shell
+curl https://api.rehive.com/3/auth/mfa/token/
+  -X DELETE
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.auth.mfa.token.disable().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+```python
+rehive.auth.mfa.token.disable()
+```
+
+> Disable Token response
+
+```shell
+  {
+    "status": "success"
+  }
+```
+
+```javascript
+{}
+```
+
+```python
+ {
+    "status": "success"
+  }
+```
+
+#### Endpoint
+
+`https://api.rehive.com/3/auth/mfa/token/`
+
 
 ## Verify Multi-factor Authentication
 
