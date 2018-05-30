@@ -13229,3 +13229,229 @@ Remove a currency from a group account configuration group.
 #### Endpoint
 
 `https://api.rehive.com/3/admin/groups/{group_name}/account-configurations/{config_name}/currencies/{code}/`
+
+
+## Requests
+
+View requests made by users
+
+### Retrieve Requests
+
+> Admin retrieve requests request
+
+```shell
+curl https://api.rehive.com/3/admin/requests/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.admin.requests.get().then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+```python
+rehive.admin.requests.get()
+```
+
+> Admin retrieve requests response
+
+```shell
+{
+    "status": "success",
+    "data": [
+        { 
+            "id": 11232032,
+            "user": [Object],
+            "key": null,
+            "scheme": 'https',
+            "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+            "method": 'GET',
+            "content_type": 'application/json',
+            "params": {},
+            "headers": [Object],
+            "status_code": 200,
+            "created": 1527669648572,
+            "updated": 1527669648585 
+        },
+        
+        { 
+            "id": 11231984,
+            "user": [Object],
+            "key": null,
+            "scheme": 'https',
+            "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+            "method": 'GET',
+            "content_type": 'application/json',
+            "params": {},
+            "headers": [Object],
+            "status_code": 200,
+            "created": 1527669596536,
+            "updated": 1527669596546 
+        }
+    ]
+}
+```
+
+```javascript
+ [
+    { 
+        "id": 11232032,
+        "user": [Object],
+        "key": null,
+        "scheme": 'https',
+        "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+        "method": 'GET',
+        "content_type": 'application/json',
+        "params": {},
+        "headers": [Object],
+        "status_code": 200,
+        "created": 1527669648572,
+        "updated": 1527669648585 
+    },
+    
+    { 
+        "id": 11231984,
+        "user": [Object],
+        "key": null,
+        "scheme": 'https',
+        "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+        "method": 'GET',
+        "content_type": 'application/json',
+        "params": {},
+        "headers": [Object],
+        "status_code": 200,
+        "created": 1527669596536,
+        "updated": 1527669596546 
+    }
+]
+```
+
+```python
+ [
+    { 
+        "id": 11232032,
+        "user": [Object],
+        "key": null,
+        "scheme": 'https',
+        "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+        "method": 'GET',
+        "content_type": 'application/json',
+        "params": {},
+        "headers": [Object],
+        "status_code": 200,
+        "created": 1527669648572,
+        "updated": 1527669648585 
+    },
+    
+    { 
+        "id": 11231984,
+        "user": [Object],
+        "key": null,
+        "scheme": 'https',
+        "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+        "method": 'GET',
+        "content_type": 'application/json',
+        "params": {},
+        "headers": [Object],
+        "status_code": 200,
+        "created": 1527669596536,
+        "updated": 1527669596546 
+    }
+]
+```
+
+Retrieve admin requests
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/requests/`
+
+### Retrieve Request by ID
+
+> Admin retrieve request by id request
+
+```shell
+curl https://api.rehive.com/3/admin/requests/{id}
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.admin.requests.get(id).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+```python
+rehive.admin.requests.get(id)
+```
+
+> Admin retrieve request by id response
+
+```shell
+{
+    "status": "success",
+    "data":  { 
+        "id": 11232032,
+        "user": [Object],
+        "key": null,
+        "scheme": 'https',
+        "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+        "method": 'GET',
+        "content_type": 'application/json',
+        "params": {},
+        "headers": [Object],
+        "status_code": 200,
+        "created": 1527669648572,
+        "updated": 1527669648585 
+    }
+}
+```
+
+```javascript
+ { 
+    "id": 11232032,
+    "user": [Object],
+    "key": null,
+    "scheme": 'https',
+    "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+    "method": 'GET',
+    "content_type": 'application/json',
+    "params": {},
+    "headers": [Object],
+    "status_code": 200,
+    "created": 1527669648572,
+    "updated": 1527669648585 
+}
+```
+
+```python
+  { 
+    "id": 11232032,
+    "user": [Object],
+    "key": null,
+    "scheme": 'https',
+    "path": '/3/admin/bank-accounts/145/currencies/XBT/',
+    "method": 'GET',
+    "content_type": 'application/json',
+    "params": {},
+    "headers": [Object],
+    "status_code": 200,
+    "created": 1527669648572,
+    "updated": 1527669648585 
+}
+```
+
+Retrieve admin requests
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/requests/{id}`
