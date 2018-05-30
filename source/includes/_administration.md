@@ -8336,9 +8336,111 @@ rehive.admin.bank_accounts.get(
 }
 ```
 
+### Retrieve Bank Account Currencies
+
+> Retrieve Bank Account Currencies request
+
+```shell
+curl https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.admin.bankAccounts.currencies.get(id).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+```python
+rehive.admin.bank_accounts.currencies.get(
+    {id}
+)
+```
+
+> Retrieve Bank Account Currencies response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 2,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "code": "CAD",
+                "description": "Canadian Dollar",
+                "symbol": "CA$",
+                "unit": "dollar",
+                "divisibility": 2
+            },
+            {
+                "code": "XBT",
+                "description": "bitcoin",
+                "symbol": "฿",
+                "unit": "bitcoin",
+                "divisibility": 8
+            }
+        ]
+    }
+}
+```
+
+```javascript
+{ 
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [ 
+    { 
+       "code": 'CAD',
+       "description": 'Canadian Dollar',
+       "symbol": 'CA$',
+       "unit": 'dollar',
+       "divisibility": 2 
+    },
+    { 
+       "code": 'XBT',
+       "description": 'bitcoin',
+       "symbol": '฿',
+       "unit": 'bitcoin',
+       "divisibility": 8
+    } 
+  ] 
+}
+```
+
+```python
+{ 
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [ 
+    { 
+       "code": 'CAD',
+       "description": 'Canadian Dollar',
+       "symbol": 'CA$',
+       "unit": 'dollar',
+       "divisibility": 2 
+    },
+    { 
+       "code": 'XBT',
+       "description": 'bitcoin',
+       "symbol": '฿',
+       "unit": 'bitcoin',
+       "divisibility": 8
+    } 
+  ] 
+}
+```
+
 #### Endpoint
 
-`https://api.rehive.com/3/admin/bank-accounts/{id}/`
+`https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/`
 
 ### Update Bank Account
 
