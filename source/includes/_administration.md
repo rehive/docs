@@ -8454,7 +8454,7 @@ curl https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/{currency_code
 ```
 
 ```javascript
-rehive.admin.bankAccounts.currencies.get(id, currency_code).then(function (res) {
+rehive.admin.bankAccounts.currencies.get(id, currencyCode).then(function (res) {
     ...
 }, function (err) {
     ...
@@ -8518,7 +8518,7 @@ curl https://api.rehive.com/3/admin/bank-accounts/{id}/currencies/{currency_code
 ```
 
 ```javascript
-rehive.admin.bankAccounts.currencies.delete(id, currency_code).then(function (res) {
+rehive.admin.bankAccounts.currencies.delete(id, currencyCode).then(function (res) {
     ...
 }, function (err) {
     ...
@@ -13383,7 +13383,7 @@ curl https://api.rehive.com/3/admin/requests/{id}
 ```
 
 ```javascript
-rehive.admin.requests.get(id).then(function (res) {
+rehive.admin.requests.get({id: requestID}).then(function (res) {
     ...
 }, function (err) {
     ...
