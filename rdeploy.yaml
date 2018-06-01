@@ -1,0 +1,21 @@
+version: '1'
+configs:
+    staging:
+      project_name: rehive-wallet
+      docker_image: gcr.io/rehive-services/rehive-wallet
+      cloud_project: rehive-services
+      cluster: staging
+      namespace: rehive-wallet-staging
+      helm_values_path: ./etc/helm/staging/values.yaml
+      helm_chart: rehive/rehive-service
+      helm_chart_version: 0.1.31
+    production:
+      project_name: rehive-wallet
+      docker_image: gcr.io/rehive-services/rehive-wallet
+      cloud_project: rehive-services
+      cluster: production
+      namespace: rehive-wallet
+      helm_values_path: ./etc/helm/production/values.yaml
+      helm_chart: rehive/rehive-service
+      helm_chart_version: 0.1.31
+
