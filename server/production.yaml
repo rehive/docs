@@ -1,4 +1,0 @@
-PROJECT_NAME: docs-server
-NAMESPACE: docs-server
-IMAGE: gcr.io/zapgo-1273/docs-server:latest
-VIRTUAL_HOST: docs.rehive.com
