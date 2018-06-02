@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 deployment:
-  replicaCount: 3
+  replicaCount: 1
   resources:
     requests:
       memory: 450M
@@ -27,6 +27,8 @@ ingress:
     - hosts:
       - docs.rehive.com
       secretName: rehive-wallet-tls
+envFromSecret:
+  enabled: false
 management:
   enabled: false
 postgres:

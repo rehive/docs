@@ -1,0 +1,8 @@
+middleman:
+  build: .
+  dockerfile: etc/docker/jsbuild
+  ports:
+    - 4567:4567
+  volumes:
+    - ./source:/usr/src/app/source
+  command: ["bundle", "exec", "middleman", "server", "--watcher-force-polling"]
