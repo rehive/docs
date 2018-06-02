@@ -4,7 +4,7 @@
 deployment:
   replicaCount: 3
   resources:
-    requests:
+    limits:
       memory: 450M
       cpu: 500m
 image:
@@ -27,6 +27,8 @@ ingress:
     - hosts:
       - docs.staging.rehive.com
       secretName: rehive-wallet-tls
+envFromSecret:
+  enabled: false
 management:
   enabled: false
 postgres:
