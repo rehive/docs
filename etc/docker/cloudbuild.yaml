@@ -16,7 +16,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [
             'run',
-            '-v', '/workspace/build:/app/build:rw',
+            '-v', '/workspace/build:/usr/src/app/build:rw',
             '$_IMAGE-jsbuild'
         ]
 - name: 'gcr.io/cloud-builders/docker'
