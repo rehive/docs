@@ -426,7 +426,9 @@ rehive.accounts.obj("{reference}").currencies.get()
                     "allow_debit_transactions": true,
                     "allow_credit_transactions": true
                 },
-                "active": true
+                "active": true,
+                "created": 1464858068745,
+                "updated": 1464858068745
             }
         ]
     }
@@ -456,7 +458,9 @@ rehive.accounts.obj("{reference}").currencies.get()
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
             },
-            "active": true
+            "active": true,
+            "created": 1464858068745,
+            "updated": 1464858068745
         }
     ]
 
@@ -482,7 +486,9 @@ rehive.accounts.obj("{reference}").currencies.get()
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
-        "active": true
+        "active": true,
+        "created": 1464858068745,
+        "updated": 1464858068745
     }
 ]
 ```
@@ -546,7 +552,9 @@ rehive.accounts.obj("{reference}").currencies.get(
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
-        "active": true
+        "active": true,
+        "created": 1464858068745,
+        "updated": 1464858068745
     }
 }
 ```
@@ -569,7 +577,9 @@ rehive.accounts.obj("{reference}").currencies.get(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
-    "active": true
+    "active": true,
+    "created": 1464858068745,
+    "updated": 1464858068745
 }
 ```
 ```
@@ -592,7 +602,9 @@ rehive.accounts.obj("{reference}").currencies.get(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
-    "active": true
+    "active": true,
+    "created": 1464858068745,
+    "updated": 1464858068745
 }
 ```
 
@@ -656,7 +668,9 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
-        "active": true
+        "active": true,
+        "created": 1464858068745,
+        "updated": 1464858068745
     }
 }
 ```
@@ -679,7 +693,9 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
-    "active": true
+    "active": true,
+    "created": 1464858068745,
+    "updated": 1464858068745
 }
 ```
 
@@ -701,7 +717,9 @@ rehive.accounts.obj("{reference}").currencies.make_active_currency(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
-    "active": true
+    "active": true,
+    "created": 1464858068745,
+    "updated": 1464858068745
 }
 ```
 

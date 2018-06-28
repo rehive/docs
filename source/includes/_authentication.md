@@ -106,7 +106,7 @@ rehive.auth.register_company(
     "data": {
         "token": "{token}",
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
@@ -155,7 +155,7 @@ rehive.auth.register_company(
 {
     "token": "{token}",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -203,7 +203,7 @@ rehive.auth.register_company(
 {
     "token": "{token}",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -328,7 +328,7 @@ rehive.auth.register(
     "data": {
         "token": "{token}",
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
@@ -377,7 +377,7 @@ rehive.auth.register(
 {
     "token": "{token}",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -425,7 +425,7 @@ rehive.auth.register(
 {
     "token": "{token}",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -550,7 +550,7 @@ rehive.auth.login(
     "data": {
         "token": "{token}",
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
@@ -599,7 +599,7 @@ rehive.auth.login(
 {
     "token": "{token}",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -649,7 +649,7 @@ rehive.auth.login(
   "data": {
     "token": "{token}",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -710,7 +710,7 @@ user's details and a token that can be used for subsequent requests.
 
 Field | Description | Default
 --- | --- | ---
-`user` | email, mobile number, or unique identifier | null
+`user` | email, mobile number, or unique id | null
 `company` | company identifier | null
 `password` | password | null
 
@@ -943,7 +943,7 @@ Send a password reset email.
 
 Field | Description | Default
 --- | --- | ---
-`user` | email, mobile number, or unique identifier | null
+`user` | email, mobile number, or unique id | null
 `company` | company identifier | null
 
 ## Reset Password Confirm
@@ -1313,17 +1313,14 @@ rehive.auth.tokens.get()
     [
         {
           "expires": null,
-          "service":null,
           "token_key": "00000000"
         },
         {
           "expires": "2001-01-01T01:01:01.000001Z",
-          "service":null,
           "token_key": "00000000",
         },
         {
           "expires": "2001-01-01T01:01:01.000002Z",
-          "service":null,
           "token_key": "00000000",
         }
     ]
@@ -1378,7 +1375,7 @@ rehive.auth.tokens.create(
     "data": {
         "token": "{token}",
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
@@ -1427,36 +1424,46 @@ rehive.auth.tokens.create(
 {
     "token": "{token}",
     "user": {
-        "birth_date":null,
-        "company":"rehive",
-        "currency":{},
-        "created": 1464912953000,
-        "updated": 1464912953000,
-        "email":"joe@rehive.com",
-        "first_name":"new",
-        "id_number":null,
-        "identifier":"00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": "",
+        "id_number": null,
+        "birth_date": null,
+        "profile": null,
+        "currency": null,
+        "company": "rehive",
+        "language": "en",
+        "nationality": "ZA",
+        "metadata": {},
+        "mobile_number": "+00000000000",
+        "timezone": null,
+        "verified": false,
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
         },
-        "language":"en",
-        "last_name":"user",
-        "metadata":{},
-        "mobile_number":"",
-        "nationality":"",
-        "groups":[],
-        "permissions":[]
-        "profile":null,
-        "status":"pending",
+        "status": "pending",
+        "groups": [
+            {
+                "name": "test",
+                "label": "Test",
+                "settings": {
+                    "allow_transactions": true,
+                    "allow_debit_transactions": true,
+                    "allow_credit_transactions": true
+                }
+            }
+        ],
+        "permissions": [],
+        "created": 1464912953000,
+        "updated": 1464912953000,
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        },
-        "timezone":null,
-        "username":"",
-        "verified":false
+        }
     }
 }
 ```
@@ -1465,7 +1472,7 @@ rehive.auth.tokens.create(
 {
     "token": "{token}",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -1596,7 +1603,7 @@ rehive.auth.tokens.verify("{token_key}")
 {
     "status": "success",
     "data": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -1642,7 +1649,7 @@ rehive.auth.tokens.verify("{token_key}")
 
 ```javascript
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
@@ -1689,7 +1696,7 @@ rehive.auth.tokens.verify("{token_key}")
 {
     "status": "success",
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -1736,4 +1743,3 @@ rehive.auth.tokens.verify("{token_key}")
 #### Endpoint
 
 `https://api.rehive.com/3/auth/tokens/verify/`
-

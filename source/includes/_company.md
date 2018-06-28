@@ -32,21 +32,33 @@ rehive.company.get()
         "name": "Rehive",
         "description": "Wallets for everyone.",
         "website": "http://www.rehive.com",
-        "logo": null,
+        "email": null,
+        "logo": "https://path.to.file.com/image.png",
+        "address": {
+            "line_1": "1 First Avenue",
+            "line_2": "",
+            "city": "Cape Town",
+            "state_province": "Western Cape",
+            "country": "ZA",
+            "postal_code": "8001"
+        },
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true,
-            "require_verification": true,
+            "require_verification": false,
             "allow_registrations": true,
             "allow_overdrafts": false,
-            "auto_complete_transactions": false,
             "allow_session_durations": false,
             "require_terms_and_conditions": false,
-            "password_reset_url": null,
-            "email_confirmation_url": null,
+            "default_transaction_status": "Pending",
+            "password_reset_url": "",
+            "password_set_url": "",
+            "email_confirmation_url": "",
             "nationalities": []
-        }
+        },
+        "created": 1516281408895,
+        "updated": 1528454842365
     },
     "status": "success"
 }
@@ -58,21 +70,33 @@ rehive.company.get()
     "name": "Rehive",
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
-    "logo": null,
+    "email": null,
+    "logo": "https://path.to.file.com/image.png",
+    "address": {
+        "line_1": "1 First Avenue",
+        "line_2": "",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001"
+    },
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true,
-        "require_verification": true,
+        "require_verification": false,
         "allow_registrations": true,
         "allow_overdrafts": false,
-        "auto_complete_transactions": false,
         "allow_session_durations": false,
         "require_terms_and_conditions": false,
-        "password_reset_url": null,
-        "email_confirmation_url": null,
+        "default_transaction_status": "Pending",
+        "password_reset_url": "",
+        "password_set_url": "",
+        "email_confirmation_url": "",
         "nationalities": []
-    }
+    },
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -82,21 +106,33 @@ rehive.company.get()
     "name": "Rehive",
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
-    "logo": null,
+    "email": null,
+    "logo": "https://path.to.file.com/image.png",
+    "address": {
+        "line_1": "1 First Avenue",
+        "line_2": "",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001"
+    },
     "settings": {
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true,
-        "require_verification": true,
+        "require_verification": false,
         "allow_registrations": true,
         "allow_overdrafts": false,
-        "auto_complete_transactions": false,
         "allow_session_durations": false,
         "require_terms_and_conditions": false,
-        "password_reset_url": null,
-        "email_confirmation_url": null,
+        "default_transaction_status": "Pending",
+        "password_reset_url": "",
+        "password_set_url": "",
+        "email_confirmation_url": "",
         "nationalities": []
-    }
+    },
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -144,7 +180,9 @@ rehive.company.currencies.get()
                 "description": "bitcoin",
                 "symbol": "฿",
                 "unit": "bitcoin",
-                "divisibility": 8
+                "divisibility": 8,
+                "created": 1516281408895,
+                "updated": 1528454842365
             }
         ]
     }
@@ -162,7 +200,9 @@ rehive.company.currencies.get()
             "description": "bitcoin",
             "symbol": "฿",
             "unit": "bitcoin",
-            "divisibility": 8
+            "divisibility": 8,
+            "created": 1516281408895,
+            "updated": 1528454842365
         }
     ]
 }
@@ -175,7 +215,9 @@ rehive.company.currencies.get()
         "description": "bitcoin",
         "symbol": "฿",
         "unit": "bitcoin",
-        "divisibility": 8
+        "divisibility": 8,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 ]
 ```
@@ -232,7 +274,9 @@ curl https://api.rehive.com/3/company/bank-accounts/
                         "unit": "rand",
                         "divisibility": 2
                     }
-                ]
+                ],
+                "created": 1516281408895,
+                "updated": 1528454842365
             }
         ]
     }

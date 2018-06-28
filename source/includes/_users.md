@@ -41,7 +41,7 @@ rehive.user.get()
 {
     "status": "success",
     "data": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -87,7 +87,7 @@ rehive.user.get()
 
 ```javascript
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
@@ -132,7 +132,7 @@ rehive.user.get()
 
 ```python
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
@@ -213,7 +213,7 @@ rehive.user.update(
 {
     "status": "success",
     "data": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
@@ -259,7 +259,7 @@ rehive.user.update(
 
 ```javascript
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
@@ -304,7 +304,7 @@ rehive.user.update(
 
 ```python
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
@@ -407,7 +407,9 @@ rehive.user.address.get()
         "state_province": "Western Cape",
         "country": "ZA",
         "postal_code": "8001",
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -420,7 +422,9 @@ rehive.user.address.get()
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -432,7 +436,9 @@ rehive.user.address.get()
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -480,7 +486,9 @@ rehive.user.address.update(
         "state_province": "Western Cape",
         "country": "ZA",
         "postal_code": "8001",
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -493,7 +501,9 @@ rehive.user.address.update(
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -505,7 +515,9 @@ rehive.user.address.update(
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -568,7 +580,9 @@ rehive.user.bank_accounts.get()
             "iban": "",
             "bic": "",
             "code": "bank_account_VEM7k1y5hnuF",
-            "status": "pending"
+            "status": "pending",
+            "created": 1516281408895,
+            "updated": 1528454842365
         }
     ]
 }
@@ -588,7 +602,9 @@ rehive.user.bank_accounts.get()
         "iban": "",
         "bic": "",
         "code": "bank_account_VEM7k1y5hnuF",
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 ]
 
@@ -608,7 +624,9 @@ rehive.user.bank_accounts.get()
         "iban": "",
         "bic": "",
         "code": "bank_account_VEM7k1y5hnuF",
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 ]
 ```
@@ -677,7 +695,9 @@ rehive.user.bank_account.create(
         "iban": null,
         "bic": null,
         "code": "bank_account_000000000000",
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -695,7 +715,9 @@ rehive.user.bank_account.create(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -712,7 +734,9 @@ rehive.user.bank_account.create(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -777,7 +801,9 @@ rehive.user.bank_accounts.get(
         "iban": null,
         "bic": null,
         "code": "bank_account_000000000000",
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -795,7 +821,9 @@ rehive.user.bank_accounts.get(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -867,7 +895,9 @@ rehive.user.bank_accounts.update(
         "iban": null,
         "bic": null,
         "code": "bank_account_000000000000",
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -885,7 +915,9 @@ rehive.user.bank_accounts.update(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -902,7 +934,9 @@ rehive.user.bank_accounts.update(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1011,7 +1045,9 @@ rehive.user.crypto_accounts.get()
             "code": "crypto_account_000000000000",
             "crypto_type": "bitcoin",
             "metadata": {},
-            "status": "pending"
+            "status": "pending",
+            "created": 1516281408895,
+            "updated": 1528454842365
         }
     ]
 }
@@ -1025,7 +1061,9 @@ rehive.user.crypto_accounts.get()
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 ]
 ```
@@ -1038,7 +1076,9 @@ rehive.user.crypto_accounts.get()
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 ]
 ```
@@ -1090,7 +1130,9 @@ rehive.user.crypto_accounts.create(
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -1102,7 +1144,9 @@ rehive.user.crypto_accounts.create(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1113,7 +1157,9 @@ rehive.user.crypto_accounts.create(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1173,7 +1219,9 @@ rehive.user.crypto_accounts.get(
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -1185,7 +1233,9 @@ rehive.user.crypto_accounts.get(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1196,7 +1246,9 @@ rehive.user.crypto_accounts.get(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1244,7 +1296,9 @@ rehive.user.crypto_accounts.update(
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -1256,7 +1310,9 @@ rehive.user.crypto_accounts.update(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1267,7 +1323,9 @@ rehive.user.crypto_accounts.update(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1382,7 +1440,9 @@ rehive.user.documents.get()
                 "document_type": "other",
                 "metadata": {},
                 "status": "pending",
-                "note": null
+                "note": null,
+                "created": 1516281408895,
+                "updated": 1528454842365
             }
         ]
     }
@@ -1402,7 +1462,9 @@ rehive.user.documents.get()
             "document_type": "other",
             "metadata": {},
             "status": "pending",
-            "note": null
+            "note": null,
+            "created": 1516281408895,
+            "updated": 1528454842365
         }
     ]
 }
@@ -1417,7 +1479,9 @@ rehive.user.documents.get()
         "document_type": "other",
         "metadata": {},
         "status": "pending",
-        "note": null
+        "note": null,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 ]
 ```
@@ -1460,20 +1524,15 @@ rehive.user.documents.get(
 {
     "status": "success",
     "data": {
-        "count": 1,
-        "next": null,
-        "previous": null,
-        "results": [
-            {
-                "id": 0,
-                "file": "https://url.to/file.pdf",
-                "document_category": "other",
-                "document_type": "other",
-                "metadata": {},
-                "status": "pending",
-                "note": null
-            }
-        ]
+        "id": 0,
+        "file": "https://url.to/file.pdf",
+        "document_category": "other",
+        "document_type": "other",
+        "metadata": {},
+        "status": "pending",
+        "note": null,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -1486,7 +1545,9 @@ rehive.user.documents.get(
     "document_type": "other",
     "metadata": {},
     "status": "pending",
-    "note": null
+    "note": null,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1498,7 +1559,9 @@ rehive.user.documents.get(
     "document_type": "other",
     "metadata": {},
     "status": "pending",
-    "note": null
+    "note": null,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1511,7 +1574,7 @@ Get a user's document.
 
 ## Create Document
 
-> User documents request
+> User create document request
 
 ```shell
 curl https://api.rehive.com/3/user/document/
@@ -1544,7 +1607,7 @@ rehive.user.documents.upload(
 )
 ```
 
-> User documents response
+> User create document response
 
 ```shell
 {
@@ -1556,7 +1619,9 @@ rehive.user.documents.upload(
         "document_type": "other",
         "metadata": {},
         "status": "pending",
-        "note": null
+        "note": null,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -1569,7 +1634,9 @@ rehive.user.documents.upload(
     "document_type": "other",
     "metadata": {},
     "status": "pending",
-    "note": null
+    "note": null,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1581,7 +1648,9 @@ rehive.user.documents.upload(
     "document_type": "other",
     "metadata": {},
     "status": "pending",
-    "note": null
+    "note": null,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -1968,7 +2037,9 @@ rehive.user.mobiles.get()
             "id": 1,
             "number": "+00000000000",
             "primary": true,
-            "verified": true
+            "verified": true,
+            "created": 1516281408895,
+            "updated": 1528454842365
         }
     ]
 }
@@ -1980,7 +2051,9 @@ rehive.user.mobiles.get()
         "id": 1,
         "number": "+00000000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 ]
 ```
@@ -1991,7 +2064,9 @@ rehive.user.mobiles.get()
         "id": 1,
         "number": "+00000000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 ]
 ```
@@ -2041,7 +2116,9 @@ rehive.user.mobiles.create(
         "id": 1,
         "number": "+00000000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -2051,7 +2128,9 @@ rehive.user.mobiles.create(
     "id": 1,
     "number": "+00000000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -2060,7 +2139,9 @@ rehive.user.mobiles.create(
     "id": 1,
     "number": "+00000000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -2114,7 +2195,9 @@ rehive.user.mobiles.get("{number_id}")
         "id": 1,
         "number": "+00000000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -2124,7 +2207,9 @@ rehive.user.mobiles.get("{number_id}")
     "id": 1,
     "number": "+00000000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -2133,7 +2218,9 @@ rehive.user.mobiles.get("{number_id}")
     "id": 1,
     "number": "+00000000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -2184,7 +2271,9 @@ rehive.user.mobiles.make_primary(
         "id": 1,
         "number": "+00000000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -2194,7 +2283,9 @@ rehive.user.mobiles.make_primary(
     "id": 1,
     "number": "+00000000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 
@@ -2203,7 +2294,9 @@ rehive.user.mobiles.make_primary(
     "id": 1,
     "number": "+00000000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "created": 1516281408895,
+    "updated": 1528454842365
 }
 ```
 

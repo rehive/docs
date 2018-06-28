@@ -167,6 +167,7 @@ Field | Type
 `source_transaction` | boolean
 `destination_transaction` | boolean
 `created` | millsecond timestamp
+`updated` | millsecond timestamp
 `metadata` | any
 
 #### Endpoint
@@ -617,7 +618,7 @@ rehive.transactions.create_transfer(
         "destination_transaction": {
             "id": "00000000000000000000",
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Susan",
                 "last_name": "Brown",
                 "email": "susan@rehive.com",
@@ -661,7 +662,7 @@ rehive.transactions.create_transfer(
     "destination_transaction": {
         "id": "00000000000000000000",
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Susan",
             "last_name": "Brown",
             "email": "susan@rehive.com",
@@ -704,7 +705,7 @@ rehive.transactions.create_transfer(
     "destination_transaction": {
         "id": "00000000000000000000",
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Susan",
             "last_name": "Brown",
             "email": "susan@rehive.com",
@@ -737,7 +738,7 @@ The transfer transaction endpoint is a wrapper for standard debit/credit transac
 Field | Description | Default
 --- | --- | ---
 `amount` | amount | null
-<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, or unique identifier</li><li>account reference code</li></ul> | null
+<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, or unique id</li><li>account reference code</li></ul> | null
 `currency` | currency code | null
 
 #### Optional Fields

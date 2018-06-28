@@ -38,9 +38,8 @@ as well as a corresponding HTTP response code. For more on errors take a look at
 
 ## Browsable API
 
-To ensure the API is easily explorable Rehive has implemented a browsable API.
-In addition to ease of navigation, you can experiment with different request
-formats and methods straight from within your browser:
+Rehive has made a browsable API to make the platform more explorable. You can
+experiment with different request formats and methods from within your browser:
 
 [Browsable API](https://api.rehive.com/3/)
 
@@ -135,7 +134,7 @@ Each endpoint's documentation contains a list of fields that are available for f
 by a field, include it in the URL as a standard query parameter with a `?` delimiting the URL and
 the start of the query parameters and a `&` between each filtered field.
 
-To sort a result set, an endpoint will often inlcude an `orderby` attribute. Check the specific endpoints
+To sort results, an endpoint will often inlcude an `orderby` attribute. Check the specific endpoints
 documentation on what fields can be used for sorting.
 
 ### Complex Filter Fields
@@ -156,10 +155,7 @@ be filtered using `metadata__name`.
 ## Currency and Amounts
 
 In order to prevent precision errors due to float data types, the API only deals in integers for currency amounts.
-This means that when posting an amount it should always be converted to it's lowest currency unit size (ie. an integer). For most
-currencies/assets this will be the cents value (eg. $ 1.00 represented as 100 in the API). When returning an integer value for
-a currency amount Rehive will always include a currency object and its associated `divisibility` so that it is easy to run
-any conversions back to a decimal number.
+This means that when posting an amount it should always be converted to it's lowest currency unit size (ie. an integer). For most currencies/assets this will be the cents value (eg. $ 1.00 represented as 100 in the API). When returning an integer value for a currency amount Rehive will always include a currency object and its associated `divisibility` so that it is easy to run any conversions back to a decimal number.
 
 ## Errors
 
@@ -244,3 +240,71 @@ Rehive errors return an API response message (formatted in JSON) as well as a st
 
 The JSON error respone generally includes a `message` string. If an error occurred on a specific attribute or
 key they will be outputted in the `data` object.
+
+
+## Webhook Events
+
+> Webhook format
+
+```json
+{
+    "event": "event.name",
+    "company": "company_id",
+    "data": {
+
+    }
+}
+```
+
+Rehive has a collection of internal events that can be configured to fire off custom webhooks.
+
+Webhooks should always be created with a secure and private `secret` key (See the webhook API endpoint docs for more about creating webhooks). The secret key can be used to identify valid Rehive requests to your server. The secret should be checked in the Authorization header when receiving a webhook.
+
+Rehive expects a `200 OK` HTTP response when webhooks are called. If a 200 response is not returned, Rehive will retry the webhook up to a max of 12 times with a gradually increasing delay between each retry.
+
+## Webhook Events
+
+Rehive currently support the following webhook events:
+
+Event | Description
+--- | ---
+`user.create`  | user created event
+`user.update` | user updated event
+`user.password.reset` | user password reset request event
+`user.email.verify` | user email verification event (Email key)
+`user.mobile.verify` | user mobile verification event (OTP key)
+`address.create` | address created event
+`address.update` | address updated event
+`document.create` | document created event
+`document.update` | document updated event
+`bank_account.create` | bank account created event
+`bank_account.update` | bank account updated event
+`crypto_account.create` | crypto account created event
+`crypto_account.update` | crypto account updated event
+`transaction.create` | transaction created event
+`transaction.update` | transaction updated event
+`transaction.delete` | transaction deleted event
+`transaction.initiate` | transaction initiated (pending) event
+`transaction.execute` | transaction executed (complete/failed) event
+
+## Idempotent Requests
+
+> Idempotent Request
+
+```shell
+curl {url}
+  -X GET
+  -H "Idempotency-Key: {key}"
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+The Rehive API supports idempotent requests for ensuring the same operations never occur twice.
+
+To perform an idempotent request, attach a unique key to any `POST`, `PUT` or `PATCH` request made to the API: via the `Idempotency-Key: {key}` header.
+
+API requests made with a new key will get saved along with their HTTP response. Follow up requests made with the same key will always return the same response (As long as the request has the same HTTP method and URL path). The keys (and their associated saved responses) expire after 24 hours.
+
+<aside class="notice">
+Idempotent requests will not work for anonymous users and/or any endpoints found under <a href="/#authorization">Authentication</a> (eg. URL paths beginning with `/auth/`)
+</aside>

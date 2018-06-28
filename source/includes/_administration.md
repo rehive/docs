@@ -33,7 +33,7 @@ rehive.admin.users.overview.get()
 {
     "data": {
         "total": 1,
-        "enabled": 1,
+        "archived": 1,
         "active": 1
     },
     "status": "success"
@@ -43,7 +43,7 @@ rehive.admin.users.overview.get()
 ```javascript
 {
     "total": 1,
-    "enabled": 1,
+    "archived": 1,
     "active": 1
 }
 ```
@@ -51,7 +51,7 @@ rehive.admin.users.overview.get()
 ```python
 {
     "total": 1,
-    "enabled": 1,
+    "archived": 1,
     "active": 1
 }
 ```
@@ -96,11 +96,11 @@ rehive.admin.users.get()
         "previous": null,
         "results": [
             {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Joe",
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
-                "username": "",
+                "username": null,
                 "id_number": "",
                 "birth_date": "2000-01-01",
                 "profile": null,
@@ -127,7 +127,7 @@ rehive.admin.users.get()
                 "created": 1464912953000,
                 "updated": 1464912953000,
                 "last_login": null,
-                "enabled": true
+                "archived": false
             }
         ]
     }
@@ -141,11 +141,11 @@ rehive.admin.users.get()
     "previous": null,
     "results": [
         {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "id_number": "",
             "birth_date": "2000-01-01",
             "profile": null,
@@ -172,7 +172,7 @@ rehive.admin.users.get()
             "created": 1464912953000,
             "updated": 1464912953000,
             "last_login": null,
-            "enabled": true
+            "archived": false
         }
     ]
 }
@@ -181,11 +181,11 @@ rehive.admin.users.get()
 ```python
 [
     {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "id_number": "",
         "birth_date": "2000-01-01",
         "profile": null,
@@ -212,7 +212,7 @@ rehive.admin.users.get()
         "created": 1464912953000,
         "updated": 1464912953000,
         "last_login": null,
-        "enabled": true
+        "archived": false
     }
 ]
 ```
@@ -223,7 +223,8 @@ Get a list of users belonging to a company.
 
 Field | Type
 --- | ---
-`identifier` | string
+`id` | string
+`user` | string
 `email` | string
 `mobile_number` | string
 `first_name` | string
@@ -234,10 +235,10 @@ Field | Type
 `nationality` | string
 `status` | string
 `currency` | string
-`enabled` | boolean
 `created` | millisecond timestamp
 `updated` | millisecond timestamp
 `last_login` | millisecond timestamp
+`archived` | boolean
 
 #### Endpoint
 
@@ -248,7 +249,7 @@ Field | Type
 > Admin create user request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/`
+curl https://api.rehive.com/3/admin/users/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -289,17 +290,17 @@ rehive.admin.users.create(
 )
 ```
 
-> Admin update user response
+> Admin create user response
 
 ```shell
 {
     "status": "success",
     "data": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "id_number": "",
         "birth_date": "2000-01-01",
         "profile": null,
@@ -332,18 +333,18 @@ rehive.admin.users.create(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "enabled": true
+        "archived": false
     }
 }
 ```
 
 ```javascript
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
-    "username": "",
+    "username": null,
     "id_number": "",
     "birth_date": "2000-01-01",
     "profile": null,
@@ -376,17 +377,17 @@ rehive.admin.users.create(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "enabled": true
+    "archived": false
 }
 ```
 
 ```python
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
-    "username": "",
+    "username": null,
     "id_number": "",
     "birth_date": "2000-01-01",
     "profile": null,
@@ -419,11 +420,11 @@ rehive.admin.users.create(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "enabled": true
+    "archived": false
 }
 ```
 
-Update a user's details.
+Create a user.
 
 #### Endpoint
 
@@ -433,6 +434,8 @@ Update a user's details.
 
 Field | Description | Default
 --- | --- | ---
+`id` | unique id | string (uuid)
+`username` | unique username | null
 `first_name` | first name | blank
 `last_name` | last name | blank
 `email` | email address | null
@@ -445,25 +448,21 @@ Field | Description | Default
 `mobile_number` | mobile number | blank
 `timezone` | timezone | blank
 `birth_date` | birth date | blank
-`enabled` | boolean | true
-
-<aside class="warning">
-    A `mobile_number` or `email` is required.
-</aside>
+`archived` | boolean | false
 
 ### Retrieve User
 
 > Admin retrieve user request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{identifier}/
+curl https://api.rehive.com/3/admin/users/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
 ```javascript
-rehive.admin.users.get({identifier: identifier}).then(function (res) {
+rehive.admin.users.get({id: id}).then(function (res) {
     ...
 }, function (err) {
     ...
@@ -472,7 +471,7 @@ rehive.admin.users.get({identifier: identifier}).then(function (res) {
 
 ```python
 rehive.admin.users.get(
-    "{identifier}"
+    "{id}"
 )
 ```
 
@@ -482,11 +481,11 @@ rehive.admin.users.get(
 {
     "status": "success",
     "data": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "id_number": "",
         "birth_date": "2000-01-01",
         "profile": null,
@@ -519,18 +518,18 @@ rehive.admin.users.get(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "enabled": true
+        "archived": false
     }
 }
 ```
 
 ```javascript
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
-    "username": "",
+    "username": null,
     "id_number": "",
     "birth_date": "2000-01-01",
     "profile": null,
@@ -563,17 +562,17 @@ rehive.admin.users.get(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "enabled": true
+    "archived": false
 }
 ```
 
 ```python
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
-    "username": "",
+    "username": null,
     "id_number": "",
     "birth_date": "2000-01-01",
     "profile": null,
@@ -606,7 +605,7 @@ rehive.admin.users.get(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "enabled": true
+    "archived": false
 }
 ```
 
@@ -614,14 +613,14 @@ Retrieve a company's user.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{identifier}/`
+`https://api.rehive.com/3/admin/users/{id}/`
 
 ### Update User
 
 > Admin update user request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{identifier}/`
+curl https://api.rehive.com/3/admin/users/{id}/`
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -643,7 +642,7 @@ for (var key in data) {
     }
 }
 
-rehive.admin.users.update(identifier, formData).then(function (res) {
+rehive.admin.users.update(id, formData).then(function (res) {
     ...
 }, function (err) {
     ...
@@ -652,7 +651,7 @@ rehive.admin.users.update(identifier, formData).then(function (res) {
 
 ```python
 rehive.admin.users.update(
-    "{identifier}",
+    "{id}",
     first_name="Joe"
 )
 ```
@@ -663,11 +662,11 @@ rehive.admin.users.update(
 {
     "status": "success",
     "data": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "id_number": "",
         "birth_date": "2000-01-01",
         "profile": null,
@@ -700,18 +699,18 @@ rehive.admin.users.update(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "enabled": true
+        "archived": false
     }
 }
 ```
 
 ```javascript
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
-    "username": "",
+    "username": null,
     "id_number": "",
     "birth_date": "2000-01-01",
     "profile": null,
@@ -744,17 +743,17 @@ rehive.admin.users.update(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "enabled": true
+    "archived": false
 }
 ```
 
 ```python
 {
-    "identifier": "00000000-0000-0000-0000-000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "first_name": "Joe",
     "last_name": "Soap",
     "email": "joe@rehive.com",
-    "username": "",
+    "username": null,
     "id_number": "",
     "birth_date": "2000-01-01",
     "profile": null,
@@ -787,7 +786,7 @@ rehive.admin.users.update(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "enabled": true
+    "archived": false
 }
 ```
 
@@ -795,7 +794,7 @@ Update a user's details.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{identifier}/`
+`https://api.rehive.com/3/admin/users/{id}/`
 
 #### Optional Fields
 
@@ -812,7 +811,7 @@ Field | Description | Default
 `timezone` | timezone | blank
 `birth_date` | birth date | blank
 `status` | status | pending
-`enabled` | boolean | true
+`archived` | boolean | false
 
 #### Statuses
 
@@ -829,14 +828,14 @@ Value | Description
 > Admin retrieve user settings request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{identifier}/settings/
+curl https://api.rehive.com/3/admin/users/{id}/settings/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
 ```javascript
-rehive.admin.users.settings.get(identifier).then(function (res) {
+rehive.admin.users.settings.get(id).then(function (res) {
     ...
 }, function (err) {
     ...
@@ -880,14 +879,14 @@ Retrieve a company's user settings.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{identifier}/settings/`
+`https://api.rehive.com/3/admin/users/{id}/settings/`
 
 ### Update User Settings
 
 > Admin update user settings request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{identifier}/settings/`
+curl https://api.rehive.com/3/admin/users/{id}/settings/`
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -895,7 +894,7 @@ curl https://api.rehive.com/3/admin/users/{identifier}/settings/`
 ```
 
 ```javascript
-rehive.admin.users.settings.update(identifier,{allow_transactions: true}).then(function (res) {
+rehive.admin.users.settings.update(id, {allow_transactions: true}).then(function (res) {
     ...
 }, function (err) {
     ...
@@ -903,7 +902,7 @@ rehive.admin.users.settings.update(identifier,{allow_transactions: true}).then(f
 ```
 
 ```python
-rehive.admin.users.obj('{identifier}').settings.update(
+rehive.admin.users.obj('{id}').settings.update(
     allow_transactions=True
 )
 ```
@@ -941,7 +940,7 @@ Update a user's settings.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{identifier}/settings/`
+`https://api.rehive.com/3/admin/users/{id}/settings/`
 
 #### Optional Fields
 
@@ -957,7 +956,7 @@ Field | Description | Default
 > Admin retrieve user kyc request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{identifier}/kyc/
+curl https://api.rehive.com/3/admin/users/{id}/kyc/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -991,14 +990,14 @@ Retrieve a company's user kyc details.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{identifier}/kyc/`
+`https://api.rehive.com/3/admin/users/{id}/kyc/`
 
 ### Update User KYC
 
 > Admin update user kyc request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{identifier}/kyc/`
+curl https://api.rehive.com/3/admin/users/{id}/kyc/`
   -X PUT
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -1034,7 +1033,7 @@ Update a user's kyc.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{identifier}/kyc/`
+`https://api.rehive.com/3/admin/users/{id}/kyc/`
 
 #### Optional Fields
 
@@ -1089,11 +1088,11 @@ rehive.admin.users.addresses.get()
             {
                 "id": 2,
                 "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "id": "00000000-0000-0000-0000-000000000000",
                     "first_name": "Joe",
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
-                    "username": "",
+                    "username": null,
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
@@ -1103,7 +1102,10 @@ rehive.admin.users.addresses.get()
                 "state_province": "Western Cape",
                 "country": "ZA",
                 "postal_code": "8001"
-                "status": "pending"
+                "status": "pending",
+                "archived": false,
+                "created": 1520929665311,
+                "updated": 1520929665311
             }
         ]
     }
@@ -1119,11 +1121,11 @@ rehive.admin.users.addresses.get()
         {
             "id": 2,
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Joe",
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
-                "username": "",
+                "username": null,
                 "mobile_number": "+27840000000",
                 "profile": null
             },
@@ -1133,7 +1135,10 @@ rehive.admin.users.addresses.get()
             "state_province": "Western Cape",
             "country": "ZA",
             "postal_code": "8001"
-            "status": "pending"
+            "status": "pending",
+            "archived": false,
+            "created": 1520929665311,
+            "updated": 1520929665311
         }
     ]
 }
@@ -1144,11 +1149,11 @@ rehive.admin.users.addresses.get()
     {
         "id": 2,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -1158,7 +1163,10 @@ rehive.admin.users.addresses.get()
         "state_province": "Western Cape",
         "country": "ZA",
         "postal_code": "8001"
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 ]
 ```
@@ -1230,11 +1238,11 @@ rehive.admin.users.addresses.create(
     "data": {
         "id": 2,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -1244,7 +1252,10 @@ rehive.admin.users.addresses.create(
         "state_province": "Western Cape",
         "country": "ZA",
         "postal_code": "8001"
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -1253,11 +1264,11 @@ rehive.admin.users.addresses.create(
 {
     "id": 2,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1267,7 +1278,10 @@ rehive.admin.users.addresses.create(
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001"
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1275,11 +1289,11 @@ rehive.admin.users.addresses.create(
 {
     "id": 2,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1289,7 +1303,10 @@ rehive.admin.users.addresses.create(
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001"
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1301,19 +1318,20 @@ rehive.admin.users.addresses.create(
 
 Field | Description | Default
 --- | --- | ---
-`user` | user identifier | null
+`user` | email, mobile number, username, or unique id | null
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
-`line_1` | address line one | blank | false
-`line_2` | address line 2 | blank | false
-`city` | city | blank | false
-`state_province` | state or province | blank | false
-`country` | country code | blank | false
-`postal_code` | postal or zip code) | blank | false
-`status` | account status | "pending" | false
+`line_1` | address line one | blank
+`line_2` | address line 2 | blank
+`city` | city | blank
+`state_province` | state or province | blank
+`country` | country code | blank
+`postal_code` | postal or zip code) | blank
+`status` | account status | "pending"
+`archived` | archived state | false
 
 #### Statuses
 
@@ -1358,11 +1376,11 @@ rehive.admin.users.addresses.get(
     "data": {
         "id": 2,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -1372,7 +1390,10 @@ rehive.admin.users.addresses.get(
         "state_province": "Western Cape",
         "country": "ZA",
         "postal_code": "8001"
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -1381,11 +1402,11 @@ rehive.admin.users.addresses.get(
 {
     "id": 2,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1395,7 +1416,10 @@ rehive.admin.users.addresses.get(
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001"
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1403,11 +1427,11 @@ rehive.admin.users.addresses.get(
 {
     "id": 2,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1417,7 +1441,10 @@ rehive.admin.users.addresses.get(
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001"
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1462,11 +1489,11 @@ rehive.admin.users.addresses.update(
     "data": {
         "id": 2,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -1476,7 +1503,10 @@ rehive.admin.users.addresses.update(
         "state_province": "Western Cape",
         "country": "ZA",
         "postal_code": "8001"
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -1485,11 +1515,11 @@ rehive.admin.users.addresses.update(
 {
     "id": 2,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1499,7 +1529,10 @@ rehive.admin.users.addresses.update(
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001"
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1507,11 +1540,11 @@ rehive.admin.users.addresses.update(
 {
     "id": 2,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1521,7 +1554,10 @@ rehive.admin.users.addresses.update(
     "state_province": "Western Cape",
     "country": "ZA",
     "postal_code": "8001"
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1533,13 +1569,14 @@ rehive.admin.users.addresses.update(
 
 Field | Description | Default
 --- | --- | ---
-`line_1` | address line one | blank | false
-`line_2` | address line 2 | blank | false
-`city` | city | blank | false
-`state_province` | state or province | blank | false
+`line_1` | address line one | blank
+`line_2` | address line 2 | blank
+`city` | city | blank
+`state_province` | state or province | blank
 `country` | country code | blank | false
-`postal_code` | postal or zip code) | blank | false
-`status` | account status | "pending" | false
+`postal_code` | postal or zip code) | blank
+`status` | account status | "pending"
+`archived` | archived state | false
 
 #### Statuses
 
@@ -1635,11 +1672,11 @@ rehive.admin.banks_accounts.get()
             {
                 "id": 1,
                 "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "id": "00000000-0000-0000-0000-000000000000",
                     "first_name": "Joe",
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
-                    "username": "",
+                    "username": null,
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
@@ -1653,7 +1690,10 @@ rehive.admin.banks_accounts.get()
                 "iban": null,
                 "bic": null,
                 "code": "bank_account_000000000000",
-                "status": "pending"
+                "status": "pending",
+                "archived": false,
+                "created": 1520929665311,
+                "updated": 1520929665311
             }
         ]
     }
@@ -1669,11 +1709,11 @@ rehive.admin.banks_accounts.get()
         {
             "id": 1,
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Joe",
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
-                "username": "",
+                "username": null,
                 "mobile_number": "+27840000000",
                 "profile": null
             },
@@ -1687,7 +1727,10 @@ rehive.admin.banks_accounts.get()
             "iban": null,
             "bic": null,
             "code": "bank_account_000000000000",
-            "status": "pending"
+            "status": "pending",
+            "archived": false,
+            "created": 1520929665311,
+            "updated": 1520929665311
         }
     ]
 }
@@ -1698,11 +1741,11 @@ rehive.admin.banks_accounts.get()
     {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -1716,7 +1759,10 @@ rehive.admin.banks_accounts.get()
         "iban": null,
         "bic": null,
         "code": "bank_account_000000000000",
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 ]
 ```
@@ -1783,11 +1829,11 @@ rehive.admin.bank_accounts.create(
     "data": {
         "id": 2,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -1801,7 +1847,10 @@ rehive.admin.bank_accounts.create(
         "iban": null,
         "bic": null,
         "code": "bank_account_000000000000",
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -1810,11 +1859,11 @@ rehive.admin.bank_accounts.create(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1828,7 +1877,10 @@ rehive.admin.bank_accounts.create(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1836,11 +1888,11 @@ rehive.admin.bank_accounts.create(
  {
     "id": 2,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1854,7 +1906,10 @@ rehive.admin.bank_accounts.create(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1866,7 +1921,7 @@ rehive.admin.bank_accounts.create(
 
 Field | Description | Default
 --- | --- | ---
-`user` | user identifier | null
+`user` | email, mobile number, username, or unique id | null
 
 #### Optional Fields
 
@@ -1882,6 +1937,7 @@ Field | Description | Default
 `swift` | swift | blank
 `iban` | iban | blank
 `bic` | bic | blank
+`archived` | archived state | false
 
 #### Statuses
 
@@ -1924,11 +1980,11 @@ rehive.admin.bank_accounts.get("{id}")
     "data": {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -1942,7 +1998,10 @@ rehive.admin.bank_accounts.get("{id}")
         "iban": null,
         "bic": null,
         "code": "bank_account_000000000000",
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -1951,11 +2010,11 @@ rehive.admin.bank_accounts.get("{id}")
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1969,7 +2028,10 @@ rehive.admin.bank_accounts.get("{id}")
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -1977,11 +2039,11 @@ rehive.admin.bank_accounts.get("{id}")
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -1995,7 +2057,10 @@ rehive.admin.bank_accounts.get("{id}")
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2040,11 +2105,11 @@ rehive.admin.bank_accounts.update(
     "data": {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -2058,7 +2123,10 @@ rehive.admin.bank_accounts.update(
         "iban": null,
         "bic": null,
         "code": "bank_account_000000000000",
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -2067,11 +2135,11 @@ rehive.admin.bank_accounts.update(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2085,7 +2153,10 @@ rehive.admin.bank_accounts.update(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2093,11 +2164,11 @@ rehive.admin.bank_accounts.update(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2111,7 +2182,10 @@ rehive.admin.bank_accounts.update(
     "iban": null,
     "bic": null,
     "code": "bank_account_000000000000",
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2133,6 +2207,7 @@ Field | Description | Default
 `swift` | swift | blank
 `iban` | iban | blank
 `bic` | bic | blank
+`archived` | archived state | false
 
 #### Statuses
 
@@ -2229,11 +2304,11 @@ rehive.admin.users.crypto_accounts.get()
             {
                 "id": 1,
                 "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "id": "00000000-0000-0000-0000-000000000000",
                     "first_name": "Joe",
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
-                    "username": "",
+                    "username": null,
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
@@ -2241,7 +2316,10 @@ rehive.admin.users.crypto_accounts.get()
                 "code": "crypto_account_000000000000",
                 "crypto_type": "bitcoin",
                 "metadata": {},
-                "status": "pending"
+                "status": "pending",
+                "archived": false,
+                "created": 1520929665311,
+                "updated": 1520929665311
             }
         ]
     }
@@ -2257,11 +2335,11 @@ rehive.admin.users.crypto_accounts.get()
         {
             "id": 1,
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Joe",
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
-                "username": "",
+                "username": null,
                 "mobile_number": "+27840000000",
                 "profile": null
             },
@@ -2269,7 +2347,10 @@ rehive.admin.users.crypto_accounts.get()
             "code": "crypto_account_000000000000",
             "crypto_type": "bitcoin",
             "metadata": {},
-            "status": "pending"
+            "status": "pending",
+            "archived": false,
+            "created": 1520929665311,
+            "updated": 1520929665311
         }
     ]
 }
@@ -2280,11 +2361,11 @@ rehive.admin.users.crypto_accounts.get()
     {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -2292,7 +2373,10 @@ rehive.admin.users.crypto_accounts.get()
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 ]
 ```
@@ -2354,11 +2438,11 @@ rehive.admin.users.crypto_accounts.create(
     "data": {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -2366,7 +2450,10 @@ rehive.admin.users.crypto_accounts.create(
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -2375,11 +2462,11 @@ rehive.admin.users.crypto_accounts.create(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2387,7 +2474,10 @@ rehive.admin.users.crypto_accounts.create(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2395,11 +2485,11 @@ rehive.admin.users.crypto_accounts.create(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2407,7 +2497,10 @@ rehive.admin.users.crypto_accounts.create(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2421,7 +2514,7 @@ Create a crypto account for a user.
 
 Field | Description | Default
 --- | --- | ---
-`user` | user identifier | null
+`user` | email, mobile number, username, or unique id| null
 `address` | full bitcoin address | null
 
 #### Optional Fields
@@ -2431,6 +2524,7 @@ Field | Description | Default
 `crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
 `metadata` | custom metadata | {}
 `status` | string status | 'pending'
+`archived` | archived state | false
 
 #### Statuses
 
@@ -2475,11 +2569,11 @@ rehive.admin.users.crypto_accounts.get(
     "data": {
         "id": {account_id},
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -2487,7 +2581,10 @@ rehive.admin.users.crypto_accounts.get(
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -2496,11 +2593,11 @@ rehive.admin.users.crypto_accounts.get(
 {
     "id": {account_id},
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2508,7 +2605,10 @@ rehive.admin.users.crypto_accounts.get(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2516,11 +2616,11 @@ rehive.admin.users.crypto_accounts.get(
 {
     "id": {account_id},
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2528,7 +2628,10 @@ rehive.admin.users.crypto_accounts.get(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2574,11 +2677,11 @@ rehive.admin.users.crypto_accounts.update(
     "data": {
         "id": {account_id},
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -2586,7 +2689,10 @@ rehive.admin.users.crypto_accounts.update(
         "code": "crypto_account_000000000000",
         "crypto_type": "bitcoin",
         "metadata": {},
-        "status": "pending"
+        "status": "pending",
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -2595,11 +2701,11 @@ rehive.admin.users.crypto_accounts.update(
 {
     "id": {account_id},
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2607,7 +2713,10 @@ rehive.admin.users.crypto_accounts.update(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2615,11 +2724,11 @@ rehive.admin.users.crypto_accounts.update(
 {
     "id": {account_id},
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2627,7 +2736,10 @@ rehive.admin.users.crypto_accounts.update(
     "code": "crypto_account_000000000000",
     "crypto_type": "bitcoin",
     "metadata": {},
-    "status": "pending"
+    "status": "pending",
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2641,7 +2753,7 @@ Update a user's crypto account.
 
 Field | Description | Default
 --- | --- | ---
-`user` | user identifier | null
+`user` | email, mobile number, username, or unique id | null
 `address` | full bitcoin address | null
 
 #### Optional Fields
@@ -2651,6 +2763,7 @@ Field | Description | Default
 `crypto_type` | string type (bitcoin, ethereum, other) | bitcoin
 `metadata` | custom metadata | {}
 `status` | string status | 'pending'
+`archived` | archived state | false
 
 #### Statuses
 
@@ -2748,11 +2861,11 @@ rehive.admin.users.documents.get()
             {
                 "id": 1,
                 "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "id": "00000000-0000-0000-0000-000000000000",
                     "first_name": "Joe",
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
-                    "username": "",
+                    "username": null,
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
@@ -2761,7 +2874,10 @@ rehive.admin.users.documents.get()
                 "document_type": "other",
                 "metadata": {},
                 "status": "pending",
-                "note": null
+                "note": null,
+                "archived": false,
+                "created": 1520929665311,
+                "updated": 1520929665311
             }
         ]
     }
@@ -2777,11 +2893,11 @@ rehive.admin.users.documents.get()
         {
             "id": 1,
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Joe",
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
-                "username": "",
+                "username": null,
                 "mobile_number": "+27840000000",
                 "profile": null
             },
@@ -2790,7 +2906,10 @@ rehive.admin.users.documents.get()
             "document_type": "other",
             "metadata": {},
             "status": "pending",
-            "note": null
+            "note": null,
+            "archived": false,
+            "created": 1520929665311,
+            "updated": 1520929665311
         }
     ]
 }
@@ -2801,11 +2920,11 @@ rehive.admin.users.documents.get()
     {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -2814,7 +2933,10 @@ rehive.admin.users.documents.get()
         "document_type": "other",
         "metadata": {},
         "status": "pending",
-        "note": null
+        "note": null,
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 ]
 ```
@@ -2879,11 +3001,11 @@ rehive.admin.documents.upload(
     "data": {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -2892,7 +3014,10 @@ rehive.admin.documents.upload(
         "document_type": "other",
         "metadata": {},
         "status": "pending",
-        "note": null
+        "note": null,
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -2901,11 +3026,11 @@ rehive.admin.documents.upload(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2914,7 +3039,10 @@ rehive.admin.documents.upload(
     "document_type": "other",
     "metadata": {},
     "status": "pending",
-    "note": null
+    "note": null,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2922,11 +3050,11 @@ rehive.admin.documents.upload(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -2935,7 +3063,10 @@ rehive.admin.documents.upload(
     "document_type": "other",
     "metadata": {},
     "status": "pending",
-    "note": null
+    "note": null,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -2949,7 +3080,7 @@ Upload user document.
 
 Field | Description | Default
 --- | --- | ---
-`user` | user identifier | null
+`user` | email, mobile number, username, or unique id | null
 `file` | a document file | null
 
 #### Optional Fields
@@ -2960,6 +3091,7 @@ Field | Description | Default
 `document_type` | The type of docuemnt | other
 `metadata` | custom metadata | {}
 `status` | document status | pending
+`archived` | archived state | false
 
 #### Statuses
 
@@ -3004,11 +3136,11 @@ rehive.admin.users.documents.get(
     "data": {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -3017,7 +3149,10 @@ rehive.admin.users.documents.get(
         "document_type": "other",
         "metadata": {},
         "status": "pending",
-        "note": null
+        "note": null,
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -3026,11 +3161,11 @@ rehive.admin.users.documents.get(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3039,7 +3174,10 @@ rehive.admin.users.documents.get(
     "document_type": "other",
     "metadata": {},
     "status": "pending",
-    "note": null
+    "note": null,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -3047,11 +3185,11 @@ rehive.admin.users.documents.get(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3060,7 +3198,10 @@ rehive.admin.users.documents.get(
     "document_type": "other",
     "metadata": {},
     "status": "pending",
-    "note": null
+    "note": null,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -3116,11 +3257,11 @@ rehive.admin.users.documents.update(
     "data": {
         "id": 1,
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -3129,7 +3270,10 @@ rehive.admin.users.documents.update(
         "document_type": "other",
         "metadata": {},
         "status": "verified",
-        "note": null
+        "note": null,
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -3138,11 +3282,11 @@ rehive.admin.users.documents.update(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3151,7 +3295,10 @@ rehive.admin.users.documents.update(
     "document_type": "other",
     "metadata": {},
     "status": "verified",
-    "note": null
+    "note": null,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -3159,11 +3306,11 @@ rehive.admin.users.documents.update(
 {
     "id": 1,
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3172,7 +3319,10 @@ rehive.admin.users.documents.update(
     "document_type": "other",
     "metadata": {},
     "status": "verified",
-    "note": null
+    "note": null,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -3196,6 +3346,7 @@ Field | Description | Default
 `document_type` | The type of docuemnt | other
 `metadata` | custom metadata | {}
 `status` | document status | pending
+`archived` | archived state | false
 
 #### Statuses
 
@@ -3243,11 +3394,11 @@ rehive.admin.users.emails.get()
         "results": [
             {
                 "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "id": "00000000-0000-0000-0000-000000000000",
                     "first_name": "Joe",
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
-                    "username": "",
+                    "username": null,
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
@@ -3269,11 +3420,11 @@ rehive.admin.users.emails.get()
     "results": [
         {
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Joe",
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
-                "username": "",
+                "username": null,
                 "mobile_number": "+27840000000",
                 "profile": null
             },
@@ -3289,11 +3440,11 @@ rehive.admin.users.emails.get()
 [
     {
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -3361,11 +3512,11 @@ rehive.admin.users.emails.create(
     "status": "success",
     "data": {
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -3380,11 +3531,11 @@ rehive.admin.users.emails.create(
 ```javascript
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3398,11 +3549,11 @@ rehive.admin.users.emails.create(
 ```python
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3423,7 +3574,7 @@ Create an email address for a user.
 
 Field | Description | Default
 --- | --- | ---
-`user` | user identifier | null
+`user` | email, mobile number, username, or unique id | null
 `email` | email address | null
 
 #### Optional Fields
@@ -3465,11 +3616,11 @@ rehive.admin.users.emails.get(
     "status": "success",
     "data": {
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -3484,11 +3635,11 @@ rehive.admin.users.emails.get(
 ```javascript
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3502,11 +3653,11 @@ rehive.admin.users.emails.get(
 ```python
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3557,11 +3708,11 @@ rehive.admin.users.emails.update(
     "status": "success",
     "data": {
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -3576,11 +3727,11 @@ rehive.admin.users.emails.update(
 ```javascript
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3594,11 +3745,11 @@ rehive.admin.users.emails.update(
 ```python
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -3707,18 +3858,21 @@ rehive.admin.users.mobiles.get()
         "results": [
             {
                 "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "id": "00000000-0000-0000-0000-000000000000",
                     "first_name": "Joe",
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
-                    "username": "",
+                    "username": null,
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
                 "id": 1,
                 "number": "+27840000000",
                 "primary": true,
-                "verified": true
+                "verified": true,
+                "archived": false,
+                "created": 1520929665311,
+                "updated": 1520929665311
             },
         ]
     }
@@ -3733,18 +3887,21 @@ rehive.admin.users.mobiles.get()
     "results": [
         {
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Joe",
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
-                "username": "",
+                "username": null,
                 "mobile_number": "+27840000000",
                 "profile": null
             },
             "id": 1,
             "number": "+27840000000",
             "primary": true,
-            "verified": true
+            "verified": true,
+            "archived": false,
+            "created": 1520929665311,
+            "updated": 1520929665311
         },
     ]
 }
@@ -3754,18 +3911,21 @@ rehive.admin.users.mobiles.get()
 [
     {
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
         "id": 1,
         "number": "+27840000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     },
 ]
 ```
@@ -3826,18 +3986,21 @@ rehive.admin.users.mobiles.create(
     "status": "success",
     "data": {
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
         "id": 1,
         "email": "+27840000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -3845,36 +4008,42 @@ rehive.admin.users.mobiles.create(
 ```javascript
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
     "id": 1,
     "email": "+27840000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
 ```python
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
     "id": 1,
     "email": "+27840000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -3888,7 +4057,7 @@ Create a mobile number for a user.
 
 Field | Description | Default
 --- | --- | ---
-`user` | user identifier | null
+`user` | email, mobile number, username, or unique id | null
 `mobile` | mobile number | null
 
 #### Optional Fields
@@ -3897,6 +4066,7 @@ Field | Description | Default
 --- | --- | ---
 `verified` | verified status | false
 `primary` | primary status | false
+`archived` | archived state | false
 
 ### Retrieve Mobile
 
@@ -3930,18 +4100,21 @@ rehive.admin.users.mobiles.get(
     "status": "success",
     "data": {
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
         "id": 1,
         "number": "+27840000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -3949,36 +4122,42 @@ rehive.admin.users.mobiles.get(
 ```javascript
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
     "id": 1,
     "number": "+27840000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
 ```python
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
     "id": 1,
     "number": "+27840000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -4024,18 +4203,21 @@ rehive.admin.users.mobiles.update(
     "status": "success",
     "data": {
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
         "id": 1,
         "number": "+27840000000",
         "primary": true,
-        "verified": true
+        "verified": true,
+        "archived": false,
+        "created": 1520929665311,
+        "updated": 1520929665311
     }
 }
 ```
@@ -4043,36 +4225,42 @@ rehive.admin.users.mobiles.update(
 ```javascript
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
     "id": 1,
     "number": "+27840000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
 ```python
 {
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
     "id": 1,
     "number": "+27840000000",
     "primary": true,
-    "verified": true
+    "verified": true,
+    "archived": false,
+    "created": 1520929665311,
+    "updated": 1520929665311
 }
 ```
 
@@ -4088,7 +4276,7 @@ Field | Description | Default
 --- | --- | ---
 `verified` | verified status | false
 `primary` | primary status | false
-
+`archived` | archived state | false
 
 ### Delete Mobile
 
@@ -4206,16 +4394,17 @@ rehive.admin.transactions.get_previous()
                     "divisibility": 2
                 },
                 "user": {
-                    "identifier": "00000000-0000-0000-0000-000000000000",
+                    "id": "00000000-0000-0000-0000-000000000000",
                     "first_name": "Joe",
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
-                    "username": "",
+                    "username": null,
                     "mobile_number": "+27840000000",
                     "profile": null
                 },
                 "source_transaction": null,
                 "destination_transaction": null,
+                "archived": false,
                 "created": 1509618707485,
                 "updated": 1509618708277
             }
@@ -4253,16 +4442,17 @@ rehive.admin.transactions.get_previous()
                 "divisibility": 2
             },
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Joe",
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
-                "username": "",
+                "username": null,
                 "mobile_number": "+27840000000",
                 "profile": null
             },
             "source_transaction": null,
             "destination_transaction": null,
+            "archived": false,
             "created": 1509618707485,
             "updated": 1509618708277
         }
@@ -4295,16 +4485,17 @@ rehive.admin.transactions.get_previous()
             "divisibility": 2
         },
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
         "source_transaction": null,
         "destination_transaction": null,
+        "archived": false,
         "created": 1509618707485,
         "updated": 1509618708277
     }
@@ -4326,7 +4517,9 @@ Field | Type
 `source_transaction` | boolean
 `destination_transaction` | boolean
 `created` | millsecond timestamp
+`updated` | millsecond timestamp
 `metadata` | any
+`archived` | boolean
 
 #### Endpoint
 
@@ -4450,11 +4643,11 @@ rehive.admin.transactions.get(
             "divisibility": 2
         },
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -4462,6 +4655,7 @@ rehive.admin.transactions.get(
         "destination_transaction": null,
         "messages": [],
         "fees": [],
+        "archived": false,
         "created": 1509618707485,
         "updated": 1509618708277
     }
@@ -4492,11 +4686,11 @@ rehive.admin.transactions.get(
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -4504,6 +4698,7 @@ rehive.admin.transactions.get(
     "destination_transaction": null,
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1509618707485,
     "updated": 1509618708277
 }
@@ -4533,11 +4728,11 @@ rehive.admin.transactions.get(
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -4545,6 +4740,7 @@ rehive.admin.transactions.get(
     "destination_transaction": null,
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1509618707485,
     "updated": 1509618708277
 }
@@ -4619,11 +4815,11 @@ rehive.admin.transactions.create_credit(
             "divisibility": 2
         },
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -4631,6 +4827,7 @@ rehive.admin.transactions.create_credit(
         "destination_transaction": null,
         "messages": [],
         "fees": [],
+        "archived": false,
         "created": 1476691969394,
         "updated": 1496135465287
     }
@@ -4661,11 +4858,11 @@ rehive.admin.transactions.create_credit(
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -4673,6 +4870,7 @@ rehive.admin.transactions.create_credit(
     "destination_transaction": null,
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -4702,11 +4900,11 @@ rehive.admin.transactions.create_credit(
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -4714,6 +4912,7 @@ rehive.admin.transactions.create_credit(
     "destination_transaction": null,
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -4729,7 +4928,7 @@ Create a credit transaction on behalf of a user.
 
 Field | Description | Default
 --- | --- | ---
-`user` | email, mobile number, or unique identifier | null
+`user` | email, mobile number, username, or unique id| null
 `amount` | amount | null
 `currency` | currency code | null
 
@@ -4743,6 +4942,7 @@ Field | Description | Default
 `note` | user's note or message | blank
 `metadata` | custom metadata | {}
 `status` | status to transition to | Pending
+`archived` | archived state | false
 
 <aside class="notice">
 When creating transaction admin users have an additional <code>status</code> field. This field
@@ -4818,11 +5018,11 @@ rehive.admin.transactions.create_debit(
             "divisibility": 2
         },
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -4830,6 +5030,7 @@ rehive.admin.transactions.create_debit(
         "destination_transaction": null,
         "messages": [],
         "fees": [],
+        "archived": false,
         "created": 1476691969394,
         "updated": 1496135465287
     }
@@ -4860,11 +5061,11 @@ rehive.admin.transactions.create_debit(
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -4872,6 +5073,7 @@ rehive.admin.transactions.create_debit(
     "destination_transaction": null,
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -4901,11 +5103,11 @@ rehive.admin.transactions.create_debit(
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -4913,6 +5115,7 @@ rehive.admin.transactions.create_debit(
     "destination_transaction": null,
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -4928,7 +5131,7 @@ Create a debit transaction on behalf of a user.
 
 Field | Description | Default
 --- | --- | ---
-`user` | email, mobile number, or unique identifier | null
+`user` | mail, mobile number, username, or unique id | null
 `amount` | amount | null
 `currency` | currency code | null
 
@@ -4942,6 +5145,7 @@ Field | Description | Default
 `note` | user's note or message | blank
 `metadata` | custom metadata | {}
 `status` | status to transition to | Pending
+`archived` | archived state | false
 
 ### Create Transfer
 
@@ -5009,11 +5213,11 @@ rehive.admin.transactions.create_transfer(
             "divisibility": 2
         },
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -5021,17 +5225,18 @@ rehive.admin.transactions.create_transfer(
         "destination_transaction": {
             "id": "00000000000000000000",
             "user": {
-                "identifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Susan",
                 "last_name": "Brown",
                 "email": "susan@rehive.com",
-                "username": "",
+                "username": null,
                 "mobile_number": "+27850000000",
                 "profile": null
             }
         },
         "messages": [],
         "fees": [],
+        "archived": false,
         "created": 1476691969394,
         "updated": 1496135465287
     }
@@ -5062,11 +5267,11 @@ rehive.admin.transactions.create_transfer(
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -5074,17 +5279,18 @@ rehive.admin.transactions.create_transfer(
     "destination_transaction": {
         "id": "00000000000000000000",
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Susan",
             "last_name": "Brown",
             "email": "susan@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27850000000",
             "profile": null
         }
     },
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -5114,11 +5320,11 @@ rehive.admin.transactions.create_transfer(
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -5126,17 +5332,18 @@ rehive.admin.transactions.create_transfer(
     "destination_transaction": {
         "id": "00000000000000000000",
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Susan",
             "last_name": "Brown",
             "email": "susan@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27850000000",
             "profile": null
         }
     },
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -5152,9 +5359,9 @@ Create a transfer transaction on behalf of a user. This will transfer currency f
 
 Field | Description | Default
 --- | --- | ---
-`user` | email, mobile number, or unique identifier | null
+`user` | mail, mobile number, username, or unique id | null
 `amount` | amount | null
-<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, or unique identifier</li><li>account reference code</li></ul> | null
+<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, username, or unique id</li><li>account reference code</li></ul> | null
 `currency` | currency code | null
 
 #### Optional Fields
@@ -5171,6 +5378,7 @@ Field | Description | Default
 `credit_note` | user's note or message | blank
 `credit_metadata` | custom metadata | {}
 `credit_reference` | optional credit reference | string
+`archived` | archived state | false
 
 
 ### Update Transaction
@@ -5233,11 +5441,11 @@ rehive.admin.transactions.delete("{id}")
             "divisibility": 2
         },
         "user": {
-            "identifier": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Joe",
             "last_name": "Soap",
             "email": "joe@rehive.com",
-            "username": "",
+            "username": null,
             "mobile_number": "+27840000000",
             "profile": null
         },
@@ -5245,6 +5453,7 @@ rehive.admin.transactions.delete("{id}")
         "destination_transaction": null,
         "messages": [],
         "fees": [],
+        "archived": false,
         "created": 1509618707485,
         "updated": 1509618708277
     }
@@ -5275,11 +5484,11 @@ rehive.admin.transactions.delete("{id}")
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -5287,6 +5496,7 @@ rehive.admin.transactions.delete("{id}")
     "destination_transaction": null,
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1509618707485,
     "updated": 1509618708277
 }
@@ -5316,11 +5526,11 @@ rehive.admin.transactions.delete("{id}")
         "divisibility": 2
     },
     "user": {
-        "identifier": "00000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "first_name": "Joe",
         "last_name": "Soap",
         "email": "joe@rehive.com",
-        "username": "",
+        "username": null,
         "mobile_number": "+27840000000",
         "profile": null
     },
@@ -5328,6 +5538,7 @@ rehive.admin.transactions.delete("{id}")
     "destination_transaction": null,
     "messages": [],
     "fees": [],
+    "archived": false,
     "created": 1509618707485,
     "updated": 1509618708277
 }
@@ -5351,23 +5562,249 @@ Each message added to a transaction will be stored in a list. Rehive will also a
 
 `https://api.rehive.com/3/admin/transactions/{id}/`
 
-#### Required Fields
+#### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
-`status` | update action/status (`Pending`, `Complete`, `Failed`, `Deleted`) | null | true
+`status` | update action/status (`Pending`, `Complete`, `Failed`) | null | true
+`metadata` | custom metadata | {}
+`message` | message object | {}
+`archived` | archived state | false
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transactions/webhooks/{id}/`
+
+
+### List Transaction Sets
+
+> Admin list transaction sets request
+
+```shell
+curl https://api.rehive.com/3/admin/transactions/sets/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin list transaction sets response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "type": "transaction",
+                "query": {},
+                "status": "complete",
+                "progress": 100,
+                "count": 5000,
+                "page_size": 5000,
+                "archived": false,
+                "created": 1530102672434,
+                "updated": 1530102672474
+            },
+        ]
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Get a list of transaction sets.
+
+<aside class="notice">
+Transaction sets are currently in beta.
+</aside>
+
+#### Filtering
+
+Field | Type
+--- | ---
+`status` | string (`pending`, `complete`, `failed`)
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transactions/sets/`
+
+### Create Transaction Set
+
+> Admin create transaction sets request
+
+```shell
+curl https://api.rehive.com/3/admin/transactions/sets/`
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"page_size": 5000}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin create transaction set response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "type": "transaction",
+        "query": {},
+        "status": "complete",
+        "progress": 100,
+        "count": 5000,
+        "page_size": 5000,
+        "pages": [
+            {
+                "count": 5000,
+                "page": 1,
+                "status": "complete",
+                "file": "https://path.to.file.com/file.json"
+            }
+        ],
+        "archived": false,
+        "created": 1530102672434,
+        "updated": 1530102672474
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Create a transaction set.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transactions/sets/`
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
-`metadata` | custom metadata | {}
-`message` | message object | {}
+`page_size` | number of results per page | 5000
+`query` | key value object containing query filters | {}
 
+
+#### Query Filtering
+
+All filters available on the admin transaction list endpoint aare also
+available on the create transaction set endpoint. Simply include them in the
+`query` object like: `{"status": "complete"}`.
+
+### Retrieve Transaction Set
+
+> Admin retrieve transaction set request
+
+```shell
+curl https://api.rehive.com/3/admin/transactions/sets/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin retrieve transaction set response
+
+```shell
+    "status": "success",
+    "data": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "type": "transaction",
+        "query": {},
+        "status": "complete",
+        "progress": 100,
+        "count": 5000,
+        "page_size": 5000,
+        "pages": [
+            {
+                "count": 5000,
+                "page": 1,
+                "status": "complete",
+                "file": "https://path.to.file.com/file.json"
+            }
+        ],
+        "archived": false,
+        "created": 1530102672434,
+        "updated": 1530102672474
+    }
+```
+
+```javascript
+```
+
+```python
+```
+
+Retrieve a transaction set.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/transactions/webhooks/{id}/`
+`https://api.rehive.com/3/admin/transactions/sets/{id}/`
+
+### Delete Transaction Set
+
+> Admin delete transaction set request
+
+```shell
+curl https://api.rehive.com/3/admin/transactions/sets/{id}/`
+  -X DELETE
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin delete transaction set response
+
+```shell
+{
+    "status": "success",
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Delete a transaction set.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transactions/sets/{id}/`
 
 ## Accounts
 
@@ -5429,6 +5866,7 @@ rehive.admin.accounts.get()
                         "active": true
                     }
                 ],
+                "archived": false,
                 "created": 1464858068745,
                 "updated": 1464858068745
             }
@@ -5468,6 +5906,7 @@ rehive.admin.accounts.get()
                     "active": true
                 }
             ],
+            "archived": false,
             "created": 1464858068745,
             "updated": 1464858068745
         }
@@ -5502,6 +5941,7 @@ rehive.admin.accounts.get()
                 "active": true
             }
         ],
+        "archived": false,
         "created": 1464858068745,
         "updated": 1464858068745
     }
@@ -5566,6 +6006,7 @@ rehive.admin.accounts.create(
         "reference": "0000000000",
         "primary": true,
         "currencies": [],
+        "archived": false,
         "created": 1501145581365,
         "updated": 1501145581370
     },
@@ -5578,6 +6019,7 @@ rehive.admin.accounts.create(
     "reference": "0000000000",
     "primary": true,
     "currencies": [],
+    "archived": false,
     "created": 1501145581365,
     "updated": 1501145581370
 }
@@ -5589,6 +6031,7 @@ rehive.admin.accounts.create(
     "reference": "0000000000",
     "primary": true,
     "currencies": [],
+    "archived": false,
     "created": 1501145581365,
     "updated": 1501145581370
 }
@@ -5613,6 +6056,7 @@ Field | Description | Default
 --- | --- | ---
 `reference` | account reference | 10 random chars
 `primary` | account primary status | false
+`archived` | archived state | false
 
 ### Retrieve Account
 
@@ -5669,6 +6113,7 @@ rehive.admin.accounts.get(
                 "active": true
             }
         ],
+        "archived": false,
         "created": 1464858068745,
         "updated": 1464858068745
     }
@@ -5701,6 +6146,7 @@ rehive.admin.accounts.get(
             "active": true
         }
     ],
+    "archived": false,
     "created": 1464858068745,
     "updated": 1464858068745
 }
@@ -5732,6 +6178,7 @@ rehive.admin.accounts.get(
             "active": true
         }
     ],
+    "archived": false,
     "created": 1464858068745,
     "updated": 1464858068745
 }
@@ -5787,6 +6234,7 @@ rehive.admin.accounts.update(
         "reference": "0000000000",
         "primary": true,
         "currencies": [],
+        "archived": false,
         "created": 1501145581365,
         "updated": 1501145581370
     },
@@ -5799,6 +6247,7 @@ rehive.admin.accounts.update(
     "reference": "0000000000",
     "primary": true,
     "currencies": [],
+    "archived": false,
     "created": 1501145581365,
     "updated": 1501145581370
 }
@@ -5810,6 +6259,7 @@ rehive.admin.accounts.update(
     "reference": "0000000000",
     "primary": true,
     "currencies": [],
+    "archived": false,
     "created": 1501145581365,
     "updated": 1501145581370
 }
@@ -5834,6 +6284,7 @@ Field | Description | Default
 --- | --- | ---
 `reference` | account reference | 10 random chars
 `primary` | account primary status | false
+`archived` | archived state | false
 
 
 ### List Account Currencies
@@ -5887,6 +6338,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
                     "allow_debit_transactions": true,
                     "allow_credit_transactions": true
                 },
+                "archived": false,
                 "created": 1464858068732,
                 "updated": 1464858068732
             }
@@ -5919,6 +6371,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
             },
+            "archived": false,
             "created": 1464858068732,
             "updated": 1464858068732e": true
         }
@@ -5946,6 +6399,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get()
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -6012,6 +6466,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -6037,6 +6492,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1464858068732,
     "updated": 1464858068732
 }
@@ -6061,6 +6517,7 @@ rehive.admin.accounts.obj("{reference}").currencies.get(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1464858068732,
     "updated": 1464858068732
 }
@@ -6122,6 +6579,7 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -6147,6 +6605,7 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1464858068732,
     "updated": 1464858068732
 }
@@ -6171,6 +6630,7 @@ rehive.admin.accounts.obj("{reference}").currencies.update(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1464858068732,
     "updated": 1464858068732
 }
@@ -6353,6 +6813,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get()
             "type": "Maximum",
             "tx_type": "credit",
             "subtype": null,
+            "archived": false,
             "created": 1497428787920,
             "updated": 1497428787921
         }
@@ -6369,6 +6830,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get()
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497428787920,
         "updated": 1497428787921
     }
@@ -6383,6 +6845,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get()
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497428787920,
         "updated": 1497428787921
     }
@@ -6440,6 +6903,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.create(
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497428787920,
         "updated": 1497428787921
     },
@@ -6454,6 +6918,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.create(
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497428787920,
     "updated": 1497428787921
 }
@@ -6466,6 +6931,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.create(
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497428787920,
     "updated": 1497428787921
 }
@@ -6488,6 +6954,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `subtype` | Transaction subtype name | null
+`archived` | archived state | false
 
 #### Limit Types
 
@@ -6543,6 +7010,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get(
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497428787920,
         "updated": 1497428787921
     },
@@ -6557,6 +7025,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get(
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497428787920,
     "updated": 1497428787921
 }
@@ -6569,6 +7038,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.get(
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497428787920,
     "updated": 1497428787921
 }
@@ -6624,6 +7094,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.update(
         "type": "Minimum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497428787920,
         "updated": 1497429648948
     }
@@ -6637,6 +7108,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.update(
     "type": "Minimum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497428787920,
     "updated": 1497429648948
 }
@@ -6649,6 +7121,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").limits.update(
     "type": "Minimum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497428787920,
     "updated": 1497429648948
 }
@@ -6671,6 +7144,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `subtype` | Transaction subtype name | null
+`archived` | archived state | false
 
 #### Limit Types
 
@@ -6775,6 +7249,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get()
             "percentage": null,
             "tx_type": "credit",
             "subtype": null,
+            "archived": false,
             "created": 1497431721587,
             "updated": 1497431721587
         }
@@ -6791,6 +7266,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get()
         "percentage": null,
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431721587
     }
@@ -6805,6 +7281,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get()
         "percentage": null,
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431721587
     }
@@ -6858,6 +7335,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.create(
         "percentage": null,
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431721587
     },
@@ -6872,6 +7350,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.create(
     "percentage": null,
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431721587
 }
@@ -6884,6 +7363,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.create(
     "percentage": null,
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431721587
 }
@@ -6906,6 +7386,7 @@ Field | Description | Default
 `value` | Fee amount | 0
 `percentage` | Percentage amount |
 `subtype` | Transaction subtype name | null
+`archived` | archived state | false
 
 #### Transaction Types
 
@@ -6951,6 +7432,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get(
         "percentage": null,
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431721587
     },
@@ -6965,6 +7447,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get(
     "percentage": null,
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431721587
 }
@@ -6977,6 +7460,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.get(
     "percentage": null,
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431721587
 }
@@ -7025,6 +7509,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.update(
         "percentage": null,
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431938971
     },
@@ -7039,6 +7524,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.update(
     "percentage": null,
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431938971
 }
@@ -7051,6 +7537,7 @@ rehive.admin.accounts.obj("{reference}").currencies.obj("{code}").fees.update(
     "percentage": null,
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431938971
 }
@@ -7073,6 +7560,7 @@ Field | Description | Default
 `value` | Fee amount | 0
 `percentage` | Percentage amount |
 `subtype` | Transaction subtype name | null
+`archived` | archived state | false
 
 #### Transaction Types
 
@@ -7171,7 +7659,9 @@ rehive.admin.currencies.get()
                 "symbol": "???",
                 "unit": "bitcoin",
                 "divisibility": 8,
-                "enabled": true
+                "archived": false,
+                "created": 1497431721587,
+                "updated": 1497431938971
             }
         ]
     }
@@ -7190,7 +7680,9 @@ rehive.admin.currencies.get()
             "symbol": "???",
             "unit": "bitcoin",
             "divisibility": 8,
-            "enabled": true
+            "archived": false,
+            "created": 1497431721587,
+            "updated": 1497431938971
         }
     ]
 }
@@ -7204,7 +7696,9 @@ rehive.admin.currencies.get()
         "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
-        "enabled": true
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 ]
 ```
@@ -7228,8 +7722,7 @@ curl https://api.rehive.com/3/admin/currencies/
         "description": "bitcoin",
         "symbol": "???",
         "unit": "bitcoin",
-        "divisibility": 8,
-        "enabled": true}'
+        "divisibility": 8}'
 ```
 
 ```javascript
@@ -7239,8 +7732,7 @@ rehive.admin.currencies.create(
     description: "bitcoin",
     symbol: "???",
     unit: "bitcoin",
-    divisibility: 8,
-    enabled: true
+    divisibility: 8
 }).then(function (res) {
     ...
 }, function (err) {
@@ -7254,8 +7746,7 @@ rehive.admin.currencies.create(
     description="bitcoin",
     symbol="???",
     unit="satoshi",
-    divisibility=8,
-    enabled=true
+    divisibility=8
 )
 ```
 
@@ -7270,7 +7761,9 @@ rehive.admin.currencies.create(
         "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
-        "enabled": true
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
@@ -7282,7 +7775,9 @@ rehive.admin.currencies.create(
     "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
-    "enabled": true
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -7293,7 +7788,9 @@ rehive.admin.currencies.create(
     "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
-    "enabled": true
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -7312,7 +7809,7 @@ Field | Description | Default
 `symbol` | currency symbol | null
 `unit` | unit, like `dollar` | null
 `divisibility` | number of decimal places | 0
-`enabled` | enabled status | null
+`archived` | archived state | false
 
 
 ### Retrieve Currency
@@ -7349,7 +7846,9 @@ rehive.admin.currencies.get("{code}")
         "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
-        "enabled": true
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
@@ -7361,7 +7860,9 @@ rehive.admin.currencies.get("{code}")
     "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
-    "enabled": true
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -7372,7 +7873,9 @@ rehive.admin.currencies.get("{code}")
     "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
-    "enabled": true
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -7391,11 +7894,11 @@ curl https://api.rehive.com/3/admin/currencies/{code}/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -d '{"enabled": true}'
+  -d '{"unit": "bitcoin"}'
 ```
 
 ```javascript
-rehive.admin.currencies.update(code, {enabled: true}).then(function (res) {
+rehive.admin.currencies.update(code, {unit: "bitcoin"}).then(function (res) {
     ...
 }, function (err) {
     ...
@@ -7405,7 +7908,7 @@ rehive.admin.currencies.update(code, {enabled: true}).then(function (res) {
 ```python
 rehive.admin.currencies.update(
     "{code}",
-    enabled=True
+    unit="bitcoin"
 )
 ```
 
@@ -7420,7 +7923,9 @@ rehive.admin.currencies.update(
         "symbol": "???",
         "unit": "bitcoin",
         "divisibility": 8,
-        "enabled": true
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
@@ -7432,7 +7937,9 @@ rehive.admin.currencies.update(
     "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
-    "enabled": true
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -7443,7 +7950,9 @@ rehive.admin.currencies.update(
     "symbol": "???",
     "unit": "bitcoin",
     "divisibility": 8,
-    "enabled": true
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -7466,7 +7975,7 @@ Field | Description | Default
 `symbol` | currency symbol | null
 `unit` | unit, like `dollar` | null
 `divisibility` | number of decimal places | 0
-`enabled` | whether active for a company | false
+`archived` | archived state | false
 
 ### Delete Currency
 
@@ -7511,7 +8020,7 @@ rehive.admin.currencies.delete(
 }
 ```
 
-This endpoint can be used to delete custom currencies that was created.
+This endpoint can be used to delete custom currencies.
 
 #### Endpoint
 
@@ -7669,14 +8178,16 @@ rehive.admin.company.get()
             "password_reset_url": null,
             "email_confirmation_url": null,
             "nationalities": []
-        }
+        },
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
 
 ```javascript
 {
-    "identifier": "test_company",
+    "id": "test_company",
     "name": "Test Company 1",
     "description": "A Test Company.",
     "website": "http://www.test_company.com",
@@ -7697,13 +8208,15 @@ rehive.admin.company.get()
         "password_reset_url": null,
         "email_confirmation_url": null,
         "nationalities": []
-    }
+    },
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
 ```python
 {
-    "identifier": "test_company",
+    "id": "test_company",
     "name": "Test Company 1",
     "description": "A Test Company.",
     "website": "http://www.test_company.com",
@@ -7724,7 +8237,9 @@ rehive.admin.company.get()
         "password_reset_url": null,
         "email_confirmation_url": null,
         "nationalities": []
-    }
+    },
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -7787,14 +8302,16 @@ rehive.admin.company.update(
             "password_reset_url": null,
             "email_confirmation_url": null,
             "nationalities": []
-        }
+        },
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
 
 ```javascript
 {
-    "identifier": "test_company",
+    "id": "test_company",
     "name": "Test Company 1",
     "description": "A Test Company.",
     "website": "http://www.test_company.com",
@@ -7815,13 +8332,15 @@ rehive.admin.company.update(
         "password_reset_url": null,
         "email_confirmation_url": null,
         "nationalities": []
-    }
+    },
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
 ```python
 {
-    "identifier": "test_company",
+    "id": "test_company",
     "name": "Test Company 1",
     "description": "A new description",
     "website": "http://www.test_company.com",
@@ -7842,7 +8361,9 @@ rehive.admin.company.update(
         "password_reset_url": null,
         "email_confirmation_url": null,
         "nationalities": []
-    }
+    },
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8084,20 +8605,28 @@ rehive.admin.bank_accounts.get()
 ```shell
 {
     "status": "success",
-    "data": [
-        {
-            "id": 1,
-            "name": "New account name",
-            "number": "12341234",
-            "type": "Cheque",
-            "bank_name": "Bank",
-            "bank_code": "1234",
-            "branch_code": "1234",
-            "swift": null,
-            "iban": null,
-            "bic": null,
-        }
-    ]
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 1,
+                "name": "New account name",
+                "number": "12341234",
+                "type": "Cheque",
+                "bank_name": "Bank",
+                "bank_code": "1234",
+                "branch_code": "1234",
+                "swift": null,
+                "iban": null,
+                "bic": null,
+                "archived": false,
+                "created": 1497431721587,
+                "updated": 1497431938971
+            }
+        ]
+    }
 }
 ```
 
@@ -8114,6 +8643,9 @@ rehive.admin.bank_accounts.get()
         "swift": null,
         "iban": null,
         "bic": null,
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 ]
 ```
@@ -8131,6 +8663,9 @@ rehive.admin.bank_accounts.get()
         "swift": null,
         "iban": null,
         "bic": null,
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 ]
 ```
@@ -8209,6 +8744,9 @@ rehive.admin.bank_account.create(
         "swift": null,
         "iban": null,
         "bic": null,
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
@@ -8225,6 +8763,9 @@ rehive.admin.bank_account.create(
     "swift": null,
     "iban": null,
     "bic": null,
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8240,6 +8781,9 @@ rehive.admin.bank_account.create(
     "swift": null,
     "iban": null,
     "bic": null,
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8260,6 +8804,7 @@ Field | Description | Default
 `swift` | swift | blank
 `iban` | iban | blank
 `bic` | bic | blank
+`archived` | archived state | false
 
 ### Retrieve Bank Account
 
@@ -8302,6 +8847,9 @@ rehive.admin.bank_accounts.get(
         "swift": null,
         "iban": null,
         "bic": null,
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
@@ -8318,6 +8866,9 @@ rehive.admin.bank_accounts.get(
     "swift": null,
     "iban": null,
     "bic": null,
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8333,6 +8884,9 @@ rehive.admin.bank_accounts.get(
     "swift": null,
     "iban": null,
     "bic": null,
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8376,7 +8930,7 @@ rehive.admin.bank_accounts.currencies.get(
                 "description": "Canadian Dollar",
                 "symbol": "CA$",
                 "unit": "dollar",
-                "divisibility": 2
+                "divisibility": 2,
             },
             {
                 "code": "XBT",
@@ -8391,50 +8945,50 @@ rehive.admin.bank_accounts.currencies.get(
 ```
 
 ```javascript
-{ 
+{
   "count": 2,
   "next": null,
   "previous": null,
-  "results": [ 
-    { 
+  "results": [
+    {
        "code": 'CAD',
        "description": 'Canadian Dollar',
        "symbol": 'CA$',
        "unit": 'dollar',
-       "divisibility": 2 
+       "divisibility": 2
     },
-    { 
+    {
        "code": 'XBT',
        "description": 'bitcoin',
        "symbol": '฿',
        "unit": 'bitcoin',
        "divisibility": 8
-    } 
-  ] 
+    }
+  ]
 }
 ```
 
 ```python
-{ 
+{
   "count": 2,
   "next": null,
   "previous": null,
-  "results": [ 
-    { 
+  "results": [
+    {
        "code": 'CAD',
        "description": 'Canadian Dollar',
        "symbol": 'CA$',
        "unit": 'dollar',
-       "divisibility": 2 
+       "divisibility": 2
     },
-    { 
+    {
        "code": 'XBT',
        "description": 'bitcoin',
        "symbol": '฿',
        "unit": 'bitcoin',
        "divisibility": 8
-    } 
-  ] 
+    }
+  ]
 }
 ```
 
@@ -8472,34 +9026,34 @@ rehive.admin.bank_accounts.currencies.get(
 ```shell
 {
     "status": "success",
-    "data": { 
+    "data": {
        "code": 'XBT',
        "description": 'bitcoin',
        "symbol": '฿',
        "unit": 'bitcoin',
        "divisibility": 8
-    } 
+    }
 }
 ```
 
 ```javascript
-{ 
+{
     "code": 'XBT',
     "description": 'bitcoin',
     "symbol": '฿',
     "unit": 'bitcoin',
     "divisibility": 8
-} 
+}
 ```
 
 ```python
-{ 
+{
     "code": 'XBT',
     "description": 'bitcoin',
     "symbol": '฿',
     "unit": 'bitcoin',
     "divisibility": 8
-} 
+}
 ```
 
 #### Endpoint
@@ -8540,7 +9094,7 @@ rehive.admin.bank_accounts.currencies.delete(
 ```
 
 ```javascript
-{} 
+{}
 ```
 
 ```python
@@ -8585,33 +9139,33 @@ rehive.admin.bank_accounts.currencies.create(
 ```shell
 {
     "status": "success",
-    "data": { 
+    "data": {
         "code": 'XBT',
         "description": 'bitcoin',
         "symbol": '฿',
         "unit": 'bitcoin',
-        "divisibility": 8 
+        "divisibility": 8
     }
 }
 ```
 
 ```javascript
-{ 
+{
   "code": 'XBT',
   "description": 'bitcoin',
   "symbol": '฿',
   "unit": 'bitcoin',
-  "divisibility": 8 
+  "divisibility": 8
 }
 ```
 
 ```python
-{ 
+{
   "code": 'XBT',
   "description": 'bitcoin',
   "symbol": '฿',
   "unit": 'bitcoin',
-  "divisibility": 8 
+  "divisibility": 8
 }
 ```
 
@@ -8669,6 +9223,9 @@ rehive.admin.bank_accounts.update(
         "swift": null,
         "iban": null,
         "bic": null,
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
@@ -8685,6 +9242,9 @@ rehive.admin.bank_accounts.update(
     "swift": null,
     "iban": null,
     "bic": null,
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8700,6 +9260,9 @@ rehive.admin.bank_accounts.update(
     "swift": null,
     "iban": null,
     "bic": null,
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8720,8 +9283,7 @@ Field | Description | Default
 `swift` | swift | blank
 `iban` | iban | blank
 `bic` | bic | blank
-
-
+`archived` | archived state | false
 
 ### Delete Bank Account
 
@@ -8811,8 +9373,10 @@ rehive.admin.webhooks.get()
                 "url": "http://mysite.com/webhook_endpoint",
                 "event": "user.create",
                 "condition": null,
-                "secret": "secret"
-
+                "secret": "secret",
+                "archived": false,
+                "created": 1497431721587,
+                "updated": 1497431938971
             }
         ]
     }
@@ -8830,8 +9394,10 @@ rehive.admin.webhooks.get()
             "url": "http://mysite.com/webhook_endpoint",
             "event": "user.create",
             "condition": null,
-            "secret": "secret"
-
+            "secret": "secret",
+            "archived": false,
+            "created": 1497431721587,
+            "updated": 1497431938971
         }
     ]
 }
@@ -8844,7 +9410,10 @@ rehive.admin.webhooks.get()
         "url": "http://mysite.com/webhook_endpoint",
         "event": "user.create",
         "condition": null,
-        "secret": "secret"
+        "secret": "secret",
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 ]
 ```
@@ -8897,7 +9466,10 @@ rehive.admin.webhooks.post(
         "url": "http://mysite.com/webhook_endpoint",
         "event": "user.create",
         "condition": null,
-        "secret": "secret"
+        "secret": "secret",
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
@@ -8908,7 +9480,10 @@ rehive.admin.webhooks.post(
     "url": "http://mysite.com/webhook_endpoint",
     "event": "user.create",
     "condition": null,
-    "secret": "secret"
+    "secret": "secret",
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8918,7 +9493,10 @@ rehive.admin.webhooks.post(
     "url": "http://mysite.com/webhook_endpoint",
     "event": "user.create",
     "condition": null,
-    "secret": "secret"
+    "secret": "secret",
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -8939,6 +9517,7 @@ Field | Description | Default
 --- | --- | ---
 `condition` | webhook condition* | null
 `secret` | Webhook secret | "secret"
+`archived` | archived state | false
 
 <aside class="notice">
 the <code>condition</code> field is a template strings that is populated with webhook data.
@@ -8985,7 +9564,10 @@ rehive.admin.webhooks.get(
         "url": "http://mysite.com/webhook_endpoint",
         "event": "user.create",
         "condition": null,
-        "secret": "secret"
+        "secret": "secret",
+        "archived": false,
+        "created": 1497431721587,
+        "updated": 1497431938971
     }
 }
 ```
@@ -8995,7 +9577,10 @@ rehive.admin.webhooks.get(
     "id": 1,
     "url": "http://mysite.com/webhook_endpoint",
     "event": "user.create",
-    "secret": "secret"
+    "secret": "secret",
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -9005,7 +9590,10 @@ rehive.admin.webhooks.get(
     "url": "http://mysite.com/webhook_endpoint",
     "event": "user.create",
     "condition": null,
-    "secret": "secret"
+    "secret": "secret",
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -9050,7 +9638,10 @@ rehive.admin.webhooks.update(
             "url": "http://mysite.com/webhook_endpoint",
             "event": "user.create",
             "condition": null,
-            "secret": "secret"
+            "secret": "secret",
+            "archived": false,
+            "created": 1497431721587,
+            "updated": 1497431938971
         }
     }
 }
@@ -9062,7 +9653,10 @@ rehive.admin.webhooks.update(
     "url": "http://mysite.com/webhook_endpoint",
     "event": "user.create",
     "condition": null,
-    "secret": "secret"
+    "secret": "secret",
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -9072,7 +9666,10 @@ rehive.admin.webhooks.update(
     "url": "http://mysite.com/webhook_endpoint",
     "event": "user.create",
     "condition": null,
-    "secret": "secret"
+    "secret": "secret",
+    "archived": false,
+    "created": 1497431721587,
+    "updated": 1497431938971
 }
 ```
 
@@ -9092,6 +9689,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `secret` | Webhook secret | "secret"
+`archived` | archived state | false
 
 ### Delete Webhook
 
@@ -9186,6 +9784,7 @@ rehive.admin.webhook_tasks.get()
                 "tries": 1,
                 "completed": 1511546662774,
                 "failed": null,
+                "archived": false,
                 "created": 1511546662487,
                 "updated": 1511546662774
             }
@@ -9212,6 +9811,7 @@ rehive.admin.webhook_tasks.get()
             "tries": 1,
             "completed": 1511546662774,
             "failed": null,
+            "archived": false,
             "created": 1511546662487,
             "updated": 1511546662774
         }
@@ -9237,6 +9837,7 @@ rehive.admin.webhook_tasks.get()
             "tries": 1,
             "completed": 1511546662774,
             "failed": null,
+            "archived": false,
             "created": 1511546662487,
             "updated": 1511546662774
         }
@@ -9301,6 +9902,7 @@ rehive.admin.webhook_tasks.get(
         }
         "completed": 1511546662774,
         "failed": null,
+        "archived": false,
         "created": 1511546662487,
         "updated": 1511546662774
     }
@@ -9323,6 +9925,7 @@ rehive.admin.webhook_tasks.get(
     }
     "completed": 1511546662774,
     "failed": null,
+    "archived": false,
     "created": 1511546662487,
     "updated": 1511546662774
 }
@@ -9344,6 +9947,7 @@ rehive.admin.webhook_tasks.get(
     }
     "completed": 1511546662774,
     "failed": null,
+    "archived": false,
     "created": 1511546662487,
     "updated": 1511546662774
 }
@@ -9391,7 +9995,8 @@ rehive.admin.webhook_tasks.obj({id}).requests.get()
                 "id": 1,
                 "response_code": 200,
                 "error": null,
-                "created": 1511546662778
+                "created": 1511546662778,
+                "updated": 1511546662778
             }
         ]
     }
@@ -9404,7 +10009,8 @@ rehive.admin.webhook_tasks.obj({id}).requests.get()
         "id": 1,
         "response_code": 200,
         "error": null,
-        "created": 1511546662778
+        "created": 1511546662778,
+        "updated": 1511546662778
     }
 ]
 ```
@@ -9415,7 +10021,8 @@ rehive.admin.webhook_tasks.obj({id}).requests.get()
         "id": 1,
         "response_code": 200,
         "error": null,
-        "created": 1511546662778
+        "created": 1511546662778,
+        "updated": 1511546662778
     }
 ]
 ```
@@ -9464,7 +10071,8 @@ rehive.admin.webhook_tasks.obj({id}).requests.get(
         "id": 1,
         "response_code": 200,
         "error": null,
-        "created": 1511546662778
+        "created": 1511546662778,
+        "updated": 1511546662778
     }
 }
 ```
@@ -9474,7 +10082,8 @@ rehive.admin.webhook_tasks.obj({id}).requests.get(
     "id": 1,
     "response_code": 200,
     "error": null,
-    "created": 1511546662778
+    "created": 1511546662778,
+    "updated": 1511546662778
 }
 ```
 
@@ -9484,7 +10093,8 @@ rehive.admin.webhook_tasks.obj({id}).requests.get(
     "id": 1,
     "response_code": 200,
     "error": null,
-    "created": 1511546662778
+    "created": 1511546662778,
+    "updated": 1511546662778
 }
 ```
 
@@ -9530,7 +10140,7 @@ rehive.admin.subtypes.get()
             "label": "Our credit",
             "description": "Description for our credit",
             "tx_type": "credit",
-            "enabled": true,
+            "archived": false,
             "created": 1509529290352,
             "updated": 1509529290352
         }
@@ -9546,7 +10156,7 @@ rehive.admin.subtypes.get()
         "label": "Our credit",
         "description": "Description for our credit",
         "tx_type": "credit",
-        "enabled": true,
+        "archived": false,
         "created": 1509529290352,
         "updated": 1509529290352
     }
@@ -9561,7 +10171,7 @@ rehive.admin.subtypes.get()
         "label": "Our credit",
         "description": "Description for our credit",
         "tx_type": "credit",
-        "enabled": true,
+        "archived": false,
         "created": 1509529290352,
         "updated": 1509529290352
     }
@@ -9589,8 +10199,7 @@ rehive.admin.subtypes.create(
     name: "credit_subtype",
     label: "Our credit",
     description: "Description for our credit",
-    tx_type:"credit",
-    enabled: true
+    tx_type:"credit"
 }).then(function (res) {
     ...
 }, function (err) {
@@ -9603,8 +10212,7 @@ rehive.admin.subtypes.create(
     name="credit_subtype",
     label="Our credit",
     description="Description for our credit",
-    tx_type="credit",
-    enabled=True
+    tx_type="credit"
 )
 ```
 
@@ -9619,6 +10227,7 @@ rehive.admin.subtypes.create(
         "label": "Our credit",
         "description": "Description for our credit",
         "tx_type": "credit",
+        "archived": false,
         "created": 1509529290352,
         "updated": 1509529290352
     }
@@ -9632,6 +10241,7 @@ rehive.admin.subtypes.create(
     "label": "Our credit",
     "description": "Description for our credit",
     "tx_type": "credit",
+    "archived": false,
     "created": 1509529290352,
     "updated": 1509529290352
 }
@@ -9644,6 +10254,7 @@ rehive.admin.subtypes.create(
     "label": "Our credit",
     "description": "Description for our credit",
     "tx_type": "credit",
+    "archived": false,
     "created": 1509529290352,
     "updated": 1509529290352
 }
@@ -9666,7 +10277,7 @@ Field | Description | Default
 --- | --- | ---
 `label` | label | blank
 `description` | description | blank
-`enabled` | enabled status | true
+`archived` | archived state | false
 
 ### Retrieve Subtypes
 
@@ -9702,6 +10313,7 @@ rehive.admin.subtypes.get("{id}")
         "label": "Our credit",
         "description": "Description for our credit",
         "tx_type": "credit",
+        "archived": false,
         "created": 1509529290352,
         "updated": 1509529290352
     }
@@ -9715,6 +10327,7 @@ rehive.admin.subtypes.get("{id}")
     "label": "Our credit",
     "description": "Description for our credit",
     "tx_type": "credit",
+    "archived": false,
     "created": 1509529290352,
     "updated": 1509529290352
 }
@@ -9727,6 +10340,7 @@ rehive.admin.subtypes.get("{id}")
     "label": "Our credit",
     "description": "Description for our credit",
     "tx_type": "credit",
+    "archived": false,
     "created": 1509529290352,
     "updated": 1509529290352
 }
@@ -9774,6 +10388,7 @@ rehive.admin.subtypes.update(
         "label": "Our credit",
         "description": "New description",
         "tx_type": "credit",
+        "archived": false,
         "created": 1509529290352,
         "updated": 1509529290352
     }
@@ -9787,6 +10402,7 @@ rehive.admin.subtypes.update(
     "label": "Our credit",
     "description": "New description",
     "tx_type": "credit",
+    "archived": false,
     "created": 1509529290352,
     "updated": 1509529290352
 }
@@ -9799,6 +10415,7 @@ rehive.admin.subtypes.update(
     "label": "Our credit",
     "description": "New description",
     "tx_type": "credit",
+    "archived": false,
     "created": 1509529290352,
     "updated": 1509529290352
 }
@@ -9821,7 +10438,7 @@ Field | Description | Default
 --- | --- | ---
 `label` | label | blank
 `description` | description | blank
-`enabled` | enabled status | true
+`archived` | archived state | false
 
 ### Delete Subtype
 
@@ -9865,11 +10482,6 @@ rehive.admin.subtypes.delete(
     "status": "success",
 }
 ```
-
-<aside class="notice">
-You cannot delete a subtype that has already been used in a transaction. If you want to make an already used subtype
-inaccessible you can "disable" it instead using the `enabled` attribute.
-</aside>
 
 #### Endpoint
 
@@ -9994,7 +10606,7 @@ rehive.admin.notifications.get("{id}")
     "id": 1,
     "name": "account_verify",
     "description": "Account verification notifications",
-    "enabled": trueed": true
+    "enabled": true
 }
 ```
 
@@ -10124,6 +10736,7 @@ rehive.admin.tiers.get()
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
             },
+            "archived": false,
             "created": 1497367640298,
             "updated": 1497367640298
         }
@@ -10147,6 +10760,7 @@ rehive.admin.tiers.get()
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1497367640298,
         "updated": 1497367640298
     }
@@ -10169,6 +10783,7 @@ rehive.admin.tiers.get()
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1497367640298,
         "updated": 1497367640298
     }
@@ -10244,6 +10859,7 @@ rehive.admin.tiers.create(
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1497367640298,
         "updated": 1497367640298
     }
@@ -10265,6 +10881,7 @@ rehive.admin.tiers.create(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1497367640298,
     "updated": 1497367640298
 }
@@ -10285,6 +10902,7 @@ rehive.admin.tiers.create(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1497367640298,
     "updated": 1497367640298
 }
@@ -10307,6 +10925,7 @@ Field | Description | Default
 `level` | Tier Level | null
 `name` | Name of the tier | blank
 `description` | Description of the tier | blank
+`archived` | archived state | false
 
 ### Retrieve Tier
 
@@ -10352,6 +10971,7 @@ rehive.admin.tiers.get("{id}")
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1497367640298,
         "updated": 1497367640298
     }
@@ -10373,6 +10993,7 @@ rehive.admin.tiers.get("{id}")
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1497367640298,
     "updated": 1497367640298
 }
@@ -10393,6 +11014,7 @@ rehive.admin.tiers.get("{id}")
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1497367640298,
     "updated": 1497367640298
 }
@@ -10450,6 +11072,7 @@ rehive.admin.tiers.update(
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1497367640298,
         "updated": 1497369829536
     }
@@ -10471,6 +11094,7 @@ rehive.admin.tiers.update(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1497367640298,
     "updated": 1497369829536
 }
@@ -10491,6 +11115,7 @@ rehive.admin.tiers.update(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1497367640298,
     "updated": 1497369829536
 }
@@ -10509,7 +11134,7 @@ Field | Description | Default
 `level` | Tier Level | null
 `name` | Name of the tier | blank
 `description` | Description of the tier | blank
-
+`archived` | archived state | false
 
 #### Endpoint
 
@@ -10597,9 +11222,8 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
     "data": [
         {
             "id": 1,
-            "token_tier_id": 1,
-            "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-            "requirement": "First Name"
+            "requirement": "First Name",
+            "archived": false
         }
     ]
 }
@@ -10609,9 +11233,8 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
 [
     {
         "id": 1,
-        "token_tier_id": 1,
-        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-        "requirement": "First Name"
+        "requirement": "First Name",
+        "archived": false
     }
 ]
 ```
@@ -10620,9 +11243,8 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get()
 [
     {
         "id": 1,
-        "token_tier_id": 1,
-        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-        "requirement": "First Name"
+        "requirement": "First Name",
+        "archived": false
     }
 ]
 ```
@@ -10667,29 +11289,26 @@ rehive.admin.tiers.obj("{tier_id}").requirements.create(
 {
     "status": "success",
     "data": {
-        "id": 3,
-        "token_tier_id": 1,
-        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-        "requirement": "Birth Date"
+        "id": 1,
+        "requirement": "First Name",
+        "archived": false
     }
 }
 ```
 
 ```javascript
 {
-    "id": 3,
-    "token_tier_id": 1,
-    "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-    "requirement": "Birth Date"
+    "id": 1,
+    "requirement": "First Name",
+    "archived": false
 }
 ```
 
 ```python
 {
-    "id": 3,
-    "token_tier_id": 1,
-    "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-    "requirement": "Birth Date"
+    "id": 1,
+    "requirement": "First Name",
+    "archived": false
 }
 ```
 
@@ -10701,7 +11320,13 @@ rehive.admin.tiers.obj("{tier_id}").requirements.create(
 
 Field | Description | Default
 --- | --- | ---
-`requirement` | Requirement Type |
+`requirement` | Requirement Type | null
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`archived` | archived state | false
 
 #### Requirement Types
 
@@ -10754,29 +11379,26 @@ rehive.admin.tiers.obj("{tier_id}").requirements.get(
 {
     "status": "success",
     "data": {
-        "id": 3,
-        "token_tier_id": 1,
-        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-        "requirement": "Birth Date"
+        "id": 1,
+        "requirement": "First Name",
+        "archived": false
     }
 }
 ```
 
 ```javascript
 {
-    "id": 3,
-    "token_tier_id": 1,
-    "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-    "requirement": "Birth Date"
+    "id": 1,
+    "requirement": "First Name",
+    "archived": false
 }
 ```
 
 ```python
 {
-    "id": 3,
-    "token_tier_id": 1,
-    "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-    "requirement": "Birth Date"
+    "id": 1,
+    "requirement": "First Name",
+    "archived": false
 }
 ```
 
@@ -10819,29 +11441,26 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
 {
     "status": "success",
     "data": {
-        "id": 3,
-        "token_tier_id": 1,
-        "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-        "requirement": "Proof Of Identity"
+        "id": 1,
+        "requirement": "Proof of Identity",
+        "archived": false
     }
 }
 ```
 
 ```javascript
 {
-    "id": 3,
-    "token_tier_id": 1,
-    "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-    "requirement": "Proof Of Identity"
+    "id": 1,
+    "requirement": "Proof of Identity",
+    "archived": false
 }
 ```
 
 ```python
 {
-    "id": 3,
-    "token_tier_id": 1,
-    "token_tier": "Tier-1 Updated Name (ZAR_test_company_1)",
-    "requirement": "Proof Of Identity"
+    "id": 1,
+    "requirement": "Proof of Identity",
+    "archived": false
 }
 ```
 
@@ -10854,6 +11473,12 @@ rehive.admin.tiers.obj("{tier_id}").requirements.update(
 Field | Description | Default
 --- | --- | ---
 `requirement` | Requirement Type |
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`archived` | archived state | false
 
 #### Requirement Types
 
@@ -10959,6 +11584,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get()
             "type": "Maximum",
             "tx_type": "credit",
             "subtype": null,
+            "archived": false,
             "created": 1497374071027,
             "updated": 1497374071027
         }
@@ -10975,6 +11601,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get()
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497374071027,
         "updated": 1497374071027
     }
@@ -10989,6 +11616,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get()
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497374071027,
         "updated": 1497374071027
     }
@@ -11045,6 +11673,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.create(
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497374071027,
         "updated": 1497374071027
     }
@@ -11059,6 +11688,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.create(
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497374071027,
     "updated": 1497374071027
 }
@@ -11071,6 +11701,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.create(
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497374071027,
     "updated": 1497374071027
 }
@@ -11093,6 +11724,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `subtype` | Transaction subtype name | null
+`archived` | archived state | false
 
 #### Limit Types
 
@@ -11148,6 +11780,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get(
         "type": "Maximum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497374071027,
         "updated": 1497374071027
     },
@@ -11163,6 +11796,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get(
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497374071027,
     "updated": 1497374071027
 }
@@ -11175,6 +11809,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.get(
     "type": "Maximum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497374071027,
     "updated": 1497374071027
 }
@@ -11226,6 +11861,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
         "type": "Minimum",
         "tx_type": "credit",
         "subtype": null,
+        "archived": false,
         "created": 1497374071027,
         "updated": 1497374886088
     }
@@ -11240,6 +11876,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
     "type": "Minimum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497374071027,
     "updated": 1497374886088
 }
@@ -11252,6 +11889,7 @@ rehive.admin.tiers.obj("{tier_id}").limits.update(
     "type": "Minimum",
     "tx_type": "credit",
     "subtype": null,
+    "archived": false,
     "created": 1497374071027,
     "updated": 1497374886088
 }
@@ -11274,6 +11912,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `subtype` | Transaction subtype name | null
+`archived` | archived state | false
 
 #### Limit Types
 
@@ -11376,7 +12015,10 @@ rehive.admin.tiers.obj("{tier_id}").fees.get()
             "value": 1000,
             "percentage": null,
             "tx_type": "credit",
+            "currency": "ZAR",
+            "descrition": "Test Fee"
             "subtype": null,
+            "archived": false,
             "created": 1497431721587,
             "updated": 1497431721587
         }
@@ -11390,10 +12032,12 @@ rehive.admin.tiers.obj("{tier_id}").fees.get()
     {
         "id": 1,
         "value": 1000,
-        "currency": "USD",
         "percentage": null,
         "tx_type": "credit",
+        "currency": "ZAR",
+        "descrition": "Test Fee"
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431721587
     }
@@ -11407,7 +12051,10 @@ rehive.admin.tiers.obj("{tier_id}").fees.get()
         "value": 1000,
         "percentage": null,
         "tx_type": "credit",
+        "currency": "ZAR",
+        "descrition": "Test Fee"
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431721587
     }
@@ -11461,7 +12108,10 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
         "value": 1000,
         "percentage": null,
         "tx_type": "credit",
+        "currency": "ZAR",
+        "descrition": "Test Fee"
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431721587
     },
@@ -11473,10 +12123,12 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
 {
     "id": 1,
     "value": 1000,
-    "currency": "USD",
     "percentage": null,
     "tx_type": "credit",
+    "currency": "ZAR",
+    "descrition": "Test Fee"
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431721587
 }
@@ -11488,7 +12140,10 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
     "value": 1000,
     "percentage": null,
     "tx_type": "credit",
+    "currency": "ZAR",
+    "descrition": "Test Fee"
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431721587
 }
@@ -11502,7 +12157,8 @@ rehive.admin.tiers.obj("{tier_id}").fees.create(
 
 Field | Description | Default
 --- | --- | ---
-`tx_type` | Transaction type fees are applied |
+`tx_type` | Transaction type fees are applied | null
+`currency` | fee currency | null
 
 #### Optional Fields
 
@@ -11511,6 +12167,7 @@ Field | Description | Default
 `value` | Fee amount | 0
 `percentage` | Percentage amount |
 `subtype` | Transaction subtype name | null
+`archived` |archived state | false
 
 #### Transaction Types
 
@@ -11555,7 +12212,10 @@ rehive.admin.tiers.obj("{tier_id}").fees.get(
         "value": 1000,
         "percentage": null,
         "tx_type": "credit",
+        "currency": "ZAR",
+        "descrition": "Test Fee"
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
         "updated": 1497431721587
     },
@@ -11567,10 +12227,12 @@ rehive.admin.tiers.obj("{tier_id}").fees.get(
 {
     "id": 1,
     "value": 1000,
-    "currency": "USD",
     "percentage": null,
     "tx_type": "credit",
+    "currency": "ZAR",
+    "descrition": "Test Fee"
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431721587
 }
@@ -11582,7 +12244,10 @@ rehive.admin.tiers.obj("{tier_id}").fees.get(
     "value": 1000,
     "percentage": null,
     "tx_type": "credit",
+    "currency": "ZAR",
+    "descrition": "Test Fee"
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
     "updated": 1497431721587
 }
@@ -11627,13 +12292,15 @@ rehive.admin.tiers.obj("{tier_id}").fees.update(
 {
     "data": {
         "id": 1,
-        "value": 5000,
-        "currency": "USD",
+        "value": 1000,
         "percentage": null,
         "tx_type": "credit",
+        "currency": "ZAR",
+        "descrition": "Test Fee"
         "subtype": null,
+        "archived": false,
         "created": 1497431721587,
-        "updated": 1497431938971
+        "updated": 1497431721587
     },
     "status": "success"
 }
@@ -11642,24 +12309,30 @@ rehive.admin.tiers.obj("{tier_id}").fees.update(
 ```javascript
 {
     "id": 1,
-    "value": 5000,
+    "value": 1000,
     "percentage": null,
     "tx_type": "credit",
+    "currency": "ZAR",
+    "descrition": "Test Fee"
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
-    "updated": 1497431938971
+    "updated": 1497431721587
 }
 ```
 
 ```python
 {
     "id": 1,
-    "value": 5000,
+    "value": 1000,
     "percentage": null,
     "tx_type": "credit",
+    "currency": "ZAR",
+    "descrition": "Test Fee"
     "subtype": null,
+    "archived": false,
     "created": 1497431721587,
-    "updated": 1497431938971
+    "updated": 1497431721587
 }
 ```
 
@@ -11680,6 +12353,7 @@ Field | Description | Default
 `value` | Fee amount | 0
 `percentage` | Percentage amount |
 `subtype` | Transaction subtype name | null
+`archived` | archived state | false
 
 #### Transaction Types
 
@@ -11788,6 +12462,7 @@ rehive.admin.groups.get()
                     "allow_debit_transactions": true,
                     "allow_credit_transactions": true
                 },
+                "archived": false,
                 "created": 1516008597579,
                 "updated": 1516008579877
             }
@@ -11815,6 +12490,7 @@ rehive.admin.groups.get()
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
             },
+            "archived": false,
             "created": 1516008597579,
             "updated": 1516008579877
         }
@@ -11841,6 +12517,7 @@ rehive.admin.groups.get()
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
             },
+            "archived": false,
             "created": 1516008597579,
             "updated": 1516008579877
         }
@@ -11897,6 +12574,7 @@ rehive.admin.groups.create(
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1516008597579,
         "updated": 1516008579877
     },
@@ -11918,6 +12596,7 @@ rehive.admin.groups.create(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1516008597579,
     "updated": 1516008579877
 }
@@ -11937,6 +12616,7 @@ rehive.admin.groups.create(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1516008597579,
     "updated": 1516008579877
 }
@@ -11953,6 +12633,12 @@ Create a new group.
 Field | Description | Default
 --- | --- | ---
 `name` | group name | ""
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`archived` | archived state | false
 
 ### Update groups
 
@@ -11998,6 +12684,7 @@ rehive.admin.groups.update(
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
         },
+        "archived": false,
         "created": 1516008597579,
         "updated": 1516008579877
     },
@@ -12019,6 +12706,7 @@ rehive.admin.groups.update(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1516008597579,
     "updated": 1516008579877
 }
@@ -12038,6 +12726,7 @@ rehive.admin.groups.update(
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
     },
+    "archived": false,
     "created": 1516008597579,
     "updated": 1516008579877
 }
@@ -12054,6 +12743,12 @@ Update the group's details.
 Field | Description | Default
 --- | --- | ---
 `name` | group name | ""
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`archived` | archived state | false
 
 ### Delete groups
 
@@ -12143,6 +12838,7 @@ rehive.admin.users.obj({uuid}).groups.assign(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
+        }
     },
     "status": "success"
 }
@@ -12156,6 +12852,7 @@ rehive.admin.users.obj({uuid}).groups.assign(
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
+    }
 }
 ```
 
@@ -12167,6 +12864,7 @@ rehive.admin.users.obj({uuid}).groups.assign(
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
+    }
 }
 ```
 
@@ -12464,7 +13162,7 @@ rehive.admin.users.permissions.create(uuid, {
 ```python
 rehive.admin.users.obj({uuid}).permissions.create(
     type="account",
-    level="view
+    level="view"
 )
 ```
 
@@ -12604,6 +13302,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.get()
                 "currencies": [],
                 "default": true,
                 "primary": true,
+                "archived": false,
                 "created": 1464858068732,
                 "updated": 1464858068732
             }
@@ -12620,6 +13319,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.get()
         "currencies": [],
         "default": true,
         "primary": true,
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -12634,6 +13334,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.get()
         "currencies": [],
         "default": true,
         "primary": true,
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -12690,6 +13391,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.create(
         "currencies": [],
         "default": true,
         "primary": true,
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -12703,6 +13405,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.create(
     "currencies": [],
     "default": true,
     "primary": true,
+    "archived": false,
     "created": 1464858068732,
     "updated": 1464858068732
 }
@@ -12715,6 +13418,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.create(
     "currencies": [],
     "default": true,
     "primary": true,
+    "archived": false,
     "created": 1464858068732,
     "updated": 1464858068732
 }
@@ -12739,6 +13443,7 @@ Field | Description | Default
 `label` | Label of account | blank
 `default` | Default to users on register | false
 `primary` | The main account for a group | false
+`archived` | archived state | false
 
 ### Retrieve Group Account Configuration
 
@@ -12781,6 +13486,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.get(
                 "currencies": [],
                 "default": true,
                 "primary": true,
+                "archived": false,
                 "created": 1464858068732,
                 "updated": 1464858068732
             }
@@ -12797,6 +13503,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.get(
         "currencies": [],
         "default": true,
         "primary": true,
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -12811,6 +13518,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.get(
         "currencies": [],
         "default": true,
         "primary": true,
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -12862,6 +13570,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.update(
         "currencies": [],
         "default": true,
         "primary": true,
+        "archived": false,
         "created": 1464858068732,
         "updated": 1464858068732
     }
@@ -12875,6 +13584,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.update(
     "currencies": [],
     "default": true,
     "primary": true,
+    "archived": false,
     "created": 1464858068732,
     "updated": 1464858068732
 }
@@ -12887,6 +13597,7 @@ rehive.admin.groups.obj({group_name}).account_configurations.update(
     "currencies": [],
     "default": true,
     "primary": true,
+    "archived": false,
     "created": 1464858068732,
     "updated": 1464858068732
 }
@@ -12911,6 +13622,7 @@ Field | Description | Default
 `label` | Label of account | blank
 `default` | Default to users on register | false
 `primary` | The main account for a group | false
+`archived` | archived state | false
 
 ### Delete Group Account Configuration
 
@@ -13264,7 +13976,7 @@ rehive.admin.requests.get()
 {
     "status": "success",
     "data": [
-        { 
+        {
             "id": 11232032,
             "user": [Object],
             "key": null,
@@ -13275,11 +13987,12 @@ rehive.admin.requests.get()
             "params": {},
             "headers": [Object],
             "status_code": 200,
+            "archived": false,
             "created": 1527669648572,
-            "updated": 1527669648585 
+            "updated": 1527669648585
         },
-        
-        { 
+
+        {
             "id": 11231984,
             "user": [Object],
             "key": null,
@@ -13290,8 +14003,9 @@ rehive.admin.requests.get()
             "params": {},
             "headers": [Object],
             "status_code": 200,
+            "archived": false,
             "created": 1527669596536,
-            "updated": 1527669596546 
+            "updated": 1527669596546
         }
     ]
 }
@@ -13299,7 +14013,7 @@ rehive.admin.requests.get()
 
 ```javascript
  [
-    { 
+    {
         "id": 11232032,
         "user": [Object],
         "key": null,
@@ -13310,11 +14024,12 @@ rehive.admin.requests.get()
         "params": {},
         "headers": [Object],
         "status_code": 200,
+        "archived": false,
         "created": 1527669648572,
-        "updated": 1527669648585 
+        "updated": 1527669648585
     },
-    
-    { 
+
+    {
         "id": 11231984,
         "user": [Object],
         "key": null,
@@ -13325,15 +14040,16 @@ rehive.admin.requests.get()
         "params": {},
         "headers": [Object],
         "status_code": 200,
+        "archived": false,
         "created": 1527669596536,
-        "updated": 1527669596546 
+        "updated": 1527669596546
     }
 ]
 ```
 
 ```python
  [
-    { 
+    {
         "id": 11232032,
         "user": [Object],
         "key": null,
@@ -13344,11 +14060,12 @@ rehive.admin.requests.get()
         "params": {},
         "headers": [Object],
         "status_code": 200,
+        "archived": false,
         "created": 1527669648572,
-        "updated": 1527669648585 
+        "updated": 1527669648585
     },
-    
-    { 
+
+    {
         "id": 11231984,
         "user": [Object],
         "key": null,
@@ -13359,8 +14076,9 @@ rehive.admin.requests.get()
         "params": {},
         "headers": [Object],
         "status_code": 200,
+        "archived": false,
         "created": 1527669596536,
-        "updated": 1527669596546 
+        "updated": 1527669596546
     }
 ]
 ```
@@ -13371,12 +14089,12 @@ Retrieve admin requests
 
 `https://api.rehive.com/3/admin/requests/`
 
-### Retrieve Request by ID
+### Retrieve Request
 
 > Admin retrieve request by id request
 
 ```shell
-curl https://api.rehive.com/3/admin/requests/{id}
+curl https://api.rehive.com/3/admin/requests/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -13399,7 +14117,7 @@ rehive.admin.requests.get(id)
 ```shell
 {
     "status": "success",
-    "data":  { 
+    "data":  {
         "id": 11232032,
         "user": [Object],
         "key": null,
@@ -13410,14 +14128,15 @@ rehive.admin.requests.get(id)
         "params": {},
         "headers": [Object],
         "status_code": 200,
+        "archived": false,
         "created": 1527669648572,
-        "updated": 1527669648585 
+        "updated": 1527669648585
     }
 }
 ```
 
 ```javascript
- { 
+ {
     "id": 11232032,
     "user": [Object],
     "key": null,
@@ -13428,13 +14147,14 @@ rehive.admin.requests.get(id)
     "params": {},
     "headers": [Object],
     "status_code": 200,
+    "archived": false,
     "created": 1527669648572,
-    "updated": 1527669648585 
+    "updated": 1527669648585
 }
 ```
 
 ```python
-  { 
+  {
     "id": 11232032,
     "user": [Object],
     "key": null,
@@ -13445,8 +14165,9 @@ rehive.admin.requests.get(id)
     "params": {},
     "headers": [Object],
     "status_code": 200,
+    "archived": false,
     "created": 1527669648572,
-    "updated": 1527669648585 
+    "updated": 1527669648585
 }
 ```
 
@@ -13454,4 +14175,4 @@ Retrieve admin requests
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/requests/{id}`
+`https://api.rehive.com/3/admin/requests/{id}/`
