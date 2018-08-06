@@ -86,7 +86,7 @@ rehive.auth.mfa.sms.get()
   {
     "status": "success"
     "data": {
-        "mobile_number": "+27000000000",
+        "mobile": "+27000000000",
         "confirmed": true
       }
     }
@@ -95,14 +95,14 @@ rehive.auth.mfa.sms.get()
 
 ```javascript
 {
-    "mobile_number": "+27000000000",
+    "mobile": "+27000000000",
     "confirmed": false
 }
 ```
 
 ```python
 {
-  "mobile_number": "+27000000000",
+  "mobile": "+27000000000",
   "confirmed": true
 }
 ```
@@ -119,12 +119,12 @@ rehive.auth.mfa.sms.get()
 curl https://api.rehive.com/3/auth/mfa/sms/
   -X POST
   -H "Content-Type: application/json"
-  -D '{"mobile_number": "+27000000000"}'
+  -D '{"mobile": "+27000000000"}'
 ```
 
 ```javascript
 rehive.auth.mfa.sms.enable({
-    mobile_number: mobile_no
+    mobile: mobile_no
 }).then(function (res) {
     ...
 }, function (err) {
@@ -144,7 +144,7 @@ rehive.auth.mfa.authorize_number(
   {
     "status": "success"
     "data": {
-        "mobile_number": "+27000000000",
+        "mobile": "+27000000000",
         "confirmed": false
       },
     }
@@ -153,14 +153,14 @@ rehive.auth.mfa.authorize_number(
 
 ```javascript
 {
-  "mobile_number": "+27000000000",
+  "mobile": "+27000000000",
   "confirmed": false
 }
 ```
 
 ```python
 {
-  "mobile_number": "+27000000000",
+  "mobile": "+27000000000",
   "confirmed": false
 }
 ```
@@ -176,7 +176,7 @@ posted. Use this OTP to verify the mobile number at the [Verify endpoint](#verif
 
 Field | Description | Default
 --- | --- | ---
-`mobile_number` | Mobile Number | null
+`mobile` | Mobile Number | null
 
 ## Disable SMS Authentication
 
@@ -279,7 +279,7 @@ Sends an OTP to the mobile number that was used to enabled SMS based multi-facto
 
 Field | Description | Default
 --- | --- | ---
-`mobile_number` | Mobile Number | null
+`mobile` | Mobile Number | null
 
 ## View Token Authentication
 

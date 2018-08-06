@@ -54,7 +54,7 @@ rehive.user.get()
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
         "kyc": {
@@ -100,7 +100,7 @@ rehive.user.get()
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+00000000000",
+    "mobile": "+00000000000",
     "timezone": null,
     "verified": false,
     "kyc": {
@@ -145,7 +145,7 @@ rehive.user.get()
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+00000000000",
+    "mobile": "+00000000000",
     "timezone": null,
     "verified": false,
     "kyc": {
@@ -226,7 +226,7 @@ rehive.user.update(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
         "kyc": {
@@ -272,7 +272,7 @@ rehive.user.update(
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+00000000000",
+    "mobile": "+00000000000",
     "timezone": null,
     "verified": false,
     "kyc": {
@@ -317,7 +317,7 @@ rehive.user.update(
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+00000000000",
+    "mobile": "+00000000000",
     "timezone": null,
     "verified": false,
     "kyc": {
@@ -364,7 +364,7 @@ Field | Description | Default
 `language` | language code (`af`, `en` etc.) | blank
 `nationality` | nationality code (`ZA`, `UK` etc.) | blank
 `metadata` | custom metadata | {}
-`mobile_number` | mobile number | blank
+`mobile` | mobile number | blank
 `timezone` | timezone | blank
 `birth_date` | birth date | blank
 
@@ -372,30 +372,86 @@ Field | Description | Default
     <code>birth_date</code> should be added in the formal yyyy-mm-dd
 </aside>
 
-## Retrieve Address
 
-> User retrieve address request
+
+
+
+
+
+## List Addresses
+
+> User list addresses request
 
 ```shell
-curl https://api.rehive.com/3/user/address/
+curl https://api.rehive.com/3/user/addresses/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
 ```
 
 ```javascript
-rehive.user.address.get().then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
 ```
 
 ```python
-rehive.user.address.get()
 ```
 
-> User retrieve address response
+> User list addresses response
+
+```shell
+{
+    "status": "success",
+    "data": [
+        {
+            "line_1": "1 Main Street",
+            "line_2": "East City",
+            "city": "Cape Town",
+            "state_province": "Western Cape",
+            "country": "ZA",
+            "postal_code": "8001",
+            "status": "pending",
+            "created": 1516281408895,
+            "updated": 1528454842365
+        }
+    ]
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+List a user's addresses.
+
+#### Endpoint
+
+`https://api.rehive.com/3/user/addresses/`
+
+## Create Address
+
+> User create address request
+
+```shell
+curl https://api.rehive.com/3/user/addresses/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"line_1": "1 Main Street",
+        "line_2": "East City",
+        "city": "Cape Town",
+        "state_province": "Western Cape",
+        "country": "ZA",
+        "postal_code": "8001"}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> User create address response
 
 ```shell
 {
@@ -415,6 +471,52 @@ rehive.user.address.get()
 ```
 
 ```javascript
+```
+
+```python
+```
+
+Create an address for a user.
+
+#### Endpoint
+
+`https://api.rehive.com/3/user/addresses/`
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`line_1` | Address line one | null
+`line_2` | Address line two | null
+`city` | City | null
+`state_province` | State or province | null
+`country` | country code | null
+`postal_code` | Zip or postal code | null
+
+
+## Retrieve Address
+
+> User retrieve address request
+
+```shell
+curl https://api.rehive.com/3/user/addresses/{address_id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+```
+
+> User retrieve address response
+
+```shell
+```
+
+```javascript
 {
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -429,31 +531,20 @@ rehive.user.address.get()
 ```
 
 ```python
-{
-    "line_1": "1 Main Street",
-    "line_2": "East City",
-    "city": "Cape Town",
-    "state_province": "Western Cape",
-    "country": "ZA",
-    "postal_code": "8001",
-    "status": "pending",
-    "created": 1516281408895,
-    "updated": 1528454842365
-}
 ```
 
 Retrieve a user's address.
 
 #### Endpoint
 
-`https://api.rehive.com/3/user/address/`
+`https://api.rehive.com/3/user/addresses/{address_id}/`
 
 ## Update Address
 
 > User update address request
 
 ```shell
-curl https://api.rehive.com/3/user/address/
+curl https://api.rehive.com/3/user/addresses/{address_id}/
   -X PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -461,17 +552,9 @@ curl https://api.rehive.com/3/user/address/
 ```
 
 ```javascript
-rehive.user.address.update({city: "Cape Town"}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
 ```
 
 ```python
-rehive.user.address.update(
-    city="Cape Town"
-)
 ```
 
 > User update address response
@@ -494,38 +577,16 @@ rehive.user.address.update(
 ```
 
 ```javascript
-{
-    "line_1": "1 Main Street",
-    "line_2": "East City",
-    "city": "Cape Town",
-    "state_province": "Western Cape",
-    "country": "ZA",
-    "postal_code": "8001",
-    "status": "pending",
-    "created": 1516281408895,
-    "updated": 1528454842365
-}
 ```
 
 ```python
-{
-    "line_1": "1 Main Street",
-    "line_2": "East City",
-    "city": "Cape Town",
-    "state_province": "Western Cape",
-    "country": "ZA",
-    "postal_code": "8001",
-    "status": "pending",
-    "created": 1516281408895,
-    "updated": 1528454842365
-}
 ```
 
 Update a user's address.
 
 #### Endpoint
 
-`https://api.rehive.com/3/user/address/`
+`https://api.rehive.com/3/user/addresses/{address_id}/`
 
 #### Optional Fields
 

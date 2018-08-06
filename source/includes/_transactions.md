@@ -273,7 +273,7 @@ rehive.transactions.create_credit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -306,7 +306,7 @@ rehive.transactions.create_credit(
 
 ```javascript
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -338,7 +338,7 @@ rehive.transactions.create_credit(
 
 ```python
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -436,7 +436,7 @@ rehive.transactions.create_debit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "tx_type": "debit",
         "subtype": null,
         "note": "",
@@ -469,7 +469,7 @@ rehive.transactions.create_debit(
 
 ```javascript
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -501,7 +501,7 @@ rehive.transactions.create_debit(
 
 ```python
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -593,7 +593,7 @@ rehive.transactions.create_transfer(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "tx_type": "debit",
         "subtype": null,
         "note": "",
@@ -616,14 +616,14 @@ rehive.transactions.create_transfer(
         },
         "source_transaction": null,
         "destination_transaction": {
-            "id": "00000000000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "user": {
                 "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Susan",
                 "last_name": "Brown",
                 "email": "susan@rehive.com",
                 "username": "",
-                "mobile_number": "+27850000000",
+                "mobile": "+27850000000",
                 "profile": null
             }
         },
@@ -637,7 +637,7 @@ rehive.transactions.create_transfer(
 
 ```javascript
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -660,14 +660,14 @@ rehive.transactions.create_transfer(
     },
     "source_transaction": null,
     "destination_transaction": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "user": {
             "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Susan",
             "last_name": "Brown",
             "email": "susan@rehive.com",
             "username": "",
-            "mobile_number": "+27850000000",
+            "mobile": "+27850000000",
             "profile": null
         }
     },
@@ -680,7 +680,7 @@ rehive.transactions.create_transfer(
 
 ```python
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -703,14 +703,14 @@ rehive.transactions.create_transfer(
     },
     "source_transaction": null,
     "destination_transaction": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "user": {
             "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Susan",
             "last_name": "Brown",
             "email": "susan@rehive.com",
             "username": "",
-            "mobile_number": "+27850000000",
+            "mobile": "+27850000000",
             "profile": null
         }
     },

@@ -1,6 +1,6 @@
 # Administration
 
-Rehive includes a set of admin-only endpoints that can make working with users and their transactions extremely easy.
+Rehive includes a set of admin-only endpoints that provide adminsitration level functionality to all Rehive resources.
 
 ## Users
 
@@ -115,9 +115,13 @@ rehive.admin.users.get()
                 "language": "en",
                 "nationality": "ZA",
                 "metadata": null,
-                "mobile_number": "+27840000000",
+                "mobile": "+27840000000",
                 "timezone": "Asia/Dhaka",
                 "verified": true,
+                "verification": {
+                    "email": true,
+                    "mobile": true
+                },
                 "kyc": {
                     "updated": 1509539801040,
                     "status": "pending"
@@ -160,9 +164,13 @@ rehive.admin.users.get()
             "language": "en",
             "nationality": "ZA",
             "metadata": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "timezone": "Asia/Dhaka",
             "verified": true,
+            "verification": {
+                "email": true,
+                "mobile": true
+            },
             "kyc": {
                 "updated": 1509539801040,
                 "status": "pending"
@@ -200,9 +208,13 @@ rehive.admin.users.get()
         "language": "en",
         "nationality": "ZA",
         "metadata": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "timezone": "Asia/Dhaka",
         "verified": true,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -226,7 +238,7 @@ Field | Type
 `id` | string
 `user` | string
 `email` | string
-`mobile_number` | string
+`mobile` | string
 `first_name` | string
 `last_name` | string
 `username` | string
@@ -255,7 +267,7 @@ curl https://api.rehive.com/3/admin/users/
   -H "Content-Type: application/json"
   -d '{"first_name": "Joe",
        "last_name": "Soap",
-       "mobile_number": "+27840000000",
+       "mobile": "+27840000000",
        "email": "joe@rehive.com"}'
 ```
 
@@ -271,7 +283,7 @@ formData.append('id_number', id_number);
 formData.append('language', language);
 formData.append('nationality', nationality);
 formData.append('metadata', metadata);
-formData.append('mobile_number', mobile_number);
+formData.append('mobile', mobile);
 formData.append('timezone', timezone);
 
 rehive.admin.users.create(formData).then(function (res) {
@@ -285,7 +297,7 @@ rehive.admin.users.create(formData).then(function (res) {
 rehive.admin.users.create(
     first_name="Joe",
     last_name="Soap",
-    mobile_number="+27840000000",
+    mobile="+27840000000",
     email="joe@rehive.com"
 )
 ```
@@ -315,9 +327,17 @@ rehive.admin.users.create(
         "language": "en",
         "nationality": "ZA",
         "metadata": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "timezone": "Asia/Dhaka",
         "verified": true,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -359,9 +379,13 @@ rehive.admin.users.create(
     "language": "en",
     "nationality": "ZA",
     "metadata": null,
-    "mobile_number": "+27840000000",
+    "mobile": "+27840000000",
     "timezone": "Asia/Dhaka",
     "verified": true,
+    "verification": {
+        "email": true,
+        "mobile": true
+    },
     "kyc": {
         "updated": 1509539801040,
         "status": "pending"
@@ -402,7 +426,7 @@ rehive.admin.users.create(
     "language": "en",
     "nationality": "ZA",
     "metadata": null,
-    "mobile_number": "+27840000000",
+    "mobile": "+27840000000",
     "timezone": "Asia/Dhaka",
     "verified": true,
     "kyc": {
@@ -434,18 +458,18 @@ Create a user.
 
 Field | Description | Default
 --- | --- | ---
-`id` | unique id | string (uuid)
-`username` | unique username | null
+`id` | unique id (cannot be changed once set)| string (uuid)
+`username` | unique username (cannot be changed once set) | null
 `first_name` | first name | blank
 `last_name` | last name | blank
 `email` | email address | null
-`mobile_number` | mobile number | null
+`mobile` | mobile number | null
 `id_number` | ID number | blank
 `profile` | profile image | blank
 `language` | language code (`af`, `en` etc.) | blank
 `nationality` | nationality code (`ZA`, `UK` etc.) | blank
 `metadata` | custom metadata | {}
-`mobile_number` | mobile number | blank
+`mobile` | mobile number | blank
 `timezone` | timezone | blank
 `birth_date` | birth date | blank
 `archived` | boolean | false
@@ -500,9 +524,13 @@ rehive.admin.users.get(
         "language": "en",
         "nationality": "ZA",
         "metadata": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "timezone": "Asia/Dhaka",
         "verified": true,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -544,9 +572,13 @@ rehive.admin.users.get(
     "language": "en",
     "nationality": "ZA",
     "metadata": null,
-    "mobile_number": "+27840000000",
+    "mobile": "+27840000000",
     "timezone": "Asia/Dhaka",
     "verified": true,
+    "verification": {
+        "email": true,
+        "mobile": true
+    },
     "kyc": {
         "updated": 1509539801040,
         "status": "pending"
@@ -587,9 +619,13 @@ rehive.admin.users.get(
     "language": "en",
     "nationality": "ZA",
     "metadata": null,
-    "mobile_number": "+27840000000",
+    "mobile": "+27840000000",
     "timezone": "Asia/Dhaka",
     "verified": true,
+    "verification": {
+        "email": true,
+        "mobile": true
+    },
     "kyc": {
         "updated": 1509539801040,
         "status": "pending"
@@ -681,9 +717,13 @@ rehive.admin.users.update(
         "language": "en",
         "nationality": "ZA",
         "metadata": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "timezone": "Asia/Dhaka",
         "verified": true,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -725,9 +765,13 @@ rehive.admin.users.update(
     "language": "en",
     "nationality": "ZA",
     "metadata": null,
-    "mobile_number": "+27840000000",
+    "mobile": "+27840000000",
     "timezone": "Asia/Dhaka",
     "verified": true,
+    "verification": {
+        "email": true,
+        "mobile": true
+    },
     "kyc": {
         "updated": 1509539801040,
         "status": "pending"
@@ -768,9 +812,13 @@ rehive.admin.users.update(
     "language": "en",
     "nationality": "ZA",
     "metadata": null,
-    "mobile_number": "+27840000000",
+    "mobile": "+27840000000",
     "timezone": "Asia/Dhaka",
     "verified": true,
+    "verification": {
+        "email": true,
+        "mobile": true
+    },
     "kyc": {
         "updated": 1509539801040,
         "status": "pending"
@@ -807,7 +855,7 @@ Field | Description | Default
 `language` | language code (`af`, `en` etc.) | blank
 `nationality` | nationality code (`ZA`, `UK` etc.) | blank
 `metadata` | custom metadata | {}
-`mobile_number` | mobile number | blank
+`mobile` | mobile number | blank
 `timezone` | timezone | blank
 `birth_date` | birth date | blank
 `status` | status | pending
@@ -1093,7 +1141,7 @@ rehive.admin.users.addresses.get()
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
                     "username": null,
-                    "mobile_number": "+27840000000",
+                    "mobile": "+27840000000",
                     "profile": null
                 },
                 "line_1": "1 Main Street",
@@ -1126,7 +1174,7 @@ rehive.admin.users.addresses.get()
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
                 "username": null,
-                "mobile_number": "+27840000000",
+                "mobile": "+27840000000",
                 "profile": null
             },
             "line_1": "1 Main Street",
@@ -1154,7 +1202,7 @@ rehive.admin.users.addresses.get()
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "line_1": "1 Main Street",
@@ -1243,7 +1291,7 @@ rehive.admin.users.addresses.create(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "line_1": "1 Main Street",
@@ -1269,7 +1317,7 @@ rehive.admin.users.addresses.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "line_1": "1 Main Street",
@@ -1294,7 +1342,7 @@ rehive.admin.users.addresses.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "line_1": "1 Main Street",
@@ -1381,7 +1429,7 @@ rehive.admin.users.addresses.get(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "line_1": "1 Main Street",
@@ -1407,7 +1455,7 @@ rehive.admin.users.addresses.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "line_1": "1 Main Street",
@@ -1432,7 +1480,7 @@ rehive.admin.users.addresses.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "line_1": "1 Main Street",
@@ -1494,7 +1542,7 @@ rehive.admin.users.addresses.update(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "line_1": "1 Main Street",
@@ -1520,7 +1568,7 @@ rehive.admin.users.addresses.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "line_1": "1 Main Street",
@@ -1545,7 +1593,7 @@ rehive.admin.users.addresses.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "line_1": "1 Main Street",
@@ -1677,7 +1725,7 @@ rehive.admin.banks_accounts.get()
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
                     "username": null,
-                    "mobile_number": "+27840000000",
+                    "mobile": "+27840000000",
                     "profile": null
                 },
                 "name": "Bank Account",
@@ -1714,7 +1762,7 @@ rehive.admin.banks_accounts.get()
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
                 "username": null,
-                "mobile_number": "+27840000000",
+                "mobile": "+27840000000",
                 "profile": null
             },
             "name": "Bank Account",
@@ -1746,7 +1794,7 @@ rehive.admin.banks_accounts.get()
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "name": "Bank Account",
@@ -1834,7 +1882,7 @@ rehive.admin.bank_accounts.create(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "name": "Bank Account",
@@ -1864,7 +1912,7 @@ rehive.admin.bank_accounts.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "name": "Bank Account",
@@ -1893,7 +1941,7 @@ rehive.admin.bank_accounts.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "name": "Bank Account",
@@ -1985,7 +2033,7 @@ rehive.admin.bank_accounts.get("{id}")
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "name": "Bank Account",
@@ -2015,7 +2063,7 @@ rehive.admin.bank_accounts.get("{id}")
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "name": "Bank Account",
@@ -2044,7 +2092,7 @@ rehive.admin.bank_accounts.get("{id}")
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "name": "Bank Account",
@@ -2110,7 +2158,7 @@ rehive.admin.bank_accounts.update(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "name": "New account name",
@@ -2140,7 +2188,7 @@ rehive.admin.bank_accounts.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "name": "Bank Account",
@@ -2169,7 +2217,7 @@ rehive.admin.bank_accounts.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "name": "New account name",
@@ -2309,7 +2357,7 @@ rehive.admin.users.crypto_accounts.get()
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
                     "username": null,
-                    "mobile_number": "+27840000000",
+                    "mobile": "+27840000000",
                     "profile": null
                 },
                 "address": "0000000000000000000000000000000000",
@@ -2340,7 +2388,7 @@ rehive.admin.users.crypto_accounts.get()
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
                 "username": null,
-                "mobile_number": "+27840000000",
+                "mobile": "+27840000000",
                 "profile": null
             },
             "address": "0000000000000000000000000000000000",
@@ -2366,7 +2414,7 @@ rehive.admin.users.crypto_accounts.get()
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "address": "0000000000000000000000000000000000",
@@ -2443,7 +2491,7 @@ rehive.admin.users.crypto_accounts.create(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "address": "0000000000000000000000000000000000",
@@ -2467,7 +2515,7 @@ rehive.admin.users.crypto_accounts.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "address": "0000000000000000000000000000000000",
@@ -2490,7 +2538,7 @@ rehive.admin.users.crypto_accounts.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "address": "0000000000000000000000000000000000",
@@ -2574,7 +2622,7 @@ rehive.admin.users.crypto_accounts.get(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "address": "0000000000000000000000000000000000",
@@ -2598,7 +2646,7 @@ rehive.admin.users.crypto_accounts.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "address": "0000000000000000000000000000000000",
@@ -2621,7 +2669,7 @@ rehive.admin.users.crypto_accounts.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "address": "0000000000000000000000000000000000",
@@ -2682,7 +2730,7 @@ rehive.admin.users.crypto_accounts.update(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "address": "0000000000000000000000000000000000",
@@ -2706,7 +2754,7 @@ rehive.admin.users.crypto_accounts.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "address": "0000000000000000000000000000000000",
@@ -2729,7 +2777,7 @@ rehive.admin.users.crypto_accounts.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "address": "0000000000000000000000000000000000",
@@ -2866,7 +2914,7 @@ rehive.admin.users.documents.get()
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
                     "username": null,
-                    "mobile_number": "+27840000000",
+                    "mobile": "+27840000000",
                     "profile": null
                 },
                 "file": "https://url.to/file.pdf",
@@ -2898,7 +2946,7 @@ rehive.admin.users.documents.get()
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
                 "username": null,
-                "mobile_number": "+27840000000",
+                "mobile": "+27840000000",
                 "profile": null
             },
             "file": "https://url.to/file.pdf",
@@ -2925,7 +2973,7 @@ rehive.admin.users.documents.get()
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "file": "https://url.to/file.pdf",
@@ -3006,7 +3054,7 @@ rehive.admin.documents.upload(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "file": "https://url.to/file.pdf",
@@ -3031,7 +3079,7 @@ rehive.admin.documents.upload(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "file": "https://url.to/file.pdf",
@@ -3055,7 +3103,7 @@ rehive.admin.documents.upload(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "file": "https://url.to/file.pdf",
@@ -3141,7 +3189,7 @@ rehive.admin.users.documents.get(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "file": "https://url.to/file.pdf",
@@ -3166,7 +3214,7 @@ rehive.admin.users.documents.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "file": "https://url.to/file.pdf",
@@ -3190,7 +3238,7 @@ rehive.admin.users.documents.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "file": "https://url.to/file.pdf",
@@ -3262,7 +3310,7 @@ rehive.admin.users.documents.update(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "file": "https://url.to/file.pdf",
@@ -3287,7 +3335,7 @@ rehive.admin.users.documents.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "file": "https://url.to/file.pdf",
@@ -3311,7 +3359,7 @@ rehive.admin.users.documents.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "file": "https://url.to/file.pdf",
@@ -3399,7 +3447,7 @@ rehive.admin.users.emails.get()
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
                     "username": null,
-                    "mobile_number": "+27840000000",
+                    "mobile": "+27840000000",
                     "profile": null
                 },
                 "id": 1,
@@ -3425,7 +3473,7 @@ rehive.admin.users.emails.get()
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
                 "username": null,
-                "mobile_number": "+27840000000",
+                "mobile": "+27840000000",
                 "profile": null
             },
             "id": 1,
@@ -3445,7 +3493,7 @@ rehive.admin.users.emails.get()
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "id": 1,
@@ -3517,7 +3565,7 @@ rehive.admin.users.emails.create(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "id": 1,
@@ -3536,7 +3584,7 @@ rehive.admin.users.emails.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -3554,7 +3602,7 @@ rehive.admin.users.emails.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -3621,7 +3669,7 @@ rehive.admin.users.emails.get(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "id": 1,
@@ -3640,7 +3688,7 @@ rehive.admin.users.emails.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -3658,7 +3706,7 @@ rehive.admin.users.emails.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -3713,7 +3761,7 @@ rehive.admin.users.emails.update(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "id": 1,
@@ -3732,7 +3780,7 @@ rehive.admin.users.emails.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -3750,7 +3798,7 @@ rehive.admin.users.emails.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -3863,7 +3911,7 @@ rehive.admin.users.mobiles.get()
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
                     "username": null,
-                    "mobile_number": "+27840000000",
+                    "mobile": "+27840000000",
                     "profile": null
                 },
                 "id": 1,
@@ -3892,7 +3940,7 @@ rehive.admin.users.mobiles.get()
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
                 "username": null,
-                "mobile_number": "+27840000000",
+                "mobile": "+27840000000",
                 "profile": null
             },
             "id": 1,
@@ -3916,7 +3964,7 @@ rehive.admin.users.mobiles.get()
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "id": 1,
@@ -3991,7 +4039,7 @@ rehive.admin.users.mobiles.create(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "id": 1,
@@ -4013,7 +4061,7 @@ rehive.admin.users.mobiles.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -4034,7 +4082,7 @@ rehive.admin.users.mobiles.create(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -4105,7 +4153,7 @@ rehive.admin.users.mobiles.get(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "id": 1,
@@ -4127,7 +4175,7 @@ rehive.admin.users.mobiles.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -4148,7 +4196,7 @@ rehive.admin.users.mobiles.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -4208,7 +4256,7 @@ rehive.admin.users.mobiles.update(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "id": 1,
@@ -4230,7 +4278,7 @@ rehive.admin.users.mobiles.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -4251,7 +4299,7 @@ rehive.admin.users.mobiles.update(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "id": 1,
@@ -4399,7 +4447,7 @@ rehive.admin.transactions.get_previous()
                     "last_name": "Soap",
                     "email": "joe@rehive.com",
                     "username": null,
-                    "mobile_number": "+27840000000",
+                    "mobile": "+27840000000",
                     "profile": null
                 },
                 "source_transaction": null,
@@ -4447,7 +4495,7 @@ rehive.admin.transactions.get_previous()
                 "last_name": "Soap",
                 "email": "joe@rehive.com",
                 "username": null,
-                "mobile_number": "+27840000000",
+                "mobile": "+27840000000",
                 "profile": null
             },
             "source_transaction": null,
@@ -4490,7 +4538,7 @@ rehive.admin.transactions.get_previous()
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "source_transaction": null,
@@ -4648,7 +4696,7 @@ rehive.admin.transactions.get(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "source_transaction": null,
@@ -4691,7 +4739,7 @@ rehive.admin.transactions.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
@@ -4733,7 +4781,7 @@ rehive.admin.transactions.get(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
@@ -4793,7 +4841,7 @@ rehive.admin.transactions.create_credit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -4820,7 +4868,7 @@ rehive.admin.transactions.create_credit(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "source_transaction": null,
@@ -4836,7 +4884,7 @@ rehive.admin.transactions.create_credit(
 
 ```javascript
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -4863,7 +4911,7 @@ rehive.admin.transactions.create_credit(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
@@ -4878,7 +4926,7 @@ rehive.admin.transactions.create_credit(
 
 ```python
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -4905,7 +4953,7 @@ rehive.admin.transactions.create_credit(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
@@ -4936,6 +4984,7 @@ Field | Description | Default
 
 Field | Description | Default
 --- | --- | ---
+`id` | unique id (cannot be changed once set)| string (uuid)
 `reference` | optional credit reference | blank
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
@@ -4996,7 +5045,7 @@ rehive.admin.transactions.create_debit(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "tx_type": "debit",
         "subtype": null,
         "note": "",
@@ -5023,7 +5072,7 @@ rehive.admin.transactions.create_debit(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "source_transaction": null,
@@ -5039,7 +5088,7 @@ rehive.admin.transactions.create_debit(
 
 ```javascript
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -5066,7 +5115,7 @@ rehive.admin.transactions.create_debit(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
@@ -5081,7 +5130,7 @@ rehive.admin.transactions.create_debit(
 
 ```python
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -5108,7 +5157,7 @@ rehive.admin.transactions.create_debit(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
@@ -5139,6 +5188,7 @@ Field | Description | Default
 
 Field | Description | Default
 --- | --- | ---
+`id` | unique id (cannot be changed once set)| string (uuid)
 `reference` | optional debit reference | blank
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
@@ -5191,7 +5241,7 @@ rehive.admin.transactions.create_transfer(
 {
     "status": "success",
     "data": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "tx_type": "debit",
         "subtype": null,
         "note": "",
@@ -5218,19 +5268,19 @@ rehive.admin.transactions.create_transfer(
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "source_transaction": null,
         "destination_transaction": {
-            "id": "00000000000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
             "user": {
                 "id": "00000000-0000-0000-0000-000000000000",
                 "first_name": "Susan",
                 "last_name": "Brown",
                 "email": "susan@rehive.com",
                 "username": null,
-                "mobile_number": "+27850000000",
+                "mobile": "+27850000000",
                 "profile": null
             }
         },
@@ -5245,7 +5295,7 @@ rehive.admin.transactions.create_transfer(
 
 ```javascript
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -5272,19 +5322,19 @@ rehive.admin.transactions.create_transfer(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
     "destination_transaction": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "user": {
             "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Susan",
             "last_name": "Brown",
             "email": "susan@rehive.com",
             "username": null,
-            "mobile_number": "+27850000000",
+            "mobile": "+27850000000",
             "profile": null
         }
     },
@@ -5298,7 +5348,7 @@ rehive.admin.transactions.create_transfer(
 
 ```python
 {
-    "id": "00000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -5325,19 +5375,19 @@ rehive.admin.transactions.create_transfer(
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
     "destination_transaction": {
-        "id": "00000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "user": {
             "id": "00000000-0000-0000-0000-000000000000",
             "first_name": "Susan",
             "last_name": "Brown",
             "email": "susan@rehive.com",
             "username": null,
-            "mobile_number": "+27850000000",
+            "mobile": "+27850000000",
             "profile": null
         }
     },
@@ -5446,7 +5496,7 @@ rehive.admin.transactions.delete("{id}")
             "last_name": "Soap",
             "email": "joe@rehive.com",
             "username": null,
-            "mobile_number": "+27840000000",
+            "mobile": "+27840000000",
             "profile": null
         },
         "source_transaction": null,
@@ -5489,7 +5539,7 @@ rehive.admin.transactions.delete("{id}")
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
@@ -5531,7 +5581,7 @@ rehive.admin.transactions.delete("{id}")
         "last_name": "Soap",
         "email": "joe@rehive.com",
         "username": null,
-        "mobile_number": "+27840000000",
+        "mobile": "+27840000000",
         "profile": null
     },
     "source_transaction": null,
@@ -8157,30 +8207,37 @@ rehive.admin.company.get()
 {
     "status": "success",
     "data": {
-        "identifier": "test_company",
-        "name": "Test Company 1",
-        "description": "A Test Company.",
-        "website": "http://www.test_company.com",
-        "logo": "https://www.test_company.com/logo.jpg",
+        "id": "rehive",
+        "name": "Rehive",
+        "description": "Wallets for everyone.",
+        "website": "http://www.rehive.com",
+        "email": null,
+        "logo": "https://path.to.file.com/image.png",
         "address": {
-            // ...
+            "line_1": "1 First Avenue",
+            "line_2": "",
+            "city": "Cape Town",
+            "state_province": "Western Cape",
+            "country": "ZA",
+            "postal_code": "8001"
         },
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true,
-            "require_verification": true,
+            "require_verification": false,
             "allow_registrations": true,
             "allow_overdrafts": false,
-            "auto_complete_transactions": false,
             "allow_session_durations": false,
             "require_terms_and_conditions": false,
-            "password_reset_url": null,
-            "email_confirmation_url": null,
+            "default_transaction_status": "Pending",
+            "password_reset_url": "",
+            "password_set_url": "",
+            "email_confirmation_url": "",
             "nationalities": []
         },
-        "created": 1497431721587,
-        "updated": 1497431938971
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -8281,30 +8338,37 @@ rehive.admin.company.update(
 {
     "status": "success",
     "data": {
-        "identifier": "test_company",
-        "name": "Test Company 1",
-        "description": "A new description",
-        "website": "http://www.test_company.com",
-        "logo": "https://www.test_company.com/logo.jpg",
+        "id": "rehive",
+        "name": "Rehive",
+        "description": "Wallets for everyone.",
+        "website": "http://www.rehive.com",
+        "email": null,
+        "logo": "https://path.to.file.com/image.png",
         "address": {
-            // ...
+            "line_1": "1 First Avenue",
+            "line_2": "",
+            "city": "Cape Town",
+            "state_province": "Western Cape",
+            "country": "ZA",
+            "postal_code": "8001"
         },
         "settings": {
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true,
-            "require_verification": true,
+            "require_verification": false,
             "allow_registrations": true,
             "allow_overdrafts": false,
-            "auto_complete_transactions": false,
             "allow_session_durations": false,
             "require_terms_and_conditions": false,
-            "password_reset_url": null,
-            "email_confirmation_url": null,
+            "default_transaction_status": "Pending",
+            "password_reset_url": "",
+            "password_set_url": "",
+            "email_confirmation_url": "",
             "nationalities": []
         },
-        "created": 1497431721587,
-        "updated": 1497431938971
+        "created": 1516281408895,
+        "updated": 1528454842365
     }
 }
 ```
@@ -11341,7 +11405,7 @@ Value | Description
 `address` | Address
 `bank_account` | Bank Account
 `email_address` | Email Address
-`mobile_number` | Mobile Number
+`mobile` | Mobile Number
 `proof_of_identity` | Proof of identity
 `proof_of_address` | Proof of address
 `advanced_proof_of_identity` | Advanced proof of identity
@@ -11493,7 +11557,7 @@ Value | Description
 `address` | Address
 `bank_account` | Bank Account
 `email_address` | Email Address
-`mobile_number` | Mobile Number
+`mobile` | Mobile Number
 `proof_of_identity` | Proof of identity
 `proof_of_address` | Proof of address
 `advanced_proof_of_identity` | Advanced proof of identity
@@ -12527,6 +12591,14 @@ rehive.admin.groups.get()
 
 Get a list of groups that have been created.
 
+
+#### Filtering
+
+Field | Type
+--- | ---
+`name` | string
+
+
 #### Endpoint
 
 `https://api.rehive.com/3/admin/groups/`
@@ -12804,7 +12876,7 @@ Delete the group.
 > Admin assign group request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{uuid}/groups/
+curl https://api.rehive.com/3/admin/users/{id}/groups/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12822,7 +12894,7 @@ rehive.admin.users.groups.create(uuid, {
 ```
 
 ```python
-rehive.admin.users.obj({uuid}).groups.assign(
+rehive.admin.users.obj({id}).groups.assign(
     group='test'
 )
 ```
@@ -12872,7 +12944,7 @@ Assign a user to a group.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{uuid}/groups/`
+`https://api.rehive.com/3/admin/users/{id}/groups/`
 
 #### Required Fields
 
@@ -12885,7 +12957,7 @@ Field | Description | Default
 > Admin unassign group request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{uuid}/groups/{group_name}/
+curl https://api.rehive.com/3/admin/users/{id}/groups/{group_name}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -12900,7 +12972,7 @@ rehive.admin.users.groups.delete(uuid,groupName).then(function (res) {
 ```
 
 ```python
-rehive.admin.users.obj({uuid}).groups.unassign(
+rehive.admin.users.obj({id}).groups.unassign(
     group='test'
 )
 ```
@@ -12927,7 +12999,7 @@ Unassign a group from a user.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{uuid}/groups/{group_name}/`
+`https://api.rehive.com/3/admin/users/{id}/groups/{group_name}/`
 
 ## Permissions
 
@@ -13140,7 +13212,7 @@ Remove the permission from the group.
 > Admin assign permissions request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{uuid}/permissions/
+curl https://api.rehive.com/3/admin/users/{id}/permissions/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -13160,7 +13232,7 @@ rehive.admin.users.permissions.create(uuid, {
 ```
 
 ```python
-rehive.admin.users.obj({uuid}).permissions.create(
+rehive.admin.users.obj({id}).permissions.create(
     type="account",
     level="view"
 )
@@ -13199,7 +13271,7 @@ Assign a permission to a user.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{uuid}/permissions/`
+`https://api.rehive.com/3/admin/users/{id}/permissions/`
 
 #### Required Fields
 
@@ -13213,7 +13285,7 @@ Field | Description | Default
 > Admin unassign permissions request
 
 ```shell
-curl https://api.rehive.com/3/admin/users/{uuid}/permissions/{permission_id}/
+curl https://api.rehive.com/3/admin/users/{id}/permissions/{permission_id}/
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -13228,7 +13300,7 @@ rehive.admin.users.permissions.delete(uuid,permissionId).then(function (res) {
 ```
 
 ```python
-rehive.admin.users.obj({uuid}).permissions.delete(
+rehive.admin.users.obj({id}).permissions.delete(
     {permissions_id}
 )
 ```
@@ -13255,7 +13327,7 @@ Unassign a permissions for a user.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/{uuid}/permissions/{permission_id}/`
+`https://api.rehive.com/3/admin/users/{id}/permissions/{permission_id}/`
 
 ## Group Account Configurations
 

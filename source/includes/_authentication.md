@@ -61,7 +61,7 @@ curl https://api.rehive.com/3/auth/company/register/
   -d '{"first_name": "Joe",
        "last_name": "Soap",
        "email": "joe@rehive.com",
-       "mobile_number": "+00000000000",
+       "mobile": "+00000000000",
        "company": "rehive",
        "password1": "joe1234",
        "password2":"joe1234",
@@ -73,7 +73,7 @@ rehive.auth.registerCompany({
     first_name: "Joe",
     last_name: "Soap",
     email: "joe@rehive.com",
-    mobile_number:"+00000000000",
+    mobile:"+00000000000",
     company: "rehive",
     password1: "joe1234",
     password2: "joe1234",
@@ -90,7 +90,7 @@ rehive.auth.register_company(
     first_name="Joe",
     last_name="Soap",
     email="joe@rehive.com",
-    mobile_number="+00000000000",
+    mobile="+00000000000",
     company="rehive",
     password1="joe1234",
     password2="joe1234",
@@ -119,9 +119,13 @@ rehive.auth.register_company(
             "language": "en",
             "nationality": "ZA",
             "metadata": {},
-            "mobile_number": "+00000000000",
+            "mobile": "+00000000000",
             "timezone": null,
             "verified": false,
+            "verification": {
+                "email": true,
+                "mobile": true
+            },
             "kyc": {
                 "updated": 1509539801040,
                 "status": "pending"
@@ -168,9 +172,13 @@ rehive.auth.register_company(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -216,9 +224,13 @@ rehive.auth.register_company(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -262,7 +274,7 @@ Field | Description | Default
 `first_name` | first name | null
 `last_name` | last name | null
 `email` | email address | null
-`company` | company identifier | null
+`company` | company id | null
 `password1` | password | null
 `password2` | repeat password | null
 `terms_and_conditions` | agreed to terms | false
@@ -271,7 +283,7 @@ Field | Description | Default
 
 Field | Description | Default
 --- | --- | ---
-`mobile_number` | mobile number | null
+`mobile` | mobile number | null
 `nationality` | country code | null
 `session_duration` | session duration | 36000000
 
@@ -341,9 +353,13 @@ rehive.auth.register(
             "language": "en",
             "nationality": "ZA",
             "metadata": {},
-            "mobile_number": "+00000000000",
+            "mobile": "+00000000000",
             "timezone": null,
             "verified": false,
+            "verification": {
+                "email": true,
+                "mobile": true
+            },
             "kyc": {
                 "updated": 1509539801040,
                 "status": "pending"
@@ -390,9 +406,13 @@ rehive.auth.register(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -438,9 +458,13 @@ rehive.auth.register(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -483,7 +507,7 @@ Field | Description | Default
 `first_name` | first name | null
 `last_name` | last name | null
 `email` | email address | null
-`company` | company identifier | null
+`company` | company id | null
 `password1` | password | null
 `password2` | repeat password | null
 
@@ -492,7 +516,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `terms_and_conditions` | agreed to terms | false
-`mobile_number` | mobile number | null
+`mobile` | mobile number | null
 `nationality` | country code | null
 `session_duration` | session duration | 36000000
 
@@ -563,9 +587,13 @@ rehive.auth.login(
             "language": "en",
             "nationality": "ZA",
             "metadata": {},
-            "mobile_number": "+00000000000",
+            "mobile": "+00000000000",
             "timezone": null,
             "verified": false,
+            "verification": {
+                "email": true,
+                "mobile": true
+            },
             "kyc": {
                 "updated": 1509539801040,
                 "status": "pending"
@@ -612,9 +640,13 @@ rehive.auth.login(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -662,9 +694,13 @@ rehive.auth.login(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -711,7 +747,7 @@ user's details and a token that can be used for subsequent requests.
 Field | Description | Default
 --- | --- | ---
 `user` | email, mobile number, or unique id | null
-`company` | company identifier | null
+`company` | company id | null
 `password` | password | null
 
 #### Optional Fields
@@ -944,7 +980,7 @@ Send a password reset email.
 Field | Description | Default
 --- | --- | ---
 `user` | email, mobile number, or unique id | null
-`company` | company identifier | null
+`company` | company id | null
 
 ## Reset Password Confirm
 
@@ -1080,7 +1116,7 @@ Resend email verifications for an email.
 Field | Description | Default
 --- | --- | ---
 `email` | email address | null
-`company` | company identifier | null
+`company` | company id | null
 
 ## Resend Mobile Verification
 
@@ -1141,7 +1177,7 @@ Resends mobile verifications for a mobile number.
 Field | Description | Default
 --- | --- | ---
 `mobile` | mobile number | null
-`company` | company identifier | null
+`company` | company id | null
 
 
 ## Verify Email
@@ -1388,9 +1424,13 @@ rehive.auth.tokens.create(
             "language": "en",
             "nationality": "ZA",
             "metadata": {},
-            "mobile_number": "+00000000000",
+            "mobile": "+00000000000",
             "timezone": null,
             "verified": false,
+            "verification": {
+                "email": true,
+                "mobile": true
+            },
             "kyc": {
                 "updated": 1509539801040,
                 "status": "pending"
@@ -1437,9 +1477,13 @@ rehive.auth.tokens.create(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -1485,9 +1529,13 @@ rehive.auth.tokens.create(
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -1616,9 +1664,13 @@ rehive.auth.tokens.verify("{token_key}")
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"
@@ -1662,9 +1714,13 @@ rehive.auth.tokens.verify("{token_key}")
     "language": "en",
     "nationality": "ZA",
     "metadata": {},
-    "mobile_number": "+00000000000",
+    "mobile": "+00000000000",
     "timezone": null,
     "verified": false,
+    "verification": {
+        "email": true,
+        "mobile": true
+    },
     "kyc": {
         "updated": 1509539801040,
         "status": "pending"
@@ -1709,9 +1765,13 @@ rehive.auth.tokens.verify("{token_key}")
         "language": "en",
         "nationality": "ZA",
         "metadata": {},
-        "mobile_number": "+00000000000",
+        "mobile": "+00000000000",
         "timezone": null,
         "verified": false,
+        "verification": {
+            "email": true,
+            "mobile": true
+        },
         "kyc": {
             "updated": 1509539801040,
             "status": "pending"

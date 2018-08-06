@@ -28,7 +28,7 @@ rehive.company.get()
 ```shell
 {
     "data": {
-        "identifier": "rehive",
+        "id": "rehive",
         "name": "Rehive",
         "description": "Wallets for everyone.",
         "website": "http://www.rehive.com",
@@ -66,7 +66,7 @@ rehive.company.get()
 
 ```javascript
 {
-    "identifier": "rehive",
+    "id": "rehive",
     "name": "Rehive",
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
@@ -102,7 +102,7 @@ rehive.company.get()
 
 ```python
 {
-    "identifier": "rehive",
+    "id": "rehive",
     "name": "Rehive",
     "description": "Wallets for everyone.",
     "website": "http://www.rehive.com",
