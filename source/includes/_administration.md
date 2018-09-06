@@ -1014,6 +1014,7 @@ curl https://api.rehive.com/3/admin/users/{id}/kyc/
 ```
 
 ```python
+rehive.admin.users.obj({identifier}).kyc.get()
 ```
 
 > Admin retrieve user kyc response
@@ -1032,6 +1033,13 @@ curl https://api.rehive.com/3/admin/users/{id}/kyc/
 ```
 
 ```python
+{
+    "status": "success",
+    "data": {
+        "status": "pending",
+        "updated": 1520929665311
+    }
+}
 ```
 
 Retrieve a company's user kyc details.
@@ -1057,6 +1065,9 @@ curl https://api.rehive.com/3/admin/users/{id}/kyc/`
 ```
 
 ```python
+rehive.admin.users.obj({identifier}).kyc.update(
+    status='verified'
+)
 ```
 
 > Admin update user kyc response
@@ -1075,6 +1086,13 @@ curl https://api.rehive.com/3/admin/users/{id}/kyc/`
 ```
 
 ```python
+{
+    "status": "success",
+    "data": {
+        "status": "verified",
+        "updated": 1520929665311
+    }
+}
 ```
 
 Update a user's kyc.
