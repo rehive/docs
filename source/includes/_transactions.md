@@ -187,7 +187,7 @@ curl https://api.rehive.com/3/transactions/totals/
 
 ```javascript
 
-rehive.transactions.getTotals().then(function(res){
+rehive.transactions.totals.get().then(function(res){
     ...
 },function(err){
     ...

@@ -4585,7 +4585,7 @@ curl https://api.rehive.com/3/admin/transactions/totals/
 ```
 
 ```javascript
-rehive.admin.transactions.getTotals().then(function (res) {
+rehive.admin.transactions.totals.get().then(function (res) {
     ...
 }, function (err) {
     ...
