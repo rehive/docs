@@ -23,11 +23,11 @@ under the License.
 // TG COLORS
 ////////////////////
 $tg-yellow: #F8CF51;
-$tg-dark-blue: #1f80b7;
-$tg-blue: #3C8DBC;
+$tg-dark-blue: #5336FF;
+$tg-blue: #5336FF;
 $tg-green: #70cf32;
 $tg-dark-green: #61b729;
-$tg-slate: #2d3033;
+$tg-slate: #2d3134;
 $tg-grey: #6c7279;
 $tg-teal: #65d5d9;
 $tg-red: #ED675A;
@@ -36,18 +36,18 @@ $base-grey-10: #f4f4f5;
 $base-grey-5: rgba($base-grey-10, .5);
 $base-grey-30: #e2e6e8;
 $base-grey-70: #a4aeb3;
-$white: #ffffff;
+$white: #f6f6f7;
 $black: #000000;
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: $tg-blue;
-$examples-bg: #4d4d4d;
+$nav-bg: $white;
+$examples-bg: $tg-slate;
 $code-bg: $tg-slate;
-$code-annotation-bg: $tg-blue;
-$search-highlight: rgba($tg-bermuda-green, .3);
-$nav-subitem-bg: $tg-blue;
-$nav-active-bg: $tg-dark-blue;
+$code-annotation-bg: $tg-slate;
+$search-highlight: rgba($tg-dark-blue, .3);
+$nav-subitem-bg: $white;
+$nav-active-bg: $white;
 $lang-select-border: $tg-dark-blue;
 $lang-select-bg: $tg-blue;
 $lang-select-active-bg: $tg-dark-blue; // feel free to change this to blue or something
@@ -62,8 +62,8 @@ $search-notice-bg: #c97a7e;
 // TEXT COLORS
 ////////////////////
 $main-text: $tg-slate; // main content text color
-$nav-text: $white;
-$nav-active-text: $white;
+$nav-text: $black;
+$nav-active-text: $tg-blue;
 $nav-footer-text: $base-grey-70;
 $content-link: $tg-blue;
 $content-link-hover: $tg-dark-blue;

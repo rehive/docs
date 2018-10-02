@@ -176,6 +176,9 @@ html, body {
     color: $nav-active-text;
     border-radius: $border-radius;
   }
+  .tocify-focus > a {
+    color: $nav-active-text;
+  }
 
   // Subheaders are the submenus that slide open
   // in the table of contents.

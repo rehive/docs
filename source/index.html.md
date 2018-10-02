@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Rehive Platform Reference
 
 language_tabs:
   - shell
