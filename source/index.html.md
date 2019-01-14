@@ -9,13 +9,11 @@ language_tabs:
 includes:
   - introduction
   - authentication
-  - mf_authentication
   - users
   - transactions
   - accounts
   - company
   - administration
-  - beta
 
 search: true
 ---

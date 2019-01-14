@@ -733,8 +733,6 @@ The transfer transaction endpoint is a wrapper for standard debit/credit transac
 
 #### Required Fields
 
-#### Required Fields
-
 Field | Description | Default
 --- | --- | ---
 `amount` | amount | null
@@ -755,6 +753,146 @@ Field | Description | Default
 `credit_note` | user's note or message | blank
 `credit_metadata` | custom metadata | {}
 `credit_reference` | optional credit reference | string
+
+## Create Transactions
+
+> Admin create transactions request
+
+```shell
+curl https://api.rehive.com/3/transactions/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"transactions": [{"amount": 500,
+       "currency": "ZAR"},
+       {"amount": 500,
+       "currency": "ZAR"}]}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin create transactions response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "transactions": [
+            {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "tx_type": "credit",
+                "subtype": null,
+                "note": "",
+                "metadata": {},
+                "status": "Pending",
+                "reference": null,
+                "amount": 500,
+                "fee": 0,
+                "total_amount": 500,
+                "balance": 0,
+                "account": "0000000000",
+                "label": "Credit",
+                "company": "rehive",
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "user": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": null,
+                    "mobile": "+27840000000",
+                    "profile": null
+                },
+                "source_transaction": null,
+                "destination_transaction": null,
+                "messages": [],
+                "fees": [],
+                "created": 1476691969394,
+                "updated": 1496135465287
+            },
+            {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "tx_type": "credit",
+                "subtype": null,
+                "note": "",
+                "metadata": {},
+                "status": "Pending",
+                "reference": null,
+                "amount": 500,
+                "fee": 0,
+                "total_amount": 500,
+                "balance": 0,
+                "account": "0000000000",
+                "label": "Credit",
+                "company": "rehive",
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "user": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": null,
+                    "mobile": "+27840000000",
+                    "profile": null
+                },
+                "source_transaction": null,
+                "destination_transaction": null,
+                "messages": [],
+                "fees": [],
+                "created": 1476691969394,
+                "updated": 1496135465287
+            }
+        ]
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Create a batch of transactions. This action is atomic and the whole batch will either fail or succeed at the same time. This endpoint can create up to 24 transactions at the same time.
+
+#### Endpoint
+
+`https://api.rehive.com/3/transactions/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | ---
+`amount` | amount | null
+`currency` | currency code | null
+`tx_type` | transaction type | null
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`reference` | optional credit reference | blank
+`subtype` | a custom defined subtype | null
+`account` | account reference code | null
+`note` | user's note or message | blank
+`metadata` | custom metadata | {}
+
 
 ## Retrieve Transaction
 

@@ -283,7 +283,6 @@ Event | Description
 `crypto_account.update` | crypto account updated event
 `transaction.create` | transaction created event
 `transaction.update` | transaction updated event
-`transaction.delete` | transaction deleted event
 `transaction.initiate` | transaction initiated (pending) event
 `transaction.execute` | transaction executed (complete/failed) event
 

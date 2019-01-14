@@ -251,6 +251,10 @@ Field | Type
 `updated` | millisecond timestamp
 `last_login` | millisecond timestamp
 `archived` | boolean
+`id__contains` | string
+`email__contains` | string
+`mobile__contains` | string
+`username__contains` | string
 
 #### Endpoint
 
@@ -3008,7 +3012,7 @@ Field | Type
 > Admin documents request
 
 ```shell
-curl https://api.rehive.com/3/admin/documents/
+curl https://api.rehive.com/3/admin/users/documents/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: multipart/form-data"
@@ -3118,11 +3122,11 @@ rehive.admin.documents.upload(
 }
 ```
 
-Upload user document.
+Create a user document.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/document/`
+`https://api.rehive.com/3/admin/users/document/`
 
 #### Required Fields
 
@@ -3135,11 +3139,28 @@ Field | Description | Default
 
 Field | Description | Default
 --- | --- | ---
-`document_category` | The document category | other
 `document_type` | The type of docuemnt | other
 `metadata` | custom metadata | {}
 `status` | document status | pending
 `archived` | archived state | false
+
+#### Document Types
+
+value | Description
+--- | ---
+`utility_bill` | Utility Bill
+`bank_statement` | Bank Statement
+`lease_or_rental_agreement` | Lease or Rental Agreement
+`municipal_rate_and_taxes` | Municipal Rate and Taxes
+`mortgage_statement` | Mortgage Statement
+`telephone` | Telephone
+`insurance_policy` | Insurance Policy
+`retail_store` | Retail Store
+`government_id` | Government ID
+`passport` | Passport
+`drivers_license` | Drivers License
+`id_confirmation` | ID Confirmation
+`other` | Other
 
 #### Statuses
 
@@ -4638,167 +4659,6 @@ See Transaction List filtering above.
 
 `https://api.rehive.com/3/admin/transactions/totals/`
 
-### Retrieve Transaction
-
-> Retrieve transaction request
-
-```shell
-curl https://api.rehive.com/3/admin/transactions/{id}/
-  -X GET
-  -H "Authorization: Token {token}"
-  -H "Content-Type: application/json"
-```
-
-```javascript
-rehive.admin.transactions.get({id: id}).then(function (res) {
-    ...
-}, function (err) {
-    ...
-});
-```
-
-```python
-rehive.admin.transactions.get(
-    "{id}"
-)
-```
-
-> Retrieve transaction response
-
-```shell
-{
-    "status": "success",
-    "data":  {
-        "id": "000000000000000000000",
-        "tx_type": "credit",
-        "subtype": null,
-        "note": "",
-        "metadata": {},
-        "status": "Pending",
-        "reference": "",
-        "amount": 500,
-        "fee": 0,
-        "total_amount": 500,
-        "balance": 0,
-        "account": "0000000000",
-        "label": "Credit",
-        "company": "rehive",
-        "currency": {
-            "description": "Rand",
-            "code": "ZAR",
-            "symbol": "R",
-            "unit": "rand",
-            "divisibility": 2
-        },
-        "user": {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Joe",
-            "last_name": "Soap",
-            "email": "joe@rehive.com",
-            "username": null,
-            "mobile": "+27840000000",
-            "profile": null
-        },
-        "source_transaction": null,
-        "destination_transaction": null,
-        "messages": [],
-        "fees": [],
-        "archived": false,
-        "created": 1509618707485,
-        "updated": 1509618708277
-    }
-}
-```
-
-```javascript
-{
-    "id": "000000000000000000000",
-    "tx_type": "credit",
-    "subtype": null,
-    "note": "",
-    "metadata": {},
-    "status": "Pending",
-    "reference": "",
-    "amount": 500,
-    "fee": 0,
-    "total_amount": 500,
-    "balance": 0,
-    "account": "0000000000",
-    "label": "Credit",
-    "company": "rehive",
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
-    "user": {
-        "id": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": null,
-        "mobile": "+27840000000",
-        "profile": null
-    },
-    "source_transaction": null,
-    "destination_transaction": null,
-    "messages": [],
-    "fees": [],
-    "archived": false,
-    "created": 1509618707485,
-    "updated": 1509618708277
-}
-```
-
-```python
-{
-    "id": "000000000000000000000",
-    "tx_type": "credit",
-    "subtype": null,
-    "note": "",
-    "metadata": {},
-    "status": "Pending",
-    "reference": "",
-    "amount": 500,
-    "fee": 0,
-    "total_amount": 500,
-    "balance": 0,
-    "account": "0000000000",
-    "label": "Credit",
-    "company": "rehive",
-    "currency": {
-        "description": "Rand",
-        "code": "ZAR",
-        "symbol": "R",
-        "unit": "rand",
-        "divisibility": 2
-    },
-    "user": {
-        "id": "00000000-0000-0000-0000-000000000000",
-        "first_name": "Joe",
-        "last_name": "Soap",
-        "email": "joe@rehive.com",
-        "username": null,
-        "mobile": "+27840000000",
-        "profile": null
-    },
-    "source_transaction": null,
-    "destination_transaction": null,
-    "messages": [],
-    "fees": [],
-    "archived": false,
-    "created": 1509618707485,
-    "updated": 1509618708277
-}
-```
-
-Get transaction details for a spcific transactions.
-
-#### Endpoint
-
-`https://api.rehive.com/3/admin/transactions/{id}/`
 
 ### Create Credit
 
@@ -5430,6 +5290,317 @@ Field | Description | Default
 `credit_reference` | optional credit reference | string
 `archived` | archived state | false
 
+### Create Transactions
+
+> Admin create transactions request
+
+```shell
+curl https://api.rehive.com/3/admin/transactions/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"transactions": [{"tx_type": "debit",
+       "user": "joe@rehive.com",
+       "amount": 500,
+       "currency": "ZAR"},
+       {"tx_type": "debit",
+       "user": "joe@rehive.com",
+       "amount": 500,
+       "currency": "ZAR"}]}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin create transactions response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "transactions": [
+            {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "tx_type": "credit",
+                "subtype": null,
+                "note": "",
+                "metadata": {},
+                "status": "Pending",
+                "reference": null,
+                "amount": 500,
+                "fee": 0,
+                "total_amount": 500,
+                "balance": 0,
+                "account": "0000000000",
+                "label": "Credit",
+                "company": "rehive",
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "user": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": null,
+                    "mobile": "+27840000000",
+                    "profile": null
+                },
+                "source_transaction": null,
+                "destination_transaction": null,
+                "messages": [],
+                "fees": [],
+                "archived": false,
+                "created": 1476691969394,
+                "updated": 1496135465287
+            },
+            {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "tx_type": "credit",
+                "subtype": null,
+                "note": "",
+                "metadata": {},
+                "status": "Pending",
+                "reference": null,
+                "amount": 500,
+                "fee": 0,
+                "total_amount": 500,
+                "balance": 0,
+                "account": "0000000000",
+                "label": "Credit",
+                "company": "rehive",
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "user": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": null,
+                    "mobile": "+27840000000",
+                    "profile": null
+                },
+                "source_transaction": null,
+                "destination_transaction": null,
+                "messages": [],
+                "fees": [],
+                "archived": false,
+                "created": 1476691969394,
+                "updated": 1496135465287
+            }
+        ]
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Create a batch of transactions on behalf of a user. This action is atomic and the whole batch will either fail or succeed at the same time. This endpoint can create up to 24 transactions at the same time.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transactions/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | ---
+`user` | email, mobile number, username, or unique id| null
+`amount` | amount | null
+`currency` | currency code | null
+`tx_type` | transaction type | null
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`id` | unique id (cannot be changed once set)| string (uuid)
+`reference` | optional credit reference | blank
+`subtype` | a custom defined subtype | null
+`account` | account reference code | null
+`note` | user's note or message | blank
+`metadata` | custom metadata | {}
+`status` | status to transition to | Pending
+`archived` | archived state | false
+
+
+### Retrieve Transaction
+
+> Retrieve transaction request
+
+```shell
+curl https://api.rehive.com/3/admin/transactions/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+rehive.admin.transactions.get({id: id}).then(function (res) {
+    ...
+}, function (err) {
+    ...
+});
+```
+
+```python
+rehive.admin.transactions.get(
+    "{id}"
+)
+```
+
+> Retrieve transaction response
+
+```shell
+{
+    "status": "success",
+    "data":  {
+        "id": "000000000000000000000",
+        "tx_type": "credit",
+        "subtype": null,
+        "note": "",
+        "metadata": {},
+        "status": "Pending",
+        "reference": "",
+        "amount": 500,
+        "fee": 0,
+        "total_amount": 500,
+        "balance": 0,
+        "account": "0000000000",
+        "label": "Credit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null
+        },
+        "source_transaction": null,
+        "destination_transaction": null,
+        "messages": [],
+        "fees": [],
+        "archived": false,
+        "created": 1509618707485,
+        "updated": 1509618708277
+    }
+}
+```
+
+```javascript
+{
+    "id": "000000000000000000000",
+    "tx_type": "credit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Pending",
+    "reference": "",
+    "amount": 500,
+    "fee": 0,
+    "total_amount": 500,
+    "balance": 0,
+    "account": "0000000000",
+    "label": "Credit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": null,
+        "mobile": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [],
+    "fees": [],
+    "archived": false,
+    "created": 1509618707485,
+    "updated": 1509618708277
+}
+```
+
+```python
+{
+    "id": "000000000000000000000",
+    "tx_type": "credit",
+    "subtype": null,
+    "note": "",
+    "metadata": {},
+    "status": "Pending",
+    "reference": "",
+    "amount": 500,
+    "fee": 0,
+    "total_amount": 500,
+    "balance": 0,
+    "account": "0000000000",
+    "label": "Credit",
+    "company": "rehive",
+    "currency": {
+        "description": "Rand",
+        "code": "ZAR",
+        "symbol": "R",
+        "unit": "rand",
+        "divisibility": 2
+    },
+    "user": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": null,
+        "mobile": "+27840000000",
+        "profile": null
+    },
+    "source_transaction": null,
+    "destination_transaction": null,
+    "messages": [],
+    "fees": [],
+    "archived": false,
+    "created": 1509618707485,
+    "updated": 1509618708277
+}
+```
+
+Get transaction details for a spcific transactions.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transactions/{id}/`
 
 ### Update Transaction
 
