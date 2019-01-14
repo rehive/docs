@@ -69,7 +69,7 @@ GEM
       memoist (~> 0.14)
       padrino-helpers (~> 0.13.0)
       parallel
-      rack (>= 1.6.11, < 2.0)
+      rack (>= 1.4.5, < 2.0)
       sass (>= 3.4)
       servolux
       tilt (~> 1.4.1)
