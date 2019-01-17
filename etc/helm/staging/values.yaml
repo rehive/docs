@@ -19,14 +19,14 @@ service:
 ingress:
   enabled: true
   hosts:
-    - docs.staging.rehive.com
+    - api.docs.s.rehive.com
   annotations:
     kubernetes.io/ingress.class: "nginx"
     kubernetes.io/tls-acme: "true"
   tls:
     - hosts:
-      - docs.staging.rehive.com
-      secretName: rehive-wallet-tls
+      - api.docs.s.rehive.com
+      secretName: rehive-docs-staging-tls
 envFromSecret:
   enabled: false
 management:
