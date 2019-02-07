@@ -505,6 +505,132 @@ Field | Type
 
 `https://api.rehive.com/3/accounts/{reference}/currencies/`
 
+
+## Create Account Currency
+
+> User create account currency request
+
+```shell
+curl https://api.rehive.com/3/accounts/{reference}/currencies/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"currency": "XBT"}'
+```
+
+```javascript
+rehive.accounts.currencies.create(
+    reference,
+    {currency: "XBT"}
+).then(function(res){
+    ...
+},function(err){
+    ...
+})
+```
+
+```python
+rehive.accounts.obj("{reference}").currencies.create(
+    currency="XBT"
+)
+```
+
+> User create account currency response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "balance": 0,
+        "available_balance": 0,
+        "currency": {
+            "code": "XBT",
+            "description": "bitcoin",
+            "symbol": "฿",
+            "unit": "bitcoin",
+            "divisibility": 8
+        },
+        "limits": [],
+        "fees": [],
+        "settings": {
+            "allow_transactions": true,
+            "allow_debit_transactions": true,
+            "allow_credit_transactions": true
+        },
+        "active": false,
+        "created": 1464858068745,
+        "updated": 1464858068745
+    }
+}
+```
+
+```javascript
+{
+    "balance": 0,
+    "available_balance": 0,
+    "currency": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8
+    },
+    "limits": [],
+    "fees": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "active": false,
+    "created": 1464858068745,
+    "updated": 1464858068745
+}
+```
+
+```python
+{
+    "balance": 0,
+    "available_balance": 0,
+    "currency": {
+        "code": "XBT",
+        "description": "bitcoin",
+        "symbol": "฿",
+        "unit": "bitcoin",
+        "divisibility": 8
+    },
+    "limits": [],
+    "fees": [],
+    "settings": {
+        "allow_transactions": true,
+        "allow_debit_transactions": true,
+        "allow_credit_transactions": true
+    },
+    "active": false,
+    "created": 1464858068745,
+    "updated": 1464858068745
+}
+```
+
+Create an account currency for a user.
+
+#### Endpoint
+
+`https://api.rehive.com/3/accounts/{reference}/currencies/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | ---
+`currency` | currency code | null
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`active` | is active currency | false
+
+
 ## Retrieve Account Currency
 
 > User retrieve account currency request
