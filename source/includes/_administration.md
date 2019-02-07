@@ -6640,7 +6640,7 @@ Field | Type
 `https://api.rehive.com/3/admin/accounts/{reference}/currencies/`
 
 
-## Create Account Currency
+### Create Account Currency
 
 > Admin create account currency request
 

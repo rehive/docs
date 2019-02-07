@@ -262,7 +262,7 @@ Webhooks should always be created with a secure and private `secret` key (See th
 
 Rehive expects a `200 OK` HTTP response when webhooks are called. If a 200 response is not returned, Rehive will retry the webhook up to a max of 12 times with a gradually increasing delay between each retry.
 
-### Webhook Events
+#### Events
 
 Rehive currently support the following webhook events:
 
