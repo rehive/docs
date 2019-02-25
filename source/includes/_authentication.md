@@ -271,8 +271,6 @@ for subsequent requests.
 
 Field | Description | Default
 --- | --- | ---
-`first_name` | first name | null
-`last_name` | last name | null
 `email` | email address | null
 `company` | company id | null
 `password1` | password | null
@@ -283,6 +281,8 @@ Field | Description | Default
 
 Field | Description | Default
 --- | --- | ---
+`first_name` | first name | null
+`last_name` | last name | null
 `mobile` | mobile number | null
 `nationality` | country code | null
 `session_duration` | session duration | 36000000
@@ -504,8 +504,6 @@ return the user's details and a token that can be used for subsequent requests.
 
 Field | Description | Default
 --- | --- | ---
-`first_name` | first name | null
-`last_name` | last name | null
 `email` | email address | null
 `company` | company id | null
 `password1` | password | null
@@ -515,6 +513,8 @@ Field | Description | Default
 
 Field | Description | Default
 --- | --- | ---
+`first_name` | first name | null
+`last_name` | last name | null
 `terms_and_conditions` | agreed to terms | false
 `mobile` | mobile number | null
 `nationality` | country code | null
@@ -2080,12 +2080,6 @@ Sends an OTP to the mobile number that was used to enabled SMS based multi-facto
 #### Endpoint
 
 `https://api.rehive.com/3/auth/mfa/sms/`
-
-#### Required Fields
-
-Field | Description | Default
---- | --- | ---
-`mobile` | Mobile Number | null
 
 ### Token Status
 
