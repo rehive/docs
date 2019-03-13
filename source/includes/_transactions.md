@@ -736,13 +736,13 @@ The transfer transaction endpoint is a wrapper for standard debit/credit transac
 Field | Description | Default
 --- | --- | ---
 `amount` | amount | null
-<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, or unique id</li><li>account reference code</li></ul> | null
 `currency` | currency code | null
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
+<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, or unique id</li><li>account reference code</li></ul> | null
 `debit_subtype` | a custom defined subtype | null
 `debit_account` | account reference code | null
 `debit_note` | user's note or message | blank

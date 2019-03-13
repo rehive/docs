@@ -4836,7 +4836,6 @@ Create a credit transaction on behalf of a user.
 
 Field | Description | Default
 --- | --- | ---
-`user` | email, mobile number, username, or unique id| null
 `amount` | amount | null
 `currency` | currency code | null
 
@@ -4845,6 +4844,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `id` | unique id (cannot be changed once set)| string (uuid)
+`user` | email, mobile number, username, or unique id| null
 `reference` | optional credit reference | blank
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
@@ -4855,9 +4855,7 @@ Field | Description | Default
 
 <aside class="notice">
 When creating transaction admin users have an additional <code>status</code> field. This field
-will force a transaction to transition to the specified status immediately after creation. By default, a transaction will
-transition to `Pending` when created but if you wish to complete it immediately after creation you can specify a status
-of `Complete`.
+will force a transaction to transition to the specified status immediately after creation. By default, a transaction will transition to `Pending` when created but if you wish to complete it immediately after creation you can specify a status of `Complete`.
 </aside>
 
 <aside class="notice">
@@ -5040,7 +5038,6 @@ Create a debit transaction on behalf of a user.
 
 Field | Description | Default
 --- | --- | ---
-`user` | mail, mobile number, username, or unique id | null
 `amount` | amount | null
 `currency` | currency code | null
 
@@ -5049,6 +5046,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `id` | unique id (cannot be changed once set)| string (uuid)
+`user` | email, mobile number, username, or unique id | null
 `reference` | optional debit reference | blank
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
@@ -5269,15 +5267,15 @@ Create a transfer transaction on behalf of a user. This will transfer currency f
 
 Field | Description | Default
 --- | --- | ---
-`user` | mail, mobile number, username, or unique id | null
 `amount` | amount | null
-<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, username, or unique id</li><li>account reference code</li></ul> | null
 `currency` | currency code | null
 
 #### Optional Fields
 
 Field | Description | Default
 --- | --- | ---
+`user` | email, mobile number, username, or unique id | null
+<ul><li>`recipient`</li>and/or<li>`credit_account`</li></ul> | <ul><li>email, mobile number, username, or unique id</li><li>account reference code</li></ul> | null
 `debit_subtype` | a custom defined subtype | null
 `debit_account` | account reference code | null
 `debit_note` | user's note or message | blank
@@ -5421,7 +5419,6 @@ Create a batch of transactions on behalf of a user. This action is atomic and th
 
 Field | Description | Default
 --- | --- | ---
-`user` | email, mobile number, username, or unique id| null
 `amount` | amount | null
 `currency` | currency code | null
 `tx_type` | transaction type | null
@@ -5431,6 +5428,7 @@ Field | Description | Default
 Field | Description | Default
 --- | --- | ---
 `id` | unique id (cannot be changed once set)| string (uuid)
+`user` | email, mobile number, username, or unique id| null
 `reference` | optional credit reference | blank
 `subtype` | a custom defined subtype | null
 `account` | account reference code | null
@@ -5789,6 +5787,7 @@ Field | Description | Default
 --- | --- | ---
 `status` | update action/status (`Pending`, `Complete`, `Failed`) | null | true
 `metadata` | custom metadata | {}
+`note` | custom text note | ""
 `message` | message object | {}
 `archived` | archived state | false
 

@@ -518,6 +518,7 @@ Field | Description | Default
 `terms_and_conditions` | agreed to terms | false
 `mobile` | mobile number | null
 `nationality` | country code | null
+`groups` | user group  | []
 `session_duration` | session duration | 36000000
 
 <aside class="notice">
@@ -531,6 +532,10 @@ duration (in milliseconds) of the authentication token that is created when
 loggin in. If the field is not set, the duration defaults to 10 hours.
 NOTE: This field only becomes available after the company setting
 <code>allow_session_durations</code> has been enabled.
+</aside>
+
+<aside class="notice">
+<code>groups</code> is an optional field that can contain a group that the user should be assigned to on registration. This will only work for `public` groups. Users can only be part of a single group eg. <code>"groups": ["user"]</code>.
 </aside>
 
 ## Login
