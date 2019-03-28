@@ -205,6 +205,7 @@ rehive.transactions.get_totals()
     "status": "success",
     "data": {
         "amount": 500,
+        "total_amount": 500,
         "fees": 0,
         "count": 1,
         "currency": "ZAR"
@@ -215,6 +216,7 @@ rehive.transactions.get_totals()
 ```javascript
 {
     "amount": 1000,
+    "total_amount": 500,
     "count": 2,
     "currency": "ZAR",
     "fees": 0
@@ -224,17 +226,23 @@ rehive.transactions.get_totals()
 ```python
 {
     "amount": 500,
+    "total_amount": 500,
     "fees": 0,
     "count": 1,
     "currency": "ZAR"
 }
 ```
 
-Get a user's total transaction details. This is a summary of transaction details like: amount totals, fee totals, and the total number of transactions.
+Get a user's total transaction details. This summarizes transaction fields like:
+amount, total_amount and fees. It also retrieves a total count of all transactions.
 
 #### Filtering
 
 See Transaction List filtering above.
+
+#### Endpoint
+
+`https://api.rehive.com/3/transactions/totals/`
 
 ## Create Credit
 

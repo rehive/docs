@@ -4624,6 +4624,7 @@ rehive.admin.transactions.get_totals()
     "status": "success",
     "data": {
         "amount": 1000,
+        "total_amount": 1000,
         "fees": 0,
         "count": 2,
         "currency": "ZAR"
@@ -4634,6 +4635,7 @@ rehive.admin.transactions.get_totals()
 ```javascript
 {
     "amount": 1000,
+    "total_amount": 1000,
     "fees": 0,
     "count": 2,
     "currency": "ZAR"
@@ -4643,13 +4645,15 @@ rehive.admin.transactions.get_totals()
 ```python
 {
     "amount": 1000,
+    "total_amount": 1000,
     "fees": 0,
     "count": 2,
     "currency": "ZAR"
 }
 ```
 
-Get a company's total transaction details. This is a summary of transaction details like: amount totals, fee totals, and the total number of transactions.
+Get a company's total transaction details. This summarizes transaction fields like:
+amount, total_amount and fees. It also retrieves a total count of all transactions.
 
 #### Filtering
 
@@ -5796,12 +5800,12 @@ Field | Description | Default
 `https://api.rehive.com/3/admin/transactions/webhooks/{id}/`
 
 
-### List Transaction Sets
+### List Transaction Exports
 
-> Admin list transaction sets request
+> Admin list transaction exports request
 
 ```shell
-curl https://api.rehive.com/3/admin/transactions/sets/
+curl https://api.rehive.com/3/admin/transactions/exports/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5813,7 +5817,7 @@ curl https://api.rehive.com/3/admin/transactions/sets/
 ```python
 ```
 
-> Admin list transaction sets response
+> Admin list transaction exports response
 
 ```shell
 {
@@ -5846,10 +5850,10 @@ curl https://api.rehive.com/3/admin/transactions/sets/
 ```python
 ```
 
-Get a list of transaction sets.
+Get a list of transaction exports.
 
 <aside class="notice">
-Transaction sets are currently in beta.
+Transaction exports are currently in beta.
 </aside>
 
 #### Filtering
@@ -5860,14 +5864,14 @@ Field | Type
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/transactions/sets/`
+`https://api.rehive.com/3/admin/transactions/exports/`
 
-### Create Transaction Set
+### Create Transaction Export
 
-> Admin create transaction sets request
+> Admin create transaction exports request
 
 ```shell
-curl https://api.rehive.com/3/admin/transactions/sets/`
+curl https://api.rehive.com/3/admin/transactions/exports/`
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5880,7 +5884,7 @@ curl https://api.rehive.com/3/admin/transactions/sets/`
 ```python
 ```
 
-> Admin create transaction set response
+> Admin create transaction export response
 
 ```shell
 {
@@ -5914,11 +5918,11 @@ curl https://api.rehive.com/3/admin/transactions/sets/`
 ```python
 ```
 
-Create a transaction set.
+Create a transaction export.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/transactions/sets/`
+`https://api.rehive.com/3/admin/transactions/exports/`
 
 #### Optional Fields
 
@@ -5930,16 +5934,16 @@ Field | Description | Default
 
 #### Query Filtering
 
-All filters available on the admin transaction list endpoint aare also
-available on the create transaction set endpoint. Simply include them in the
+All filters available on the admin transaction list endpoint are also
+available on the create transaction export endpoint. Simply include them in the
 `query` object like: `{"status": "complete"}`.
 
-### Retrieve Transaction Set
+### Retrieve Transaction Export
 
-> Admin retrieve transaction set request
+> Admin retrieve transaction export request
 
 ```shell
-curl https://api.rehive.com/3/admin/transactions/sets/{id}/
+curl https://api.rehive.com/3/admin/transactions/exports/{id}/
   -X GET
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -5951,7 +5955,7 @@ curl https://api.rehive.com/3/admin/transactions/sets/{id}/
 ```python
 ```
 
-> Admin retrieve transaction set response
+> Admin retrieve transaction export response
 
 ```shell
     "status": "success",
@@ -5983,18 +5987,18 @@ curl https://api.rehive.com/3/admin/transactions/sets/{id}/
 ```python
 ```
 
-Retrieve a transaction set.
+Retrieve a transaction export.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/transactions/sets/{id}/`
+`https://api.rehive.com/3/admin/transactions/exports/{id}/`
 
-### Delete Transaction Set
+### Delete Transaction Export
 
-> Admin delete transaction set request
+> Admin delete transaction export request
 
 ```shell
-curl https://api.rehive.com/3/admin/transactions/sets/{id}/`
+curl https://api.rehive.com/3/admin/transactions/exports/{id}/`
   -X DELETE
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
@@ -6006,7 +6010,7 @@ curl https://api.rehive.com/3/admin/transactions/sets/{id}/`
 ```python
 ```
 
-> Admin delete transaction set response
+> Admin delete transaction export response
 
 ```shell
 {
@@ -6020,11 +6024,11 @@ curl https://api.rehive.com/3/admin/transactions/sets/{id}/`
 ```python
 ```
 
-Delete a transaction set.
+Delete a transaction export.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/transactions/sets/{id}/`
+`https://api.rehive.com/3/admin/transactions/exports/{id}/`
 
 ## Accounts
 
