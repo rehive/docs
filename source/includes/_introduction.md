@@ -273,6 +273,7 @@ Event | Description
 `user.password.reset` | user password reset request event
 `user.email.verify` | user email verification event (Email key)
 `user.mobile.verify` | user mobile verification event (OTP key)
+`mfa.sms.verify` | multi-factor SMS otp event
 `address.create` | address created event
 `address.update` | address updated event
 `document.create` | document created event
