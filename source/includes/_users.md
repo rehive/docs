@@ -1628,7 +1628,7 @@ Get a user's document.
 > User create document request
 
 ```shell
-curl https://api.rehive.com/3/user/document/
+curl https://api.rehive.com/3/user/documents/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: multipart/form-data"
@@ -1709,7 +1709,7 @@ Create a user document.
 
 #### Endpoint
 
-`https://api.rehive.com/3/user/document/`
+`https://api.rehive.com/3/user/documents/`
 
 #### Required Fields
 

@@ -3126,7 +3126,7 @@ Create a user document.
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/users/document/`
+`https://api.rehive.com/3/admin/users/documents/`
 
 #### Required Fields
 
