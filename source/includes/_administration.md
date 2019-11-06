@@ -6122,7 +6122,9 @@ Delete a transaction export.
 `https://api.rehive.com/3/admin/transactions/exports/{id}/`
 
 
-## List Transactions Collections
+## Transaction Collections
+
+### List Transactions Collections
 
 > Admin transaction collections request
 
@@ -6262,9 +6264,6 @@ Field | Type
 #### Endpoint
 
 `https://api.rehive.com/3/transaction-collections/`
-
-
-## Transaction Collections
 
 ### Create Transaction Collection
 
