@@ -27,7 +27,6 @@ and set this to another base Rehive api url: 'https://staging.rehive.com/3/'
 """
 ```
 
-
 The Rehive API is the core interface for communicating with Rehive. The API is
 organized around [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)
 with predictable resource oriented URLs. Standard HTTP verbs, codes and authentication
@@ -38,17 +37,9 @@ as well as a corresponding HTTP response code. For more on errors take a look at
 
 ## Browsable API
 
-Rehive has made a browsable API to make the platform more explorable. You can
-experiment with different request formats and methods from within your browser:
+Rehive exposes a swagger schema as well as a swagger UI that can be used to navigate and make API calls to the API:
 
-[Browsable API](https://api.rehive.com/3/)
-
-<aside class="notice">
-It is important to remember that the browsable API uses cookie based sessions
-for authentication and therefore differs from the documented method of
-authentication. See <a href="/#authorization">Authentication</a> for 3rd party authentication.
-</aside>
-
+[Swagger](https://api.rehive.com/swagger/)
 
 ## Pagination
 

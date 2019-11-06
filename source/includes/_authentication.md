@@ -5,6 +5,7 @@ This includes such tasks as registration, login, verification, password
 changes and lost password retrievals.
 
 ## Authorization
+
 Rehive uses a token-based HTTP Authentication scheme.
 
 Once a user has logged in and received a token, each subsequent request should
