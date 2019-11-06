@@ -131,7 +131,9 @@ rehive.admin.users.get()
                 "created": 1464912953000,
                 "updated": 1464912953000,
                 "last_login": null,
-                "archived": false
+                "archived": false,
+                "temporary": false,
+                "temporary": false
             }
         ]
     }
@@ -180,7 +182,8 @@ rehive.admin.users.get()
             "created": 1464912953000,
             "updated": 1464912953000,
             "last_login": null,
-            "archived": false
+            "archived": false,
+            "temporary": false
         }
     ]
 }
@@ -224,7 +227,8 @@ rehive.admin.users.get()
         "created": 1464912953000,
         "updated": 1464912953000,
         "last_login": null,
-        "archived": false
+        "archived": false,
+        "temporary": false
     }
 ]
 ```
@@ -357,7 +361,8 @@ rehive.admin.users.create(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "archived": false
+        "archived": false,
+        "temporary": false
     }
 }
 ```
@@ -405,7 +410,8 @@ rehive.admin.users.create(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "archived": false
+    "archived": false,
+    "temporary": false
 }
 ```
 
@@ -448,7 +454,8 @@ rehive.admin.users.create(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "archived": false
+    "archived": false,
+    "temporary": false
 }
 ```
 
@@ -550,7 +557,8 @@ rehive.admin.users.get(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "archived": false
+        "archived": false,
+        "temporary": false
     }
 }
 ```
@@ -598,7 +606,8 @@ rehive.admin.users.get(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "archived": false
+    "archived": false,
+    "temporary": false
 }
 ```
 
@@ -645,7 +654,8 @@ rehive.admin.users.get(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "archived": false
+    "archived": false,
+    "temporary": false
 }
 ```
 
@@ -661,7 +671,7 @@ Retrieve a company's user.
 
 ```shell
 curl https://api.rehive.com/3/admin/users/{id}/`
-  -X PUT
+  -x PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"first_name": "Joe"}'
@@ -743,7 +753,8 @@ rehive.admin.users.update(
             "allow_credit_transactions": true
         },
         "last_login": null,
-        "archived": false
+        "archived": false,
+        "temporary": false
     }
 }
 ```
@@ -791,7 +802,8 @@ rehive.admin.users.update(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "archived": false
+    "archived": false,
+    "temporary": false
 }
 ```
 
@@ -838,7 +850,8 @@ rehive.admin.users.update(
         "allow_credit_transactions": true
     },
     "last_login": null,
-    "archived": false
+    "archived": false,
+    "temporary": false
 }
 ```
 
@@ -939,7 +952,7 @@ Retrieve a company's user settings.
 
 ```shell
 curl https://api.rehive.com/3/admin/users/{id}/settings/`
-  -X PUT
+  -x PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"allow_transactions": true}'
@@ -1050,7 +1063,7 @@ Retrieve a company's user kyc details.
 
 ```shell
 curl https://api.rehive.com/3/admin/users/{id}/kyc/`
-  -X PUT
+  -x PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"status": "verified"}'
@@ -1146,7 +1159,8 @@ rehive.admin.users.addresses.get()
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
                 "line_1": "1 Main Street",
                 "line_2": "East City",
@@ -1179,7 +1193,8 @@ rehive.admin.users.addresses.get()
                 "email": "joe@rehive.com",
                 "username": null,
                 "mobile": "+27840000000",
-                "profile": null
+                "profile": null,
+                "temporary": false
             },
             "line_1": "1 Main Street",
             "line_2": "East City",
@@ -1207,7 +1222,8 @@ rehive.admin.users.addresses.get()
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "line_1": "1 Main Street",
         "line_2": "East City",
@@ -1296,7 +1312,8 @@ rehive.admin.users.addresses.create(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "line_1": "1 Main Street",
         "line_2": "East City",
@@ -1322,7 +1339,8 @@ rehive.admin.users.addresses.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -1347,7 +1365,8 @@ rehive.admin.users.addresses.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -1434,7 +1453,8 @@ rehive.admin.users.addresses.get(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "line_1": "1 Main Street",
         "line_2": "East City",
@@ -1460,7 +1480,8 @@ rehive.admin.users.addresses.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -1485,7 +1506,8 @@ rehive.admin.users.addresses.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -1547,7 +1569,8 @@ rehive.admin.users.addresses.update(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "line_1": "1 Main Street",
         "line_2": "East City",
@@ -1573,7 +1596,8 @@ rehive.admin.users.addresses.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -1598,7 +1622,8 @@ rehive.admin.users.addresses.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "line_1": "1 Main Street",
     "line_2": "East City",
@@ -1730,7 +1755,8 @@ rehive.admin.banks_accounts.get()
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
                 "name": "Bank Account",
                 "number": "12341234",
@@ -1767,7 +1793,8 @@ rehive.admin.banks_accounts.get()
                 "email": "joe@rehive.com",
                 "username": null,
                 "mobile": "+27840000000",
-                "profile": null
+                "profile": null,
+                "temporary": false
             },
             "name": "Bank Account",
             "number": "12341234",
@@ -1799,7 +1826,8 @@ rehive.admin.banks_accounts.get()
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "name": "Bank Account",
         "number": "12341234",
@@ -1887,7 +1915,8 @@ rehive.admin.bank_accounts.create(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "name": "Bank Account",
         "number": "12341234",
@@ -1917,7 +1946,8 @@ rehive.admin.bank_accounts.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "name": "Bank Account",
     "number": "12341234",
@@ -1946,7 +1976,8 @@ rehive.admin.bank_accounts.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "name": "Bank Account",
     "number": "12341234",
@@ -2038,7 +2069,8 @@ rehive.admin.bank_accounts.get("{id}")
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "name": "Bank Account",
         "number": "12341234",
@@ -2068,7 +2100,8 @@ rehive.admin.bank_accounts.get("{id}")
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "name": "Bank Account",
     "number": "12341234",
@@ -2097,7 +2130,8 @@ rehive.admin.bank_accounts.get("{id}")
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "name": "Bank Account",
     "number": "12341234",
@@ -2163,7 +2197,8 @@ rehive.admin.bank_accounts.update(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "name": "New account name",
         "number": "12341234",
@@ -2193,7 +2228,8 @@ rehive.admin.bank_accounts.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "name": "Bank Account",
     "number": "12341234",
@@ -2222,7 +2258,8 @@ rehive.admin.bank_accounts.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "name": "New account name",
     "number": "12341234",
@@ -2362,7 +2399,8 @@ rehive.admin.users.crypto_accounts.get()
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
                 "address": "0000000000000000000000000000000000",
                 "code": "crypto_account_000000000000",
@@ -2393,7 +2431,8 @@ rehive.admin.users.crypto_accounts.get()
                 "email": "joe@rehive.com",
                 "username": null,
                 "mobile": "+27840000000",
-                "profile": null
+                "profile": null,
+                "temporary": false
             },
             "address": "0000000000000000000000000000000000",
             "code": "crypto_account_000000000000",
@@ -2419,7 +2458,8 @@ rehive.admin.users.crypto_accounts.get()
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "address": "0000000000000000000000000000000000",
         "code": "crypto_account_000000000000",
@@ -2496,7 +2536,8 @@ rehive.admin.users.crypto_accounts.create(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "address": "0000000000000000000000000000000000",
         "code": "crypto_account_000000000000",
@@ -2520,7 +2561,8 @@ rehive.admin.users.crypto_accounts.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "address": "0000000000000000000000000000000000",
     "code": "crypto_account_000000000000",
@@ -2543,7 +2585,8 @@ rehive.admin.users.crypto_accounts.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "address": "0000000000000000000000000000000000",
     "code": "crypto_account_000000000000",
@@ -2627,7 +2670,8 @@ rehive.admin.users.crypto_accounts.get(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "address": "0000000000000000000000000000000000",
         "code": "crypto_account_000000000000",
@@ -2651,7 +2695,8 @@ rehive.admin.users.crypto_accounts.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "address": "0000000000000000000000000000000000",
     "code": "crypto_account_000000000000",
@@ -2674,7 +2719,8 @@ rehive.admin.users.crypto_accounts.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "address": "0000000000000000000000000000000000",
     "code": "crypto_account_000000000000",
@@ -2735,7 +2781,8 @@ rehive.admin.users.crypto_accounts.update(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "address": "0000000000000000000000000000000000",
         "code": "crypto_account_000000000000",
@@ -2759,7 +2806,8 @@ rehive.admin.users.crypto_accounts.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "address": "0000000000000000000000000000000000",
     "code": "crypto_account_000000000000",
@@ -2782,7 +2830,8 @@ rehive.admin.users.crypto_accounts.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "address": "0000000000000000000000000000000000",
     "code": "crypto_account_000000000000",
@@ -2919,7 +2968,8 @@ rehive.admin.users.documents.get()
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
                 "file": "https://url.to/file.pdf",
                 "document_category": "other",
@@ -2951,7 +3001,8 @@ rehive.admin.users.documents.get()
                 "email": "joe@rehive.com",
                 "username": null,
                 "mobile": "+27840000000",
-                "profile": null
+                "profile": null,
+                "temporary": false
             },
             "file": "https://url.to/file.pdf",
             "document_category": "other",
@@ -2978,7 +3029,8 @@ rehive.admin.users.documents.get()
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "file": "https://url.to/file.pdf",
         "document_category": "other",
@@ -3059,7 +3111,8 @@ rehive.admin.documents.upload(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "file": "https://url.to/file.pdf",
         "document_category": "other",
@@ -3084,7 +3137,8 @@ rehive.admin.documents.upload(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "file": "https://url.to/file.pdf",
     "document_category": "other",
@@ -3108,7 +3162,8 @@ rehive.admin.documents.upload(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "file": "https://url.to/file.pdf",
     "document_category": "other",
@@ -3211,7 +3266,8 @@ rehive.admin.users.documents.get(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "file": "https://url.to/file.pdf",
         "document_category": "other",
@@ -3236,7 +3292,8 @@ rehive.admin.users.documents.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "file": "https://url.to/file.pdf",
     "document_category": "other",
@@ -3260,7 +3317,8 @@ rehive.admin.users.documents.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "file": "https://url.to/file.pdf",
     "document_category": "other",
@@ -3332,7 +3390,8 @@ rehive.admin.users.documents.update(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "file": "https://url.to/file.pdf",
         "document_category": "other",
@@ -3357,7 +3416,8 @@ rehive.admin.users.documents.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "file": "https://url.to/file.pdf",
     "document_category": "other",
@@ -3381,7 +3441,8 @@ rehive.admin.users.documents.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "file": "https://url.to/file.pdf",
     "document_category": "other",
@@ -3469,7 +3530,8 @@ rehive.admin.users.emails.get()
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
                 "id": 1,
                 "email": "joe@rehive.com",
@@ -3495,7 +3557,8 @@ rehive.admin.users.emails.get()
                 "email": "joe@rehive.com",
                 "username": null,
                 "mobile": "+27840000000",
-                "profile": null
+                "profile": null,
+                "temporary": false
             },
             "id": 1,
             "email": "joe@rehive.com",
@@ -3515,7 +3578,8 @@ rehive.admin.users.emails.get()
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "id": 1,
         "email": "joe@rehive.com",
@@ -3587,7 +3651,8 @@ rehive.admin.users.emails.create(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "id": 1,
         "email": "joe@rehive.com",
@@ -3606,7 +3671,8 @@ rehive.admin.users.emails.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "email": "joe@rehive.com",
@@ -3624,7 +3690,8 @@ rehive.admin.users.emails.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "email": "joe@rehive.com",
@@ -3691,7 +3758,8 @@ rehive.admin.users.emails.get(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "id": 1,
         "email": "joe@rehive.com",
@@ -3710,7 +3778,8 @@ rehive.admin.users.emails.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "email": "joe@rehive.com",
@@ -3728,7 +3797,8 @@ rehive.admin.users.emails.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "email": "joe@rehive.com",
@@ -3783,7 +3853,8 @@ rehive.admin.users.emails.update(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "id": 1,
         "email": "joe@rehive.com",
@@ -3802,7 +3873,8 @@ rehive.admin.users.emails.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "email": "joe@rehive.com",
@@ -3820,7 +3892,8 @@ rehive.admin.users.emails.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "email": "joe@rehive.com",
@@ -3933,7 +4006,8 @@ rehive.admin.users.mobiles.get()
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
                 "id": 1,
                 "number": "+27840000000",
@@ -3962,7 +4036,8 @@ rehive.admin.users.mobiles.get()
                 "email": "joe@rehive.com",
                 "username": null,
                 "mobile": "+27840000000",
-                "profile": null
+                "profile": null,
+                "temporary": false
             },
             "id": 1,
             "number": "+27840000000",
@@ -3986,7 +4061,8 @@ rehive.admin.users.mobiles.get()
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "id": 1,
         "number": "+27840000000",
@@ -4028,7 +4104,7 @@ curl https://api.rehive.com/3/admin/users/mobiles/`
 
 ```javascript
 rehive.admin.users.mobiles.create({
-   user: 00000000-0000-0000-0000-000000000000,
+   user: "00000000-0000-0000-0000-000000000000",
    verified: true,
    primary: true,
    number: "+27840000000"
@@ -4061,7 +4137,8 @@ rehive.admin.users.mobiles.create(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "id": 1,
         "email": "+27840000000",
@@ -4083,7 +4160,8 @@ rehive.admin.users.mobiles.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "email": "+27840000000",
@@ -4104,7 +4182,8 @@ rehive.admin.users.mobiles.create(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "email": "+27840000000",
@@ -4175,7 +4254,8 @@ rehive.admin.users.mobiles.get(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "id": 1,
         "number": "+27840000000",
@@ -4197,7 +4277,8 @@ rehive.admin.users.mobiles.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "number": "+27840000000",
@@ -4218,7 +4299,8 @@ rehive.admin.users.mobiles.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "number": "+27840000000",
@@ -4278,7 +4360,8 @@ rehive.admin.users.mobiles.update(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
         "id": 1,
         "number": "+27840000000",
@@ -4300,7 +4383,8 @@ rehive.admin.users.mobiles.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "number": "+27840000000",
@@ -4321,7 +4405,8 @@ rehive.admin.users.mobiles.update(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
     "id": 1,
     "number": "+27840000000",
@@ -4441,7 +4526,10 @@ rehive.admin.transactions.get_previous()
         "previous": null,
         "results": [
             {
-                "id": "000000000000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
+                "collection": "00000000-0000-0000-0000-000000000000",
+                "parent": null,
+                "partner": null,
                 "tx_type": "credit",
                 "subtype": null,
                 "note": "",
@@ -4449,7 +4537,6 @@ rehive.admin.transactions.get_previous()
                 "status": "Pending",
                 "reference": "",
                 "amount": 500,
-                "fee": 0,
                 "total_amount": 500,
                 "balance": 0,
                 "account": "0000000000",
@@ -4469,10 +4556,9 @@ rehive.admin.transactions.get_previous()
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
-                "source_transaction": null,
-                "destination_transaction": null,
                 "archived": false,
                 "created": 1509618707485,
                 "updated": 1509618708277
@@ -4489,7 +4575,10 @@ rehive.admin.transactions.get_previous()
     "previous": null,
     "results": [
         {
-            "id": "000000000000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "collection": "00000000-0000-0000-0000-000000000000",
+            "parent": null,
+            "partner": null,
             "tx_type": "credit",
             "subtype": null,
             "note": "",
@@ -4497,7 +4586,6 @@ rehive.admin.transactions.get_previous()
             "status": "Pending",
             "reference": "",
             "amount": 500,
-            "fee": 0,
             "total_amount": 500,
             "balance": 0,
             "account": "0000000000",
@@ -4517,10 +4605,9 @@ rehive.admin.transactions.get_previous()
                 "email": "joe@rehive.com",
                 "username": null,
                 "mobile": "+27840000000",
-                "profile": null
+                "profile": null,
+                "temporary": false
             },
-            "source_transaction": null,
-            "destination_transaction": null,
             "archived": false,
             "created": 1509618707485,
             "updated": 1509618708277
@@ -4532,7 +4619,10 @@ rehive.admin.transactions.get_previous()
 ```python
 [
     {
-        "id": "000000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -4540,7 +4630,6 @@ rehive.admin.transactions.get_previous()
         "status": "Pending",
         "reference": "",
         "amount": 500,
-        "fee": 0,
         "total_amount": 500,
         "balance": 0,
         "account": "0000000000",
@@ -4560,10 +4649,9 @@ rehive.admin.transactions.get_previous()
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "archived": false,
         "created": 1509618707485,
         "updated": 1509618708277
@@ -4583,8 +4671,8 @@ Field | Type
 `status` | string
 `account` | string
 `user` | string
-`source_transaction` | boolean
-`destination_transaction` | boolean
+`partner` | string
+`partner__isnull` | boolean
 `created` | millsecond timestamp
 `updated` | millsecond timestamp
 `metadata` | any
@@ -4706,6 +4794,9 @@ rehive.admin.transactions.create_credit(
     "status": "success",
     "data": {
         "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -4713,7 +4804,6 @@ rehive.admin.transactions.create_credit(
         "status": "Pending",
         "reference": null,
         "amount": 500,
-        "fee": 0,
         "total_amount": 500,
         "balance": 0,
         "account": "0000000000",
@@ -4733,12 +4823,10 @@ rehive.admin.transactions.create_credit(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "messages": [],
-        "fees": [],
         "archived": false,
         "created": 1476691969394,
         "updated": 1496135465287
@@ -4749,6 +4837,9 @@ rehive.admin.transactions.create_credit(
 ```javascript
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -4756,7 +4847,6 @@ rehive.admin.transactions.create_credit(
     "status": "Pending",
     "reference": null,
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 0,
     "account": "0000000000",
@@ -4776,12 +4866,10 @@ rehive.admin.transactions.create_credit(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
@@ -4791,6 +4879,9 @@ rehive.admin.transactions.create_credit(
 ```python
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -4798,7 +4889,6 @@ rehive.admin.transactions.create_credit(
     "status": "Pending",
     "reference": null,
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 0,
     "account": "0000000000",
@@ -4818,12 +4908,10 @@ rehive.admin.transactions.create_credit(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
@@ -4908,6 +4996,9 @@ rehive.admin.transactions.create_debit(
     "status": "success",
     "data": {
         "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
         "tx_type": "debit",
         "subtype": null,
         "note": "",
@@ -4915,7 +5006,6 @@ rehive.admin.transactions.create_debit(
         "status": "Pending",
         "reference": null,
         "amount": -500,
-        "fee": 0,
         "total_amount": -500,
         "balance": 0,
         "account": "0000000000",
@@ -4935,12 +5025,10 @@ rehive.admin.transactions.create_debit(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "messages": [],
-        "fees": [],
         "archived": false,
         "created": 1476691969394,
         "updated": 1496135465287
@@ -4951,6 +5039,9 @@ rehive.admin.transactions.create_debit(
 ```javascript
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -4958,7 +5049,6 @@ rehive.admin.transactions.create_debit(
     "status": "Pending",
     "reference": null,
     "amount": -500,
-    "fee": 0,
     "total_amount": -500,
     "balance": 0,
     "account": "0000000000",
@@ -4978,12 +5068,10 @@ rehive.admin.transactions.create_debit(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
@@ -4993,6 +5081,9 @@ rehive.admin.transactions.create_debit(
 ```python
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -5000,7 +5091,6 @@ rehive.admin.transactions.create_debit(
     "status": "Pending",
     "reference": null,
     "amount": -500,
-    "fee": 0,
     "total_amount": -500,
     "balance": 0,
     "account": "0000000000",
@@ -5020,12 +5110,10 @@ rehive.admin.transactions.create_debit(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
@@ -5104,6 +5192,21 @@ rehive.admin.transactions.create_transfer(
     "status": "success",
     "data": {
         "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "user": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Susan",
+                "last_name": "Brown",
+                "email": "susan@rehive.com",
+                "username": null,
+                "mobile": "+27850000000",
+                "profile": null,
+                "temporary": false
+            }
+        },
         "tx_type": "debit",
         "subtype": null,
         "note": "",
@@ -5111,7 +5214,6 @@ rehive.admin.transactions.create_transfer(
         "status": "Pending",
         "reference": null,
         "amount": -500,
-        "fee": 0,
         "total_amount": -500,
         "balance": 0,
         "account": "0000000000",
@@ -5131,23 +5233,10 @@ rehive.admin.transactions.create_transfer(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
-        },
-        "source_transaction": null,
-        "destination_transaction": {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "user": {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "first_name": "Susan",
-                "last_name": "Brown",
-                "email": "susan@rehive.com",
-                "username": null,
-                "mobile": "+27850000000",
-                "profile": null
-            }
+            "profile": null,
+            "temporary": false
         },
         "messages": [],
-        "fees": [],
         "archived": false,
         "created": 1476691969394,
         "updated": 1496135465287
@@ -5158,6 +5247,21 @@ rehive.admin.transactions.create_transfer(
 ```javascript
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Susan",
+            "last_name": "Brown",
+            "email": "susan@rehive.com",
+            "username": null,
+            "mobile": "+27850000000",
+            "profile": null,
+            "temporary": false
+        }
+    },
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -5165,7 +5269,6 @@ rehive.admin.transactions.create_transfer(
     "status": "Pending",
     "reference": null,
     "amount": -500,
-    "fee": 0,
     "total_amount": -500,
     "balance": 0,
     "account": "0000000000",
@@ -5185,23 +5288,10 @@ rehive.admin.transactions.create_transfer(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
-    },
-    "source_transaction": null,
-    "destination_transaction": {
-        "id": "00000000-0000-0000-0000-000000000000",
-        "user": {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Susan",
-            "last_name": "Brown",
-            "email": "susan@rehive.com",
-            "username": null,
-            "mobile": "+27850000000",
-            "profile": null
-        }
+        "profile": null,
+        "temporary": false
     },
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
@@ -5211,6 +5301,21 @@ rehive.admin.transactions.create_transfer(
 ```python
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Susan",
+            "last_name": "Brown",
+            "email": "susan@rehive.com",
+            "username": null,
+            "mobile": "+27850000000",
+            "profile": null,
+            "temporary": false
+        }
+    },
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -5218,7 +5323,6 @@ rehive.admin.transactions.create_transfer(
     "status": "Pending",
     "reference": null,
     "amount": -500,
-    "fee": 0,
     "total_amount": -500,
     "balance": 0,
     "account": "0000000000",
@@ -5238,23 +5342,10 @@ rehive.admin.transactions.create_transfer(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
-    },
-    "source_transaction": null,
-    "destination_transaction": {
-        "id": "00000000-0000-0000-0000-000000000000",
-        "user": {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Susan",
-            "last_name": "Brown",
-            "email": "susan@rehive.com",
-            "username": null,
-            "mobile": "+27850000000",
-            "profile": null
-        }
+        "profile": null,
+        "temporary": false
     },
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1476691969394,
     "updated": 1496135465287
@@ -5301,11 +5392,11 @@ curl https://api.rehive.com/3/admin/transactions/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -d '{"transactions": [{"tx_type": "debit",
+  -d '{"transactions": [{"tx_type": "credit",
        "user": "joe@rehive.com",
        "amount": 500,
        "currency": "ZAR"},
-       {"tx_type": "debit",
+       {"tx_type": "credit",
        "user": "joe@rehive.com",
        "amount": 500,
        "currency": "ZAR"}]}'
@@ -5326,6 +5417,9 @@ curl https://api.rehive.com/3/admin/transactions/
         "transactions": [
             {
                 "id": "00000000-0000-0000-0000-000000000000",
+                "collection": "00000000-0000-0000-0000-000000000000",
+                "parent": null,
+                "partner": null,
                 "tx_type": "credit",
                 "subtype": null,
                 "note": "",
@@ -5333,7 +5427,6 @@ curl https://api.rehive.com/3/admin/transactions/
                 "status": "Pending",
                 "reference": null,
                 "amount": 500,
-                "fee": 0,
                 "total_amount": 500,
                 "balance": 0,
                 "account": "0000000000",
@@ -5353,18 +5446,19 @@ curl https://api.rehive.com/3/admin/transactions/
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
-                "source_transaction": null,
-                "destination_transaction": null,
                 "messages": [],
-                "fees": [],
                 "archived": false,
                 "created": 1476691969394,
                 "updated": 1496135465287
             },
             {
                 "id": "00000000-0000-0000-0000-000000000000",
+                "collection": "00000000-0000-0000-0000-000000000000",
+                "parent": null,
+                "partner": null,
                 "tx_type": "credit",
                 "subtype": null,
                 "note": "",
@@ -5372,7 +5466,6 @@ curl https://api.rehive.com/3/admin/transactions/
                 "status": "Pending",
                 "reference": null,
                 "amount": 500,
-                "fee": 0,
                 "total_amount": 500,
                 "balance": 0,
                 "account": "0000000000",
@@ -5392,12 +5485,10 @@ curl https://api.rehive.com/3/admin/transactions/
                     "email": "joe@rehive.com",
                     "username": null,
                     "mobile": "+27840000000",
-                    "profile": null
+                    "profile": null,
+                    "temporary": false
                 },
-                "source_transaction": null,
-                "destination_transaction": null,
                 "messages": [],
-                "fees": [],
                 "archived": false,
                 "created": 1476691969394,
                 "updated": 1496135465287
@@ -5473,7 +5564,10 @@ rehive.admin.transactions.get(
 {
     "status": "success",
     "data":  {
-        "id": "000000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -5481,7 +5575,6 @@ rehive.admin.transactions.get(
         "status": "Pending",
         "reference": "",
         "amount": 500,
-        "fee": 0,
         "total_amount": 500,
         "balance": 0,
         "account": "0000000000",
@@ -5501,12 +5594,10 @@ rehive.admin.transactions.get(
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "messages": [],
-        "fees": [],
         "archived": false,
         "created": 1509618707485,
         "updated": 1509618708277
@@ -5516,7 +5607,10 @@ rehive.admin.transactions.get(
 
 ```javascript
 {
-    "id": "000000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -5524,7 +5618,6 @@ rehive.admin.transactions.get(
     "status": "Pending",
     "reference": "",
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 0,
     "account": "0000000000",
@@ -5544,12 +5637,10 @@ rehive.admin.transactions.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1509618707485,
     "updated": 1509618708277
@@ -5558,7 +5649,10 @@ rehive.admin.transactions.get(
 
 ```python
 {
-    "id": "000000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -5566,7 +5660,6 @@ rehive.admin.transactions.get(
     "status": "Pending",
     "reference": "",
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 0,
     "account": "0000000000",
@@ -5586,12 +5679,10 @@ rehive.admin.transactions.get(
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1509618707485,
     "updated": 1509618708277
@@ -5610,7 +5701,7 @@ Get transaction details for a spcific transactions.
 
 ```shell
 curl https://api.rehive.com/3/admin/transactions/{id}/
-  -X PUT
+  -x PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"status": "Complete"}'
@@ -5642,7 +5733,10 @@ rehive.admin.transactions.delete("{id}")
 {
     "status": "success",
     "data":  {
-        "id": "000000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -5650,7 +5744,6 @@ rehive.admin.transactions.delete("{id}")
         "status": "Complete",
         "reference": "",
         "amount": 500,
-        "fee": 0,
         "total_amount": 500,
         "balance": 500,
         "account": "0000000000",
@@ -5670,12 +5763,10 @@ rehive.admin.transactions.delete("{id}")
             "email": "joe@rehive.com",
             "username": null,
             "mobile": "+27840000000",
-            "profile": null
+            "profile": null,
+            "temporary": false
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "messages": [],
-        "fees": [],
         "archived": false,
         "created": 1509618707485,
         "updated": 1509618708277
@@ -5685,7 +5776,10 @@ rehive.admin.transactions.delete("{id}")
 
 ```javascript
 {
-    "id": "000000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -5693,7 +5787,6 @@ rehive.admin.transactions.delete("{id}")
     "status": "Complete",
     "reference": "",
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 500,
     "account": "0000000000",
@@ -5713,12 +5806,10 @@ rehive.admin.transactions.delete("{id}")
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1509618707485,
     "updated": 1509618708277
@@ -5727,7 +5818,10 @@ rehive.admin.transactions.delete("{id}")
 
 ```python
 {
-    "id": "000000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -5735,7 +5829,6 @@ rehive.admin.transactions.delete("{id}")
     "status": "Complete",
     "reference": "",
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 500,
     "account": "0000000000",
@@ -5755,19 +5848,17 @@ rehive.admin.transactions.delete("{id}")
         "email": "joe@rehive.com",
         "username": null,
         "mobile": "+27840000000",
-        "profile": null
+        "profile": null,
+        "temporary": false
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "archived": false,
     "created": 1509618707485,
     "updated": 1509618708277
 }
 ```
 
-Update a transaction. This endpoint can be used to transition a transaction to any state. The following states transitions are permitted: `Pending`, `Complete`, `Failed`, `Deleted`.
+Update a transaction. This endpoint can be used to transition a transaction to any state. The following states transitions are permitted: `Pending`, `Complete`, `Failed`.
 
 In addition, you can update the transaction metadata and add messages to the transaction message logs.
 
@@ -5797,7 +5888,7 @@ Field | Description | Default
 
 #### Endpoint
 
-`https://api.rehive.com/3/admin/transactions/webhooks/{id}/`
+`https://api.rehive.com/3/admin/transactions/{id}/`
 
 
 ### List Transaction Exports
@@ -6030,6 +6121,590 @@ Delete a transaction export.
 
 `https://api.rehive.com/3/admin/transactions/exports/{id}/`
 
+
+## List Transactions Collections
+
+> Admin transaction collections request
+
+```shell
+curl https://api.rehive.com/3/admin/transaction-collections/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+rehive.admin.transaction_collections.get(
+    filters=filters
+)
+```
+
+> Admin transaction collections response
+
+```shell
+ {
+    "status": "success",
+    "data": {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "transactions": [
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "parent": null,
+                    "partner": null,
+                    "tx_type": "credit",
+                    "subtype": null,
+                    "note": "",
+                    "metadata": {},
+                    "status": "Complete",
+                    "reference": "",
+                    "amount": 500,
+                    "total_amount": 500,
+                    "balance": 500,
+                    "account": "0000000000",
+                    "label": "Credit",
+                    "company": "rehive",
+                    "currency": {
+                        "description": "Rand",
+                        "code": "ZAR",
+                        "symbol": "R",
+                        "unit": "rand",
+                        "divisibility": 2
+                    },
+                    "user": {
+                        "id": "00000000-0000-0000-0000-000000000000",
+                        "first_name": "Joe",
+                        "last_name": "Soap",
+                        "email": "joe@rehive.com",
+                        "username": null,
+                        "mobile": "+27840000000",
+                        "profile": null,
+                        "temporary": false
+                    },
+                    "archived": false,
+                    "created": 1509618707485,
+                    "updated": 1509618708277
+                ],
+                "archived": false,
+                "created": 1496135465218,
+                "updated": 1496135465287
+            }
+        ]
+    }
+}
+```
+
+```javascript
+```
+
+```python
+ [
+    {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "transactions": [
+            "id": "00000000-0000-0000-0000-000000000000",
+            "parent": null,
+            "partner": null,
+            "tx_type": "credit",
+            "subtype": null,
+            "note": "",
+            "metadata": {},
+            "status": "Complete",
+            "reference": "",
+            "amount": 500,
+            "total_amount": 500,
+            "balance": 500,
+            "account": "0000000000",
+            "label": "Credit",
+            "company": "rehive",
+            "currency": {
+                "description": "Rand",
+                "code": "ZAR",
+                "symbol": "R",
+                "unit": "rand",
+                "divisibility": 2
+            },
+            "user": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": null,
+                "mobile": "+27840000000",
+                "profile": null,
+                "temporary": false
+            },
+            "archived": false,
+            "created": 1509618707485,
+            "updated": 1509618708277
+        ],
+        "archived": false,
+        "created": 1496135465218,
+        "updated": 1496135465287
+    }
+]
+```
+
+Get transaction collections list.
+
+#### Filtering
+
+Field | Type
+--- | ---
+`id` | string
+
+#### Endpoint
+
+`https://api.rehive.com/3/transaction-collections/`
+
+
+## Create Transaction Collection
+
+> Admin create transaction collections request
+
+```shell
+curl https://api.rehive.com/3/admin/transaction-collections/
+  -X POST
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"transactions": [
+        {"amount": 500, "currency": "ZAR", "tx_type": "credit", "user": "joe@rehive.com"},
+        {"amount": 500, "currency": "ZAR", "tx_type": "credit", "user": "joe@rehive.com"}]}'
+```
+
+```javascript
+```
+
+```python
+```
+
+> Admin create transaction collections response
+
+```shell
+{
+    "status": "success",
+    "data": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "transactions": [
+            {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "parent": null,
+                "partner": null,
+                "tx_type": "credit",
+                "subtype": null,
+                "note": "",
+                "metadata": {},
+                "status": "Complete",
+                "reference": "",
+                "amount": 500,
+                "total_amount": 500,
+                "balance": 500,
+                "account": "0000000000",
+                "label": "Credit",
+                "company": "rehive",
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "user": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": null,
+                    "mobile": "+27840000000",
+                    "profile": null,
+                    "temporary": false
+                },
+                "archived": false,
+                "created": 1509618707485,
+                "updated": 1509618708277
+            },
+            {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "parent": null,
+                "partner": null,
+                "tx_type": "credit",
+                "subtype": null,
+                "note": "",
+                "metadata": {},
+                "status": "Complete",
+                "reference": "",
+                "amount": 500,
+                "total_amount": 500,
+                "balance": 500,
+                "account": "0000000000",
+                "label": "Credit",
+                "company": "rehive",
+                "currency": {
+                    "description": "Rand",
+                    "code": "ZAR",
+                    "symbol": "R",
+                    "unit": "rand",
+                    "divisibility": 2
+                },
+                "user": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": null,
+                    "mobile": "+27840000000",
+                    "profile": null,
+                    "temporary": false
+                },
+                "archived": false,
+                "created": 1509618707485,
+                "updated": 1509618708277
+            }
+        ],
+        "archived": false,
+        "created": 1476691969394,
+        "updated": 1496135465287
+    }
+}
+```
+
+```javascript
+```
+
+```python
+```
+
+Create a transaction collection with one or more transactions.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transaction-collections/`
+
+#### Required Fields
+
+Field | Description | Default
+--- | --- | ---
+`transactions` | object | null
+
+
+## Retrieve Transaction Collection
+
+> Admin retrieve transaction collection request
+
+```shell
+curl https://api.rehive.com/3/admin/transaction-collections/{id}/
+  -X GET
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+```
+
+```javascript
+```
+
+```python
+rehive.admin.transaction_collections.get(
+   "{id}"
+)
+```
+
+> Admin retrieve transaction collection response
+
+```shell
+{
+    "status": "success",
+    "data":  {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "transactions": [
+            "id": "00000000-0000-0000-0000-000000000000",
+            "parent": null,
+            "partner": null,
+            "tx_type": "credit",
+            "subtype": null,
+            "note": "",
+            "metadata": {},
+            "status": "Complete",
+            "reference": "",
+            "amount": 500,
+            "total_amount": 500,
+            "balance": 500,
+            "account": "0000000000",
+            "label": "Credit",
+            "company": "rehive",
+            "currency": {
+                "description": "Rand",
+                "code": "ZAR",
+                "symbol": "R",
+                "unit": "rand",
+                "divisibility": 2
+            },
+            "user": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": null,
+                "mobile": "+27840000000",
+                "profile": null,
+                "temporary": false
+            },
+            "archived": false,
+            "created": 1509618707485,
+            "updated": 1509618708277
+        ],
+        "archived": false,
+        "created": 1496135465218,
+        "updated": 1496135465287
+    }
+}
+```
+
+```javascript
+```
+
+```python
+{
+    "id": "00000000-0000-0000-0000-000000000000",
+    "transactions": [
+        "id": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "note": "",
+        "metadata": {},
+        "status": "Complete",
+        "reference": "",
+        "amount": 500,
+        "total_amount": 500,
+        "balance": 500,
+        "account": "0000000000",
+        "label": "Credit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
+        "archived": false,
+        "created": 1509618707485,
+        "updated": 1509618708277
+    ],
+    "archived": false,
+    "created": 1496135465218,
+    "updated": 1496135465287
+}
+```
+
+Get transaction details for a spcific transaction collection.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transaction-collections/{id}/`
+
+
+### Update Transaction Collection
+
+> Admin update transaction collection request
+
+```shell
+curl https://api.rehive.com/3/admin/transaction-collections/{id}/
+  -X PATCH
+  -H "Authorization: Token {token}"
+  -H "Content-Type: application/json"
+  -d '{"status": "Complete"}'
+```
+
+```javascript
+```
+
+```python
+rehive.admin.transaction_collections.update(
+    "{id}",
+    status="Complete"
+)
+```
+
+> Admin update transaction collection response
+
+```shell
+{
+    "status": "success",
+    "data":  {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "transactions": [
+            "id": "00000000-0000-0000-0000-000000000000",
+            "parent": null,
+            "partner": null,
+            "tx_type": "credit",
+            "subtype": null,
+            "note": "",
+            "metadata": {},
+            "status": "Complete",
+            "reference": "",
+            "amount": 500,
+            "total_amount": 500,
+            "balance": 500,
+            "account": "0000000000",
+            "label": "Credit",
+            "company": "rehive",
+            "currency": {
+                "description": "Rand",
+                "code": "ZAR",
+                "symbol": "R",
+                "unit": "rand",
+                "divisibility": 2
+            },
+            "user": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": null,
+                "mobile": "+27840000000",
+                "profile": null,
+                "temporary": false
+            },
+            "archived": false,
+            "created": 1509618707485,
+            "updated": 1509618708277
+        ],
+        "archived": false,
+        "created": 1496135465218,
+        "updated": 1496135465287
+    }
+}
+```
+
+```javascript
+{
+    "id": "00000000-0000-0000-0000-000000000000",
+    "transactions": [
+        "id": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "note": "",
+        "metadata": {},
+        "status": "Complete",
+        "reference": "",
+        "amount": 500,
+        "total_amount": 500,
+        "balance": 500,
+        "account": "0000000000",
+        "label": "Credit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
+        "archived": false,
+        "created": 1509618707485,
+        "updated": 1509618708277
+    ],
+    "archived": false,
+    "created": 1496135465218,
+    "updated": 1496135465287
+}
+```
+
+```python
+{
+    "id": "00000000-0000-0000-0000-000000000000",
+    "transactions": [
+        "id": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
+        "tx_type": "credit",
+        "subtype": null,
+        "note": "",
+        "metadata": {},
+        "status": "Complete",
+        "reference": "",
+        "amount": 500,
+        "total_amount": 500,
+        "balance": 500,
+        "account": "0000000000",
+        "label": "Credit",
+        "company": "rehive",
+        "currency": {
+            "description": "Rand",
+            "code": "ZAR",
+            "symbol": "R",
+            "unit": "rand",
+            "divisibility": 2
+        },
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
+        "archived": false,
+        "created": 1509618707485,
+        "updated": 1509618708277
+    ],
+    "archived": false,
+    "created": 1496135465218,
+    "updated": 1496135465287
+}
+```
+
+Update a transaction collection. This endpoint can be used to transition a group of transactions in a collection to a given state. The following state transitions are permitted: `Pending`, `Complete`, `Failed`.
+
+If you need to upate individual transactions you will need to use the transaction update endpoint instead.
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transaction-collections/{id}/`
+
+#### Optional Fields
+
+Field | Description | Default
+--- | --- | ---
+`status` | update action/status (`Pending`, `Complete`, `Failed`) | null | true
+`archived` | archived state | false
+
+#### Endpoint
+
+`https://api.rehive.com/3/admin/transaction-collections/{id}/`
+
+
 ## Accounts
 
 ### List Accounts
@@ -6068,7 +6743,16 @@ rehive.admin.accounts.get()
             {
                 "name": "default",
                 "reference": "0000000000",
-                "user": "joe@rehive.com",
+                "user": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "first_name": "Joe",
+                    "last_name": "Soap",
+                    "email": "joe@rehive.com",
+                    "username": null,
+                    "mobile": "+27840000000",
+                    "profile": null,
+                    "temporary": false
+                },
                 "currencies": [
                     {
                         "balance": 10000,
@@ -6108,7 +6792,16 @@ rehive.admin.accounts.get()
         {
             "name": "default",
             "reference": "0000000000",
-            "user": "joe@rehive.com",
+            "user": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": null,
+                "mobile": "+27840000000",
+                "profile": null,
+                "temporary": false
+            },
             "currencies": [
                 {
                     "balance": 10000,
@@ -6143,7 +6836,16 @@ rehive.admin.accounts.get()
     {
         "name": "default",
         "reference": "0000000000",
-        "user": "joe@rehive.com",
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
         "currencies": [
             {
                 "balance": 10000,
@@ -6315,7 +7017,16 @@ rehive.admin.accounts.get(
     "data": {
         "name": "default",
         "reference": "0000000000",
-        "user": "joe@rehive.com",
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
         "currencies": [
             {
                 "balance": 10000,
@@ -6348,7 +7059,16 @@ rehive.admin.accounts.get(
 {
     "name": "default",
     "reference": "0000000000",
-    "user": "joe@rehive.com",
+    "user": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": null,
+        "mobile": "+27840000000",
+        "profile": null,
+        "temporary": false
+    },
     "currencies": [
         {
             "balance": 10000,
@@ -6380,7 +7100,16 @@ rehive.admin.accounts.get(
 {
     "name": "default",
     "reference": "0000000000",
-    "user": "joe@rehive.com",
+    "user": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": null,
+        "mobile": "+27840000000",
+        "profile": null,
+        "temporary": false
+    },
     "currencies": [
         {
             "balance": 10000,
@@ -6889,7 +7618,7 @@ Retrieve an account's currency belonging to a company.
 
 ```shell
 curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/
-  -X PUT
+  -x PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"active": true}'
@@ -7067,7 +7796,7 @@ Retrieve an account's currency's settings.
 
 ```shell
 curl https://api.rehive.com/3/admin/accounts/{reference}/currencies/{code}/settings/
-  -X PUT
+  -x PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -d '{"allow_transactions": true}'
@@ -10988,7 +11717,7 @@ rehive.admin.notifications.get("{id}")
 
 ```shell
 curl https://api.rehive.com/3/admin/notifications/{id}
-  -X PUT
+  -x PATCH
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
   -D '{"enabled": false}'
@@ -14354,14 +15083,23 @@ rehive.admin.requests.get()
     "data": [
         {
             "id": 11232032,
-            "user": [Object],
+            "user": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": null,
+                "mobile": "+27840000000",
+                "profile": null,
+                "temporary": false
+            },
             "key": null,
             "scheme": 'https',
             "path": '/3/admin/bank-accounts/145/currencies/XBT/',
             "method": 'GET',
             "content_type": 'application/json',
             "params": {},
-            "headers": [Object],
+            "headers": {},
             "status_code": 200,
             "archived": false,
             "created": 1527669648572,
@@ -14370,14 +15108,23 @@ rehive.admin.requests.get()
 
         {
             "id": 11231984,
-            "user": [Object],
+            "user": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Joe",
+                "last_name": "Soap",
+                "email": "joe@rehive.com",
+                "username": null,
+                "mobile": "+27840000000",
+                "profile": null,
+                "temporary": false
+            },
             "key": null,
             "scheme": 'https',
             "path": '/3/admin/bank-accounts/145/currencies/XBT/',
             "method": 'GET',
             "content_type": 'application/json',
             "params": {},
-            "headers": [Object],
+            "headers": {},
             "status_code": 200,
             "archived": false,
             "created": 1527669596536,
@@ -14391,14 +15138,23 @@ rehive.admin.requests.get()
  [
     {
         "id": 11232032,
-        "user": [Object],
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
         "key": null,
         "scheme": 'https',
         "path": '/3/admin/bank-accounts/145/currencies/XBT/',
         "method": 'GET',
         "content_type": 'application/json',
         "params": {},
-        "headers": [Object],
+        "headers": {},
         "status_code": 200,
         "archived": false,
         "created": 1527669648572,
@@ -14407,14 +15163,23 @@ rehive.admin.requests.get()
 
     {
         "id": 11231984,
-        "user": [Object],
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
         "key": null,
         "scheme": 'https',
         "path": '/3/admin/bank-accounts/145/currencies/XBT/',
         "method": 'GET',
         "content_type": 'application/json',
         "params": {},
-        "headers": [Object],
+        "headers": {},
         "status_code": 200,
         "archived": false,
         "created": 1527669596536,
@@ -14427,14 +15192,23 @@ rehive.admin.requests.get()
  [
     {
         "id": 11232032,
-        "user": [Object],
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
         "key": null,
         "scheme": 'https',
         "path": '/3/admin/bank-accounts/145/currencies/XBT/',
         "method": 'GET',
         "content_type": 'application/json',
         "params": {},
-        "headers": [Object],
+        "headers": {},
         "status_code": 200,
         "archived": false,
         "created": 1527669648572,
@@ -14443,14 +15217,23 @@ rehive.admin.requests.get()
 
     {
         "id": 11231984,
-        "user": [Object],
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
         "key": null,
         "scheme": 'https',
         "path": '/3/admin/bank-accounts/145/currencies/XBT/',
         "method": 'GET',
         "content_type": 'application/json',
         "params": {},
-        "headers": [Object],
+        "headers": {},
         "status_code": 200,
         "archived": false,
         "created": 1527669596536,
@@ -14495,14 +15278,23 @@ rehive.admin.requests.get(id)
     "status": "success",
     "data":  {
         "id": 11232032,
-        "user": [Object],
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Joe",
+            "last_name": "Soap",
+            "email": "joe@rehive.com",
+            "username": null,
+            "mobile": "+27840000000",
+            "profile": null,
+            "temporary": false
+        },
         "key": null,
         "scheme": 'https',
         "path": '/3/admin/bank-accounts/145/currencies/XBT/',
         "method": 'GET',
         "content_type": 'application/json',
         "params": {},
-        "headers": [Object],
+        "headers": {},
         "status_code": 200,
         "archived": false,
         "created": 1527669648572,
@@ -14514,14 +15306,23 @@ rehive.admin.requests.get(id)
 ```javascript
  {
     "id": 11232032,
-    "user": [Object],
+    "user": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": null,
+        "mobile": "+27840000000",
+        "profile": null,
+        "temporary": false
+    },
     "key": null,
     "scheme": 'https',
     "path": '/3/admin/bank-accounts/145/currencies/XBT/',
     "method": 'GET',
     "content_type": 'application/json',
     "params": {},
-    "headers": [Object],
+    "headers": {},
     "status_code": 200,
     "archived": false,
     "created": 1527669648572,
@@ -14532,14 +15333,23 @@ rehive.admin.requests.get(id)
 ```python
   {
     "id": 11232032,
-    "user": [Object],
+    "user": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "first_name": "Joe",
+        "last_name": "Soap",
+        "email": "joe@rehive.com",
+        "username": null,
+        "mobile": "+27840000000",
+        "profile": null,
+        "temporary": false
+    },
     "key": null,
     "scheme": 'https',
     "path": '/3/admin/bank-accounts/145/currencies/XBT/',
     "method": 'GET',
     "content_type": 'application/json',
     "params": {},
-    "headers": [Object],
+    "headers": {},
     "status_code": 200,
     "archived": false,
     "created": 1527669648572,

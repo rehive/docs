@@ -149,7 +149,8 @@ rehive.auth.register_company(
                 "allow_transactions": true,
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
-            }
+            },
+            "temporary": false
         }
     }
 }
@@ -202,7 +203,8 @@ rehive.auth.register_company(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -254,7 +256,8 @@ rehive.auth.register_company(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -383,7 +386,8 @@ rehive.auth.register(
                 "allow_transactions": true,
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
-            }
+            },
+            "temporary": false
         }
     }
 }
@@ -436,7 +440,8 @@ rehive.auth.register(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -488,7 +493,8 @@ rehive.auth.register(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -622,7 +628,8 @@ rehive.auth.login(
                 "allow_transactions": true,
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
-            }
+            },
+            "temporary": false
         }
     }
 }
@@ -675,7 +682,8 @@ rehive.auth.login(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -729,7 +737,8 @@ rehive.auth.login(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
   }
 }
@@ -1459,7 +1468,8 @@ rehive.auth.tokens.create(
                 "allow_transactions": true,
                 "allow_debit_transactions": true,
                 "allow_credit_transactions": true
-            }
+            },
+            "temporary": false
         }
     }
 }
@@ -1512,7 +1522,8 @@ rehive.auth.tokens.create(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -1564,7 +1575,8 @@ rehive.auth.tokens.create(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -1699,7 +1711,8 @@ rehive.auth.tokens.verify("{token_key}")
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -1749,7 +1762,8 @@ rehive.auth.tokens.verify("{token_key}")
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
-    }
+    },
+    "temporary": false
 }
 ```
 
@@ -1800,7 +1814,8 @@ rehive.auth.tokens.verify("{token_key}")
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```

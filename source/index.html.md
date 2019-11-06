@@ -11,6 +11,7 @@ includes:
   - authentication
   - users
   - transactions
+  - transaction_collections
   - accounts
   - company
   - administration

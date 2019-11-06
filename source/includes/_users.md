@@ -70,7 +70,8 @@ rehive.user.get()
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -116,7 +117,8 @@ rehive.user.get()
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
-    }
+    },
+    "temporary": false
 }
 ```
 
@@ -161,7 +163,8 @@ rehive.user.get()
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
-    }
+    },
+    "temporary": false
 }
 ```
 
@@ -242,7 +245,8 @@ rehive.user.update(
             "allow_transactions": true,
             "allow_debit_transactions": true,
             "allow_credit_transactions": true
-        }
+        },
+        "temporary": false
     }
 }
 ```
@@ -288,7 +292,8 @@ rehive.user.update(
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
-    }
+    },
+    "temporary": false
 }
 ```
 
@@ -333,7 +338,8 @@ rehive.user.update(
         "allow_transactions": true,
         "allow_debit_transactions": true,
         "allow_credit_transactions": true
-    }
+    },
+    "temporary": false
 }
 ```
 

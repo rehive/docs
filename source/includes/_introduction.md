@@ -274,6 +274,10 @@ Event | Description
 `user.email.verify` | user email verification event (Email key)
 `user.mobile.verify` | user mobile verification event (OTP key)
 `mfa.sms.verify` | multi-factor SMS otp event
+`email.create` | email created event
+`email.update` | email updated event
+`mobile.create` | mobile created event
+`mobile.update` | mobule updated event
 `address.create` | address created event
 `address.update` | address updated event
 `document.create` | document created event

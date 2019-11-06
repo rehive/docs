@@ -2,10 +2,6 @@
 
 Rehive offers 2 standard transaction types: debit and credit. Debit transactiosn deduct from a user's account and credit transaction add to a user's account. There is also an additional "transfer" endpoint that can be used in order to automtically trigger a debit followed by a credit on the specified accounts.
 
-<aside class="notice">
-Transactions are run as asynchronous processes within Rehive, so the latest state of the transaction will not necessarily be available immediately after a request has been completed. To get the latest transaction details you will have to make a follow up request using its `id`.
-</aside>
-
 ## List Transactions
 
 > User transactions request
@@ -53,7 +49,11 @@ rehive.transactions.get(
         "previous": null,
         "results": [
             {
-                "id": "000000000000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
+                "collection": "00000000-0000-0000-0000-000000000000",
+                "parent": null,
+                "partner": null,
+                "inferred": false,
                 "tx_type": "credit",
                 "subtype": null,
                 "note": "",
@@ -61,7 +61,6 @@ rehive.transactions.get(
                 "status": "Pending",
                 "reference": "",
                 "amount": 500,
-                "fee": 0,
                 "balance": 0,
                 "account": "0000000000",
                 "label": "Credit",
@@ -74,8 +73,6 @@ rehive.transactions.get(
                     "unit": "rand",
                     "divisibility": 2
                 },
-                "source_transaction": null,
-                "destination_transaction": null,
                 "created": 1496135465218,
                 "updated": 1496135465287
             }
@@ -91,7 +88,11 @@ rehive.transactions.get(
     "previous": null,
     "results": [
         {
-            "id": "000000000000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "collection": "00000000-0000-0000-0000-000000000000",
+            "parent": null,
+            "partner": null,
+            "inferred": false,
             "tx_type": "credit",
             "subtype": null,
             "note": "",
@@ -99,7 +100,6 @@ rehive.transactions.get(
             "status": "Pending",
             "reference": "",
             "amount": 500,
-            "fee": 0,
             "balance": 0,
             "account": "0000000000",
             "label": "Credit",
@@ -112,8 +112,6 @@ rehive.transactions.get(
                 "unit": "rand",
                 "divisibility": 2
             },
-            "source_transaction": null,
-            "destination_transaction": null,
             "created": 1496135465218,
             "updated": 1496135465287
         }
@@ -124,7 +122,11 @@ rehive.transactions.get(
 ```python
  [
     {
-        "id": "000000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
+        "inferred": false,
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -132,7 +134,6 @@ rehive.transactions.get(
         "status": "Pending",
         "reference": "",
         "amount": 500,
-        "fee": 0,
         "balance": 0,
         "account": "0000000000",
         "label": "Credit",
@@ -145,8 +146,6 @@ rehive.transactions.get(
             "unit": "rand",
             "divisibility": 2
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "created": 1496135465218,
         "updated": 1496135465287
     }
@@ -164,8 +163,9 @@ Field | Type
 `subtype` | string
 `status` | string
 `account` | string
-`source_transaction` | boolean
-`destination_transaction` | boolean
+`partner` | string
+`partner__isnull` | boolean
+`collection` | string
 `created` | millsecond timestamp
 `updated` | millsecond timestamp
 `metadata` | any
@@ -282,6 +282,10 @@ rehive.transactions.create_credit(
     "status": "success",
     "data": {
         "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
+        "inferred": false,
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -289,7 +293,6 @@ rehive.transactions.create_credit(
         "status": "Pending",
         "reference": null,
         "amount": 500,
-        "fee": 0,
         "total_amount": 500,
         "balance": 0,
         "account": "0000000000",
@@ -302,10 +305,7 @@ rehive.transactions.create_credit(
             "unit": "rand",
             "divisibility": 2
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "messages": [],
-        "fees": [],
         "created": 1476691969394,
         "updated": 1496135465287
     }
@@ -315,6 +315,10 @@ rehive.transactions.create_credit(
 ```javascript
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
+    "inferred": false,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -322,7 +326,6 @@ rehive.transactions.create_credit(
     "status": "Pending",
     "reference": null,
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 0,
     "account": "0000000000",
@@ -335,10 +338,7 @@ rehive.transactions.create_credit(
         "unit": "rand",
         "divisibility": 2
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -347,6 +347,10 @@ rehive.transactions.create_credit(
 ```python
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
+    "inferred": false,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -354,7 +358,6 @@ rehive.transactions.create_credit(
     "status": "Pending",
     "reference": null,
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 0,
     "account": "0000000000",
@@ -367,10 +370,7 @@ rehive.transactions.create_credit(
         "unit": "rand",
         "divisibility": 2
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -445,6 +445,10 @@ rehive.transactions.create_debit(
     "status": "success",
     "data": {
         "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
+        "inferred": false,
         "tx_type": "debit",
         "subtype": null,
         "note": "",
@@ -452,7 +456,6 @@ rehive.transactions.create_debit(
         "status": "Pending",
         "reference": null,
         "amount": -500,
-        "fee": 0,
         "total_amount": -500,
         "balance": 0,
         "account": "0000000000",
@@ -465,10 +468,7 @@ rehive.transactions.create_debit(
             "unit": "rand",
             "divisibility": 2
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "messages": [],
-        "fees": [],
         "created": 1476691969394,
         "updated": 1496135465287
     }
@@ -478,6 +478,10 @@ rehive.transactions.create_debit(
 ```javascript
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
+    "inferred": false,
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -485,7 +489,6 @@ rehive.transactions.create_debit(
     "status": "Pending",
     "reference": null,
     "amount": -500,
-    "fee": 0,
     "total_amount": -500,
     "balance": 0,
     "account": "0000000000",
@@ -498,10 +501,7 @@ rehive.transactions.create_debit(
         "unit": "rand",
         "divisibility": 2
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -510,6 +510,10 @@ rehive.transactions.create_debit(
 ```python
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
+    "inferred": false,
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -517,7 +521,6 @@ rehive.transactions.create_debit(
     "status": "Pending",
     "reference": null,
     "amount": -500,
-    "fee": 0,
     "total_amount": -500,
     "balance": 0,
     "account": "0000000000",
@@ -530,10 +533,7 @@ rehive.transactions.create_debit(
         "unit": "rand",
         "divisibility": 2
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -602,6 +602,22 @@ rehive.transactions.create_transfer(
     "status": "success",
     "data": {
         "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "user": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "first_name": "Susan",
+                "last_name": "Brown",
+                "email": "susan@rehive.com",
+                "username": "",
+                "mobile": "+27850000000",
+                "profile": null,
+                "temporary": false
+            }
+        },
+        "inferred": false,
         "tx_type": "debit",
         "subtype": null,
         "note": "",
@@ -609,7 +625,6 @@ rehive.transactions.create_transfer(
         "status": "Complete",
         "reference": null,
         "amount": -500,
-        "fee": 0,
         "total_amount": -500,
         "balance": 0,
         "account": "0000000000",
@@ -622,21 +637,7 @@ rehive.transactions.create_transfer(
             "unit": "rand",
             "divisibility": 2
         },
-        "source_transaction": null,
-        "destination_transaction": {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "user": {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "first_name": "Susan",
-                "last_name": "Brown",
-                "email": "susan@rehive.com",
-                "username": "",
-                "mobile": "+27850000000",
-                "profile": null
-            }
-        },
         "messages": [],
-        "fees": [],
         "created": 1476691969394,
         "updated": 1496135465287
     }
@@ -646,6 +647,21 @@ rehive.transactions.create_transfer(
 ```javascript
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Susan",
+            "last_name": "Brown",
+            "email": "susan@rehive.com",
+            "username": "",
+            "mobile": "+27850000000",
+            "profile": null,
+            "temporary": false
+        }
+    },
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -653,7 +669,6 @@ rehive.transactions.create_transfer(
     "status": "Complete",
     "reference": null,
     "amount": -500,
-    "fee": 0,
     "total_amount": -500,
     "balance": 0,
     "account": "0000000000",
@@ -666,21 +681,7 @@ rehive.transactions.create_transfer(
         "unit": "rand",
         "divisibility": 2
     },
-    "source_transaction": null,
-    "destination_transaction": {
-        "id": "00000000-0000-0000-0000-000000000000",
-        "user": {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Susan",
-            "last_name": "Brown",
-            "email": "susan@rehive.com",
-            "username": "",
-            "mobile": "+27850000000",
-            "profile": null
-        }
-    },
     "messages": [],
-    "fees": [],
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -689,6 +690,21 @@ rehive.transactions.create_transfer(
 ```python
 {
     "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "user": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "first_name": "Susan",
+            "last_name": "Brown",
+            "email": "susan@rehive.com",
+            "username": "",
+            "mobile": "+27850000000",
+            "profile": null,
+            "temporary": false
+        }
+    },
     "tx_type": "debit",
     "subtype": null,
     "note": "",
@@ -696,7 +712,6 @@ rehive.transactions.create_transfer(
     "status": "Complete",
     "reference": null,
     "amount": -500,
-    "fee": 0,
     "total_amount": -500,
     "balance": 0,
     "account": "0000000000",
@@ -709,21 +724,7 @@ rehive.transactions.create_transfer(
         "unit": "rand",
         "divisibility": 2
     },
-    "source_transaction": null,
-    "destination_transaction": {
-        "id": "00000000-0000-0000-0000-000000000000",
-        "user": {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "first_name": "Susan",
-            "last_name": "Brown",
-            "email": "susan@rehive.com",
-            "username": "",
-            "mobile": "+27850000000",
-            "profile": null
-        }
-    },
     "messages": [],
-    "fees": [],
     "created": 1476691969394,
     "updated": 1496135465287
 }
@@ -732,7 +733,7 @@ rehive.transactions.create_transfer(
 Create a transfer transaction. This will transfer currency from one user/account to another. If the recipient reference does not exist as a user in Rehive and the reference is an email address or mobile number then an invitation message will be sent to the recipient informing them thay have an unclaimed transaction.
 
 <aside class="notice">
-The transfer transaction endpoint is a wrapper for standard debit/credit transactions. If a transfer is completed successfuly it will create 2 transactions: one to debit from the sender and one to credit the receiver. The transactions are otherwise indentical to normal debit/credit transactions. You can view sender/receiver details by accessing the attributes `source_transaction` (indicates who the transfer came from) and `destination_transaction` (indicates who the transfer was sent to).
+The transfer transaction endpoint is a wrapper for standard debit/credit transactions. If a transfer is completed successfuly it will create 2 transactions: one to debit from the sender and one to credit the receiver. The transactions are otherwise indentical to normal debit/credit transactions. You can view sender/receiver details by accessing the `partner` attribute.
 </aside>
 
 #### Endpoint
@@ -764,17 +765,16 @@ Field | Description | Default
 
 ## Create Transactions
 
-> Admin create transactions request
+> User create transactions request
 
 ```shell
 curl https://api.rehive.com/3/transactions/
   -X POST
   -H "Authorization: Token {token}"
   -H "Content-Type: application/json"
-  -d '{"transactions": [{"amount": 500,
-       "currency": "ZAR"},
-       {"amount": 500,
-       "currency": "ZAR"}]}'
+  -d '{"transactions": [
+        {"amount": 500, "currency": "ZAR", "tx_type": "credit"},
+        {"amount": 500, "currency": "ZAR", "tx_type": "credit"}]}'
 ```
 
 ```javascript
@@ -783,7 +783,7 @@ curl https://api.rehive.com/3/transactions/
 ```python
 ```
 
-> Admin create transactions response
+> User create transactions response
 
 ```shell
 {
@@ -792,6 +792,9 @@ curl https://api.rehive.com/3/transactions/
         "transactions": [
             {
                 "id": "00000000-0000-0000-0000-000000000000",
+                "collection": "00000000-0000-0000-0000-000000000000",
+                "parent": null,
+                "partner": null,
                 "tx_type": "credit",
                 "subtype": null,
                 "note": "",
@@ -799,7 +802,6 @@ curl https://api.rehive.com/3/transactions/
                 "status": "Pending",
                 "reference": null,
                 "amount": 500,
-                "fee": 0,
                 "total_amount": 500,
                 "balance": 0,
                 "account": "0000000000",
@@ -812,24 +814,15 @@ curl https://api.rehive.com/3/transactions/
                     "unit": "rand",
                     "divisibility": 2
                 },
-                "user": {
-                    "id": "00000000-0000-0000-0000-000000000000",
-                    "first_name": "Joe",
-                    "last_name": "Soap",
-                    "email": "joe@rehive.com",
-                    "username": null,
-                    "mobile": "+27840000000",
-                    "profile": null
-                },
-                "source_transaction": null,
-                "destination_transaction": null,
                 "messages": [],
-                "fees": [],
                 "created": 1476691969394,
                 "updated": 1496135465287
             },
             {
                 "id": "00000000-0000-0000-0000-000000000000",
+                "collection": "00000000-0000-0000-0000-000000000000",
+                "parent": null,
+                "partner": null,
                 "tx_type": "credit",
                 "subtype": null,
                 "note": "",
@@ -837,7 +830,6 @@ curl https://api.rehive.com/3/transactions/
                 "status": "Pending",
                 "reference": null,
                 "amount": 500,
-                "fee": 0,
                 "total_amount": 500,
                 "balance": 0,
                 "account": "0000000000",
@@ -850,19 +842,7 @@ curl https://api.rehive.com/3/transactions/
                     "unit": "rand",
                     "divisibility": 2
                 },
-                "user": {
-                    "id": "00000000-0000-0000-0000-000000000000",
-                    "first_name": "Joe",
-                    "last_name": "Soap",
-                    "email": "joe@rehive.com",
-                    "username": null,
-                    "mobile": "+27840000000",
-                    "profile": null
-                },
-                "source_transaction": null,
-                "destination_transaction": null,
                 "messages": [],
-                "fees": [],
                 "created": 1476691969394,
                 "updated": 1496135465287
             }
@@ -933,7 +913,10 @@ rehive.transactions.get(
 {
     "status": "success",
     "data":  {
-        "id": "000000000000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
+        "collection": "00000000-0000-0000-0000-000000000000",
+        "parent": null,
+        "partner": null,
         "tx_type": "credit",
         "subtype": null,
         "note": "",
@@ -941,7 +924,6 @@ rehive.transactions.get(
         "status": "Pending",
         "reference": null,
         "amount": 500,
-        "fee": 0,
         "total_amount": 500,
         "balance": 0,
         "account": "0000000000",
@@ -954,10 +936,7 @@ rehive.transactions.get(
             "unit": "rand",
             "divisibility": 2
         },
-        "source_transaction": null,
-        "destination_transaction": null,
         "messages": [],
-        "fees": [],
         "created": 1476691969394,
         "updated": 1496135465287
     }
@@ -966,7 +945,10 @@ rehive.transactions.get(
 
 ```javascript
 {
-    "id": "000000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -974,7 +956,6 @@ rehive.transactions.get(
     "status": "Pending",
     "reference": "",
     "amount": 500,
-    "fee": 0,
     "balance": 0,
     "account": "0000000000",
     "label": "Credit",
@@ -987,10 +968,7 @@ rehive.transactions.get(
         "unit": "rand",
         "divisibility": 2
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "created": 1496135465218,
     "updated": 1496135465287
 }
@@ -998,7 +976,10 @@ rehive.transactions.get(
 
 ```python
 {
-    "id": "000000000000000000000",
+    "id": "00000000-0000-0000-0000-000000000000",
+    "collection": "00000000-0000-0000-0000-000000000000",
+    "parent": null,
+    "partner": null,
     "tx_type": "credit",
     "subtype": null,
     "note": "",
@@ -1006,7 +987,6 @@ rehive.transactions.get(
     "status": "Pending",
     "reference": null,
     "amount": 500,
-    "fee": 0,
     "total_amount": 500,
     "balance": 0,
     "account": "0000000000",
@@ -1019,10 +999,7 @@ rehive.transactions.get(
         "unit": "rand",
         "divisibility": 2
     },
-    "source_transaction": null,
-    "destination_transaction": null,
     "messages": [],
-    "fees": [],
     "created": 1476691969394,
     "updated": 1496135465287
 }
