@@ -6264,7 +6264,9 @@ Field | Type
 `https://api.rehive.com/3/transaction-collections/`
 
 
-## Create Transaction Collection
+## Transaction Collections
+
+### Create Transaction Collection
 
 > Admin create transaction collections request
 
@@ -6393,7 +6395,7 @@ Field | Description | Default
 `transactions` | object | null
 
 
-## Retrieve Transaction Collection
+### Retrieve Transaction Collection
 
 > Admin retrieve transaction collection request
 
