@@ -2,7 +2,7 @@ version: '1'
 configs:
     staging:
       project_name: rehive-docs
-      docker_image: gcr.io/rehive-services/rehive-docs
+      docker_image: gcr.io/rehive-services/docs-platform
       cloud_project: rehive-services
       cluster: staging
       namespace: rehive-docs-staging
@@ -11,7 +11,7 @@ configs:
       helm_chart_version: 0.1.31
     production:
       project_name: rehive-docs
-      docker_image: gcr.io/rehive-services/rehive-wallet
+      docker_image: gcr.io/rehive-services/docs-platform
       cloud_project: rehive-services
       cluster: production
       namespace: rehive-docs
