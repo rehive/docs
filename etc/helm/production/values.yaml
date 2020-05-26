@@ -3,6 +3,8 @@
 # Declare variables to be passed into your templates.
 deployment:
   replicaCount: 1
+  command: null
+  args: null
   resources:
     requests:
       memory: 450M
@@ -37,4 +39,5 @@ redis:
   enabled: false
 rabbitmq:
   enabled: false
-workersEnabled: false
+workers:
+  enabled: false
