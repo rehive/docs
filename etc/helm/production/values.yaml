@@ -10,7 +10,7 @@ deployment:
       memory: 450M
       cpu: 500m
 image:
-  repository: gcr.io/rehive-services/docs-platform
+  repository: gcr.io/rehive-services/rehive-docs
   tag: latest
   pullPolicy: Always
 service:
@@ -28,7 +28,7 @@ ingress:
   tls:
     - hosts:
       - api.docs.rehive.com
-      secretName: docs-platform-tls
+      secretName: rehive-docs-tls
 envFromSecret:
   enabled: false
 management:
