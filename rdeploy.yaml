@@ -1,20 +1,20 @@
 version: '1'
 configs:
   staging:
-    project_name: rehive-docs
+    project_name: docs-platform
     docker_image: gcr.io/rehive-services/docs-platform
     cloud_project: rehive-services
     cluster: staging
-    namespace: rehive-docs-staging
+    namespace: docs-platform-staging
     helm_values_path: ./etc/helm/staging/values.yaml
     helm_chart: rehive/rehive-service
     helm_chart_version: 0.1.31
   production:
-    project_name: rehive-docs
-    docker_image: gcr.io/rehive-services/rehive-docs
+    project_name: docs-platform
+    docker_image: gcr.io/rehive-services/docs-platform
     cloud_project: rehive-services
     cluster: production
-    namespace: rehive-docs
+    namespace: docs-platform
     helm_values_path: ./etc/helm/production/values.yaml
     helm_chart: rehive/rehive-service
     helm_chart_version: 0.2.2
